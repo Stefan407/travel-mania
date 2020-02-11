@@ -1,1 +1,1 @@
-# travel-mania
+# travel-mania.org

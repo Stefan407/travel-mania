@@ -1,0 +1,45 @@
+{
+	"name":"HeadNFoot",
+	"version":"3.4",
+	"slug":"headfoot",
+	"status":"release",
+	"wordpress":
+	{
+		"tags":
+		[
+			"http",
+			"seo",
+			"added content",
+			"content scrapers",
+			"header",
+			"footer",
+			"Google analytics",
+			"webmaster tools"
+		],
+		"donate_link":"http://headnfoot.dcoda.co.uk/donate/",
+		"uri":"http://headnfoot.dcoda.co.uk/",
+		"wpslug":"wp-headfoot",
+		"stable_tag":"3.4.46",
+		"short_desc":"Add Headers and footers to you blog or blog content or insert Http headers into the site."
+	},
+	"help_meta":
+	{
+		"gettingstarted":
+		{
+			"url":"http://headnfoot.dcoda.co.uk/help/"
+		},
+		"blog":
+		{
+			"url":"http://headnfoot.dcoda.co.uk/help/blog"
+		},
+		"content":
+		{
+			"url":"http://headnfoot.dcoda.co.uk/help/content"
+		},
+		"http":
+		{
+			"url":"http://headnfoot.dcoda.co.uk/help/content"
+		}
+	}
+
+}
