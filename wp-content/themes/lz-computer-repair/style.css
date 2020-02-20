@@ -3854,7 +3854,10 @@ h2 {
 .breadcrumbs a:hover {
 	color: #f14555;
 }
-
+.breadcrumbs-item{
+	display: flex;
+	align-items: center;
+}
 .slick-dots li {
 	display: block;
 	float: left;
@@ -4111,7 +4114,9 @@ h2 {
 	padding: 5px;
 	border-radius: 8px;
 }
-
+.slick-tours__wrap .slick-slide{
+	height: auto;
+}
 .slick-tours .slick-tours__item.main .slick-tours__wrap {
 	height: 100%;
 }
@@ -4155,11 +4160,10 @@ h2 {
 
 .top .slick-slide {
 	height: auto;
+	min-height: 200px;
+    object-fit: cover;
 }
 
-.slick-tours .slick-slide {
-	height: 100%;
-}
 
 .item-price-guide {
 	margin-top: 10px;
@@ -4794,11 +4798,11 @@ h2 {
 .breadcrumbs-wrap {
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
 }
 
 .breadcrumbs-wrap p {
 	margin-bottom: 0;
-	font-size: 16px;
 }
 
 .breadcrumbs__block,
@@ -5387,14 +5391,17 @@ img.f-logos {
 }
 
 @media only screen and (max-width: 767px) {
-	.breadcrumbs{
-		display: none;
+	.breadcrumbs-wrap {
+		font-size: 14px;
+	}
+	img.breadcrumbs-img-logo{
+		width: 30px;
 	}
 	h1 {
 		font-size: 25px;
 	}
 	.main_content-title h1 {
-		font-size: 25px;
+		font-size: 22px;
 	}
 
 	h2,

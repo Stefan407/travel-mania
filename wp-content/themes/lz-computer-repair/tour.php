@@ -31,6 +31,12 @@ add_action('wp_head', function () use ($list, $new_str) {
     echo '<meta name="description" content="' . $list->tagline . '" />';
 });
 get_header();
+
+$current_country = $list->city->country->name_en;
+$current_country = str_replace(" ", "-", $current_country);
+
+$current_city = $list->city->name_en;
+$current_city = str_replace(" ", "-", $current_city);
 ?>
 
 
@@ -40,39 +46,33 @@ get_header();
             <div class="row">
                 <div class="main_content col-12 col-md-7 col-lg-8">
                     <div class="breadcrumbs">
-                        <div class="container breadcrumbs-wrap">
-                            <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                                <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
-                                    <span itemprop="title">
-                                        <img src="/wp-content/themes/lz-computer-repair/assets/images/bread-logo.png" alt="">
-                                        <span style='display: none'>Главная</span>
-                                    </span>
-                                </a>
+                        <div class="breadcrumbs-wrap">
+                            <div class="breadcrumbs-item">
+                                <div class="breadcrumbs__block" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                                    <a class="breadcrumbs__link" href="/<?php echo ($current_country) ?>/" itemprop="url">
+                                        <span itemprop="title"><?php echo ($list->city->country->name_ru) ?></span>
+                                    </a>
+                                </div>
+                                <div class="breadcrumbs__arrow">
+                                    <img src="/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+                                </div>
                             </div>
-                            <div class="breadcrumbs__arrow">
-                                <img src="/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
-                            </div>
-                            <div class="breadcrumbs__block" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                                <a class="breadcrumbs__link" href="/<?php echo ($list->city->country->name_en) ?>/" itemprop="url">
-                                    <span itemprop="title"><?php echo ($list->city->country->name_ru) ?></span>
-                                </a>
-                            </div>
-                            <div class="breadcrumbs__arrow">
-                                <img src="/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
-                            </div>
-                            <div class="breadcrumbs__block" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                                <a class="breadcrumbs__link" href="/<?php echo ($list->city->country->name_en) ?>/<?php echo ($list->city->name_en) ?>/" itemprop="url">
-                                    <span itemprop="title"><?php echo ($list->city->name_ru) ?></span>
-                                </a>
-                            </div>
-                            <div class="breadcrumbs__arrow">
-                                <img src="/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
-                            </div>
-                            <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                                <link itemprop="url" href="/<?php echo ($list->city->country->name_en) ?>/<?php echo ($list->city->name_en) ?>/excursion-<?php echo ($list->id) ?>/">
-                                <p class="breadcrumbs__text">
-                                    <span itemprop="title"><?php echo ($list->title) ?></span>
-                                </p>
+                            <div class="breadcrumbs-item">
+                                <div class="breadcrumbs__block" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                                    <?php
+                                        $city_name = str_replace('é', 'e', $list->city->name_en);
+                                        $city_name = str_replace('ё', 'e', $city_name);
+                                        $city_name = str_replace("'", '', $city_name);
+                                        $city_name = str_replace("'", '', $city_name);
+                                        $city_name = str_replace("ó", 'o', $city_name);
+                                        if ($city__name_en == 'Villefranche-sur-Saône') {
+                                            $city__name_en = "Villefranche-sur-Saone";
+                                        }
+                                    ?>
+                                    <a class="breadcrumbs__link" href="/<?php echo ($current_country) ?>/<?php echo ($current_city) ?>/" itemprop="url">
+                                        <span itemprop="title"><?php echo ($list->city->name_ru) ?></span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
