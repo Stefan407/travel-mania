@@ -20,6 +20,7 @@ $current_des_cities = array_filter($des_cities, function ($city) use ($current_c
 $current_des_city = reset($current_des_cities);
 
 
+get_header();
 
 $my_var = $list[0]->city->in_obj_phrase;
 
@@ -33,9 +34,10 @@ add_action('wp_head', function () use ($list) {
     echo '<meta name="description" content="У нас можно заказать недорогие авторские экскурсии ' . $list[0]->city->in_obj_phrase . ' на русском языке с лучшими гидами. Цены без посредников и удобные даты." />';
 });
 ?>
-
-<?php get_header(); ?>
-
+<style>
+body{
+    margin-top: -25px;
+}</style>
 <section class="top">
     <div class="top__slider">
         <div id="top-images-city" class="image <?php echo ($current_des_city->images) ?>">
@@ -298,9 +300,8 @@ add_action('wp_head', function () use ($list) {
                             dots: true,
                             autoplay: true,
                             autoplaySpeed: 2000,
-                            infinite: false,
                             pauseOnHover: false,
-                            pauseOnFocus: false
+                            pauseOnFocus: false,
                         });
                     } else {
                         $(this).find(".link .slick-active").addClass("slick-current");
@@ -350,9 +351,8 @@ add_action('wp_head', function () use ($list) {
                                     dots: true,
                                     autoplay: true,
                                     autoplaySpeed: 2000,
-                                    infinite: false,
                                     pauseOnHover: false,
-                                    pauseOnFocus: false
+                                    pauseOnFocus: false,
                                 });
                             } else {
                                 $(entry.target).find(".link .slick-active").addClass("slick-current");
