@@ -63,22 +63,25 @@ add_action('wp_head', function () use ($list) {
     </div>
     <div class="breadcrumbs">
         <div class="container breadcrumbs-wrap">
-            <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
-                    <span itemprop="title">
-                        <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/bread-logo.png" alt="">
-                        <span style='display: none'>Главная</span>
-                    </span>
-                </a>
+            <div class="breadcrumbs-item">
+                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
+                        <span itemprop="title">
+                            <span>Главная</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="breadcrumbs__arrow">
+                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+                </div>
             </div>
-            <div class="breadcrumbs__arrow">
-                <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
-            </div>
-            <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                <link itemprop="url" href="/<?= str_replace('+', '-', $country__name_en) ?>/">
-                <p class="breadcrumbs__text">
-                    <span itemprop="title"><?php echo ($list[0]->country->name_ru) ?></span>
-                </p>
+            <div class="breadcrumbs-item">
+                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <link itemprop="url" href="/<?= str_replace('+', '-', $country__name_en) ?>/">
+                    <p class="breadcrumbs__text">
+                        <span itemprop="title"><?php echo ($list[0]->country->name_ru) ?></span>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -169,7 +172,7 @@ add_action('wp_head', function () use ($list) {
                 <?php $count++ ?>
             <?php } ?>
         </div>
-        <button id="btn-more" class="btn-more">Показать ещё...  <span id="span-col">всего <?php echo (count($list)) ?></span></button>
+        <button id="btn-more" class="btn-more">Показать ещё... <span id="span-col">всего <?php echo (count($list)) ?></span></button>
     </div>
 </section>
 
@@ -224,7 +227,7 @@ add_action('wp_head', function () use ($list) {
         let length = $(".popular-cityes__wrap .item-element").length;
         if (showElensVisual > length) {
             showElem(showElensVisual, true)
-        }else{
+        } else {
             showElem(showElensVisual, false)
         }
         showElensVisual = showElensVisual + 24;
@@ -239,7 +242,7 @@ add_action('wp_head', function () use ($list) {
                 }
             }
         }
-        if(btn){
+        if (btn) {
             $(".popular-cityes .btn-more").css("display", "none");
         }
     }

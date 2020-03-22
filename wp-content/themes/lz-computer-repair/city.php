@@ -20,6 +20,7 @@ $current_des_cities = array_filter($des_cities, function ($city) use ($current_c
 $current_des_city = reset($current_des_cities);
 
 
+get_header();
 
 $my_var = $list[0]->city->in_obj_phrase;
 
@@ -33,9 +34,10 @@ add_action('wp_head', function () use ($list) {
     echo '<meta name="description" content="У нас можно заказать недорогие авторские экскурсии ' . $list[0]->city->in_obj_phrase . ' на русском языке с лучшими гидами. Цены без посредников и удобные даты." />';
 });
 ?>
-
-<?php get_header(); ?>
-
+<style>
+body{
+    margin-top: -25px;
+}</style>
 <section class="top">
     <div class="top__slider">
         <div id="top-images-city" class="image <?php echo ($current_des_city->images) ?>">
@@ -64,30 +66,35 @@ add_action('wp_head', function () use ($list) {
     </div>
     <div class="breadcrumbs">
         <div class="container breadcrumbs-wrap">
-            <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
-                    <span itemprop="title">
-                        <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/bread-logo.png" alt="">
-                        <span style='display: none'>Главная</span>
-                    </span>
-                </a>
+            <div class="breadcrumbs-item">
+                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
+                        <span itemprop="title">
+                            <span>Главная</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="breadcrumbs__arrow">
+                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+                </div>
             </div>
-            <div class="breadcrumbs__arrow">
-                <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+            <div class="breadcrumbs-item">
+                <div class="breadcrumbs__block" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <a class="breadcrumbs__link" href="/<?= str_replace('+', '-', $country__name_en) ?>/" itemprop="url">
+                        <span itemprop="title"><?php echo ($list[0]->city->country->name_ru) ?></span>
+                    </a>
+                </div>
+                <div class="breadcrumbs__arrow">
+                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+                </div>
             </div>
-            <div class="breadcrumbs__block" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a class="breadcrumbs__link" href="/<?= str_replace('+', '-', $country__name_en) ?>/" itemprop="url">
-                    <span itemprop="title"><?php echo ($list[0]->city->country->name_ru) ?></span>
-                </a>
-            </div>
-            <div class="breadcrumbs__arrow">
-                <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
-            </div>
-            <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                <link itemprop="url" href="/<?= str_replace('+', '-', $country__name_en) ?>/<?= str_replace('+', '-', $city__name_en) ?>/">
-                <p class="breadcrumbs__text">
-                    <span itemprop="title"><?php echo ($list[0]->city->name_ru) ?></span>
-                </p>
+            <div class="breadcrumbs-item">
+                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <link itemprop="url" href="/<?= str_replace('+', '-', $country__name_en) ?>/<?= str_replace('+', '-', $city__name_en) ?>/">
+                    <p class="breadcrumbs__text">
+                        <span itemprop="title"><?php echo ($list[0]->city->name_ru) ?></span>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -98,7 +105,7 @@ add_action('wp_head', function () use ($list) {
             <div id="top-text-city" class="border-box__text">
                 <?php if ($current_des_city->textTop != "") : ?>
                     <?php echo $current_des_city->textTop; ?>
-                <?php else : ?>Travel Mania проводид авторские экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> на русском языке. Каждый желающий может присоединиться к нашим группам или заказать индивидуальную экскурсиию.
+                    <?php else : ?>Travel Mania проводид авторские экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> на русском языке. Каждый желающий может присоединиться к нашим группам или заказать индивидуальную экскурсиию.
                 <?php endif; ?>
             </div>
             <div class="advantages-wrap">
@@ -169,7 +176,7 @@ add_action('wp_head', function () use ($list) {
                         </div>
                         <div class="tours__item-content ">
                             <div class="item-title ">
-                            <?php
+                                <?php
                                 $city_name = str_replace('é', 'e', $town->name_en);
                                 $city_name = str_replace('ё', 'e', $town->name_en);
                                 $city_name = str_replace("'", '', $city_name);
@@ -177,7 +184,7 @@ add_action('wp_head', function () use ($list) {
                                 if ($city__name_en == 'Villefranche-sur-Saône') {
                                     $city__name_en = "Villefranche-sur-Saone";
                                 }
-                            ?>
+                                ?>
                                 <a href="<?= home_url() ?>/<?= str_replace('+', '-', $country__name_en) ?>/<?= str_replace('+', '-', $city__name_en) ?>/excursion-<?= $country->id; ?>/"><?php echo $country->title ?> </a>
                             </div>
                             <div class="item-price-guide">
@@ -293,9 +300,8 @@ add_action('wp_head', function () use ($list) {
                             dots: true,
                             autoplay: true,
                             autoplaySpeed: 2000,
-                            infinite: false,
                             pauseOnHover: false,
-                            pauseOnFocus: false
+                            pauseOnFocus: false,
                         });
                     } else {
                         $(this).find(".link .slick-active").addClass("slick-current");
@@ -345,9 +351,8 @@ add_action('wp_head', function () use ($list) {
                                     dots: true,
                                     autoplay: true,
                                     autoplaySpeed: 2000,
-                                    infinite: false,
                                     pauseOnHover: false,
-                                    pauseOnFocus: false
+                                    pauseOnFocus: false,
                                 });
                             } else {
                                 $(entry.target).find(".link .slick-active").addClass("slick-current");
