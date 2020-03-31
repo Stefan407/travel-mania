@@ -3249,9 +3249,6 @@ object {
 
 /*--------- Media --------------*/
 
-.slick-tours__wrap .link {
-	display: flex;
-}
 
 .slick-tours__item-img {
 	overflow: hidden;
@@ -3456,6 +3453,7 @@ object {
 
 .slick-tours__item-img img {
 	width: 100%;
+	height: auto;
 }
 
 .popular-tours-text .video {
@@ -4103,10 +4101,10 @@ h2 {
 	color: rgb(190, 54, 54);
 }
 
-.slick-tours .slick-track {
+/* .slick-tours .slick-track {
 	display: flex;
 	flex-wrap: wrap;
-}
+} */
 
 .slider-tour .slick-initialized .slick-slide {
 	display: block;
@@ -4116,6 +4114,7 @@ h2 {
 }
 .slick-tours__wrap .slick-slide{
 	height: auto;
+	display: inline;
 }
 .slick-tours .slick-tours__item.main .slick-tours__wrap {
 	height: 100%;
