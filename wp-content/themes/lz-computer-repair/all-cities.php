@@ -51,10 +51,9 @@ if (!function_exists('filter_function_name_Cities')) {
         <div class="container breadcrumbs-wrap">
             <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
                 <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
-                    <span itemprop="title">
-                        <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/bread-logo.png" alt="">
-                        <span style='display: none'>Главная</span>
-                    </span>
+                <span itemprop="title">
+                            <span>Главная</span>
+                        </span>
                 </a>
             </div>
             <div class="breadcrumbs__arrow">
@@ -188,7 +187,6 @@ if (!function_exists('filter_function_name_Cities')) {
 
     document.getElementById("btn-rat").onclick = function() {
         $(".country-btn-wrap .btn-title span").html(document.querySelector("#btn-rat span").innerHTML);
-        console.log(document.querySelector("#btn-rat span").innerHTML)
         $(".country-btn-wrap .btn-block").removeClass("active");
         document.getElementById("btn-al").classList.remove("active");
         document.getElementById("btn-rat").classList.add("active");

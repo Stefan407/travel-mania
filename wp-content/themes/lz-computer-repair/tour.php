@@ -112,7 +112,7 @@ $current_city = str_replace(" ", "-", $current_city);
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="guide">
+                                        <div class="guide des">
                                             <img src="<?php echo $list->guide->avatar->medium ?>" alt="">
                                             <h3> Гид <?php echo $list->guide->first_name ?> </h3>
                                         </div>
@@ -172,7 +172,12 @@ $current_city = str_replace(" ", "-", $current_city);
                                 </span>
                             </div>
                         </div>
-
+                        <div class="description-content-text">
+                            <div class="guide mob">
+                                <img src="<?php echo $list->guide->avatar->medium ?>" alt="">
+                                <h3> Гид <?php echo $list->guide->first_name ?> </h3>
+                            </div>
+                        </div>
                         <?php if ($reviews->results) { ?>
                             <div id="description-item-reviews">
                                 <div class="row">

@@ -4332,6 +4332,9 @@ h2 {
 	margin: 0 20px 15px;
 	text-align: center;
 }
+.advantages-item .advantages-text{
+	font-size: 16px ;
+}
 
 .border-box {
 	display: flex;
@@ -4789,7 +4792,12 @@ h2 {
 .blog-page img {
 	width: auto;
 }
-
+.description-content-text .guide.des{
+	display: flex;
+}
+.description-content-text .guide.mob{
+	display: none;
+}
 .breadcrumbs {
 	margin: 20px 0;
 }
@@ -5666,6 +5674,12 @@ img.f-logos {
 }
 
 @media (max-width: 560px) {
+	.description-content-text .guide.des{
+		display: none;
+	}
+	.description-content-text .guide.mob{
+		display: flex;
+	}
 	.all-cauntries #search{
 		display: flex;
 		flex-direction: column;
@@ -5746,6 +5760,8 @@ img.f-logos {
 		width: 90%;
 	}
 }
+
+
 
 @media (max-width: 420px) {
 	.popular-cityes__wrap .item-element.w-33 {

@@ -50,10 +50,9 @@ if (!function_exists('filter_function_name_Countries')) {
         <div class="container breadcrumbs-wrap">
             <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
                 <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
-                    <span itemprop="title">
-                        <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/bread-logo.png" alt="">
-                        <span style='display: none'>Главная</span>
-                    </span>
+                <span itemprop="title">
+                            <span>Главная</span>
+                        </span>
                 </a>
             </div>
             <div class="breadcrumbs__arrow">

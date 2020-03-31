@@ -27,7 +27,7 @@
             <div class="border-box">
                 <h2>Экскурсии по всему миру на русском языке</h2>
                 <div class="border-box__text">
-                  <p>Что может быть прекрасней путешествий? Только хорошо спланированные путешествия по новым странам, городам и замечательным местам! Если Вы путешествуете по миру и хотите узнать все тонкости мест, которые посещаете, мы с удовольствием Вам поможем.</p>
+                    <p>Что может быть прекрасней путешествий? Только хорошо спланированные путешествия по новым странам, городам и замечательным местам! Если Вы путешествуете по миру и хотите узнать все тонкости мест, которые посещаете, мы с удовольствием Вам поможем.</p>
                 </div>
                 <div class="advantages-wrap">
                     <div class="advantages-item">
@@ -83,12 +83,12 @@
                                     <a class="link" href="<?= home_url() ?>/<?php echo str_replace('+', '-', $tour->city->country->name_en) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/excursion-<?= $tour->id ?>/" data-images="<?php echo htmlspecialchars(json_encode($arrayImg)) ?>">
                                         <img class="static" src="<?php echo $tour->photos['0']->thumbnail ?>" alt="">
                                     </a>
-                                    <?php if($tour->price->discount->value) {?>
+                                    <?php if ($tour->price->discount->value) { ?>
                                         <div class="slick-tours__item-img-box">
                                             <span>Скидка</span> <br>
                                             <span class="slick-tours__item-img-span "><?php echo ($tour->price->discount->value * 100) ?>%</span>
                                         </div>
-                                    <?php }?>
+                                    <?php } ?>
                                 </div>
 
                                 <div class="item-time-rating">
@@ -119,7 +119,7 @@
                                             <div class="item-guide-photo"> <img src="<?php echo $tour->guide->avatar->medium  ?>" alt=""> </div>
                                             <div class="item-guide-name">
                                                 <span>
-                                                    <?php echo $tour->guide->first_name ?> 
+                                                    <?php echo $tour->guide->first_name ?>
                                                 </span>
                                                 <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', $tour->city->country->name_en) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/">
                                                     <?= $tour->city->name_ru ?>
@@ -145,7 +145,8 @@
                             <h2>Мир за одну минуту</h2>
                             <div class="video__text">
                                 <video controls="controls">
-                                    <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4">
+                                    <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/webm">
+                                    <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/mp4">
                                 </video>
                             </div>
                             <p>Путешествуя с Travel Mania, вы откроете самые удивительные места нашей планеты! У вас есть возможность посетить тысячи самых красивых и интересных мест, получить массу эмоций, сделать красивые фотографии и записать видео. Выбирайте страну, город и смотрите все актуальные экскурсии.</p>
@@ -167,7 +168,7 @@
         for (i = 0; i < reviewsRatings.length; i++) {
             reviewsRatingImg[i].style.width = reviewsRatings[i].innerHTML * 20 + "%";
         }
-        
+
 
         $('.image').slick({
             arrows: false,

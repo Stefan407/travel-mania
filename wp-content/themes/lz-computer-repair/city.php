@@ -36,7 +36,8 @@ add_action('wp_head', function () use ($list) {
 ?>
 <style>
 body{
-    margin-top: -25px;
+    margin-top: -30px;
+    padding-top: 3px;
 }</style>
 <section class="top">
     <div class="top__slider">
