@@ -35,10 +35,11 @@ add_action('wp_head', function () use ($list) {
 });
 ?>
 <style>
-body{
-    margin-top: -30px;
-    padding-top: 3px;
-}</style>
+    body {
+        margin-top: -30px;
+        padding-top: 3px;
+    }
+</style>
 <section class="top">
     <div class="top__slider">
         <div id="top-images-city" class="image <?php echo ($current_des_city->images) ?>">
@@ -232,6 +233,7 @@ body{
             <div class="video-box">
                 <div>
                     <p>Забронировать экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> поможет Вам наш видио-пример. Перед тем как Вы определитесь с тематикой экскурсии и выбирите удобную дату, можно задать вопрос любому нашему гиду. Посмотрите видео и узнайте все наши приемущества.</p>
+                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png" class="img-click-video">
                     <video controls="controls">
                         <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4">
                     </video>
@@ -257,6 +259,16 @@ body{
 
 
 <script>
+    if ($(".img-click-video").length && window.innerWidth < 500) {
+        var myVideo = document.querySelector(".video-box video");
+        $(".img-click-video").show();
+        $(".img-click-video").click(function() {
+            $(".img-click-video").hide();
+            console.log(myVideo);
+            myVideo.play();
+        })
+    }
+
     function slideFunc() {
         $("#top-images-city img").css({
             "opacity": "1",
@@ -274,6 +286,100 @@ body{
     $(document).ready(function() {
         initslidertour();
     });
+
+    var timeout = false;
+    let coordinatesYT = window.pageYOffset;
+    let coordinatesYB = coordinatesYT + window.innerHeight;
+    let elements = document.querySelectorAll(".slick-tours__item");
+    let elementsArray = [];
+    let currentElement;
+
+    function editElemsTour() {
+        elements.forEach(function(elem) {
+            if (!elem.classList.contains("hide")) {
+                elementsArray.push({
+                    element: elem,
+                    top: elem.getBoundingClientRect().top,
+                    bottom: coordinatesYB - elem.getBoundingClientRect().bottom,
+                    rate: 0
+                })
+            }
+        })
+
+        window.onscroll = function() {
+            if (timeout !== false) {
+                clearTimeout(timeout);
+            }
+            timeout = setTimeout(function() {
+                editCoordinates();
+            }, 100);
+        };
+        editCoordinates();
+
+        function editCoordinates() {
+            coordinatesYT = window.pageYOffset;
+            coordinatesYB = coordinatesYT + window.innerHeight;
+
+            elementsArray.forEach(function(elem) {
+                elem.top = elem.element.getBoundingClientRect().top;
+                elem.bottom = coordinatesYB - elem.element.getBoundingClientRect().bottom;
+                elem.rate = calculateRate(elem.element.getBoundingClientRect(), elem.element);
+            })
+        }
+
+        function calculateRate(rect, item) {
+            let rateTop = rect.top + pageYOffset;
+            if (rateTop >= pageYOffset && rect.bottom + pageYOffset <= coordinatesYB ) {
+                if(currentElement != item){
+                    edidVisual(item, true);
+                    currentElement = item;
+                }
+            } else {
+                edidVisual(item, false);
+            }
+        }
+
+        function edidVisual(item, pause) {
+            if (pause) {
+                let urls = $(item).find(".link").data("images");
+                if (!$(item).find(".new-img").length) {
+                    for (i = 0; i < urls.length; i++) {
+                        $(item).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
+                    }
+                }
+                if ($(item).find(".slick-track").length == 0) {
+                    $(item).find(".link").on('init', function(event, slick) {
+                        var initSlide = slick.slickCurrentSlide();
+                        var slickDots = slick.$dots[0];
+                        slickDots.childNodes[initSlide].classList.add("slick-current");
+                    });
+                    $(item).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+                        var slickDots = slick.$dots[0];
+                        slickDots.childNodes[currentSlide].classList.remove("slick-current");
+                        slickDots.childNodes[nextSlide].classList.add("slick-current");
+                    });
+                    $(item).find(".link").slick({
+                        arrows: false,
+                        dots: true,
+                        autoplay: true,
+                        autoplaySpeed: 2000,
+                        pauseOnHover: false,
+                        pauseOnFocus: false,
+                    });
+                } else {
+                    $(item).find(".link .slick-active").addClass("slick-current");
+                    $(item).find(".link .slick-dots").css("opacity", "1");
+                    $(item).find(".link").slick('slickPlay');
+                }
+            } else {
+                if ($(item).find(".slick-track").length) {
+                    $(item).find(".link .slick-dots").css("opacity", "0");
+                    $(item).find(".link .slick-active").removeClass("slick-current");
+                    $(item).find(".link").slick('slickPause');
+                }
+            }
+        }
+    }
 
     function initslidertour() {
         if (window.innerWidth > 500) {
@@ -317,65 +423,68 @@ body{
                     $(this).find(".link .slick-dots").css("opacity", "0");
                 });
         } else {
-            var observableElements = [];
+            editElemsTour();
 
-            if (document.querySelector('.slick-tours__item')) {
-                let itemsTours = $('.slick-tours__item');
-                for (i = 0; i < itemsTours.length; i++) {
-                    observableElements.push(itemsTours[i]);
-                }
-            }
+            // var observableElements = [];
 
-            if ("IntersectionObserver" in window) {
-                let animationObserver = new IntersectionObserver(function(entries, observer) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            let urls = $(entry.target).find(".link").data("images");
-                            if (!$(entry.target).find(".new-img").length) {
-                                for (i = 0; i < urls.length; i++) {
-                                    $(entry.target).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
-                                }
-                            }
-                            if ($(entry.target).find(".slick-track").length == 0) {
-                                $(entry.target).find(".link").on('init', function(event, slick) {
-                                    var initSlide = slick.slickCurrentSlide();
-                                    var slickDots = slick.$dots[0];
-                                    slickDots.childNodes[initSlide].classList.add("slick-current");
-                                });
-                                $(entry.target).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-                                    var slickDots = slick.$dots[0];
-                                    slickDots.childNodes[currentSlide].classList.remove("slick-current");
-                                    slickDots.childNodes[nextSlide].classList.add("slick-current");
-                                });
-                                $(entry.target).find(".link").slick({
-                                    arrows: false,
-                                    dots: true,
-                                    autoplay: true,
-                                    autoplaySpeed: 2000,
-                                    pauseOnHover: false,
-                                    pauseOnFocus: false,
-                                });
-                            } else {
-                                $(entry.target).find(".link .slick-active").addClass("slick-current");
-                                $(entry.target).find(".link .slick-dots").css("opacity", "1");
-                                $(entry.target).find(".link").slick('slickPlay');
-                            }
-                        } else {
-                            if ($(entry.target).find(".slick-track").length) {
-                                $(entry.target).find(".link .slick-dots").css("opacity", "0");
-                                $(entry.target).find(".link .slick-active").removeClass("slick-current");
-                                $(entry.target).find(".link").slick('slickPause');
-                            }
-                        }
-                    });
-                });
+            // if (document.querySelector('.slick-tours__item')) {
+            //     let itemsTours = $('.slick-tours__item');
+            //     for (i = 0; i < itemsTours.length; i++) {
+            //         observableElements.push(itemsTours[i]);
+            //     }
+            // }
 
-                observableElements.forEach(function(observableElement) {
-                    animationObserver.observe(observableElement);
-                });
-            } else {
-                observableElements.forEach(function(observableElement) {});
-            }
+            // if ("IntersectionObserver" in window) {
+            //     let animationObserver = new IntersectionObserver(function(entries, observer) {
+            //         entries.forEach(function(entry) {
+            //             console.log(entry.intersectionRatio)
+            //             if (entry.isIntersecting) {
+            //                 let urls = $(entry.target).find(".link").data("images");
+            //                 if (!$(entry.target).find(".new-img").length) {
+            //                     for (i = 0; i < urls.length; i++) {
+            //                         $(entry.target).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
+            //                     }
+            //                 }
+            //                 if ($(entry.target).find(".slick-track").length == 0) {
+            //                     $(entry.target).find(".link").on('init', function(event, slick) {
+            //                         var initSlide = slick.slickCurrentSlide();
+            //                         var slickDots = slick.$dots[0];
+            //                         slickDots.childNodes[initSlide].classList.add("slick-current");
+            //                     });
+            //                     $(entry.target).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+            //                         var slickDots = slick.$dots[0];
+            //                         slickDots.childNodes[currentSlide].classList.remove("slick-current");
+            //                         slickDots.childNodes[nextSlide].classList.add("slick-current");
+            //                     });
+            //                     $(entry.target).find(".link").slick({
+            //                         arrows: false,
+            //                         dots: true,
+            //                         autoplay: true,
+            //                         autoplaySpeed: 2000,
+            //                         pauseOnHover: false,
+            //                         pauseOnFocus: false,
+            //                     });
+            //                 } else {
+            //                     $(entry.target).find(".link .slick-active").addClass("slick-current");
+            //                     $(entry.target).find(".link .slick-dots").css("opacity", "1");
+            //                     $(entry.target).find(".link").slick('slickPlay');
+            //                 }
+            //             } else {
+            //                 if ($(entry.target).find(".slick-track").length) {
+            //                     $(entry.target).find(".link .slick-dots").css("opacity", "0");
+            //                     $(entry.target).find(".link .slick-active").removeClass("slick-current");
+            //                     $(entry.target).find(".link").slick('slickPause');
+            //                 }
+            //             }
+            //         });
+            //     });
+
+            //     observableElements.forEach(function(observableElement) {
+            //         animationObserver.observe(observableElement);
+            //     });
+            // } else {
+            //     observableElements.forEach(function(observableElement) {});
+            // }
         }
     }
 
@@ -395,8 +504,10 @@ body{
         let length = $(".slick-tours__item").length;
         if (showElensVisual > length) {
             showElem(showElensVisual, true)
+            editElemsTour();
         } else {
             showElem(showElensVisual, false)
+            editElemsTour();
         }
         showElensVisual = showElensVisual + 24;
     })

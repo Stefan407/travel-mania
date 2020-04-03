@@ -193,7 +193,9 @@ add_action('wp_head', function () use ($list) {
             <div class="video-box">
                 <div>
                     <p>Забронировать экскурсии <?php echo ($list[0]->country->in_obj_phrase); ?> поможет Вам наш видио-пример. Перед тем как Вы определитесь с тематикой экскурсии и выбирите удобную дату, можно задать вопрос любому нашему гиду. Посмотрите видео и узнайте все наши приемущества.</p>
-                    <video controls="controls">
+                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png" class="img-click-video">
+<video controls="controls">
+
                         <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4">
                     </video>
                 </div>
@@ -211,6 +213,15 @@ add_action('wp_head', function () use ($list) {
 <?php get_footer(); ?>
 
 <script>
+    if ($(".img-click-video").length && window.innerWidth < 500) {
+        var myVideo = document.querySelector(".video-box video");
+        $(".img-click-video").show();
+        $(".img-click-video").click(function(){
+            $(".img-click-video").hide();
+            console.log(myVideo);
+            myVideo.play();
+        })
+    }
     $(".country-btn-wrap .btn-title").on("click", function() {
         $(".country-btn-wrap .btn-block").toggleClass("active");
     })

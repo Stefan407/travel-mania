@@ -144,7 +144,9 @@
                         <div class="video-box">
                             <h2>Мир за одну минуту</h2>
                             <div class="video__text">
-                                <video controls="controls">
+                                <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png" class="img-click-video">
+<video controls="controls">
+
                                     <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/webm">
                                     <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/mp4">
                                 </video>
@@ -163,6 +165,15 @@
     <script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/jquery.appear.js"></script>
 
     <script>
+        if ($(".img-click-video").length && window.innerWidth < 500) {
+        var myVideo = document.querySelector(".video-box video");
+        $(".img-click-video").show();
+        $(".img-click-video").click(function(){
+            $(".img-click-video").hide();
+            console.log(myVideo);
+            myVideo.play();
+        })
+    }
         let reviewsRatings = document.getElementsByClassName("reviews-rating");
         let reviewsRatingImg = document.getElementsByClassName("reviews-rating-img");
         for (i = 0; i < reviewsRatings.length; i++) {

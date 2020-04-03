@@ -19,7 +19,7 @@
         <?php if(has_post_thumbnail()) { ?>
             <?php the_post_thumbnail(); ?>  
         <?php }?>
-      <div class="<?php if(has_post_thumbnail()) { ?>"<?php } else { ?>"<?php } ?>">
+      <div class="<?php if(has_post_thumbnail()) { ?>"<?php } else { ?> <?php } ?>>
         <h3><?php the_title(); ?></h3>
         <p><?php the_excerpt(); ?></p>
         <div class="read-btn">

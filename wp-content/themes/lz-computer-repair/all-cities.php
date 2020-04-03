@@ -164,7 +164,9 @@ if (!function_exists('filter_function_name_Cities')) {
                 <p>Среди претендентов на почетное место в списке чудес света было 77 архитектурных памятников, лишь один из которых был из России: "Собор Василия Блаженного / Московский Кремль" - именно так было указано в голосовании. Однако ему не удалось войти в заветную семерку. По итогам голосования, которые были объявлены в эту субботу в Лиссабоне (Португалия), список новых чудес света выглядит так: Колизей в Риме (Италия), храм Тадж-Махал (Индия), статуя Христа в Рио-де-Жанейро (Бразилия), город древних инков Мачу-Пикчу (Перу), пирамида племени майя Чичен-Итца (мексиканский полуостров Юкатан), храмовый комплекс Петра (Иордания), Великая Китайская стена.</p>
                 <div class="video-box">
                     <h2> Весь мир за одну минуту</h2>
-                    <video controls="controls">
+                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png" class="img-click-video">
+<video controls="controls">
+
                         <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4">
                     </video>
                     <div class="video__text">
@@ -179,6 +181,15 @@ if (!function_exists('filter_function_name_Cities')) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/slick.min.js"></script>
 <script>
+    if ($(".img-click-video").length && window.innerWidth < 500) {
+        var myVideo = document.querySelector(".video-box video");
+        $(".img-click-video").show();
+        $(".img-click-video").click(function(){
+            $(".img-click-video").hide();
+            console.log(myVideo);
+            myVideo.play();
+        })
+    }
     $(".country-btn-wrap .btn-title").on("click", function() {
         $(".country-btn-wrap .btn-block").toggleClass("active");
     })

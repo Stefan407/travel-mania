@@ -1959,10 +1959,12 @@ body:not(.title-tagline-hidden) .site-branding-text {
 .recent-posts .entry-header {
 	margin-bottom: 1.2em;
 }
-.description-content-text-reviews .reviews-text{
+
+.description-content-text-reviews .reviews-text {
 	font-size: 16px;
-    font-style: italic;
+	font-style: italic;
 }
+
 .page .panel-content .recent-posts .entry-title {
 	font-size: 20px;
 	font-size: 1.25rem;
@@ -3669,7 +3671,8 @@ h2 {
 	transition: 0.6s;
 	font-size: 18px;
 }
-.popular-tours-text .video p{
+
+.popular-tours-text .video p {
 	font-weight: 400;
 }
 
@@ -3849,13 +3852,16 @@ h2 {
 	width: auto;
 	transition: 0.3s;
 }
+
 .breadcrumbs a:hover {
 	color: #f14555;
 }
-.breadcrumbs-item{
+
+.breadcrumbs-item {
 	display: flex;
 	align-items: center;
 }
+
 .slick-dots li {
 	display: block;
 	float: left;
@@ -3881,16 +3887,16 @@ h2 {
 
 .link .slick-dots li {
 	display: block;
-    float: left;
-    width: 40px;
-    height: 5px;
-    overflow: hidden;
-    margin: 0 2px;
-    border-radius: 0;
-    border: none;
-    background-color: #ececef;
-    position: relative;
-    border-radius: 3px;
+	float: left;
+	width: 40px;
+	height: 5px;
+	overflow: hidden;
+	margin: 0 2px;
+	border-radius: 0;
+	border: none;
+	background-color: #ececef;
+	position: relative;
+	border-radius: 3px;
 }
 
 .link li.slick-active {}
@@ -3970,9 +3976,11 @@ h2 {
 .popular-cityes__wrap .item-element.show {
 	display: block;
 }
+
 .popular-cityes__wrap .item-element.hide {
 	display: none;
 }
+
 .popular-cityes__wrap .item-element {
 	width: 25%;
 	padding: 10px;
@@ -4009,10 +4017,12 @@ h2 {
 	object-fit: cover;
 	transition: .3s;
 }
+
 .popular-cityes__wrap .item-element:hover img {
 	filter: inherit;
 }
-.main_content-description .order-panel-wrap{
+
+.main_content-description .order-panel-wrap {
 	display: none;
 }
 
@@ -4036,6 +4046,7 @@ h2 {
 	font-size: 15px;
 	text-shadow: none;
 }
+
 .popular-cityes__wrap .item-element .item-title {
 	font-size: 30px;
 	font-weight: 800;
@@ -4112,10 +4123,12 @@ h2 {
 	padding: 5px;
 	border-radius: 8px;
 }
-.slick-tours__wrap .slick-slide{
+
+.slick-tours__wrap .slick-slide {
 	height: auto;
 	display: inline;
 }
+
 .slick-tours .slick-tours__item.main .slick-tours__wrap {
 	height: 100%;
 }
@@ -4131,6 +4144,7 @@ h2 {
 .tours .slick-tours__item.hide {
 	display: none;
 }
+
 .tours .slick-tours__item {
 	padding: 10px;
 	width: 33.3%;
@@ -4160,7 +4174,7 @@ h2 {
 .top .slick-slide {
 	height: auto;
 	min-height: 200px;
-    object-fit: cover;
+	object-fit: cover;
 }
 
 
@@ -4332,8 +4346,9 @@ h2 {
 	margin: 0 20px 15px;
 	text-align: center;
 }
-.advantages-item .advantages-text{
-	font-size: 16px ;
+
+.advantages-item .advantages-text {
+	font-size: 16px;
 }
 
 .border-box {
@@ -4512,9 +4527,9 @@ h2 {
 
 .description-section_text {
 	font-size: 16px;
-        text-align: center;
-        color: #e66363;
-        margin: -20px 0px 50px 0px;
+	text-align: center;
+	color: #e66363;
+	margin: -20px 0px 50px 0px;
 }
 
 .reating-box img {
@@ -4792,12 +4807,15 @@ h2 {
 .blog-page img {
 	width: auto;
 }
-.description-content-text .guide.des{
+
+.description-content-text .guide.des {
 	display: flex;
 }
-.description-content-text .guide.mob{
+
+.description-content-text .guide.mob {
 	display: none;
 }
+
 .breadcrumbs {
 	margin: 20px 0;
 }
@@ -5084,7 +5102,7 @@ h6 {
 
 img.f-logos {
 	float: right;
-	width: 190px;
+	width: 150px;
 }
 
 .f-menu {
@@ -5101,6 +5119,18 @@ img.f-logos {
 
 .f-copyright {
 	display: inline-block;
+}
+
+.video .video-box div {
+	position: relative;
+}
+
+.img-click-video {
+	position: absolute;
+	width: 100%;
+	z-index: 5;
+	bottom: 0;
+	display: none;
 }
 
 .f-menu-item {
@@ -5133,7 +5163,6 @@ img.f-logos {
 	display: inline-flex;
 	width: 23px;
 	height: 23px;
-	background: #8e8f9e;
 	margin-right: 7px;
 	border-radius: 5px;
 }
@@ -5143,7 +5172,6 @@ img.f-logos {
 	margin: auto;
 	width: 17px;
 	height: 17px;
-	fill: #fff;
 }
 
 .popular-cityes__wrap .item-element.w-33 a {
@@ -5222,7 +5250,7 @@ img.f-logos {
 	img.f-logos {
 		display: block;
 		float: none;
-		width: 240px;
+		width: 150px;
 		margin: 0 auto 20px;
 	}
 
@@ -5232,7 +5260,6 @@ img.f-logos {
 
 	.popular-cityes__wrap .item-element.w-33 {
 		width: 50%;
-		display: flex;
 		justify-content: center;
 		height: 200px;
 		max-height: 200px;
@@ -5262,21 +5289,26 @@ img.f-logos {
 		display: none;
 	}
 }
-.description-content .order-panel-wrap{
+
+.description-content .order-panel-wrap {
 	display: none;
 }
+
 @media (max-width: 768px) {
-	.slick-tours .tours__item-content .item-title{
+	.slick-tours .tours__item-content .item-title {
 		font-size: 16px;
 		height: 45px;
 	}
-	.slick-tours .tours__item-content .item-price-guide{
+
+	.slick-tours .tours__item-content .item-price-guide {
 		font-size: 14px;
 	}
+
 	p.link-more {
 		width: 100%;
 	}
-	.main_content-description .order-panel-wrap{
+
+	.main_content-description .order-panel-wrap {
 		display: block;
 		position: inherit;
 	}
@@ -5310,14 +5342,16 @@ img.f-logos {
 	.page-numbers.current {
 		color: #fff;
 	}
-	.description-content-text{
+
+	.description-content-text {
 		margin-bottom: 30px;
 	}
 
 	.order-panel {
 		display: none;
 	}
-	.description-content .order-panel-wrap{
+
+	.description-content .order-panel-wrap {
 		display: block;
 	}
 
@@ -5401,12 +5435,15 @@ img.f-logos {
 	.breadcrumbs-wrap {
 		font-size: 14px;
 	}
-	img.breadcrumbs-img-logo{
+
+	img.breadcrumbs-img-logo {
 		width: 30px;
 	}
+
 	h1 {
 		font-size: 25px;
 	}
+
 	.main_content-title h1 {
 		font-size: 22px;
 	}
@@ -5674,16 +5711,19 @@ img.f-logos {
 }
 
 @media (max-width: 560px) {
-	.description-content-text .guide.des{
+	.description-content-text .guide.des {
 		display: none;
 	}
-	.description-content-text .guide.mob{
+
+	.description-content-text .guide.mob {
 		display: flex;
 	}
-	.all-cauntries #search{
+
+	.all-cauntries #search {
 		display: flex;
 		flex-direction: column;
 	}
+
 	.blog-page .post-item .text {
 		font-size: 14px;
 	}
@@ -5822,6 +5862,7 @@ img.f-logos {
 		float: none !important;
 	}
 }
-html{
+
+html {
 	margin-top: 0 !important;
 }
