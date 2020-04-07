@@ -3287,7 +3287,7 @@ object {
 }
 
 .about-what {
-	background: #f5eec2;
+	background: #d6f2ff;
 	padding: 40px 0;
 }
 
@@ -3324,14 +3324,14 @@ object {
 .about-what-block {
 	display: inline-block;
 	vertical-align: top;
-	width: 30%;
+	width: 22%;
 	margin: 0 0 0 2%;
 	font-size: 16px;
 	color: #2c3b48;
 	padding: 20px;
 	text-align: center;
-	border: 3px solid #00ad74;
-	border-radius: 5px;
+	border: 2px solid #51525f;
+	border-radius: 10px;
 	box-sizing: border-box;
 	text-decoration: none;
 }
@@ -3341,10 +3341,10 @@ object {
 }
 
 .about-what__title {
-	font-weight: 900;
-	font-size: 30px;
+	font-weight: 600;
+	font-size: 25px;
 	color: #2c3b48;
-	margin: 0 0 10px;
+	margin: 30px 0px 10px 0px;
 }
 
 .white-line {
@@ -3518,7 +3518,7 @@ section.main {
 }
 
 img {
-	width: 100%;
+	width: 70%;
 }
 
 .container {
