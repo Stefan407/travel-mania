@@ -28,7 +28,7 @@ if (!function_exists('filter_function_name_Cities')) {
 </head>
 <?php get_header(); ?>
 <section class="top">
-    <div class="breadcrumbs">
+    <div class="breadcrumbs" style="display:none">
         <div class="container breadcrumbs-wrap">
             <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
                 <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
@@ -49,18 +49,19 @@ if (!function_exists('filter_function_name_Cities')) {
         </div>
     </div>
     <div class="about-what">
+    
         <div class="container">
             <h1 class="about-title g-ac">Проект Travel Mania</h1>
             <div class="about-text gm_t10 gm_b20">
              Travel Mania — сервис информационной помощи путешественникам. Мы находим лучшие предложения по самым выгодным ценам, размещаем у себя на сайте, но при бронировании Вы переходите на страницу поставщика и бронирует выбранные экскурсии без посредников.
              </div><br>
             <div class="about-text gm_t10 gm_b20">
-             На сегодня охвачено более <a href="/all-cities/" class="azure-link">600 городов</a>  в <a href="/all-countries/" class="azure-link">95 странах</a>. Предлагаются тысячи эксклюзивных экскурсий, которые можно забронировать и оплатить онлайн. Только самые продуманные маршруты и выгодные цены, о чем свидетельствуют более 140 000 отзывов.
+             На сегодня охвачено более <a href="/all-cities/" class="azure-link">600 городов</a>  в <a href="/all-countries/" class="azure-link">93 странах</a>. Предлагаются тысячи эксклюзивных экскурсий, которые можно забронировать и оплатить онлайн. Только самые продуманные маршруты и выгодные цены, о чем свидетельствуют более 140 000 отзывов.
              </div>
             <div class="about-what-wrap">
                 <div class="about-what-block">
-                <img  src="/wp-content/themes/lz-computer-repair/assets/images/countrie.png">
-                    <div class="about-what__title">95<br>стран</div>
+                <img src="/wp-content/themes/lz-computer-repair/assets/images/countrie.png">
+                    <div class="about-what__title">93<br>страны</div>
                 </div>
                 <div class="about-what-block">
                 <img  src="/wp-content/themes/lz-computer-repair/assets/images/city.png">
@@ -72,14 +73,14 @@ if (!function_exists('filter_function_name_Cities')) {
                 </div>
                 <div class="about-what-block">
                 <img  src="/wp-content/themes/lz-computer-repair/assets/images/blog.png">
-                    <div class="about-what__title">Блог<br>лайфхаков</div>
+                    <div class="about-what__title"><a href="/blog/" class="azure-link">Блог<br>лайфхаков</a></div>
                 </div>                
             </div>
         </div>
     </div>
     <div class="white-line about-how">
         <div class="container">
-            <h2 class="about-title g-ac">Как мы работаем</h2>
+            <h2 class="about-title g-ac">Как бронировать экскурсии</h2>
 
             <div class="about-how-block">
                 <img src="/wp-content/themes/lz-computer-repair/assets/images/about-img-1.png" alt="" class="about-how__img" data-pagespeed-url-hash="2549494515" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
@@ -104,37 +105,6 @@ if (!function_exists('filter_function_name_Cities')) {
             </div>
         </div>
     </div>    
-    <div class="white-line about-why">
-        <div class="container">
-            <div class="g_ovh about-why-wrap">
-                <div class="about-why-block about-why-block_1">
-                    <i></i>
-                    <h2 class="about-why-title">Вдохновлённые гиды</h2>
-                    Все наши экскурсии проводят увлеченные и вдохновленные люди, с большим багажом знаний и интересов! В нашей команде: историки, искусствоведы, архитекторы, журналисты и другие эксперты.
-                </div>
-
-                <div class="about-why-block about-why-block_2">
-                    <i></i>
-                    <h2 class="about-why-title">Авторские экскурсии</h2>
-                    Только авторские экскурсии: с нами вы узнаете историю города, погуляете по необычным местам, побываете в секретных барам, посетите крышам города и галереи современного искусства. Желающие попробовать местную кухню, смогут приготовить обед с местным шеф-поваром.
-                </div>
-
-                <div class="about-why-block about-why-block_3">
-                    <i></i>
-                    <h2 class="about-why-title">Только яркие эмоции</h2>
-                    Наша цель – доставить вам самые яркие впечатления! Мы заботимся о качестве каждой экскурсий и тщательно продумываем все тонкости. У нас нет гидов со скучными заученными программами из путеводителей или учебников истории.
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="about-what">
-        <div class="container">
-            <h2 class="about-title g-ac">За что нас любят</h2>
-            <div class="about-text gm_t10 gm_b20">
-                Мы предлагаем только интересные авторские экскурсии, которые нравятся нам самим и всем путешественникам. С каждым гидом, присоединившимся к нашей команде, беседуем лично и продумываем всю программу экскурсии до мелочей. В результате получается интересная, структурированная и очень эмоциональная экскурсия.
-            </div>
-        </div>
-    </div>
 </section>
 <link rel="stylesheet" type="text/css" href="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/css/slick.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

@@ -3316,7 +3316,7 @@ object {
 }
 
 .azure-link {
-	color: #03a378;
+	color: #a44949;
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -3406,12 +3406,12 @@ object {
 }
 
 .about-what {
-	background: #f5eec2;
+	background: #d6f2ff;
 	padding: 40px 0;
 }
 
 .white-line {
-	background: #fff;
+	background: #f9e4e4;
 }
 
 .about-how {
@@ -3425,7 +3425,7 @@ object {
 
 .about-how__img {
 	float: left;
-	width: 140px;
+	width: 160px;
 }
 
 .about-how__info {
@@ -3438,7 +3438,7 @@ object {
 	margin-bottom: 12px;
 	font-size: 22px;
 	font-weight: bold;
-	color: #01a77a;
+	color: #0785b0;
 }
 
 .g_ovh {
@@ -5107,9 +5107,9 @@ img.f-logos {
 
 .f-menu {
 	float: left;
-	font-size: 15px;
+	font-size: 18px;
 	padding-bottom: 25px;
-	color: #a6a6ab;
+	color: #090909;
 }
 
 .f-bottom {
