@@ -10,6 +10,7 @@ $page_title =  $post["post_title"] . " - Travel Mania";
 add_action('pre_get_document_title', function () use ($page_title) {
     return $page_title;
 });
+echo("1231231231");
 ?>
 
 <?php get_header(); ?>

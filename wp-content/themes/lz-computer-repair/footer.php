@@ -11,7 +11,7 @@
 ?>
 <footer class="footer-site">
     <div class="container">
-    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/logo.png" alt="" class="f-logos">
+        <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/logo.png" alt="" class="f-logos">
         <nav class="f-menu">
             <div class="f-copyright">
                 © 2020 <span>Travel Mania</span>
@@ -25,14 +25,16 @@
             </ul>
         </nav>
         <div class="f-bottom">
-            <div class="f-social"></br>
-                Мы в соц сетях:</br>
-                <a href="https://www.facebook.com/" target="_blank"><img src="/wp-content/themes/lz-computer-repair/assets/images/icon-facebook.png"></a>
-                <a href="https://www.instagram.com/" target="_blank"><img src="/wp-content/themes/lz-computer-repair/assets/images/icon-instagram.png"></a>
-                <a href="https://zen.yandex.ru/" target="_blank"><img src="/wp-content/themes/lz-computer-repair/assets/images/icon-dzen.png"></a>
+            <div class="f-social" style="display:flex; align-items: flex-start;    width: 100%; justify-content: space-between;">
                 <div class="f-social__text-wrap">
                     Служба поддержки:
                     <a href="mailto:excurs.mania@gmail.com" class="f-social__email-link" target="_blank">excurs.mania@gmail.com</a>
+                </div>
+                <div style="display:flex; align-items:center; margin-bottom:10px">
+                    Мы в соц сетях:</br>
+                    <a style="padding: 0 5px" href="/go/?url=https://www.facebook.com/" target="_blank"><img src="/wp-content/themes/lz-computer-repair/assets/images/icon-facebook.png"></a>
+                    <a  style="padding: 0 5px" href="/go/?url=https://www.instagram.com/" target="_blank"><img src="/wp-content/themes/lz-computer-repair/assets/images/icon-instagram.png"></a>
+                    <a class="yandex-link" style="padding: 0 5px" href="/go/?url=https://zen.yandex.ru/" target="_blank"></a>
                 </div>
             </div>
         </div>
@@ -62,8 +64,9 @@
 </noscript>
 <!-- /Yandex.Metrika counter -->
 <style>
-html {
-    margin-top: 0 !important;
-}
+    html {
+        margin-top: 0 !important;
+    }
 </style>
+
 </html>

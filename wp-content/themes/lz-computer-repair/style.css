@@ -3517,7 +3517,11 @@ section.main {
 	display: none;
 }
 
-img {
+.f-social img {
+	width: 30px;
+}
+
+.about-what-wrap img {
 	width: 70%;
 }
 
@@ -5865,4 +5869,11 @@ img.f-logos {
 
 html {
 	margin-top: 0 !important;
+}
+
+.yandex-link {
+	width: 30px;
+	height: 30px;
+	background-image: url("https://travel-mania.org/wp-content/themes/lz-computer-repair/assets/images/icon-dzen.png");
+	background-size: contain;
 }

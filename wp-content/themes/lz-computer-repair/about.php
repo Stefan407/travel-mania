@@ -117,4 +117,5 @@ if (!function_exists('filter_function_name_Cities')) {
         autoplaySpeed: 3000
     });
 </script>
+
 <?php get_footer(); ?>
