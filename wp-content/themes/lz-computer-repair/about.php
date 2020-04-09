@@ -116,6 +116,4 @@ if (!function_exists('filter_function_name_Cities')) {
         autoplay: true,
         autoplaySpeed: 3000
     });
-</script>
-
-<?php get_footer(); ?>
+</script><?php get_footer(); ?>

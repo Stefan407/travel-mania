@@ -5867,6 +5867,21 @@ img.f-logos {
 	}
 }
 
+.about-how {
+	position: relative;
+}
+
+.about-how::after {
+	position: absolute;
+	content: "";
+	display: block;
+	width: 100%;
+	height: 88px;
+	background: #f9e4e4;
+	bottom: -40px;
+	z-index: -1;
+}
+
 html {
 	margin-top: 0 !important;
 }

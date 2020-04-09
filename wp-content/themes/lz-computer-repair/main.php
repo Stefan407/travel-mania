@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="tours__item-content ">
                                     <div class="item-title ">
-                                        <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', $tour->city->country->name_en) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/excursion-<?= $tour->id ?>/">
+                                        <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', str_replace(' ', '-', $tour->city->country->name_en)) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/excursion-<?= $tour->id ?>/">
                                             <?= $tour->title ?>
                                         </a>
                                     </div>
@@ -121,7 +121,7 @@
                                                 <span>
                                                     <?php echo $tour->guide->first_name ?>
                                                 </span>
-                                                <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', $tour->city->country->name_en) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/">
+                                                <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', str_replace(' ', '-', $tour->city->country->name_en)) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/">
                                                     <?= $tour->city->name_ru ?>
                                                 </a>
                                             </div>
