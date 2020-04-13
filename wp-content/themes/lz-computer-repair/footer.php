@@ -30,7 +30,6 @@
                     <a href="mailto:excurs.mania@gmail.com" class="f-social__email-link" target="_blank">excurs.mania@gmail.com</a>
                 </div>
                 <div style="display:flex; align-items:center; margin-bottom:10px">
-                    Мы в соц сетях:</br>
                     <a style="padding: 0 5px" href="/go/?url=https://www.facebook.com/" target="_blank"><img src="/wp-content/themes/lz-computer-repair/assets/images/icon-facebook.png"></a>
                     <a  style="padding: 0 5px" href="/go/?url=https://www.instagram.com/" target="_blank"><img src="/wp-content/themes/lz-computer-repair/assets/images/icon-instagram.png"></a>
                     <a class="yandex-link" style="padding: 0 5px" href="/go/?url=https://zen.yandex.ru/" target="_blank"></a>
