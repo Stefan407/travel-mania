@@ -19,15 +19,15 @@ $current_des_cities = array_filter($des_cities, function ($city) use ($current_c
 });
 $current_des_city = reset($current_des_cities);
 
-
-get_header();
-
 $my_var = $list[0]->city->in_obj_phrase;
 
 $page_title =  "Авторские экскурсии " . $my_var . " на русском языке - Travel Mania";
 add_action('pre_get_document_title', function () use ($page_title) {
     return $page_title;
 });
+
+get_header();
+
 
 add_action('wp_head', function () use ($list) {
     echo '<meta name="keywords" content="экскурсии, ' . $list[0]->city->name_ru . ', русский, на русском, гиды, авторские, эксклюзивные, исторические, обзорные, пешеходные, на автобусе, купить, заказать, забронировать, цена, недорого, дешево, скидка, описание, список, прайс, травэл, мания, travel, mania" />';
