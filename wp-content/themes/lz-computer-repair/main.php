@@ -150,6 +150,9 @@
                                     <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/webm">
                                     <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/mp4">
                                 </video>
+                                <p class="autor">
+                        Видео: <a href="/go/?url=https://vimeo.com/27246366" target="_blank">Rick Mereki</a>
+                    </p>
                             </div>
                             <p>Путешествуя с Travel Mania, вы откроете самые удивительные места нашей планеты! У вас есть возможность посетить тысячи самых красивых и интересных мест, получить массу эмоций, сделать красивые фотографии и записать видео. Выбирайте страну, город и смотрите все актуальные экскурсии.</p>
                         </div>

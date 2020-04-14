@@ -49,21 +49,23 @@ if (!function_exists('filter_function_name_Cities')) {
     </div>
     <div class="breadcrumbs">
         <div class="container breadcrumbs-wrap">
-            <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
-                <span itemprop="title">
+            <div class="breadcrumbs-item">
+                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
+                        <span itemprop="title">
                             <span>Главная</span>
                         </span>
-                </a>
-            </div>
-            <div class="breadcrumbs__arrow">
-                <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
-            </div>
-            <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                <link itemprop="url" href="/all-cities/">
-                <p class="breadcrumbs__text">
-                    <span itemprop="title">Все города</span>
-                </p>
+                    </a>
+                </div>
+                <div class="breadcrumbs__arrow">
+                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+                </div>
+                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <link itemprop="url" href="/all-cities/">
+                    <p class="breadcrumbs__text">
+                        <span itemprop="title">Все города</span>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -141,7 +143,7 @@ if (!function_exists('filter_function_name_Cities')) {
                         $city_name = str_replace("ó", 'o', $city_name);
                         if ($city__name_en == 'Villefranche-sur-Saône') {
                             $city__name_en = "Villefranche-sur-Saone";
-                        }?>
+                        } ?>
                         <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', urlencode($town->country->name_en)) ?>/<?php echo str_replace('+', '-', urlencode($city_name)) ?>/">
                             <img src="<?php echo ($town->image->thumbnail)  ?>" alt="">
                             <div class="item-title-wrap">
@@ -165,10 +167,13 @@ if (!function_exists('filter_function_name_Cities')) {
                 <div class="video-box">
                     <h2> Весь мир за одну минуту</h2>
                     <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png" class="img-click-video">
-<video controls="controls">
+                    <video controls="controls">
 
                         <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4">
                     </video>
+                    <p class="autor">
+                        Видео: <a href="/go/?url=https://vimeo.com/27246366" target="_blank">Rick Mereki</a>
+                    </p>
                     <div class="video__text">
                         <p>Если прежде все чудеса света не выходили за пределы Европы и Ближнего Востока, то сегодня своими чудесами могут похвастаться Северная и Южная Америка, а также Азия. Напомним, что в труд Филона Византийского "Семь чудес света" входили египетские пирамиды, "висячие сады" Семирамиды (Вавилон), храм Артемиды в Эфесе (нынешняя Турция), Колосс Родосский (о. Родос), Александрийский маяк (о. Фарос в Средиземном море), гробница Мавсола в Галикарнасе (снова Турция) и статуя Зевса Олимпийского. Из всех этих построек до нашего времени дожили только египетские пирамиды.</p>
                     </div>
@@ -184,7 +189,7 @@ if (!function_exists('filter_function_name_Cities')) {
     if ($(".img-click-video").length && window.innerWidth < 500) {
         var myVideo = document.querySelector(".video-box video");
         $(".img-click-video").show();
-        $(".img-click-video").click(function(){
+        $(".img-click-video").click(function() {
             $(".img-click-video").hide();
             console.log(myVideo);
             myVideo.play();
@@ -232,7 +237,7 @@ if (!function_exists('filter_function_name_Cities')) {
         let length = $(".popular-cityes__wrap .item-element").length;
         if (showElensVisual > length) {
             showElem(showElensVisual, true)
-        }else{
+        } else {
             showElem(showElensVisual, false)
         }
         showElensVisual = showElensVisual + 24;
@@ -247,7 +252,7 @@ if (!function_exists('filter_function_name_Cities')) {
                 }
             }
         }
-        if(btn){
+        if (btn) {
             $(".popular-cityes .btn-more").css("display", "none");
         }
     }

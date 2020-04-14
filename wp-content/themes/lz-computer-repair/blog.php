@@ -45,21 +45,23 @@ if (!function_exists('filter_function_name_Cities')) {
     </div>
     <div class="breadcrumbs">
         <div class="container breadcrumbs-wrap">
-            <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
-                <span itemprop="title">
+            <div class="breadcrumbs-item">
+                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
+                        <span itemprop="title">
                             <span>Главная</span>
                         </span>
-                </a>
-            </div>
-            <div class="breadcrumbs__arrow">
-                <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
-            </div>
-            <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                <link itemprop="url" href="/blog/">
-                <p class="breadcrumbs__text">
-                    <span itemprop="title">Блог</span>
-                </p>
+                    </a>
+                </div>
+                <div class="breadcrumbs__arrow">
+                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+                </div>
+                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <link itemprop="url" href="/blog/">
+                    <p class="breadcrumbs__text">
+                        <span itemprop="title">Блог</span>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -85,7 +87,7 @@ if (!function_exists('filter_function_name_Cities')) {
         <ul class="blog-list">
             <?php foreach ($recent_posts as $post) { ?>
                 <li class="blog-item_block <?php echo ($post['post_name']) ?>">
-                    <a href="<?php echo ("/".$post['post_name']."/") ?>">
+                    <a href="<?php echo ("/" . $post['post_name'] . "/") ?>">
                         <?php echo get_the_post_thumbnail($post['ID'], 'medium', array('class' => 'alignleft')); ?>
                         <div class="post-item">
                             <div class="title"><?php echo ($post['post_title']) ?></div>

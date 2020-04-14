@@ -36,8 +36,7 @@ add_action('wp_head', function () use ($list) {
 ?>
 <style>
     body {
-        margin-top: -30px;
-        padding-top: 3px;
+        transform: translate(0, -2px)
     }
 </style>
 <section class="top">
@@ -237,6 +236,9 @@ add_action('wp_head', function () use ($list) {
                     <video controls="controls">
                         <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4">
                     </video>
+                    <p class="autor">
+                        Видео: текст.
+                    </p>
                 </div>
                 <div class="video__text">
                     <p>Бронирование происходит через сайт, при этом вы общаетесь напрямую с гидом и можете задать ему любые вопросы. Вам не нужно ничего оплачивать, пока вы не проясните все важные для себя детали.</p>
@@ -329,8 +331,8 @@ add_action('wp_head', function () use ($list) {
 
         function calculateRate(rect, item) {
             let rateTop = rect.top + pageYOffset;
-            if (rateTop >= pageYOffset && rect.bottom + pageYOffset <= coordinatesYB ) {
-                if(currentElement != item){
+            if (rateTop >= pageYOffset && rect.bottom + pageYOffset <= coordinatesYB) {
+                if (currentElement != item) {
                     edidVisual(item, true);
                     currentElement = item;
                 }
@@ -384,44 +386,44 @@ add_action('wp_head', function () use ($list) {
     function initslidertour() {
         if (window.innerWidth > 500) {
             $(".slick-tours__item").hover(function(e) {
-                    e = this;
-                    let urls = $(this).find(".link").data("images");
-                    if (!$(this).find(".new-img").length) {
-                        for (i = 0; i < urls.length; i++) {
-                            $(this).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
-                        }
+                e = this;
+                let urls = $(this).find(".link").data("images");
+                if (!$(this).find(".new-img").length) {
+                    for (i = 0; i < urls.length; i++) {
+                        $(this).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
                     }
-                    if ($(this).find(".slick-track").length == 0) {
-                        $(this).find(".link").on('init', function(event, slick) {
-                            var initSlide = slick.slickCurrentSlide();
-                            var slickDots = slick.$dots[0];
-                            slickDots.childNodes[initSlide].classList.add("slick-current");
-                        });
-                        $(this).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-                            var slickDots = slick.$dots[0];
-                            slickDots.childNodes[currentSlide].classList.remove("slick-current");
-                            slickDots.childNodes[nextSlide].classList.add("slick-current");
-                        });
-                        $(this).find(".link").slick({
-                            arrows: false,
-                            dots: true,
-                            autoplay: true,
-                            autoplaySpeed: 2000,
-                            pauseOnHover: false,
-                            pauseOnFocus: false,
-                        });
-                    } else {
-                        $(this).find(".link .slick-active").addClass("slick-current");
-                        $(this).find(".link").slick('slickPlay');
-                        $(this).find(".link .slick-dots").css("opacity", "1");
-                    }
-                },
-                function(e) {
-                    e = this;
-                    $(this).find(".link .slick-active").removeClass("slick-current");
-                    $(this).find(".link").slick('slickPause');
-                    $(this).find(".link .slick-dots").css("opacity", "0");
-                });
+                }
+                if ($(this).find(".slick-track").length == 0) {
+                    $(this).find(".link").on('init', function(event, slick) {
+                        var initSlide = slick.slickCurrentSlide();
+                        var slickDots = slick.$dots[0];
+                        slickDots.childNodes[initSlide].classList.add("slick-current");
+                    });
+                    $(this).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+                        var slickDots = slick.$dots[0];
+                        slickDots.childNodes[currentSlide].classList.remove("slick-current");
+                        slickDots.childNodes[nextSlide].classList.add("slick-current");
+                    });
+                    $(this).find(".link").slick({
+                        arrows: false,
+                        dots: true,
+                        autoplay: true,
+                        autoplaySpeed: 2000,
+                        pauseOnHover: false,
+                        pauseOnFocus: false,
+                    });
+                } else {
+                    $(this).find(".link .slick-active").addClass("slick-current");
+                    $(this).find(".link").slick('slickPlay');
+                    $(this).find(".link .slick-dots").css("opacity", "1");
+                }
+            },
+            function(e) {
+                e = this;
+                $(this).find(".link .slick-active").removeClass("slick-current");
+                $(this).find(".link").slick('slickPause');
+                $(this).find(".link .slick-dots").css("opacity", "0");
+            });
         } else {
             editElemsTour();
 
@@ -504,10 +506,10 @@ add_action('wp_head', function () use ($list) {
         let length = $(".slick-tours__item").length;
         if (showElensVisual > length) {
             showElem(showElensVisual, true)
-            editElemsTour();
+            initslidertour();
         } else {
             showElem(showElensVisual, false)
-            editElemsTour();
+            initslidertour();
         }
         showElensVisual = showElensVisual + 24;
     })

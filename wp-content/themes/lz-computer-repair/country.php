@@ -198,6 +198,9 @@ add_action('wp_head', function () use ($list) {
 
                         <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4">
                     </video>
+                    <p class="autor">
+                        Видео: Travel Mania ©
+                    </p>
                 </div>
                 <div class="video__text">
                     <p>Бронирование происходит через сайт, при этом вы общаетесь напрямую с гидом и можете задать ему любые вопросы. Вам не нужно ничего оплачивать, пока вы не проясните все важные для себя детали.</p>

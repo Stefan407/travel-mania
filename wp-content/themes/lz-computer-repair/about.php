@@ -30,51 +30,53 @@ if (!function_exists('filter_function_name_Cities')) {
 <section class="top">
     <div class="breadcrumbs" style="display:none">
         <div class="container breadcrumbs-wrap">
-            <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
-                <span itemprop="title">
+            <div class="breadcrumbs-item">
+                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
+                        <span itemprop="title">
                             <span>Главная</span>
                         </span>
-                </a>
-            </div>
-            <div class="breadcrumbs__arrow">
-                <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
-            </div>
-            <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                <link itemprop="url" href="/about/">
-                <p class="breadcrumbs__text">
-                    <span itemprop="title">О нас</span>
-                </p>
+                    </a>
+                </div>
+                <div class="breadcrumbs__arrow">
+                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+                </div>
+                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <link itemprop="url" href="/about/">
+                    <p class="breadcrumbs__text">
+                        <span itemprop="title">О нас</span>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
     <div class="about-what">
-    
+
         <div class="container">
             <h1 class="about-title g-ac">Проект Travel Mania</h1>
             <div class="about-text gm_t10 gm_b20">
-             Travel Mania — сервис информационной помощи путешественникам. Мы находим лучшие предложения по самым выгодным ценам, размещаем у себя на сайте, но при бронировании Вы переходите на страницу поставщика и бронирует выбранные экскурсии без посредников.
-             </div><br>
+                Travel Mania — сервис информационной помощи путешественникам. Мы находим лучшие предложения по самым выгодным ценам, размещаем у себя на сайте, но при бронировании Вы переходите на страницу поставщика и бронирует выбранные экскурсии без посредников.
+            </div><br>
             <div class="about-text gm_t10 gm_b20">
-             На сегодня охвачено более <a href="/all-cities/" class="azure-link">600 городов</a>  в <a href="/all-countries/" class="azure-link">93 странах</a>. Предлагаются тысячи эксклюзивных экскурсий, которые можно забронировать и оплатить онлайн. Только самые продуманные маршруты и выгодные цены, о чем свидетельствуют более 140 000 отзывов.
-             </div>
+                На сегодня охвачено более <a href="/all-cities/" class="azure-link">600 городов</a> в <a href="/all-countries/" class="azure-link">93 странах</a>. Предлагаются тысячи эксклюзивных экскурсий, которые можно забронировать и оплатить онлайн. Только самые продуманные маршруты и выгодные цены, о чем свидетельствуют более 140 000 отзывов.
+            </div>
             <div class="about-what-wrap">
                 <div class="about-what-block">
-                <img src="/wp-content/themes/lz-computer-repair/assets/images/countrie.png">
+                    <img src="/wp-content/themes/lz-computer-repair/assets/images/countrie.png">
                     <div class="about-what__title">93<br>страны</div>
                 </div>
                 <div class="about-what-block">
-                <img  src="/wp-content/themes/lz-computer-repair/assets/images/city.png">
+                    <img src="/wp-content/themes/lz-computer-repair/assets/images/city.png">
                     <div class="about-what__title">600+<br>городов</div>
                 </div>
                 <div class="about-what-block">
-                <img  src="/wp-content/themes/lz-computer-repair/assets/images/review.png">
+                    <img src="/wp-content/themes/lz-computer-repair/assets/images/review.png">
                     <div class="about-what__title">140 000+<br>отзывов</div>
                 </div>
                 <div class="about-what-block">
-                <img  src="/wp-content/themes/lz-computer-repair/assets/images/blog.png">
+                    <img src="/wp-content/themes/lz-computer-repair/assets/images/blog.png">
                     <div class="about-what__title"><a href="/blog/" class="azure-link">Блог<br>лайфхаков</a></div>
-                </div>                
+                </div>
             </div>
         </div>
     </div>
@@ -104,7 +106,7 @@ if (!function_exists('filter_function_name_Cities')) {
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
 </section>
 <link rel="stylesheet" type="text/css" href="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/css/slick.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

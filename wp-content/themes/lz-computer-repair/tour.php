@@ -70,7 +70,7 @@ $current_city = str_replace(" ", "-", $current_city);
                                         }
                                     ?>
                                     <a class="breadcrumbs__link" href="/<?php echo ($current_country) ?>/<?php echo ($current_city) ?>/" itemprop="url">
-                                        <span itemprop="title"><?php echo ($list->city->name_ru) ?></span>
+                                        <span itemprop="title">Экскурсии <?php echo ($list->city->in_obj_phrase) ?></span>
                                     </a>
                                 </div>
                             </div>
@@ -307,6 +307,7 @@ $current_city = str_replace(" ", "-", $current_city);
 
         for (i = 0; i < reviewsRatings.length; i++) {
             reviewsRatingImg[i].style.width = reviewsRatings[i].innerHTML * 20 + "%";
+            reviewsRatingImg[i].style.minWidth = reviewsRatings[i].innerHTML * 20 + "%";
         }
     };
     parametrEdit();
