@@ -69,7 +69,7 @@ if (!function_exists('filter_function_name_Cities')) {
     </div>
     <div class="container">
         <div class="border-box">
-            <h2>Авторские экскурсии в 561 городе — Travel Mania</h2>
+            <h2>Авторские экскурсии в 600+ городах</h2>
             <div class="border-box__text">
                 Каждый путешественник изучает окружающий мир по-своему.
                 Кто-то любит читать книги и путеводители по городам,

@@ -68,7 +68,7 @@ if (!function_exists('filter_function_name_Countries')) {
     </div>
     <div class="container">
         <div class="border-box">
-            <h2>Авторские экскурсии в 91 стране — Travel Mania</h2>
+            <h2>Авторские экскурсии в 93 странах — Travel Mania</h2>
             <div class="border-box__text">
                 Каждый путешественник изучает окружающий мир по-своему.
                 Кто-то любит читать книги и путеводители по городам,
