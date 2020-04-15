@@ -1,4 +1,5 @@
-﻿<?php
+<?php
+
 /**
  * The template for displaying the footer
  * @package LZ Computer Repair
@@ -31,7 +32,7 @@
                 </div>
                 <div style="display:flex; align-items:center; margin-bottom:10px">
                     <a style="padding: 0 5px" href="/go/?url=https://www.facebook.com/" target="_blank"><img src="/wp-content/themes/lz-computer-repair/assets/images/icon-facebook.png"></a>
-                    <a  style="padding: 0 5px" href="/go/?url=https://www.instagram.com/" target="_blank"><img src="/wp-content/themes/lz-computer-repair/assets/images/icon-instagram.png"></a>
+                    <a style="padding: 0 5px" href="/go/?url=https://www.instagram.com/" target="_blank"><img src="/wp-content/themes/lz-computer-repair/assets/images/icon-instagram.png"></a>
                     <a class="yandex-link" style="padding: 0 5px" href="/go/?url=https://zen.yandex.ru/" target="_blank"></a>
                 </div>
             </div>
@@ -66,5 +67,7 @@
         margin-top: 0 !important;
     }
 </style>
-</body>
-</html>
+
+<body>
+
+    </html>
