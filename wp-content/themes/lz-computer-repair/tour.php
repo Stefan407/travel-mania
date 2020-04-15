@@ -195,11 +195,10 @@ $current_city = str_replace(" ", "-", $current_city);
                                                 <div class="reviews-box">
                                                     <div class="reviews-title">
                                                         <div class="name"><span><?php echo $rew->name  ?></span>
-                                                            <span class="reviews-rating"><?php echo $rew->rating ?> </span>
                                                             <span class="reviews-date"><?php echo $rew->created_on ?></span>
                                                         </div>
                                                         <div class="star-rating-item">
-                                                            <span class="reviews-rating-img">
+                                                            <span class="reviews-rating-img" style="width: <?php echo(20*($rew->rating)) ?>%">
                                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
@@ -297,18 +296,18 @@ $current_city = str_replace(" ", "-", $current_city);
             document.getElementById("star-rating").style.width = starValue + "%";
         }
         let reviewsDate = document.getElementsByClassName("reviews-date");
-        let reviewsRatings = document.getElementsByClassName("reviews-rating");
-        let reviewsRatingImg = document.getElementsByClassName("reviews-rating-img");
+        // let reviewsRatings = document.getElementsByClassName("reviews-rating");
+        // let reviewsRatingImg = document.getElementsByClassName("reviews-rating-img");
 
 
         for (i = 0; i < reviewsDate.length; i++) {
             reviewsDate[i].innerHTML = reviewsDate[i].innerHTML.split("-").reverse().join(".");
         }
 
-        for (i = 0; i < reviewsRatings.length; i++) {
-            reviewsRatingImg[i].style.width = reviewsRatings[i].innerHTML * 20 + "%";
-            reviewsRatingImg[i].style.minWidth = reviewsRatings[i].innerHTML * 20 + "%";
-        }
+        // for (i = 0; i < reviewsRatings.length; i++) {
+        //     reviewsRatingImg[i].style.width = reviewsRatings[i].innerHTML * 20 + "%";
+        //     reviewsRatingImg[i].style.minWidth = reviewsRatings[i].innerHTML * 20 + "%";
+        // }
     };
     parametrEdit();
     $('[data-fancybox]').fancybox({
