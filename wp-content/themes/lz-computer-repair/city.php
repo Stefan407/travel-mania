@@ -1,4 +1,4 @@
-﻿﻿<?php
+<?php
 /*
 Template Name: City-page
 * @package WordPress
