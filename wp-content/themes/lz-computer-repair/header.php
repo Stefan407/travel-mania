@@ -31,6 +31,9 @@ getAllResults('https://experience.tripster.ru/api/countries/?format=json', $list
     <link rel='stylesheet' id='style-css' href="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/css/icomoon.css?ver=5.1.1" type='text/css' media='all' />
     <link rel='stylesheet' id='style-css' href="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/css/jquery.fancybox.min.css" type='text/css' media='all' />
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <?php if (is_page(44)) { ?>
         <meta name="keywords" content="экскурсии, <?php echo ($list[0]->country->name_ru); ?>, русский, на русском, гиды, авторские, эксклюзивные, исторические, обзорные, пешеходные, на автобусе, купить, заказать, забронировать, цена, недорого, дешево, скидка, описание, список, прайс, травэл, мания, travel, mania" />
         <meta name="description" content="У нас можно заказать недорогие авторские экскурсии  <?php echo ($list[0]->country->in_obj_phrase); ?> на русском языке с лучшими гидами. Цены без посредников и удобные даты." />
@@ -84,6 +87,11 @@ getAllResults('https://experience.tripster.ru/api/countries/?format=json', $list
                         </ul>
                     </nav>
                 </div>
+                <!-- <div class="search-wrap">
+                    <div class="search-item">
+                        <input placeholder="Куда вы собираетесь?" id="tags">
+                    </div>
+                </div> -->
             </div>
         </div>
         <div class="menu-wrapper-mobile">
@@ -106,6 +114,8 @@ getAllResults('https://experience.tripster.ru/api/countries/?format=json', $list
             </nav>
         </div>
     </div>
+
+
     <script>
         $('.open-contry').click(function() {
             $(".all-contry").toggleClass('all-contry-active');
@@ -127,5 +137,15 @@ getAllResults('https://experience.tripster.ru/api/countries/?format=json', $list
                 .forEach(function(a) {
                     menuLinks.appendChild(a)
                 });
+        });
+        $(function() {
+            var availableTags = [
+                "ActionScript",
+                "AppleScript",
+                "Asp"
+            ];
+            $("#tags").autocomplete({
+                source: availableTags
+            });
         });
     </script>

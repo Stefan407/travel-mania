@@ -278,7 +278,6 @@ $current_city = str_replace(" ", "-", $current_city);
         </div>
     </div>
 </section>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/slick.min.js"></script>
 <script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/jquery.fancybox.min.js"></script>
 <script>
