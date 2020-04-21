@@ -130,7 +130,7 @@ $current_city = str_replace(" ", "-", $current_city);
                                             <span>Рейтинг </span>
                                             <span id="star-value"><?php echo $list->rating ?></span>
                                             <div class="star-rating-item">
-                                                <span id="star-rating">
+                                                <span id="star-rating" style="width: <?php echo ($list->rating * 20) ?>%">
                                                     <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                                     <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                                     <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
@@ -197,7 +197,7 @@ $current_city = str_replace(" ", "-", $current_city);
                                                         <div class="name"><span><?php echo $rew->name  ?></span>
                                                             <span class="reviews-date"><?php echo $rew->created_on ?></span>
                                                         </div>
-                                                        <div class="star-rating-item">
+                                                        <div class="star-rating-item" >
                                                             <span class="reviews-rating-img" style="width: <?php echo(20*($rew->rating)) ?>%">
                                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
@@ -233,7 +233,7 @@ $current_city = str_replace(" ", "-", $current_city);
                                 <span>Рейтинг </span>
                                 <span id="star-value"><?php echo $list->rating ?></span>
                                 <div class="star-rating-item">
-                                    <span id="star-rating">
+                                    <span id="star-rating" style="width: <?php echo ($list->rating * 20) ?>%">
                                         <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                         <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                         <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
@@ -289,10 +289,10 @@ $current_city = str_replace(" ", "-", $current_city);
     });
 
     function parametrEdit() {
-        if (document.getElementById("star-value")) {
-            let starValue = (20 * document.getElementById("star-value").innerHTML);
-            document.getElementById("star-rating").style.width = starValue + "%";
-        }
+        // if (document.getElementById("star-value")) {
+        //     let starValue = (20 * document.getElementById("star-value").innerHTML);
+        //     document.getElementById("star-rating").style.width = starValue + "%";
+        // }
         let reviewsDate = document.getElementsByClassName("reviews-date");
         // let reviewsRatings = document.getElementsByClassName("reviews-rating");
         // let reviewsRatingImg = document.getElementsByClassName("reviews-rating-img");

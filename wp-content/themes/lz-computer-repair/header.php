@@ -138,14 +138,14 @@ getAllResults('https://experience.tripster.ru/api/countries/?format=json', $list
                     menuLinks.appendChild(a)
                 });
         });
-        $(function() {
-            var availableTags = [
-                "ActionScript",
-                "AppleScript",
-                "Asp"
-            ];
-            $("#tags").autocomplete({
-                source: availableTags
-            });
-        });
+        // $(function() {
+        //     var availableTags = [
+        //         "ActionScript",
+        //         "AppleScript",
+        //         "Asp"
+        //     ];
+        //     $("#tags").autocomplete({
+        //         source: availableTags
+        //     });
+        // });
     </script>
