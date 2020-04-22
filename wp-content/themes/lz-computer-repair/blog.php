@@ -91,7 +91,6 @@ if (!function_exists('filter_function_name_Cities')) {
                         <?php echo get_the_post_thumbnail($post['ID'], 'medium', array('class' => 'alignleft')); ?>
                         <div class="post-item">
                             <div class="title"><?php echo ($post['post_title']) ?></div>
-                            <div class="title"><?php echo ($post['post_name']) ?></div>
                             <div class="text"><?php echo ($post['post_excerpt']) ?></div>
                         </div>
                     </a>

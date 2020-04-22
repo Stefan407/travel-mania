@@ -164,7 +164,7 @@ add_action('wp_head', function () use ($list) {
                             <span class="item-rating">
                                 <span style="display:none;" class="reviews-rating"><?php echo $country->rating ?> </span>
                                 <div class="star-rating-item">
-                                    <span class="reviews-rating-img">
+                                    <span class="reviews-rating-img" style="width: <?php echo ($country->rating * 20) ?>%">
                                         <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                         <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                         <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
@@ -490,8 +490,8 @@ add_action('wp_head', function () use ($list) {
         }
     }
 
-    let reviewsRatings = document.getElementsByClassName("reviews-rating");
-    let reviewsRatingImg = document.getElementsByClassName("reviews-rating-img");
+    // let reviewsRatings = document.getElementsByClassName("reviews-rating");
+    // let reviewsRatingImg = document.getElementsByClassName("reviews-rating-img");
 
 
     if ($(".slick-tours__item").length > 24) {
@@ -527,9 +527,9 @@ add_action('wp_head', function () use ($list) {
             $(".popular-tours .btn-more").css("display", "none");
         }
     }
-    for (i = 0; i < reviewsRatings.length; i++) {
-        reviewsRatingImg[i].style.width = reviewsRatings[i].innerHTML * 20 + "%";
-    }
+    // for (i = 0; i < reviewsRatings.length; i++) {
+    //     reviewsRatingImg[i].style.width = reviewsRatings[i].innerHTML * 20 + "%";
+    // }
 </script>
 
 <?php get_footer(); ?>

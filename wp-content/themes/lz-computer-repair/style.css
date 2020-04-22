@@ -4719,7 +4719,7 @@ h2 {
 }
 
 .popular-tours .item-time-rating .star-rating-item {
-	width: 110px;
+	width: 100px;
 	height: 20px;
 }
 
@@ -5159,6 +5159,7 @@ h6 {
 	color: #8d8e9c;
 	background: #ececef;
 	border-top: 1px solid #dcdcdf;
+	margin-top: 30px;
 }
 
 img.f-logos {
@@ -5190,7 +5191,7 @@ img.f-logos {
 	position: absolute;
 	width: 100%;
 	z-index: 5;
-	bottom: 0;
+	top: 0;
 	display: none;
 }
 
@@ -5317,6 +5318,7 @@ img.f-logos {
 
 	.footer-site {
 		margin: 0;
+		margin-top: 30px;
 	}
 
 	.popular-cityes__wrap .item-element.w-33 {

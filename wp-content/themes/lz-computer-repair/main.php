@@ -98,7 +98,7 @@
                                     <span class="item-rating">
                                         <span style="display:none;" class="reviews-rating"><?php echo $tour->rating ?> </span>
                                         <div class="star-rating-item">
-                                            <span class="reviews-rating-img">
+                                            <span class="reviews-rating-img" style="width: <?php echo ($tour->rating * 20) ?>%">
                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
@@ -137,25 +137,23 @@
                     <?php } ?>
                 </div>
                 <section class="video">
-                    <div class="container">
-                        <h2>583 города в 93 странах — Travel Maniа</h2>
-                        <p>Практически каждый день мы добавляем новые экскурсии, открываем новые страны и города! На сегодня, мы работаем по 583 городам в 93 странах мира. Безупречно продуманные авторские экскурсии, которые вы не встретите в других компаниях, не оставили равнодушным ни одного нашего клиента. В наше команде очень интересные люди, которые знают все факты и подробности экскурсионных мест! Каждая экскурсия или поездка, тщательно продумана гидом, о чем свидетельствую 131 647 отзыва наших гостей.</p>
-                        <p></p>
-                        <div class="video-box">
-                            <h2>Мир за одну минуту</h2>
-                            <div class="video__text">
-                                <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png" class="img-click-video">
-<video controls="controls">
-
-                                    <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/webm">
-                                    <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/mp4">
-                                </video>
-                                <p class="autor">
-                        Видео: <a href="/go/?url=https://vimeo.com/27246366" target="_blank">Rick Mereki</a>
-                    </p>
-                            </div>
-                            <p>Путешествуя с Travel Mania, вы откроете самые удивительные места нашей планеты! У вас есть возможность посетить тысячи самых красивых и интересных мест, получить массу эмоций, сделать красивые фотографии и записать видео. Выбирайте страну, город и смотрите все актуальные экскурсии.</p>
+                    <h2>583 города в 93 странах — Travel Maniа</h2>
+                    <p>Практически каждый день мы добавляем новые экскурсии, открываем новые страны и города! На сегодня, мы работаем по 583 городам в 93 странах мира. Безупречно продуманные авторские экскурсии, которые вы не встретите в других компаниях, не оставили равнодушным ни одного нашего клиента. В наше команде очень интересные люди, которые знают все факты и подробности экскурсионных мест! Каждая экскурсия или поездка, тщательно продумана гидом, о чем свидетельствую 131 647 отзыва наших гостей.</p>
+                    <p></p>
+                    <div class="video-box">
+                        <h2>Мир за одну минуту</h2>
+                        <div class="video__text">
+                            <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png" class="img-click-video">
+                            <video controls="controls">
+                                <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/webm">
+                                <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/mp4">
+                            </video>
+                            <p class="autor">
+                                Видео: <a href="/go/?url=https://vimeo.com/27246366" target="_blank">Rick Mereki</a>
+                            </p>
                         </div>
+                        <p>Путешествуя с Travel Mania, вы откроете самые удивительные места нашей планеты! У вас есть возможность посетить тысячи самых красивых и интересных мест, получить массу эмоций, сделать красивые фотографии и записать видео. Выбирайте страну, город и смотрите все актуальные экскурсии.</p>
+                    </div>
                 </section>
             </div>
         </div>
@@ -167,19 +165,18 @@
 
     <script>
         if ($(".img-click-video").length && window.innerWidth < 500) {
-        var myVideo = document.querySelector(".video-box video");
-        $(".img-click-video").show();
-        $(".img-click-video").click(function(){
-            $(".img-click-video").hide();
-            console.log(myVideo);
-            myVideo.play();
-        })
-    }
-        let reviewsRatings = document.getElementsByClassName("reviews-rating");
-        let reviewsRatingImg = document.getElementsByClassName("reviews-rating-img");
-        for (i = 0; i < reviewsRatings.length; i++) {
-            reviewsRatingImg[i].style.width = reviewsRatings[i].innerHTML * 20 + "%";
+            var myVideo = document.querySelector(".video-box video");
+            $(".img-click-video").show();
+            $(".img-click-video").click(function() {
+                $(".img-click-video").hide();
+                myVideo.play();
+            })
         }
+        // let reviewsRatings = document.getElementsByClassName("reviews-rating");
+        // let reviewsRatingImg = document.getElementsByClassName("reviews-rating-img");
+        // for (i = 0; i < reviewsRatings.length; i++) {
+        //     reviewsRatingImg[i].style.width = reviewsRatings[i].innerHTML * 20 + "%";
+        // }
 
 
         $('.image').slick({
