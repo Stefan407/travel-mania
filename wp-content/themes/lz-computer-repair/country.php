@@ -107,7 +107,7 @@ add_action('wp_head', function () use ($list) {
                 </div>
                 <div class="advantages-item">
                     <h3>Оплачивайте только 20%</h3>
-                    <div class="advantages-text">На сайте оплачиваете только 20% картой, остальную сумму гиду при встрече</div>
+                    <div class="advantages-text">При бронировании оплачивается только 20% картой, остальную сумму платите гиду при встрече</div>
                 </div>
             </div>
         </div>
@@ -185,17 +185,14 @@ add_action('wp_head', function () use ($list) {
                     <?php if ($current_des_country->textButton != "") : ?>
                         <?php echo $current_des_country->textButton; ?>
                     <?php else : ?>
-                        Текст
+                        В ближайшие время мы подготовим детальное описание главных экскурсионных маршрутов <?php echo ($list[0]->country->in_obj_phrase); ?>.
                     <?php endif; ?>
                 </div>
-            </div>
-            <h2>Как забронировать экскурсию</h2>
-            <div class="video-box">
                 <div>
-                    <p>Забронировать экскурсии <?php echo ($list[0]->country->in_obj_phrase); ?> поможет Вам наш видио-пример. Перед тем как Вы определитесь с тематикой экскурсии и выбирите удобную дату, можно задать вопрос любому нашему гиду. Посмотрите видео и узнайте все наши приемущества.</p>
+                    <h2>Как забронировать экскурсию</h2>
+                    <p>Забронировать экскурсии <?php echo ($list[0]->country->in_obj_phrase); ?> поможет наш видиопример. Перед тем, как Вы определитесь с тематикой экскурсии и выбирите удобную дату, можно задать любой вопрос гиду. Посмотрите видео и узнайте все наши приемущества.</p>
                     <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png" class="img-click-video">
-<video controls="controls">
-
+                    <video controls="controls">
                         <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4">
                     </video>
                     <p class="autor">
@@ -203,10 +200,11 @@ add_action('wp_head', function () use ($list) {
                     </p>
                 </div>
                 <div class="video__text">
-                    <p>Бронирование происходит через сайт, при этом вы общаетесь напрямую с гидом и можете задать ему любые вопросы. Вам не нужно ничего оплачивать, пока вы не проясните все важные для себя детали.</p>
+                    <p>Бронирование происходит через сайт, при этом Вы общаетесь напрямую с гидом и можете задать ему любые вопросы. Вам не нужно ничего оплачивать, пока вы не проясните важные для себя детали.</p>
                 </div>
-            </div>
             <div class="reating-box">
+
+                <div style="text-align: center;font-weight: bold; margin-bottom: 7px;"></div>
                 <?php if (function_exists('the_ratings')) {
                     the_ratings();
                 } ?>

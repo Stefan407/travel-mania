@@ -106,7 +106,7 @@ add_action('wp_head', function () use ($list) {
             <div id="top-text-city" class="border-box__text">
                 <?php if ($current_des_city->textTop != "") : ?>
                     <?php echo $current_des_city->textTop; ?>
-                    <?php else : ?>Travel Mania проводид авторские экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> на русском языке. Каждый желающий может присоединиться к нашим группам или заказать индивидуальную экскурсиию.
+                    <?php else : ?>Travel Mania предлагает авторские экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> на русском языке. Каждый желающий может подобрать подходящую экскурсию, как групповую, так и индивидуальную и забронировать на удобную дату.
                 <?php endif; ?>
             </div>
             <div class="advantages-wrap">
@@ -120,7 +120,7 @@ add_action('wp_head', function () use ($list) {
                 </div>
                 <div class="advantages-item">
                     <h3>Оплачивайте только 20%</h3>
-                    <div class="advantages-text">На сайте оплачиваете только 20% картой, остальную сумму гиду при встрече</div>
+                    <div class="advantages-text">При бронировании оплачивается только 20% картой, остальную сумму платите гиду при встрече</div>
                 </div>
             </div>
         </div>
@@ -224,24 +224,24 @@ add_action('wp_head', function () use ($list) {
                     <?php if ($current_des_city->textButton != "") {
                         echo ($current_des_city->textButton);
                     } else { ?>
-                        В ближайшие время мы подготовим детальное описание главных экскурсиооных маршрутов <?php echo ($list[0]->city->in_obj_phrase); ?>.
+                        В ближайшие время мы подготовим детальное описание главных экскурсионных маршрутов <?php echo ($list[0]->city->in_obj_phrase); ?>.
                     <?php } ?>
                 </div>
             </div>
             <h2>Как забронировать экскурсию</h2>
             <div class="video-box">
                 <div>
-                    <p>Забронировать экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> поможет Вам наш видио-пример. Перед тем как Вы определитесь с тематикой экскурсии и выбирите удобную дату, можно задать вопрос любому нашему гиду. Посмотрите видео и узнайте все наши приемущества.</p>
+                    <p>Забронировать экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> поможет наш видиопример. Перед тем, как Вы определитесь с тематикой экскурсии и выбирите удобную дату, можно задать любой вопрос гиду. Посмотрите видео и узнайте все наши приемущества.</p>
                     <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png" class="img-click-video">
                     <video controls="controls">
                         <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4">
                     </video>
                     <p class="autor">
-                        Видео: текст.
+                        Видео: Travel Mania ©
                     </p>
                 </div>
                 <div class="video__text">
-                    <p>Бронирование происходит через сайт, при этом вы общаетесь напрямую с гидом и можете задать ему любые вопросы. Вам не нужно ничего оплачивать, пока вы не проясните все важные для себя детали.</p>
+                    <p>Бронирование происходит через сайт, при этом Вы общаетесь напрямую с гидом и можете задать ему любые вопросы. Вам не нужно ничего оплачивать, пока Вы не проясните важные для себя детали.</p>
                 </div>
             </div>
             <div class="reating-box">

@@ -18,8 +18,9 @@
             </div>
             <ul class="f-menu-item">
                 <li class="f-menu-list"><a class="f-menu-link" href="<?= home_url() ?>/">Главная</a></li>
-                <li class="f-menu-list"><a class="f-menu-link" href="<?= home_url() ?>/blog/">Блог</a></a></li>
-                <li class="f-menu-list"><a class="f-menu-link" href="<?= home_url() ?>/all-countries/">Страны </a></li>
+                <li class="f-menu-list"><a class="f-menu-link" href="<?= home_url() ?>/all-countries/">Страны</a></li>
+                <li class="f-menu-list"><a class="f-menu-link" href="<?= home_url() ?>/all-cities/">Города</a></li>
+                <li class="f-menu-list"><a class="f-menu-link" href="<?= home_url() ?>/blog/">Блог</a></li>
                 <li class="f-menu-list"><a class="f-menu-link" href="<?= home_url() ?>/about/">О нас</a></li>
                 <li class="f-menu-list"><a class="f-menu-link" href="<?= home_url() ?>/feedback/">Задать вопрос</a></li>
             </ul>
