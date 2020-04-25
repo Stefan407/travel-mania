@@ -4371,6 +4371,12 @@ h2 {
 	box-shadow: 0 0 4px #c7c8cc;
 }
 
+.border-box-no-center {
+	padding: 20px 20px 30px 20px;
+	border-radius: 6px;
+	box-shadow: 0 0 4px #c7c8cc;
+}
+
 .contry-main .border-box {
 	justify-content: inherit;
 	align-items: inherit;
@@ -4730,6 +4736,20 @@ h2 {
 .price-item {
 	margin-top: 20px;
 	text-align: center;
+}
+
+.country-all-block {
+	font-size: 17px;
+	column-count: 2;
+}
+
+.country-all-block a {
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.country-all-block a:hover {
+	color: #e04f67 !important;
 }
 
 .star-rating-wrap img.icon-star {
@@ -5787,6 +5807,11 @@ img.f-logos {
 	}
 
 	.all-cauntries #search {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.country-all-block {
 		display: flex;
 		flex-direction: column;
 	}

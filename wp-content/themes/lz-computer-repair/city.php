@@ -232,9 +232,9 @@ add_action('wp_head', function () use ($list) {
             <div class="video-box">
                 <div>
                     <p>Забронировать экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> поможет наш видиопример. Перед тем, как Вы определитесь с тематикой экскурсии и выбирите удобную дату, можно задать любой вопрос гиду. Посмотрите видео и узнайте все наши приемущества.</p>
-                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png" class="img-click-video">
-                    <video controls="controls">
-                        <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4">
+                    <video controls="controls" playsinline poster="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png">
+                        <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/webm">
+                        <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/mp4">
                     </video>
                     <p class="autor">
                         Видео: Travel Mania ©
@@ -261,16 +261,6 @@ add_action('wp_head', function () use ($list) {
 
 
 <script>
-    if ($(".img-click-video").length && window.innerWidth < 500) {
-        var myVideo = document.querySelector(".video-box video");
-        $(".img-click-video").show();
-        $(".img-click-video").click(function() {
-            $(".img-click-video").hide();
-            console.log(myVideo);
-            myVideo.play();
-        })
-    }
-
     function slideFunc() {
         $("#top-images-city img").css({
             "opacity": "1",
@@ -386,44 +376,44 @@ add_action('wp_head', function () use ($list) {
     function initslidertour() {
         if (window.innerWidth > 500) {
             $(".slick-tours__item").hover(function(e) {
-                e = this;
-                let urls = $(this).find(".link").data("images");
-                if (!$(this).find(".new-img").length) {
-                    for (i = 0; i < urls.length; i++) {
-                        $(this).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
+                    e = this;
+                    let urls = $(this).find(".link").data("images");
+                    if (!$(this).find(".new-img").length) {
+                        for (i = 0; i < urls.length; i++) {
+                            $(this).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
+                        }
                     }
-                }
-                if ($(this).find(".slick-track").length == 0) {
-                    $(this).find(".link").on('init', function(event, slick) {
-                        var initSlide = slick.slickCurrentSlide();
-                        var slickDots = slick.$dots[0];
-                        slickDots.childNodes[initSlide].classList.add("slick-current");
-                    });
-                    $(this).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-                        var slickDots = slick.$dots[0];
-                        slickDots.childNodes[currentSlide].classList.remove("slick-current");
-                        slickDots.childNodes[nextSlide].classList.add("slick-current");
-                    });
-                    $(this).find(".link").slick({
-                        arrows: false,
-                        dots: true,
-                        autoplay: true,
-                        autoplaySpeed: 2000,
-                        pauseOnHover: false,
-                        pauseOnFocus: false,
-                    });
-                } else {
-                    $(this).find(".link .slick-active").addClass("slick-current");
-                    $(this).find(".link").slick('slickPlay');
-                    $(this).find(".link .slick-dots").css("opacity", "1");
-                }
-            },
-            function(e) {
-                e = this;
-                $(this).find(".link .slick-active").removeClass("slick-current");
-                $(this).find(".link").slick('slickPause');
-                $(this).find(".link .slick-dots").css("opacity", "0");
-            });
+                    if ($(this).find(".slick-track").length == 0) {
+                        $(this).find(".link").on('init', function(event, slick) {
+                            var initSlide = slick.slickCurrentSlide();
+                            var slickDots = slick.$dots[0];
+                            slickDots.childNodes[initSlide].classList.add("slick-current");
+                        });
+                        $(this).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+                            var slickDots = slick.$dots[0];
+                            slickDots.childNodes[currentSlide].classList.remove("slick-current");
+                            slickDots.childNodes[nextSlide].classList.add("slick-current");
+                        });
+                        $(this).find(".link").slick({
+                            arrows: false,
+                            dots: true,
+                            autoplay: true,
+                            autoplaySpeed: 2000,
+                            pauseOnHover: false,
+                            pauseOnFocus: false,
+                        });
+                    } else {
+                        $(this).find(".link .slick-active").addClass("slick-current");
+                        $(this).find(".link").slick('slickPlay');
+                        $(this).find(".link .slick-dots").css("opacity", "1");
+                    }
+                },
+                function(e) {
+                    e = this;
+                    $(this).find(".link .slick-active").removeClass("slick-current");
+                    $(this).find(".link").slick('slickPause');
+                    $(this).find(".link .slick-dots").css("opacity", "0");
+                });
         } else {
             editElemsTour();
 

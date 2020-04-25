@@ -191,9 +191,9 @@ add_action('wp_head', function () use ($list) {
                 <div>
                     <h2>Как забронировать экскурсию</h2>
                     <p>Забронировать экскурсии <?php echo ($list[0]->country->in_obj_phrase); ?> поможет наш видиопример. Перед тем, как Вы определитесь с тематикой экскурсии и выбирите удобную дату, можно задать любой вопрос гиду. Посмотрите видео и узнайте все наши приемущества.</p>
-                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png" class="img-click-video">
-                    <video controls="controls">
-                        <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4">
+                    <video controls="controls" playsinline poster="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png">
+                        <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/webm">
+                        <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/mp4">
                     </video>
                     <p class="autor">
                         Видео: Travel Mania ©
@@ -202,27 +202,18 @@ add_action('wp_head', function () use ($list) {
                 <div class="video__text">
                     <p>Бронирование происходит через сайт, при этом Вы общаетесь напрямую с гидом и можете задать ему любые вопросы. Вам не нужно ничего оплачивать, пока вы не проясните важные для себя детали.</p>
                 </div>
-            <div class="reating-box">
+                <div class="reating-box">
 
-                <div style="text-align: center;font-weight: bold; margin-bottom: 7px;"></div>
-                <?php if (function_exists('the_ratings')) {
-                    the_ratings();
-                } ?>
+                    <div style="text-align: center;font-weight: bold; margin-bottom: 7px;"></div>
+                    <?php if (function_exists('the_ratings')) {
+                        the_ratings();
+                    } ?>
+                </div>
             </div>
-        </div>
 </section>
 <?php get_footer(); ?>
 
 <script>
-    if ($(".img-click-video").length && window.innerWidth < 500) {
-        var myVideo = document.querySelector(".video-box video");
-        $(".img-click-video").show();
-        $(".img-click-video").click(function(){
-            $(".img-click-video").hide();
-            console.log(myVideo);
-            myVideo.play();
-        })
-    }
     $(".country-btn-wrap .btn-title").on("click", function() {
         $(".country-btn-wrap .btn-block").toggleClass("active");
     })
