@@ -33,7 +33,7 @@ if (!function_exists('filter_function_name_Cities')) {
 <head>
     <?php wp_head(); ?>
     <meta name="keywords" content="экскурсии, все, города, направления, в городах, на русском, язык, выбрать, заказать, купить, забронировать, трэвэл, мания, travel, mania" />
-    <meta name="description" content="Здесь можно выбрать город, в котором хотите заказать экскурсию на русском языке от Тревел Мании!" />
+    <meta name="description" content="Здесь можно выбрать город в котором хотите заказать экскурсию на русском языке от Тревел Мании!" />
 </head>
 <?php get_header(); ?>
 <section class="top">

@@ -34,41 +34,32 @@
                 <div style="display:flex; align-items:center; margin-bottom:10px">
                     <a style="padding: 0 5px" href="/go/?url=https://www.facebook.com/" target="_blank"><img src="/wp-content/themes/lz-computer-repair/assets/images/icon-facebook.png"></a>
                     <a style="padding: 0 5px" href="/go/?url=https://www.instagram.com/" target="_blank"><img src="/wp-content/themes/lz-computer-repair/assets/images/icon-instagram.png"></a>
-                    <a class="yandex-link" style="padding: 0 5px" href="/go/?url=https://zen.yandex.ru/" target="_blank"></a>
                 </div>
             </div>
         </div>
     </div>
     <script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/slick.min.js"></script>
-</footer>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m, e, t, r, i, k, a) {
-        m[i] = m[i] || function() {
-            (m[i].a = m[i].a || []).push(arguments)
-        };
-        m[i].l = 1 * new Date();
-        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-    })
-    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-    ym(56569540, "init", {
-        clickmap: true,
-        trackLinks: true,
-        accurateTrackBounce: true,
-        webvisor: true
-    });
-</script>
-<noscript>
-    <div><img src="https://mc.yandex.ru/watch/56569540" style="position:absolute; left:-9999px;" alt="" /></div>
-</noscript>
-<!-- /Yandex.Metrika counter -->
 <style>
     html {
         margin-top: 0 !important;
     }
 </style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
+   ym(56569540, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/56569540" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <body>
 
     </html>

@@ -31,7 +31,7 @@ get_header();
 
 add_action('wp_head', function () use ($list) {
     echo '<meta name="keywords" content="экскурсии, ' . $list[0]->city->name_ru . ', русский, на русском, гиды, авторские, эксклюзивные, исторические, обзорные, пешеходные, на автобусе, купить, заказать, забронировать, цена, недорого, дешево, скидка, описание, список, прайс, травэл, мания, travel, mania" />';
-    echo '<meta name="description" content="У нас можно заказать недорогие авторские экскурсии ' . $list[0]->city->in_obj_phrase . ' на русском языке с лучшими гидами. Цены без посредников и удобные даты." />';
+    echo '<meta name="description" content="У нас можно заказать авторские экскурсии ' . $list[0]->city->in_obj_phrase . ' на русском языке с лучшими гидами. Выгодные цены без посредников и удобные даты проведения." />';
 });
 ?>
 <style>
@@ -232,24 +232,17 @@ add_action('wp_head', function () use ($list) {
             <div class="video-box">
                 <div>
                     <p>Забронировать экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> поможет наш видиопример. Перед тем, как Вы определитесь с тематикой экскурсии и выбирите удобную дату, можно задать любой вопрос гиду. Посмотрите видео и узнайте все наши приемущества.</p>
-                    <video controls="controls" playsinline poster="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png">
-                        <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/webm">
-                        <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/mp4">
+                    <video controls="controls" playsinline poster="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/TRAVEL-MANIA-EXMP.png">
+                        <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/webm">
+                        <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/mp4">
                     </video>
                     <p class="autor">
-                        Видео: Travel Mania ©
+                        Видео: © Travel Mania 
                     </p>
                 </div>
                 <div class="video__text">
                     <p>Бронирование происходит через сайт, при этом Вы общаетесь напрямую с гидом и можете задать ему любые вопросы. Вам не нужно ничего оплачивать, пока Вы не проясните важные для себя детали.</p>
                 </div>
-            </div>
-            <div class="reating-box">
-
-                <div style="text-align: center;font-weight: bold; margin-bottom: 7px;"></div>
-                <?php if (function_exists('the_ratings')) {
-                    the_ratings();
-                } ?>
             </div>
         </div>
 

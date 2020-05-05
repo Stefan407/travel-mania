@@ -30,7 +30,7 @@ if (!function_exists('filter_function_name_Countries')) {
 <head>
     <?php wp_head(); ?>
     <meta name="keywords" content="экскурсии, страны, все, на русском, язык, выбрать, заказать, купить, забронировать, трэвэл, мания, travel, mania" />
-    <meta name="description" content="Здесь можно выбрать страну, в которой хотите заказать экскурсию на русском языке от Тревел Мании" />
+    <meta name="description" content="Здесь можно выбрать страну в которой хотите заказать экскурсию на русском языке от Тревел Мании" />
 </head>
 <?php get_header(); ?>
 <section class="top">
