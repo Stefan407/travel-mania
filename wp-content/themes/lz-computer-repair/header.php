@@ -73,7 +73,7 @@ getAllResults('https://experience.tripster.ru/api/countries/?format=json', $list
                                     <li><a href="<?= home_url() ?>/all-countries/">Все страны</a></li>
                                     <li class="list-contry">
                                         <?php foreach ($list as $country) { ?>
-                                            <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', urlencode($country->name_en)) ?>">
+                                            <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', urlencode($country->name_en)) ?>/">
                                                 <?php echo $country->name_ru ?>
                                             </a>
                                         <?php } ?>
