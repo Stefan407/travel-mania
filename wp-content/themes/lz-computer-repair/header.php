@@ -35,7 +35,9 @@ getAllResults('https://experience.tripster.ru/api/countries/?format=json', $list
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <!-- Google Tag Manager -->
+    <script data-ad-client="ca-pub-1224554491202001" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Google Tag Manager -->
+<script data-ad-client="ca-pub-1224554491202001" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -55,10 +57,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </style>
 
 <body <?php body_class(); ?>>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH5TPRC"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
     <div id="header">
         <div class="menu-wrapper">
             <div class="container">
@@ -161,3 +159,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         //     });
         // });
     </script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH5TPRC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
