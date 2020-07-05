@@ -21,12 +21,10 @@ $list1 = [];
 
 $reviews = [];
 
-if(!is_null($page))
-{
-    include_once($page.'.php');
+if (!is_null($page)) {
+    include_once($page . '.php');
     exit;
-}
-else if ($experiences_id) {
+} else if ($experiences_id) {
     $page = 'Tour';
     $list = getData("https://experience.tripster.ru/api/experiences/{$experiences_id}/");
     if (!$list) {
@@ -35,7 +33,6 @@ else if ($experiences_id) {
         exit;
     }
     $reviews = getData($list->links->reviews);
-
 } else if ($country__name_en && $city__name_en) {
     $page = 'City';
     if ($city__name_en == 'Lviv') {
@@ -82,11 +79,10 @@ else if ($experiences_id) {
         getAllResults("https://experience.tripster.ru/api/experiences/?city__name_en=Pha-ngan&detailed=true", $list);
     } else if ($city__name_en == "Giardini+Naxos") {
         getAllResults("https://experience.tripster.ru/api/experiences/?city__name_en=Giardini-Naxos&detailed=true", $list);
-    }else{
-       getAllResults("https://experience.tripster.ru/api/experiences/?city__name_en={$city__name_en}&detailed=true", $list);
+    } else {
+        getAllResults("https://experience.tripster.ru/api/experiences/?city__name_en={$city__name_en}&detailed=true", $list);
     }
-}
-else if ($country__name_en) {
+} else if ($country__name_en) {
     $page = 'Country';
     getAllResults("https://experience.tripster.ru/api/cities/?country__name_en={$country__name_en}", $list);
 } else {
@@ -101,8 +97,18 @@ else if ($country__name_en) {
 }
 
 if (!$list) {
-    /* dd('Нет результатов!!'); */
-    include_once('404.php');
+    $post_data = get_post(141);
+    $recent_posts = wp_get_recent_posts();
+    $country__name_en_new = str_replace('+', '-', $country__name_en);
+    foreach ($recent_posts as $post) {
+        if($post["post_name"] == $country__name_en_new){
+            include_once('post.php');
+            exit;
+        }else{
+            include_once('404.php');
+            exit;
+        }
+    }
     exit;
 }
 
@@ -120,8 +126,7 @@ function filter_function_name_2114($title)
     return $title;
 }
 
-switch($page)
-{
+switch ($page) {
     case 'Main':
         include_once 'main.php';
         break;

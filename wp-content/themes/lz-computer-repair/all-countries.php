@@ -17,7 +17,7 @@ if (!function_exists('filter_function_name_Countries')) {
     add_filter('document_title_parts', 'filter_function_name_Countries');
     function filter_function_name_Countries($title)
     {
-        $title['title'] = 'Авторские экскурсии в странах';
+        $title['title'] = 'Авторские экскурсии в 93 странах';
         $title['site'] = '';
         $title['page '] = '';
         $title['tagline '] = '';
@@ -30,7 +30,7 @@ if (!function_exists('filter_function_name_Countries')) {
 <head>
     <?php wp_head(); ?>
     <meta name="keywords" content="экскурсии, страны, все, на русском, язык, выбрать, заказать, купить, забронировать, трэвэл, мания, travel, mania" />
-    <meta name="description" content="Здесь можно выбрать страну, в которой хотите заказать экскурсию на русском языке от Тревел Мании" />
+    <meta name="description" content="Здесь можно выбрать страну в которой хотите заказать экскурсию на русском языке от Тревел Мании" />
 </head>
 <?php get_header(); ?>
 <section class="top">
@@ -41,57 +41,31 @@ if (!function_exists('filter_function_name_Countries')) {
         <div class="top__slider-text">
             <div class="container">
                 <div class="top__content-text">
-                    <h1>Авторские экскурсии в странах</h1>
+                    <h1>Авторские экскурсии в 93 странах</h1>
                 </div>
             </div>
         </div>
     </div>
     <div class="breadcrumbs">
         <div class="container breadcrumbs-wrap">
-            <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
-                <span itemprop="title">
+            <div class="breadcrumbs-item">
+                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
+                        <span itemprop="title">
                             <span>Главная</span>
                         </span>
-                </a>
+                    </a>
+                </div>
+                <div class="breadcrumbs__arrow">
+                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+                </div>
+                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <link itemprop="url" href="/all-countries/">
+                    <p class="breadcrumbs__text">
+                        <span itemprop="title">Все страны</span>
+                    </p>
+                </div>
             </div>
-            <div class="breadcrumbs__arrow">
-                <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
-            </div>
-            <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                <link itemprop="url" href="/all-countries/">
-                <p class="breadcrumbs__text">
-                    <span itemprop="title">Все страны</span>
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="border-box">
-            <h2>Авторские экскурсии в 91 стране — Travel Mania</h2>
-            <div class="border-box__text">
-                Каждый путешественник изучает окружающий мир по-своему.
-                Кто-то любит читать книги и путеводители по городам,
-                а потом приехать в пункт назначения и самостоятельно изучить
-                все достопримечательности и интересные места.
-                Кто-то любит чтобы его везде отвезли, всё показали
-                и всё рассказали. Неизменным остаётся одно - жажда
-                знаний и непреодолимая тяга к новому интересному и интригующему.
-            </div>
-            <div class="advantages-wrap">
-                    <div class="advantages-item">
-                        <h3>Онлайн бронирование</h3>
-                        <div class="advantages-text">Выберете город, подберите экскурсию и сделайте бронь на удобную дату</div>
-                    </div>
-                    <div class="advantages-item">
-                        <h3>Консультация с гидом</h3>
-                        <div class="advantages-text">До оплаты экскурсии обсудите с гидом подробности и задайте любые вопросы</div>
-                    </div>
-                    <div class="advantages-item">
-                        <h3>Оплачивайте только 20%</h3>
-                        <div class="advantages-text">На сайте оплачиваете только 20% картой, остальную сумму гиду при встрече</div>
-                    </div>
-                </div>        
         </div>
     </div>
 </section>
@@ -103,20 +77,45 @@ if (!function_exists('filter_function_name_Countries')) {
                 <h2>Выберите страну для путешествия</h2>
                 <div class="country-btn-wrap">
                     <div class="country-btn">
-                    <div class="btn-title"><span>По популярности</span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#2ecc71"><path d="M150.5,79.6145v0c0,-9.5245 -10.61383,-15.20767 -18.54017,-9.92583l-45.95983,30.64467l-45.95983,-30.6375c-7.92633,-5.28183 -18.54017,0.39417 -18.54017,9.91867v0c0,3.98467 1.99233,7.71133 5.3105,9.92583l51.24167,34.15633c4.816,3.21067 11.08683,3.21067 15.90283,0l51.24167,-34.15633c3.311,-2.2145 5.30333,-5.934 5.30333,-9.92583z"></path></g></g></svg></div>
-                    <div class="btn-block">
-                        <button id="btn-al"><span>По алфавиту</span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26" viewBox="0 0 226 226" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,226v-226h226v226z" fill="none"></path><g fill="#2ecc71"><path d="M196.15414,41.11869l-15.58503,-10.59375c-4.3122,-2.92008 -10.22026,-1.79958 -13.10637,2.47866l-76.39723,112.66046l-35.10878,-35.10878c-3.66707,-3.66707 -9.64303,-3.66707 -13.3101,0l-13.34405,13.34405c-3.66707,3.66707 -3.66707,9.64303 0,13.34406l53.98738,53.98738c3.02194,3.02193 7.77555,5.33083 12.05379,5.33083c4.27825,0 8.59044,-2.68239 11.3747,-6.72295l91.94832,-135.64754c2.92007,-4.27824 1.79958,-10.15235 -2.51262,-13.07241z"></path></g></g></svg></button>
-                        <button id="btn-rat"><span>По популярности</span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26" viewBox="0 0 226 226" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,226v-226h226v226z" fill="none"></path><g fill="#2ecc71"><path d="M196.15414,41.11869l-15.58503,-10.59375c-4.3122,-2.92008 -10.22026,-1.79958 -13.10637,2.47866l-76.39723,112.66046l-35.10878,-35.10878c-3.66707,-3.66707 -9.64303,-3.66707 -13.3101,0l-13.34405,13.34405c-3.66707,3.66707 -3.66707,9.64303 0,13.34406l53.98738,53.98738c3.02194,3.02193 7.77555,5.33083 12.05379,5.33083c4.27825,0 8.59044,-2.68239 11.3747,-6.72295l91.94832,-135.64754c2.92007,-4.27824 1.79958,-10.15235 -2.51262,-13.07241z"></path></g></g></svg></button>
+                        <div class="btn-title"><span>По популярности</span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                                    <g fill="#2ecc71">
+                                        <path d="M150.5,79.6145v0c0,-9.5245 -10.61383,-15.20767 -18.54017,-9.92583l-45.95983,30.64467l-45.95983,-30.6375c-7.92633,-5.28183 -18.54017,0.39417 -18.54017,9.91867v0c0,3.98467 1.99233,7.71133 5.3105,9.92583l51.24167,34.15633c4.816,3.21067 11.08683,3.21067 15.90283,0l51.24167,-34.15633c3.311,-2.2145 5.30333,-5.934 5.30333,-9.92583z"></path>
+                                    </g>
+                                </g>
+                            </svg></div>
+                        <div class="btn-block">
+                            <button id="btn-al"><span>По алфавиту</span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26" viewBox="0 0 226 226" style=" fill:#000000;">
+                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                        <path d="M0,226v-226h226v226z" fill="none"></path>
+                                        <g fill="#2ecc71">
+                                            <path d="M196.15414,41.11869l-15.58503,-10.59375c-4.3122,-2.92008 -10.22026,-1.79958 -13.10637,2.47866l-76.39723,112.66046l-35.10878,-35.10878c-3.66707,-3.66707 -9.64303,-3.66707 -13.3101,0l-13.34405,13.34405c-3.66707,3.66707 -3.66707,9.64303 0,13.34406l53.98738,53.98738c3.02194,3.02193 7.77555,5.33083 12.05379,5.33083c4.27825,0 8.59044,-2.68239 11.3747,-6.72295l91.94832,-135.64754c2.92007,-4.27824 1.79958,-10.15235 -2.51262,-13.07241z"></path>
+                                        </g>
+                                    </g>
+                                </svg></button>
+                            <button id="btn-rat"><span>По популярности</span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26" viewBox="0 0 226 226" style=" fill:#000000;">
+                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                        <path d="M0,226v-226h226v226z" fill="none"></path>
+                                        <g fill="#2ecc71">
+                                            <path d="M196.15414,41.11869l-15.58503,-10.59375c-4.3122,-2.92008 -10.22026,-1.79958 -13.10637,2.47866l-76.39723,112.66046l-35.10878,-35.10878c-3.66707,-3.66707 -9.64303,-3.66707 -13.3101,0l-13.34405,13.34405c-3.66707,3.66707 -3.66707,9.64303 0,13.34406l53.98738,53.98738c3.02194,3.02193 7.77555,5.33083 12.05379,5.33083c4.27825,0 8.59044,-2.68239 11.3747,-6.72295l91.94832,-135.64754c2.92007,-4.27824 1.79958,-10.15235 -2.51262,-13.07241z"></path>
+                                        </g>
+                                    </g>
+                                </svg></button>
+                        </div>
                     </div>
                 </div>
-            </div>
                 <div id="search">
                     <?php foreach ($list as $country) { ?>
                         <div class="search-element ">
-                            <div>                                 
+                            <div>
                                 <a style="display:flex;" class="links-country" href="<?= home_url() ?>/<?php echo str_replace('+', '-', urlencode($country->name_en)) ?>/">
-                                <svg style="margin-right:5px;min-width:20px;min-height:20px;width:20px;height:20px" height="512px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g fill="#2ecc71"> <path d="M256,32c-74,0-134.2,58.7-134.2,132.7c0,16.4,3.5,34.3,9.8,50.4l-0.1,0l0.6,1.2c0.5,1.1,1,2.2,1.5,3.3L256,480l121.8-259.1   l0.6-1.2c0.5-1.1,1.1-2.2,1.6-3.4l0.4-1.1c6.5-16.1,9.8-33.1,9.8-50.3C390.2,90.7,330,32,256,32z M256,206.9   c-25.9,0-46.9-21-46.9-46.9c0-25.9,21-46.9,46.9-46.9c25.9,0,46.9,21,46.9,46.9C302.9,185.9,281.9,206.9,256,206.9z"/></g></svg>    
-                                <?php echo $country->name_ru ?>
+                                    <svg style="margin-right:5px;min-width:20px;min-height:20px;width:20px;height:20px" height="512px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g fill="#2ecc71">
+                                            <path d="M256,32c-74,0-134.2,58.7-134.2,132.7c0,16.4,3.5,34.3,9.8,50.4l-0.1,0l0.6,1.2c0.5,1.1,1,2.2,1.5,3.3L256,480l121.8-259.1   l0.6-1.2c0.5-1.1,1.1-2.2,1.6-3.4l0.4-1.1c6.5-16.1,9.8-33.1,9.8-50.3C390.2,90.7,330,32,256,32z M256,206.9   c-25.9,0-46.9-21-46.9-46.9c0-25.9,21-46.9,46.9-46.9c25.9,0,46.9,21,46.9,46.9C302.9,185.9,281.9,206.9,256,206.9z" />
+                                        </g>
+                                    </svg>
+                                    <?php echo $country->name_ru ?>
                                 </a>
                             </div>
                         </div>
@@ -129,34 +128,27 @@ if (!function_exists('filter_function_name_Countries')) {
 <section class="video">
     <div class="container">
         <div class="border-box">
-            <h2>Главные экскурсионные направления — Travel Mania</h2>
-            <p>Инициатором акции стал фонд швейцарско-канадского кинематографиста и путешественника Бернарда Вебера при поддержке ЮНЕСКО. Бернард Вебер известен по фильму "Отель "Локарно", который он снял вместе с Федерико Феллини, а также по ряду книг ("Дыхание Богов", "Муравьи"), которые стали популярны по всему миру. В течение двух лет желающие со всего света могли проголосовать за любимые архитектурные постройки.</p>
-            <p>Среди претендентов на почетное место в списке чудес света было 77 архитектурных памятников, лишь один из которых был из России: "Собор Василия Блаженного / Московский Кремль" - именно так было указано в голосовании. Однако ему не удалось войти в заветную семерку. По итогам голосования, которые были объявлены в эту субботу в Лиссабоне (Португалия), список новых чудес света выглядит так: Колизей в Риме (Италия), храм Тадж-Махал (Индия), статуя Христа в Рио-де-Жанейро (Бразилия), город древних инков Мачу-Пикчу (Перу), пирамида племени майя Чичен-Итца (мексиканский полуостров Юкатан), храмовый комплекс Петра (Иордания), Великая Китайская стена.</p>
-            <div class="video-box"><h2>Весь мир за одну минуту</h2>
-                <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png" class="img-click-video">
-<video controls="controls">
-
-                    <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4">
+            <h2>Экскурсии в 93 странах мира</h2>
+            <p>Travel Mania — лучшие экскурсионные предложения в 93 странах мира. Все экскурсии авторские: обзорные, исторические, гастрономические и шоппинг туры, экскурсии с детьми, а также спортивные и развлекательные поездки. Мы предлагаем тысячи эксклюзивных экскурсий, которые можно забронировать онлайн. Только тщательно продуманные маршруты и выгодные цены, о чем свидетельствуют более 140 000 отзывов.</p>
+            <div class="video-box">
+                <h2>Весь мир за одну минуту</h2>
+                <video controls="controls" playsinline poster="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png">
+                    <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/webm">
+                    <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/mp4">
                 </video>
-                <div class="video__text"><p>Если прежде все чудеса света не выходили за пределы Европы и Ближнего Востока, то сегодня своими чудесами могут похвастаться Северная и Южная Америка, а также Азия. Напомним, что в труд Филона Византийского "Семь чудес света" входили египетские пирамиды, "висячие сады" Семирамиды (Вавилон), храм Артемиды в Эфесе (нынешняя Турция), Колосс Родосский (о. Родос), Александрийский маяк (о. Фарос в Средиземном море), гробница Мавсола в Галикарнасе (снова Турция) и статуя Зевса Олимпийского. Из всех этих построек до нашего времени дожили только египетские пирамиды.</p></div>
+                <p class="autor">
+                    Видео: <a href="/go/?url=https://vimeo.com/27246366" target="_blank">Rick Mereki</a>
+                </p>
+                <div class="video__text">
+                    <p>Путешествуя с Travel Mania, Вы откроете самые удивительные места нашей планеты! У Вас есть возможность познать новые страны и города, увидеть известные архитектурные памятники и красоту природы, узнать историю этих мест, особенности менталитета местных жителей, попробовать местную кухню и услышать истории о людях, прославивших эту землю. Выбирайте страну, город, смотрите все актуальные экскурсии и бронируйте понравившееся предложение.</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
-<link rel="stylesheet" type="text/css" href="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/css/slick.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/slick.min.js"></script>
 <script>
-    if ($(".img-click-video").length && window.innerWidth < 500) {
-        var myVideo = document.querySelector(".video-box video");
-        $(".img-click-video").show();
-        $(".img-click-video").click(function(){
-            $(".img-click-video").hide();
-            console.log(myVideo);
-            myVideo.play();
-        })
-    }
-    $(".country-btn-wrap .btn-title").on("click", function(){
+    $(".country-btn-wrap .btn-title").on("click", function() {
         $(".country-btn-wrap .btn-block").toggleClass("active");
     })
     var search = document.querySelector("#search");

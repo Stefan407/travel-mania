@@ -27,7 +27,7 @@ if (!function_exists('filter_function_name_Cities')) {
 <head>
     <?php wp_head(); ?>
     <meta name="keywords" content="блог, лайфхаки, советы, статьи, публикации, заметки, полезное, трэвэл, мания, travel, mania" />
-    <meta name="description" content="В нашем блоге мы собрали лайфхаки и полезные советы всем путешественникам Тревел Мании!" />
+    <meta name="description" content="В нашем блоге мы собрали лайфхаки и полезные советы всем путешественникам - Тревел Мания!" />
 </head>
 <?php get_header(); ?>
 <section class="top">
@@ -45,21 +45,23 @@ if (!function_exists('filter_function_name_Cities')) {
     </div>
     <div class="breadcrumbs">
         <div class="container breadcrumbs-wrap">
-            <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
-                <span itemprop="title">
+            <div class="breadcrumbs-item">
+                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
+                        <span itemprop="title">
                             <span>Главная</span>
                         </span>
-                </a>
-            </div>
-            <div class="breadcrumbs__arrow">
-                <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
-            </div>
-            <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                <link itemprop="url" href="/blog/">
-                <p class="breadcrumbs__text">
-                    <span itemprop="title">Блог</span>
-                </p>
+                    </a>
+                </div>
+                <div class="breadcrumbs__arrow">
+                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+                </div>
+                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <link itemprop="url" href="/blog/">
+                    <p class="breadcrumbs__text">
+                        <span itemprop="title">Блог</span>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -67,13 +69,7 @@ if (!function_exists('filter_function_name_Cities')) {
         <div class="border-box">
             <h2>Полезные статьи для друзей Travel Mania</h2>
             <div class="border-box__text">
-                Каждый путешественник изучает окружающий мир по-своему.
-                Кто-то любит читать книги и путеводители по городам,
-                а потом приехать в пункт назначения и самостоятельно изучить
-                все достопримечательности и интересные места.
-                Кто-то любит чтобы его везде отвезли, всё показали
-                и всё рассказали. Неизменным остаётся одно - жажда
-                знаний и непреодолимая тяга к новому интересному и интригующему.
+            В нашем блоге мы регулярно будет публиковать полезные статьи и советы всем путешественникам.
             </div>
         </div>
     </div>
@@ -85,7 +81,7 @@ if (!function_exists('filter_function_name_Cities')) {
         <ul class="blog-list">
             <?php foreach ($recent_posts as $post) { ?>
                 <li class="blog-item_block <?php echo ($post['post_name']) ?>">
-                    <a href="<?php echo ("/".$post['post_name']."/") ?>">
+                    <a href="<?php echo ("/" . $post['post_name'] . "/") ?>">
                         <?php echo get_the_post_thumbnail($post['ID'], 'medium', array('class' => 'alignleft')); ?>
                         <div class="post-item">
                             <div class="title"><?php echo ($post['post_title']) ?></div>
@@ -98,8 +94,6 @@ if (!function_exists('filter_function_name_Cities')) {
     </div>
 </div>
 
-<link rel="stylesheet" type="text/css" href="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/css/slick.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/slick.min.js"></script>
 <script>
     $('.image').slick({

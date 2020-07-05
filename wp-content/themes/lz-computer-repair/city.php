@@ -1,4 +1,4 @@
-﻿﻿<?php
+<?php
 /*
 Template Name: City-page
 * @package WordPress
@@ -20,7 +20,6 @@ $current_des_cities = array_filter($des_cities, function ($city) use ($current_c
 $current_des_city = reset($current_des_cities);
 
 
-get_header();
 
 $my_var = $list[0]->city->in_obj_phrase;
 
@@ -31,13 +30,16 @@ add_action('pre_get_document_title', function () use ($page_title) {
 
 add_action('wp_head', function () use ($list) {
     echo '<meta name="keywords" content="экскурсии, ' . $list[0]->city->name_ru . ', русский, на русском, гиды, авторские, эксклюзивные, исторические, обзорные, пешеходные, на автобусе, купить, заказать, забронировать, цена, недорого, дешево, скидка, описание, список, прайс, травэл, мания, travel, mania" />';
-    echo '<meta name="description" content="У нас можно заказать недорогие авторские экскурсии ' . $list[0]->city->in_obj_phrase . ' на русском языке с лучшими гидами. Цены без посредников и удобные даты." />';
+    echo '<meta name="description" content="У нас можно заказать авторские экскурсии ' . $list[0]->city->in_obj_phrase . ' на русском языке с лучшими гидами. Выгодные цены без посредников и удобные даты проведения." />';
 });
+
+get_header();
+
+
 ?>
 <style>
     body {
-        margin-top: -30px;
-        padding-top: 3px;
+        transform: translate(0, -2px)
     }
 </style>
 <section class="top">
@@ -101,13 +103,12 @@ add_action('wp_head', function () use ($list) {
         </div>
     </div>
     <div class="container">
-
         <div class="border-box">
             <h2>Экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> на русском языке</h2>
             <div id="top-text-city" class="border-box__text">
                 <?php if ($current_des_city->textTop != "") : ?>
                     <?php echo $current_des_city->textTop; ?>
-                    <?php else : ?>Travel Mania проводид авторские экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> на русском языке. Каждый желающий может присоединиться к нашим группам или заказать индивидуальную экскурсиию.
+                    <?php else : ?>Travel Mania предлагает авторские экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> на русском языке. Каждый желающий может подобрать подходящую экскурсию, как групповую, так и индивидуальную и забронировать на удобную дату.
                 <?php endif; ?>
             </div>
             <div class="advantages-wrap">
@@ -121,7 +122,7 @@ add_action('wp_head', function () use ($list) {
                 </div>
                 <div class="advantages-item">
                     <h3>Оплачивайте только 20%</h3>
-                    <div class="advantages-text">На сайте оплачиваете только 20% картой, остальную сумму гиду при встрече</div>
+                    <div class="advantages-text">При бронировании оплачивается только 20% картой, остальную сумму платите гиду при встрече</div>
                 </div>
             </div>
         </div>
@@ -165,7 +166,7 @@ add_action('wp_head', function () use ($list) {
                             <span class="item-rating">
                                 <span style="display:none;" class="reviews-rating"><?php echo $country->rating ?> </span>
                                 <div class="star-rating-item">
-                                    <span class="reviews-rating-img">
+                                    <span class="reviews-rating-img" style="width: <?php echo ($country->rating * 20) ?>%">
                                         <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                         <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                         <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
@@ -225,29 +226,25 @@ add_action('wp_head', function () use ($list) {
                     <?php if ($current_des_city->textButton != "") {
                         echo ($current_des_city->textButton);
                     } else { ?>
-                        В ближайшие время мы подготовим детальное описание главных экскурсиооных маршрутов <?php echo ($list[0]->city->in_obj_phrase); ?>.
+                        В ближайшие время мы подготовим детальное описание главных экскурсионных маршрутов <?php echo ($list[0]->city->in_obj_phrase); ?>.
                     <?php } ?>
                 </div>
             </div>
             <h2>Как забронировать экскурсию</h2>
             <div class="video-box">
                 <div>
-                    <p>Забронировать экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> поможет Вам наш видио-пример. Перед тем как Вы определитесь с тематикой экскурсии и выбирите удобную дату, можно задать вопрос любому нашему гиду. Посмотрите видео и узнайте все наши приемущества.</p>
-                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png" class="img-click-video">
-                    <video controls="controls">
-                        <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4">
+                    <p>Забронировать экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> поможет наш видиопример. Перед тем, как Вы определитесь с тематикой экскурсии и выбирите удобную дату, можно задать любой вопрос гиду. Посмотрите видео и узнайте все наши приемущества.</p>
+                    <video controls="controls" playsinline poster="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/TRAVEL-MANIA-EXMP.png">
+                        <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/webm">
+                        <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/mp4">
                     </video>
+                    <p class="autor">
+                        Видео: © Travel Mania
+                    </p>
                 </div>
                 <div class="video__text">
-                    <p>Бронирование происходит через сайт, при этом вы общаетесь напрямую с гидом и можете задать ему любые вопросы. Вам не нужно ничего оплачивать, пока вы не проясните все важные для себя детали.</p>
+                    <p>Бронирование происходит через сайт, при этом Вы общаетесь напрямую с гидом и можете задать ему любые вопросы. Вам не нужно ничего оплачивать, пока Вы не проясните важные для себя детали.</p>
                 </div>
-            </div>
-            <div class="reating-box">
-
-                <div style="text-align: center;font-weight: bold; margin-bottom: 7px;"></div>
-                <?php if (function_exists('the_ratings')) {
-                    the_ratings();
-                } ?>
             </div>
         </div>
 
@@ -259,16 +256,6 @@ add_action('wp_head', function () use ($list) {
 
 
 <script>
-    if ($(".img-click-video").length && window.innerWidth < 500) {
-        var myVideo = document.querySelector(".video-box video");
-        $(".img-click-video").show();
-        $(".img-click-video").click(function() {
-            $(".img-click-video").hide();
-            console.log(myVideo);
-            myVideo.play();
-        })
-    }
-
     function slideFunc() {
         $("#top-images-city img").css({
             "opacity": "1",
@@ -329,8 +316,8 @@ add_action('wp_head', function () use ($list) {
 
         function calculateRate(rect, item) {
             let rateTop = rect.top + pageYOffset;
-            if (rateTop >= pageYOffset && rect.bottom + pageYOffset <= coordinatesYB ) {
-                if(currentElement != item){
+            if (rateTop >= pageYOffset && rect.bottom + pageYOffset <= coordinatesYB) {
+                if (currentElement != item) {
                     edidVisual(item, true);
                     currentElement = item;
                 }
@@ -488,8 +475,8 @@ add_action('wp_head', function () use ($list) {
         }
     }
 
-    let reviewsRatings = document.getElementsByClassName("reviews-rating");
-    let reviewsRatingImg = document.getElementsByClassName("reviews-rating-img");
+    // let reviewsRatings = document.getElementsByClassName("reviews-rating");
+    // let reviewsRatingImg = document.getElementsByClassName("reviews-rating-img");
 
 
     if ($(".slick-tours__item").length > 24) {
@@ -504,10 +491,10 @@ add_action('wp_head', function () use ($list) {
         let length = $(".slick-tours__item").length;
         if (showElensVisual > length) {
             showElem(showElensVisual, true)
-            editElemsTour();
+            initslidertour();
         } else {
             showElem(showElensVisual, false)
-            editElemsTour();
+            initslidertour();
         }
         showElensVisual = showElensVisual + 24;
     })
@@ -525,9 +512,9 @@ add_action('wp_head', function () use ($list) {
             $(".popular-tours .btn-more").css("display", "none");
         }
     }
-    for (i = 0; i < reviewsRatings.length; i++) {
-        reviewsRatingImg[i].style.width = reviewsRatings[i].innerHTML * 20 + "%";
-    }
+    // for (i = 0; i < reviewsRatings.length; i++) {
+    //     reviewsRatingImg[i].style.width = reviewsRatings[i].innerHTML * 20 + "%";
+    // }
 </script>
 
 <?php get_footer(); ?>

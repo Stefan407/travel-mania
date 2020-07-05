@@ -6,10 +6,11 @@
 
     add_action('wp_head', function () use ($list) {
         echo '<meta name="keywords" content="экскурсии, авторские, эксклюзивные, пешеходные, обзорные, исторические, на русском языке, купить, заказать, забронировать, гиды, мир, цены, недорого, дешево, лучшие, выгодно, без посредников, 2020, тревел, мания, travel, mania" />';
-        echo '<meta name="description" content="Организация и онлайн продажа авторских экскурсий на русском языке по всему миру. Выгодные цены и большой выбор в 2020 году от Тревел Мании." />';
+        echo '<meta name="description" content="Подобрка авторских экскурсий на русском языке по всему миру. Выгодные цены и большой выбор экскурсий в 2020 году - Тревел Мания." />';
     });
     ?>
     <?php get_header(); ?>
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
     <section class="top">
         <div class="top__slider">
             <div class="image">
@@ -27,7 +28,7 @@
             <div class="border-box">
                 <h2>Экскурсии по всему миру на русском языке</h2>
                 <div class="border-box__text">
-                    <p>Что может быть прекрасней путешествий? Только хорошо спланированные путешествия по новым странам, городам и замечательным местам! Если Вы путешествуете по миру и хотите узнать все тонкости мест, которые посещаете, мы с удовольствием Вам поможем.</p>
+                <p>От чего в жизни можно получать положительные эмоции, новые знания, драйв и удовольствие? Только поездки в новые места, города и страны дают весь спектр этих эмоций. Хорошо организованное, тщательно спланированное путешествие оставляет приятное послевкусие, которое остается с Вами надолго. Если Вы путешествуете и хотите забронировать необычную экскурсию в этом регионе, проект Travel Mania предлагает авторские экскурсионные предложения.</p>
                 </div>
                 <div class="advantages-wrap">
                     <div class="advantages-item">
@@ -40,7 +41,7 @@
                     </div>
                     <div class="advantages-item">
                         <h3>Оплачивайте только 20%</h3>
-                        <div class="advantages-text">На сайте оплачиваете только 20% картой, остальную сумму гиду при встрече</div>
+                        <div class="advantages-text">При бронировании оплачивается только 20% картой, остальную сумму платите гиду при встрече</div>
                     </div>
                 </div>
             </div>
@@ -98,7 +99,7 @@
                                     <span class="item-rating">
                                         <span style="display:none;" class="reviews-rating"><?php echo $tour->rating ?> </span>
                                         <div class="star-rating-item">
-                                            <span class="reviews-rating-img">
+                                            <span class="reviews-rating-img" style="width: <?php echo ($tour->rating * 20) ?>%">
                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
@@ -110,7 +111,7 @@
                                 </div>
                                 <div class="tours__item-content ">
                                     <div class="item-title ">
-                                        <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', $tour->city->country->name_en) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/excursion-<?= $tour->id ?>/">
+                                        <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', str_replace(' ', '-', $tour->city->country->name_en)) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/excursion-<?= $tour->id ?>/">
                                             <?= $tour->title ?>
                                         </a>
                                     </div>
@@ -121,7 +122,7 @@
                                                 <span>
                                                     <?php echo $tour->guide->first_name ?>
                                                 </span>
-                                                <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', $tour->city->country->name_en) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/">
+                                                <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', str_replace(' ', '-', $tour->city->country->name_en)) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/">
                                                     <?= $tour->city->name_ru ?>
                                                 </a>
                                             </div>
@@ -137,48 +138,36 @@
                     <?php } ?>
                 </div>
                 <section class="video">
-                    <div class="container">
-                        <h2>583 города в 93 странах — Travel Maniа</h2>
-                        <p>Практически каждый день мы добавляем новые экскурсии, открываем новые страны и города! На сегодня, мы работаем по 583 городам в 93 странах мира. Безупречно продуманные авторские экскурсии, которые вы не встретите в других компаниях, не оставили равнодушным ни одного нашего клиента. В наше команде очень интересные люди, которые знают все факты и подробности экскурсионных мест! Каждая экскурсия или поездка, тщательно продумана гидом, о чем свидетельствую 131 647 отзыва наших гостей.</p>
-                        <p></p>
-                        <div class="video-box">
-                            <h2>Мир за одну минуту</h2>
-                            <div class="video__text">
-                                <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png" class="img-click-video">
-<video controls="controls">
-
-                                    <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/webm">
-                                    <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <p>Путешествуя с Travel Mania, вы откроете самые удивительные места нашей планеты! У вас есть возможность посетить тысячи самых красивых и интересных мест, получить массу эмоций, сделать красивые фотографии и записать видео. Выбирайте страну, город и смотрите все актуальные экскурсии.</p>
+                    <h2>600+ городов в 93 странах</h2>
+                    <p>Travel Mania охватывает более <a href="/all-cities/" class="azure-link">600 городов</a> в <a href="/all-countries/" class="azure-link">93 странах</a> мира. У нас можно подобрать: исторические экскурсии, гастрономические и шоппинг туры, экскурсии с детьми, а также спортивные и развлекательные поездки. Предлагаются тысячи эксклюзивных и авторских экскурсий, которые можно забронировать и оплатить онлайн. Только самые продуманные маршруты и выгодные цены, о чем свидетельствуют более 140 000 отзывов.</p> 
+                    <div class="video-box">
+                        <h2>Мир за одну минуту</h2>
+                        <div class="video__text">
+                            <video controls="controls" playsinline poster="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png">
+                                <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/webm">
+                                <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/mp4">
+                            </video>
+                            <p class="autor">
+                                Видео: <a href="/go/?url=https://vimeo.com/27246366" target="_blank">Rick Mereki</a>
+                            </p>
                         </div>
+                        <p>Путешествуя с Travel Mania, Вы откроете самые удивительные места нашей планеты! У Вас есть возможность познать новые страны и города, увидеть известные архитектурные памятники и красоту природы, узнать историю этих мест, особенности менталитета местных жителей, попробовать местную кухню и услышать истории о людях, прославивших эту землю. Выбирайте страну, город, смотрите все актуальные экскурсии и бронируйте понравившееся предложение.</p>
+                    </div>
                 </section>
             </div>
         </div>
     </section>
     <?php get_footer(); ?>
 
-    <link rel="stylesheet" type="text/css" href="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/css/slick.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/slick.min.js"></script>
     <script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/jquery.appear.js"></script>
 
     <script>
-        if ($(".img-click-video").length && window.innerWidth < 500) {
-        var myVideo = document.querySelector(".video-box video");
-        $(".img-click-video").show();
-        $(".img-click-video").click(function(){
-            $(".img-click-video").hide();
-            console.log(myVideo);
-            myVideo.play();
-        })
-    }
-        let reviewsRatings = document.getElementsByClassName("reviews-rating");
-        let reviewsRatingImg = document.getElementsByClassName("reviews-rating-img");
-        for (i = 0; i < reviewsRatings.length; i++) {
-            reviewsRatingImg[i].style.width = reviewsRatings[i].innerHTML * 20 + "%";
-        }
+        // let reviewsRatings = document.getElementsByClassName("reviews-rating");
+        // let reviewsRatingImg = document.getElementsByClassName("reviews-rating-img");
+        // for (i = 0; i < reviewsRatings.length; i++) {
+        //     reviewsRatingImg[i].style.width = reviewsRatings[i].innerHTML * 20 + "%";
+        // }
 
 
         $('.image').slick({

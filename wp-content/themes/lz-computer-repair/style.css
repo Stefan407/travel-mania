@@ -3287,7 +3287,7 @@ object {
 }
 
 .about-what {
-	background: #f5eec2;
+	background: #d6f2ff;
 	padding: 40px 0;
 }
 
@@ -3316,7 +3316,7 @@ object {
 }
 
 .azure-link {
-	color: #03a378;
+	color: #a44949;
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -3324,14 +3324,14 @@ object {
 .about-what-block {
 	display: inline-block;
 	vertical-align: top;
-	width: 30%;
+	width: 22%;
 	margin: 0 0 0 2%;
 	font-size: 16px;
 	color: #2c3b48;
 	padding: 20px;
 	text-align: center;
-	border: 3px solid #00ad74;
-	border-radius: 5px;
+	border: 2px solid #51525f;
+	border-radius: 10px;
 	box-sizing: border-box;
 	text-decoration: none;
 }
@@ -3341,10 +3341,10 @@ object {
 }
 
 .about-what__title {
-	font-weight: 900;
-	font-size: 30px;
+	font-weight: 600;
+	font-size: 25px;
 	color: #2c3b48;
-	margin: 0 0 10px;
+	margin: 30px 0px 10px 0px;
 }
 
 .white-line {
@@ -3406,12 +3406,12 @@ object {
 }
 
 .about-what {
-	background: #f5eec2;
+	background: #d6f2ff;
 	padding: 40px 0;
 }
 
 .white-line {
-	background: #fff;
+	background: #f9e4e4;
 }
 
 .about-how {
@@ -3425,7 +3425,7 @@ object {
 
 .about-how__img {
 	float: left;
-	width: 140px;
+	width: 160px;
 }
 
 .about-how__info {
@@ -3438,7 +3438,7 @@ object {
 	margin-bottom: 12px;
 	font-size: 22px;
 	font-weight: bold;
-	color: #01a77a;
+	color: #0785b0;
 }
 
 .g_ovh {
@@ -3517,8 +3517,12 @@ section.main {
 	display: none;
 }
 
-img {
-	width: 100%;
+.f-social img {
+	width: 30px;
+}
+
+.about-what-wrap img {
+	width: 70%;
 }
 
 .container {
@@ -3860,6 +3864,10 @@ h2 {
 .breadcrumbs-item {
 	display: flex;
 	align-items: center;
+}
+
+.breadcrumbs-item:last-child p {
+	color: #6299ac !important;
 }
 
 .slick-dots li {
@@ -4363,6 +4371,12 @@ h2 {
 	box-shadow: 0 0 4px #c7c8cc;
 }
 
+.border-box-no-center {
+	padding: 20px 20px 30px 20px;
+	border-radius: 6px;
+	box-shadow: 0 0 4px #c7c8cc;
+}
+
 .contry-main .border-box {
 	justify-content: inherit;
 	align-items: inherit;
@@ -4382,6 +4396,50 @@ h2 {
 	flex-direction: column;
 	margin-bottom: 30px;
 }
+
+.video .video-box p.autor {
+	font-size: 14px;
+	text-align: left;
+	color: #7d7d7d;
+}
+
+.search-wrap {
+	padding-bottom: 10px;
+
+	display: flex;
+	justify-content: center;
+}
+
+.search-wrap input {
+	display: block;
+	width: 340px;
+	height: 50px;
+	font-size: 16px !important;
+	padding: 0 10px;
+	margin: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	color: #495662;
+	line-height: 22px;
+	border-radius: 3px;
+	border: 1px solid #b6b7bb;
+	-webkit-box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, .2);
+	box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, .2);
+}
+
+.search-item {
+	position: relative;
+	width: 675px;
+	padding: 15px 0;
+	border-radius: 90px;
+	display: flex;
+	justify-content: center;
+	background: -webkit-gradient(linear, left top, right top, from(#b5f2b5), to(#fafab1));
+	background: -o-linear-gradient(left, #b5f2b5 0, #fafab1 100%);
+	background: linear-gradient(90deg, #b5f2b5 0, #fafab1);
+	margin: 10px 0;
+}
+
 
 .video .video-box video {
 	position: relative;
@@ -4651,6 +4709,8 @@ h2 {
 
 .reviews-title .star-rating-item {
 	width: 100px;
+	max-width: 100px;
+	min-width: 100px;
 	height: 20px;
 }
 
@@ -4665,7 +4725,7 @@ h2 {
 }
 
 .popular-tours .item-time-rating .star-rating-item {
-	width: 110px;
+	width: 100px;
 	height: 20px;
 }
 
@@ -4676,6 +4736,20 @@ h2 {
 .price-item {
 	margin-top: 20px;
 	text-align: center;
+}
+
+.country-all-block {
+	font-size: 17px;
+	column-count: 2;
+}
+
+.country-all-block a {
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.country-all-block a:hover {
+	color: #e04f67 !important;
 }
 
 .star-rating-wrap img.icon-star {
@@ -4713,6 +4787,10 @@ h2 {
 
 .main_content-description .description-item {
 	margin: 25px 0;
+}
+
+.main_content-description li {
+	font-size: 18px;
 }
 
 .description-item .description-string {
@@ -4778,6 +4856,8 @@ h2 {
 }
 
 .reviews-title span {
+	max-width: 100%;
+	min-width: 20%;
 	font-size: 20px;
 	margin-right: 23px;
 	color: #488ac4;
@@ -4817,6 +4897,7 @@ h2 {
 }
 
 .breadcrumbs {
+	font-size: 18px;
 	margin: 20px 0;
 }
 
@@ -5098,6 +5179,7 @@ h6 {
 	color: #8d8e9c;
 	background: #ececef;
 	border-top: 1px solid #dcdcdf;
+	margin-top: 30px;
 }
 
 img.f-logos {
@@ -5107,9 +5189,9 @@ img.f-logos {
 
 .f-menu {
 	float: left;
-	font-size: 15px;
+	font-size: 18px;
 	padding-bottom: 25px;
-	color: #a6a6ab;
+	color: #090909;
 }
 
 .f-bottom {
@@ -5129,7 +5211,7 @@ img.f-logos {
 	position: absolute;
 	width: 100%;
 	z-index: 5;
-	bottom: 0;
+	top: 0;
 	display: none;
 }
 
@@ -5256,6 +5338,7 @@ img.f-logos {
 
 	.footer-site {
 		margin: 0;
+		margin-top: 30px;
 	}
 
 	.popular-cityes__wrap .item-element.w-33 {
@@ -5295,6 +5378,10 @@ img.f-logos {
 }
 
 @media (max-width: 768px) {
+	.description-section_text {
+		margin-top: 10px;
+	}
+
 	.slick-tours .tours__item-content .item-title {
 		font-size: 16px;
 		height: 45px;
@@ -5724,6 +5811,11 @@ img.f-logos {
 		flex-direction: column;
 	}
 
+	.country-all-block {
+		display: flex;
+		flex-direction: column;
+	}
+
 	.blog-page .post-item .text {
 		font-size: 14px;
 	}
@@ -5863,6 +5955,28 @@ img.f-logos {
 	}
 }
 
+.about-how {
+	position: relative;
+}
+
+.about-how::after {
+	position: absolute;
+	content: "";
+	display: block;
+	width: 100%;
+	height: 88px;
+	background: #f9e4e4;
+	bottom: -40px;
+	z-index: -1;
+}
+
 html {
 	margin-top: 0 !important;
+}
+
+.yandex-link {
+	width: 30px;
+	height: 30px;
+	background-image: url("https://travel-mania.org/wp-content/themes/lz-computer-repair/assets/images/icon-dzen.png");
+	background-size: contain;
 }

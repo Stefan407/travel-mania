@@ -30,6 +30,7 @@ add_action('wp_head', function () use ($list, $new_str) {
     echo '<meta name="keywords" content="' . $new_str . ", " . $list->city->country->name_ru . ", " . $list->city->name_ru . ', травел, мания, travel, mania," />';
     echo '<meta name="description" content="' . $list->tagline . '" />';
 });
+
 get_header();
 
 $current_country = $list->city->country->name_en;
@@ -70,7 +71,7 @@ $current_city = str_replace(" ", "-", $current_city);
                                         }
                                     ?>
                                     <a class="breadcrumbs__link" href="/<?php echo ($current_country) ?>/<?php echo ($current_city) ?>/" itemprop="url">
-                                        <span itemprop="title"><?php echo ($list->city->name_ru) ?></span>
+                                        <span itemprop="title">Экскурсии <?php echo ($list->city->in_obj_phrase) ?></span>
                                     </a>
                                 </div>
                             </div>
@@ -130,7 +131,7 @@ $current_city = str_replace(" ", "-", $current_city);
                                             <span>Рейтинг </span>
                                             <span id="star-value"><?php echo $list->rating ?></span>
                                             <div class="star-rating-item">
-                                                <span id="star-rating">
+                                                <span id="star-rating" style="width: <?php echo ($list->rating * 20) ?>%">
                                                     <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                                     <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                                     <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
@@ -195,11 +196,10 @@ $current_city = str_replace(" ", "-", $current_city);
                                                 <div class="reviews-box">
                                                     <div class="reviews-title">
                                                         <div class="name"><span><?php echo $rew->name  ?></span>
-                                                            <span class="reviews-rating"><?php echo $rew->rating ?> </span>
                                                             <span class="reviews-date"><?php echo $rew->created_on ?></span>
                                                         </div>
-                                                        <div class="star-rating-item">
-                                                            <span class="reviews-rating-img">
+                                                        <div class="star-rating-item" >
+                                                            <span class="reviews-rating-img" style="width: <?php echo(20*($rew->rating)) ?>%">
                                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
@@ -234,7 +234,7 @@ $current_city = str_replace(" ", "-", $current_city);
                                 <span>Рейтинг </span>
                                 <span id="star-value"><?php echo $list->rating ?></span>
                                 <div class="star-rating-item">
-                                    <span id="star-rating">
+                                    <span id="star-rating" style="width: <?php echo ($list->rating * 20) ?>%">
                                         <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                         <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                         <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
@@ -279,8 +279,6 @@ $current_city = str_replace(" ", "-", $current_city);
         </div>
     </div>
 </section>
-<link rel="stylesheet" type="text/css" href="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/css/slick.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/slick.min.js"></script>
 <script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/jquery.fancybox.min.js"></script>
 <script>
@@ -292,22 +290,23 @@ $current_city = str_replace(" ", "-", $current_city);
     });
 
     function parametrEdit() {
-        if (document.getElementById("star-value")) {
-            let starValue = (20 * document.getElementById("star-value").innerHTML);
-            document.getElementById("star-rating").style.width = starValue + "%";
-        }
+        // if (document.getElementById("star-value")) {
+        //     let starValue = (20 * document.getElementById("star-value").innerHTML);
+        //     document.getElementById("star-rating").style.width = starValue + "%";
+        // }
         let reviewsDate = document.getElementsByClassName("reviews-date");
-        let reviewsRatings = document.getElementsByClassName("reviews-rating");
-        let reviewsRatingImg = document.getElementsByClassName("reviews-rating-img");
+        // let reviewsRatings = document.getElementsByClassName("reviews-rating");
+        // let reviewsRatingImg = document.getElementsByClassName("reviews-rating-img");
 
 
         for (i = 0; i < reviewsDate.length; i++) {
             reviewsDate[i].innerHTML = reviewsDate[i].innerHTML.split("-").reverse().join(".");
         }
 
-        for (i = 0; i < reviewsRatings.length; i++) {
-            reviewsRatingImg[i].style.width = reviewsRatings[i].innerHTML * 20 + "%";
-        }
+        // for (i = 0; i < reviewsRatings.length; i++) {
+        //     reviewsRatingImg[i].style.width = reviewsRatings[i].innerHTML * 20 + "%";
+        //     reviewsRatingImg[i].style.minWidth = reviewsRatings[i].innerHTML * 20 + "%";
+        // }
     };
     parametrEdit();
     $('[data-fancybox]').fancybox({
