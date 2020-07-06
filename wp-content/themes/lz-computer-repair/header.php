@@ -16,6 +16,10 @@ get_template_part('all-contry.php');
 $list = [];
 getAllResults('https://experience.tripster.ru/api/countries/?format=json', $list);
 
+
+$listCities = [];
+getAllResults('https://experience.tripster.ru/api/cities/', $listCities);
+
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js no-svg">
@@ -36,14 +40,25 @@ getAllResults('https://experience.tripster.ru/api/countries/?format=json', $list
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script data-ad-client="ca-pub-1224554491202001" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Google Tag Manager -->
-<script data-ad-client="ca-pub-1224554491202001" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KH5TPRC');</script>
-<!-- End Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <script data-ad-client="ca-pub-1224554491202001" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KH5TPRC');
+    </script>
+    <!-- End Google Tag Manager -->
     <?php if (is_page(44)) { ?>
         <meta name="keywords" content="экскурсии, <?php echo ($list[0]->country->name_ru); ?>, русский, на русском, гиды, авторские, эксклюзивные, исторические, обзорные, пешеходные, на автобусе, купить, заказать, забронировать, цена, недорого, дешево, скидка, описание, список, прайс, травэл, мания, travel, mania" />
         <meta name="description" content="У нас можно заказать недорогие авторские экскурсии  <?php echo ($list[0]->country->in_obj_phrase); ?> на русском языке с лучшими гидами. Цены без посредников и удобные даты." />
@@ -97,11 +112,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </ul>
                     </nav>
                 </div>
-                <!-- <div class="search-wrap">
-                    <div class="search-item">
-                        <input placeholder="Куда вы собираетесь?" id="tags">
-                    </div>
-                </div> -->
+
             </div>
         </div>
         <div class="menu-wrapper-mobile">
@@ -123,6 +134,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </ul>
             </nav>
         </div>
+        <!-- <div class="search-wrap">
+            <div class="search-block">
+                <div class="search-item">
+                    <input placeholder="Куда вы собираетесь?" type="text" id="searchInput" class="search-input">
+                    <ul id="searchList" class="search-list">
+                        <?php foreach ($list as $country) { ?>
+                            <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', urlencode($country->name_en)) ?>/">
+                                <?php echo $country->name_ru ?>
+                            </a>
+                        <?php } ?>
+                        <?php foreach ($listCities as $town) { ?>
+                            <?php
+                            $city_name = str_replace('é', 'e', $town->name_en);
+                            $city_name = str_replace('ё', 'e', $town->name_en);
+                            $city_name = str_replace("'", '', $city_name);
+                            $city_name = str_replace("ó", 'o', $city_name);
+                            if ($city__name_en == 'Villefranche-sur-Saône') {
+                                $city__name_en = "Villefranche-sur-Saone";
+                            } ?>
+                            <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', urlencode($town->country->name_en)) ?>/<?php echo str_replace('+', '-', urlencode($city_name)) ?>/">
+                                <?php echo $town->name_ru ?>
+                            </a>
+                        <?php } ?>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
     </div>
 
 
@@ -148,18 +186,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     menuLinks.appendChild(a)
                 });
         });
-        // $(function() {
-        //     var availableTags = [
-        //         "ActionScript",
-        //         "AppleScript",
-        //         "Asp"
-        //     ];
-        //     $("#tags").autocomplete({
-        //         source: availableTags
+
+        // let inputSearch = $(".search-wrap input.search-input");
+        // console.log(inputSearch)
+        // inputSearch.click(function() {
+        //     $(".search-wrap").addClass("active")
+        // })
+
+        // inputSearch.blur(function() {
+        //     $(".search-wrap").removeClass("active")
+        // })
+        // inputSearch.attr('spellcheck', false);
+
+        // $("#searchInput").on("keyup", function() { //2
+        //     var value = $(this).val().toLowerCase(); //3
+        //     $("#searchList a").filter(function() { //4
+        //         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1) //5
         //     });
         // });
     </script>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH5TPRC"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH5TPRC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
