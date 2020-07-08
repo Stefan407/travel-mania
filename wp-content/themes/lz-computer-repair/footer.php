@@ -26,7 +26,7 @@
             </ul>
         </nav>
         <div class="f-bottom">
-            <div class="f-social" style="display:flex; align-items: flex-start;    width: 100%; justify-content: space-between;">
+            <div class="f-social" style="display: flex;align-items: center;width: 100%;flex-direction: column-reverse;">
                 <div class="f-social__text-wrap">
                     Служба поддержки:
                     <a href="mailto:excurs.mania@gmail.com" class="f-social__email-link" target="_blank">excurs.mania@gmail.com</a>

@@ -20,6 +20,9 @@ getAllResults('https://experience.tripster.ru/api/countries/?format=json', $list
 $listCities = [];
 getAllResults('https://experience.tripster.ru/api/cities/', $listCities);
 
+$listTours = [];
+getAllResultsNoNext('https://experience.tripster.ru/api/experiences/', $listTours)
+
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js no-svg">
@@ -134,7 +137,7 @@ getAllResults('https://experience.tripster.ru/api/cities/', $listCities);
                 </ul>
             </nav>
         </div>
-        <!-- <div class="search-wrap">
+    <!--    <div class="search-wrap">
             <div class="search-block">
                 <div class="search-item">
                     <input placeholder="Куда вы собираетесь?" type="text" id="searchInput" class="search-input">
@@ -155,6 +158,11 @@ getAllResults('https://experience.tripster.ru/api/cities/', $listCities);
                             } ?>
                             <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', urlencode($town->country->name_en)) ?>/<?php echo str_replace('+', '-', urlencode($city_name)) ?>/">
                                 <?php echo $town->name_ru ?>
+                            </a>
+                        <?php } ?>
+                        <?php foreach ($listTours as $tour) { ?>
+                            <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', str_replace(' ', '-', $tour->city->country->name_en)) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/excursion-<?= $tour->id ?>/">
+                                <?php echo($tour->title) ?>
                             </a>
                         <?php } ?>
                     </ul>
@@ -187,23 +195,23 @@ getAllResults('https://experience.tripster.ru/api/cities/', $listCities);
                 });
         });
 
-        // let inputSearch = $(".search-wrap input.search-input");
-        // console.log(inputSearch)
-        // inputSearch.click(function() {
-        //     $(".search-wrap").addClass("active")
-        // })
+        let inputSearch = $(".search-wrap input.search-input");
+        console.log(inputSearch)
+        inputSearch.click(function() {
+            $(".search-wrap").addClass("active")
+        })
 
-        // inputSearch.blur(function() {
-        //     $(".search-wrap").removeClass("active")
-        // })
-        // inputSearch.attr('spellcheck', false);
+        inputSearch.blur(function() {
+            $(".search-wrap").removeClass("active")
+        })
+        inputSearch.attr('spellcheck', false);
 
-        // $("#searchInput").on("keyup", function() { //2
-        //     var value = $(this).val().toLowerCase(); //3
-        //     $("#searchList a").filter(function() { //4
-        //         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1) //5
-        //     });
-        // });
+        $("#searchInput").on("keyup", function() { //2
+            var value = $(this).val().toLowerCase(); //3
+            $("#searchList a").filter(function() { //4
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1) //5
+            });
+        });
     </script>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH5TPRC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
