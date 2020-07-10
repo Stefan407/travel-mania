@@ -47,7 +47,6 @@
             </div>
         </div>
     </section>
-
     <section class="popular-cityes">
         <div class="container">
             <div class="popular-cityes__wrap">

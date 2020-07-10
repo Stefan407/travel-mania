@@ -4405,69 +4405,6 @@ h2 {
 
 
 
-.search-wrap {
-	padding-bottom: 10px;
-	/* display: none; */
-	background-color: #d6f2ff;
-}
-
-.search-wrap input.search-input {
-	display: block;
-	width: 340px;
-	height: 50px;
-	font-size: 16px !important;
-	padding: 0 10px;
-	margin: 0;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	color: #495662;
-	line-height: 22px;
-	border-radius: 3px;
-	border: 1px solid #b6b7bb;
-	-webkit-box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, .2);
-	box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, .2);
-}
-
-.search-block {
-	position: relative;
-	width: 675px;
-	padding: 15px 0;
-	border-radius: 90px;
-	display: flex;
-	justify-content: center;
-	background: -webkit-gradient(linear, left top, right top, from(#b5f2b5), to(#fafab1));
-	background: -o-linear-gradient(left, #b5f2b5 0, #fafab1 100%);
-	background: linear-gradient(90deg, #b5f2b5 0, #fafab1);
-	margin: 0 auto;
-}
-
-.search-item {
-	position: relative;
-}
-
-.search-list {
-	position: absolute;
-	display: none;
-	flex-direction: column;
-	width: 100%;
-	background: #fff;
-	max-height: 250px;
-	overflow: auto;
-}
-
-.search-wrap.active .search-list {
-	display: flex;
-}
-
-.search-list a {
-	padding: 5px 10px;
-}
-
-.search-list a:hover {
-	background-color: #3f3f3f15;
-	color: #e66363;
-
-}
 
 
 
