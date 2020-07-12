@@ -112,9 +112,11 @@ if (!function_exists('filter_function_name_Cities')) {
     <div class="search-block">
         <div class="search-item">
             <input placeholder="Куда вы собираетесь?" type="text" id="searchInput" class="search-input">
-            <ul id="searchList" class="search-list">
-
-            </ul>
+            <div class="search-list_wrap">
+                <div class="list-country"></div>
+                <div class="exp-header" style="display:none;">ПОПУЛЯРНЫЕ ЭКСКУРСИИ</div>
+                <div class="list-tours"></div>
+            </div>
         </div>
     </div>
 </div>
@@ -127,79 +129,109 @@ if (!function_exists('filter_function_name_Cities')) {
     }
 
     .search-wrap input.search-input {
-        display: block;
-        width: 340px;
-        height: 50px;
-        font-size: 16px !important;
-        padding: 0 10px;
-        margin: 0;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        color: #495662;
-        line-height: 22px;
-        border-radius: 3px;
-        border: 1px solid #b6b7bb;
+        width: 100%;
+        height: 36px;
+        padding: 5px 20px 6px 7px;
+        border-radius: 3px 0 0 3px;
         -webkit-box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, .2);
         box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, .2);
+        margin: 0;
+        border: 0;
+        outline: none;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        overflow: hidden;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
     }
 
     .search-block {
         position: relative;
-        width: 675px;
-        padding: 15px 0;
-        border-radius: 90px;
+        width: 100%;
         display: flex;
         justify-content: center;
-        background: -webkit-gradient(linear, left top, right top, from(#b5f2b5), to(#fafab1));
-        background: -o-linear-gradient(left, #b5f2b5 0, #fafab1 100%);
-        background: linear-gradient(90deg, #b5f2b5 0, #fafab1);
-        margin: 0 auto;
+        background: #fff;
     }
 
     .search-item {
         position: relative;
-    }
-
-    .search-list {
-        /* position: absolute; */
-        flex-direction: column;
         width: 100%;
-        background: #fff;
-        max-height: 250px;
-        overflow: auto;
     }
 
-    .search-wrap.active .search-list {
+    .search-list_wrap {
         display: flex;
+        flex-direction: column;
     }
 
-    .search-list a {
-        padding: 5px 10px;
+    .search-list_wrap a {
+        display: flex;
+        position: relative;
+        padding: 10px 10px;
+        align-items: center;
     }
 
-    .search-list a:hover {
-        background-color: #3f3f3f15;
-        color: #e66363;
+    .search-list_wrap a:hover {
+        background: #f3f3f3;
+    }
 
+    .search-list_wrap a img.loc {
+        width: 25px;
+        margin-right: 5px;
+    }
+
+    .search-list_wrap a img.tour {
+        width: 65px;
+        max-height: 100%;
+        margin-right: 10px;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .search-list_wrap a .inner {
+        display: flex;
+        width: calc(100% - 170px);
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .search-list_wrap a .inner .title1 {
+        margin-right: 10px;
+    }
+
+    .search-list_wrap a .inner .title2 {
+        color: #828282;
+    }
+
+    .search-list_wrap a .inner em {
+        font-weight: 500;
+        font-style: inherit;
+    }
+
+    .search-list_wrap a .left-block {
+        position: absolute;
+        right: 10px;
+        color: #828282;
+    }
+
+    .search-list_wrap .exp-header {
+        color: #8b8b8b;
+        font-size: 15px;
+        border-top: 1px solid #ececef;
+        padding: 15px 10px 10px;
     }
 </style>
 <script>
     $(document).ready(function() {
-        // let inputSearch = $(".search-wrap input.search-input");
-        // inputSearch.click(function() {
-        //     $(".search-wrap").addClass("active")
-        // })
-
-        // inputSearch.blur(function() {
-        //     $(".search-wrap").removeClass("active")
-        // })
-        // inputSearch.attr('spellcheck', false);
-
+        let searchList = $(".search-list_wrap");
+        let searchListCountries = $(".search-list_wrap .list-country");
+        let searchListTours = $(".search-list_wrap .list-tours");
+        let searchListHrader = $(".search-list_wrap .exp-header");
 
         function request(url) {
             var xhr = new XMLHttpRequest();
             let data = null;
-            xhr.open('GET', 'https://experience.tripster.ru/api/search/site/?format=json&query=' + url + '', false);
+            xhr.open('GET', 'https://experience.tripster.ru/api/search/site/?format=json&query=' + url + '&limit=12', false);
             xhr.send();
             if (xhr.status != 200) {
                 alert(xhr.status + ': ' + xhr.statusText);
@@ -212,11 +244,11 @@ if (!function_exists('filter_function_name_Cities')) {
         function replaceName(type, value) {
             switch (type) {
                 case "noEm":
-                    let newStr1 = value.replace('<em>', '').replace('</em>', '');
+                    let newStr1 = value.replace('<em>', '').replace('<em>', '').replace('</em>', '').replace('</em>', '');
                     return newStr1;
                     break;
                 case "noSpace":
-                    let newStr2 = value.replace(' ', '-').replace('_', '-').replace('+', '-');
+                    let newStr2 = value.replace("_", "-").replace("_", "-").replace("+", "-").replace("+", "-").replace(" ", "-").replace(" ", "-");
                     return newStr2;
                     break;
                 default:
@@ -236,30 +268,65 @@ if (!function_exists('filter_function_name_Cities')) {
                 data = jQuery.parseJSON(xhr.responseText);
             }
             let cityName = replaceName("noSpace", data.city.name_en);
+            let cityNameRu = data.city.name_ru;
             let countryName = replaceName("noSpace", data.city.country.name_en);
-            let url = "https://travel-mania.org/" + countryName + "/" + cityName + "/" + id;
-            console.log(data)
-            console.log(url)
+            let url = "https://travel-mania.org/" + countryName + "/" + cityName + "/excursion-" + id;
+            searchListTours.append("<a href=" + url + " class='result-item'><img class='tour' src=" + image + "><div class='inner'><div class='title1'>" + title + "</div><div class='title2'>" + cityNameRu + "</div></div><div class='left-block'>" + price + "</div></a>")
         }
 
 
 
+        function initUrlCountry(title, name, count) {
+            var xhr = new XMLHttpRequest();
+            let data = null;
+            xhr.open('GET', 'https://experience.tripster.ru/api/countries/?name_ru=' + name + '', false);
+            xhr.send();
+            if (xhr.status != 200) {
+                alert(xhr.status + ': ' + xhr.statusText);
+            } else {
+                data = jQuery.parseJSON(xhr.responseText);
+            }
+            let countryName = replaceName("noSpace", data.results[0].name_en);
+            let url = "https://travel-mania.org/" + countryName;
+            searchListCountries.append("<a href=" + url + " class='result-item'><img class='loc' src='/wp-content/themes/lz-computer-repair/assets/images/icon-location.svg'><div class='inner'><div class='title1'>" + title + "</div><div class='title2'></div></div><div class='left-block'>" + count + "</div></a>");
+
+        }
+
+        function initUrlCity(title, name, count) {
+            var xhr = new XMLHttpRequest();
+            let data = null;
+            xhr.open('GET', 'https://experience.tripster.ru/api/cities/?name_ru=' + name + '', false);
+            xhr.send();
+            if (xhr.status != 200) {
+                alert(xhr.status + ': ' + xhr.statusText);
+            } else {
+                data = jQuery.parseJSON(xhr.responseText);
+            }
+            let cityName = replaceName("noSpace", data.results[0].name_en);
+            let countryName = replaceName("noSpace", data.results[0].country.name_en);
+            let countryNameRu = data.results[0].country.name_ru;
+            let url = "https://travel-mania.org/" + countryName + "/" + cityName;
+            searchListCountries.append("<a href=" + url + " class='result-item'><img class='loc' src='/wp-content/themes/lz-computer-repair/assets/images/icon-location.svg'><div class='inner'><div class='title1'>" + title + "</div><div class='title2'>" + countryNameRu + "</div></div><div class='left-block'>" + count + "</div></a>");
+        }
+
         function editListSearch(data) {
-            let searchList = $("#searchList");
-            searchList.text("");
+            searchListCountries.text("");
+            searchListTours.text("");
+            searchListHrader.hide();
             if (data.length) {
                 $(data).each(function() {
                     let type = this.type;
                     switch (type) {
                         case "country":
                             let newNameCountry = replaceName("noEm", this.title)
-                            // initUrlCountry(this.title);
+                            initUrlCountry(this.title, newNameCountry, this.experience_count);
                             break;
                         case "city":
                             let newNameCity = replaceName("noEm", this.title)
-                            // initUrlCity();
+                            initUrlCity(this.title, newNameCity, this.experience_count);
                             break;
                         case "experience":
+                            searchListHrader.show();
                             initUrlExperience(this.title, this.id, this.price, this.image);
                             break;
                         case "citytag":
@@ -268,21 +335,21 @@ if (!function_exists('filter_function_name_Cities')) {
                             break;
                     }
                 });
-                // console.log(data)
             }
         }
-
-        // $("#searchInput").on("click", function(e) {
-        //     var value = $(this).val();
-        //     let data = request(value);
-        //     editListSearch(data)
-
-        // })
         $("#searchInput").on("keyup", function() {
             var value = $(this).val().toLowerCase();
             let data = request(value);
             editListSearch(data)
         });
+        $("#searchInput").on("click", function(e) {
+            var value = $(this).val();
+            if (!value.length) {
+                let data = request(value);
+                console.log(value)
+                editListSearch(data)
+            }
+        })
     });
 </script>
 <script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/slick.min.js"></script>
