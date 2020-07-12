@@ -108,7 +108,7 @@ if (!function_exists('filter_function_name_Cities')) {
         </div>
     </div>
 </section>
-<div class="search-wrap" style="display:none ;">
+<div class="search-wrap" style="display:;">
     <div class="search-block">
         <div class="search-item">
             <input placeholder="Куда вы собираетесь?" type="text" id="searchInput" class="search-input">
@@ -161,7 +161,7 @@ if (!function_exists('filter_function_name_Cities')) {
     }
 
     .search-list {
-        position: absolute;
+        /* position: absolute; */
         flex-direction: column;
         width: 100%;
         background: #fff;
@@ -209,25 +209,75 @@ if (!function_exists('filter_function_name_Cities')) {
             return data;
         }
 
-        function editListSearch(data) {
-            $(data).each(function() {
-                let searchList = $("#searchList");
-                searchList.text("");
-                $(data).each(function() {
-                    searchList.append(
-                        "<li><a>" + this.title + "</a></li>"
-                    )
-                })
-            })
-            console.log(data)
+        function replaceName(type, value) {
+            switch (type) {
+                case "noEm":
+                    let newStr1 = value.replace('<em>', '').replace('</em>', '');
+                    return newStr1;
+                    break;
+                case "noSpace":
+                    let newStr2 = value.replace(' ', '-').replace('_', '-').replace('+', '-');
+                    return newStr2;
+                    break;
+                default:
+                    break;
+            }
+
         }
 
-        $("#searchInput").on("click", function(e) {
-            var value = $(this).val();
-            let data = request(value);
-            editListSearch(data)
+        function initUrlExperience(title, id, price, image) {
+            var xhr = new XMLHttpRequest();
+            let data = null;
+            xhr.open('GET', 'https://experience.tripster.ru/api/experiences/' + id + '', false);
+            xhr.send();
+            if (xhr.status != 200) {
+                alert(xhr.status + ': ' + xhr.statusText);
+            } else {
+                data = jQuery.parseJSON(xhr.responseText);
+            }
+            let cityName = replaceName("noSpace", data.city.name_en);
+            let countryName = replaceName("noSpace", data.city.country.name_en);
+            let url = "https://travel-mania.org/" + countryName + "/" + cityName + "/" + id;
+            console.log(data)
+            console.log(url)
+        }
 
-        })
+
+
+        function editListSearch(data) {
+            let searchList = $("#searchList");
+            searchList.text("");
+            if (data.length) {
+                $(data).each(function() {
+                    let type = this.type;
+                    switch (type) {
+                        case "country":
+                            let newNameCountry = replaceName("noEm", this.title)
+                            // initUrlCountry(this.title);
+                            break;
+                        case "city":
+                            let newNameCity = replaceName("noEm", this.title)
+                            // initUrlCity();
+                            break;
+                        case "experience":
+                            initUrlExperience(this.title, this.id, this.price, this.image);
+                            break;
+                        case "citytag":
+                            break;
+                        default:
+                            break;
+                    }
+                });
+                // console.log(data)
+            }
+        }
+
+        // $("#searchInput").on("click", function(e) {
+        //     var value = $(this).val();
+        //     let data = request(value);
+        //     editListSearch(data)
+
+        // })
         $("#searchInput").on("keyup", function() {
             var value = $(this).val().toLowerCase();
             let data = request(value);
