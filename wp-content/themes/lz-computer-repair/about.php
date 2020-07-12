@@ -108,7 +108,7 @@ if (!function_exists('filter_function_name_Cities')) {
         </div>
     </div>
 </section>
-<div class="search-wrap" style="display:;">
+<div class="search-wrap" style="display:none;">
     <div class="search-block">
         <div class="search-item">
             <input placeholder="Куда вы собираетесь?" type="text" id="searchInput" class="search-input">

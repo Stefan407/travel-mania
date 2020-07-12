@@ -131,6 +131,26 @@ if (!function_exists('filter_function_name_Countries')) {
             <h2>Экскурсии в 93 странах мира</h2>
             <p>Travel Mania — лучшие экскурсионные предложения в 93 странах мира. Все экскурсии авторские: обзорные, исторические, гастрономические и шоппинг туры, экскурсии с детьми, а также спортивные и развлекательные поездки. Мы предлагаем тысячи эксклюзивных экскурсий, которые можно забронировать онлайн. Только тщательно продуманные маршруты и выгодные цены, о чем свидетельствуют более 140 000 отзывов.</p>
             <div class="video-box">
+<!-- Yandex.RTB R-A-602403-1 -->
+<div id="yandex_rtb_R-A-602403-1"></div>
+<script type="text/javascript">
+    (function(w, d, n, s, t) {
+        w[n] = w[n] || [];
+        w[n].push(function() {
+            Ya.Context.AdvManager.render({
+                blockId: "R-A-602403-1",
+                renderTo: "yandex_rtb_R-A-602403-1",
+                async: true
+            });
+        });
+        t = d.getElementsByTagName("script")[0];
+        s = d.createElement("script");
+        s.type = "text/javascript";
+        s.src = "//an.yandex.ru/system/context.js";
+        s.async = true;
+        t.parentNode.insertBefore(s, t);
+    })(this, this.document, "yandexContextAsyncCallbacks");
+</script>                 
                 <h2>Весь мир за одну минуту</h2>
                 <video controls="controls" playsinline poster="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png">
                     <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/webm">
