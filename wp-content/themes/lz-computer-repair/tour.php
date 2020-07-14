@@ -220,6 +220,17 @@ $current_city = str_replace(" ", "-", $current_city);
                             </div>
                         <?php } ?>
                     </div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Квадрат 3 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1224554491202001"
+     data-ad-slot="6391353302"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>                    
                 </div>
             </div>
             <div class="order-panel  col-12 col-md-5 col-lg-4">

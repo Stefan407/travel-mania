@@ -87,6 +87,7 @@ add_action('wp_head', function () use ($list) {
     </div>
     <div class="container">
         <div style="display:none;" id="country"><?php echo ($list[0]->country->name_en); ?></div>
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <div class="border-box">
             <h2>Экскурсии <?php echo ($list[0]->country->in_obj_phrase); ?> на русском языке</h2>
             <div id="top-text" class="border-box__text">
@@ -178,6 +179,16 @@ add_action('wp_head', function () use ($list) {
 
 <section class="video">
     <div class="container">
+<!-- Квадрат 3 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1224554491202001"
+     data-ad-slot="6391353302"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>        
         <div class="border-box">
             <h2>Главные экскурсионные места <?php echo ($list[0]->country->in_obj_phrase); ?></h2>
             <div class="video-box">

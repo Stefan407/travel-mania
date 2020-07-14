@@ -189,6 +189,17 @@ if (!function_exists('filter_function_name_Cities')) {
     <div class="video">
         <div class="container">
             <div class="border-box">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Квадрат 3 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1224554491202001"
+     data-ad-slot="6391353302"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>                
                 <div class="video-box">
                     <h2> Весь мир за одну минуту</h2>
                     <video controls="controls" playsinline poster="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png">

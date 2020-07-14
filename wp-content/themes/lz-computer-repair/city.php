@@ -219,6 +219,16 @@ get_header();
 
 <section class="video">
     <div class="container">
+<!-- Квадрат 3 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1224554491202001"
+     data-ad-slot="6391353302"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>         
         <div class="border-box">
             <h2>Главные экскурсионные места <?php echo ($list[0]->city->in_obj_phrase); ?></h2>
             <div class="video-box">
