@@ -66,11 +66,28 @@ require_once 'sys/inc.php';
 </style>
 
 <body <?php body_class(); ?>>
+    <div class="bc-search"></div>
     <div id="header">
         <div class="menu-wrapper">
             <div class="container">
                 <div class="menu-wrap">
                     <div class="menu-logo"><a href="<?= home_url() ?>/"><img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/logo.png" alt=""></a></div>
+                    <div class="search-wrap" style="display: none;">
+                        <div class="search-block">
+                            <div class="search-item">
+                                <div class="input-search_wrap">
+                                    <input placeholder="Куда вы собираетесь?" type="text" id="searchInput" class="search-input">
+                                    <div class="windows8" style="display: none;">
+                                        <img src="/wp-content/themes/lz-computer-repair/assets/images/2.gif" alt=""></div>
+                                </div>
+                                <div class="search-list_wrap">
+                                    <div class="list-country"></div>
+                                    <div class="exp-header" style="display:none;">ПОПУЛЯРНЫЕ ЭКСКУРСИИ</div>
+                                    <div class="list-tours"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <nav class="menu">
                         <ul>
                             <li><a href="<?= home_url() ?>/all-countries/" class="open-contry green">СТРАНЫ</a></li>
@@ -99,22 +116,7 @@ require_once 'sys/inc.php';
                 </ul>
             </nav>
         </div>
-        <div class="search-wrap" style="display:none;">
-            <div class="search-block">
-                <div class="search-item">
-                    <div class="input-search_wrap">
-                        <input placeholder="Куда вы собираетесь?" type="text" id="searchInput" class="search-input">
-                        <div class="windows8" style="display: none;">
-                            <img src="/wp-content/themes/lz-computer-repair/assets/images/2.gif" alt=""></div>
-                    </div>
-                    <div class="search-list_wrap">
-                        <div class="list-country"></div>
-                        <div class="exp-header" style="display:none;">ПОПУЛЯРНЫЕ ЭКСКУРСИИ</div>
-                        <div class="list-tours"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
 
 
