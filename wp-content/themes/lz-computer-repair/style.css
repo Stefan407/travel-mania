@@ -69,6 +69,10 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
+body.act-search {
+	overflow: hidden;
+}
+
 article,
 aside,
 footer,
@@ -4404,9 +4408,9 @@ h2 {
 /* SEARCH BLOCK */
 
 .bc-search {
-	z-index: 200;
+	z-index: 30;
 	display: none;
-	position: fixed;
+	position: absolute;
 	width: 100vw;
 	height: 100vh;
 	background-color: #2a2a2a94;
@@ -4430,7 +4434,21 @@ h2 {
 }
 
 .search-wrap {
-	position: relative;
+	position: absolute;
+	top: 10px;
+	left: 215px;
+	width: 100%;
+	max-width: 400px;
+	z-index: 35;
+}
+
+.act-search .search-wrap {
+	position: absolute;
+	top: 10px;
+	left: 215px;
+	width: 100%;
+	max-width: 600px;
+	z-index: 35;
 }
 
 
@@ -4438,30 +4456,25 @@ h2 {
 	width: 100%;
 	height: 36px;
 	padding: 5px 20px 6px 7px;
-	border-top-right-radius: 3px;
-	border-top-left-radius: 3px;
+	border-radius: 5px;
 	margin: 0;
 	border: 0;
 	box-sizing: border-box;
 	overflow: hidden;
 	text-decoration: none;
+
 }
 
-.act-search .search-wrap .search-block {
-	position: absolute;
-	width: 100%;
-	max-width: 100%;
-	z-index: 25;
-	top: 0;
+.act-search .search-wrap input.search-input {
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
 }
+
 
 .search-wrap .search-block {
 	position: relative;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	background-color: #d6f2ff;
-	max-width: 400px;
 }
 
 .search-item {
@@ -4476,13 +4489,25 @@ h2 {
 	width: 100%;
 	background: #fff;
 	height: auto;
-	max-height: 280px;
+	max-height: 350px;
 	overflow-y: auto;
-	border-radius: 3px;
+	border-radius: 0;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	padding-right: 20px;
 }
 
 .act-search .search-list_wrap {
 	display: flex;
+}
+
+.search-icon img {
+	width: 20px;
+}
+
+.search-icon {
+	position: absolute;
+	right: 55px;
 }
 
 .search-list_wrap .result-item {
@@ -4523,6 +4548,15 @@ h2 {
 
 .search-list_wrap .result-item .inner .title2 {
 	color: #828282;
+}
+
+.search-list_wrap .result-item .inner .price-text {
+	background: #e66363;
+	padding: 1px 5px;
+	border-radius: 15px;
+	color: #fff;
+	margin-left: 10px;
+	display: none;
 }
 
 .search-list_wrap .result-item .inner em {
@@ -5291,9 +5325,6 @@ h6 {
 	font-size: 25px;
 }
 
-.menu-wrapper-mobile {
-	display: none;
-}
 
 .footer-site {
 	padding: 25px 0;
@@ -5392,6 +5423,10 @@ img.f-logos {
 		max-width: 250px;
 	}
 
+	.search-wrap {
+		max-width: 250px;
+	}
+
 	.act-search .search-wrap .search-block {
 		position: absolute;
 		width: 100%;
@@ -5408,9 +5443,77 @@ img.f-logos {
 	}
 }
 
+.menu-wrap .search-icon,
+.menu-wrap .burger {
+	display: none;
+}
+
 @media (max-width: 950px) {
+	.search-wrap .search-block {
+		background-color: transparent;
+	}
+
+	.search-list_wrap .result-item .inner .price-text {
+		display: inline-block;
+	}
+
+	.search-list_wrap .result-item.experience .left-block {
+		display: none;
+	}
+
+	.search-list_wrap .result-item.experience .inner {
+		width: 100%;
+	}
+
+	.search-list_wrap .result-item .inner {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	#header .menu {
+		position: absolute;
+		top: 56px;
+		width: 100%;
+		left: 0;
+		background-color: #d6f2ff;
+		padding: 5px 0;
+		display: none;
+	}
+
+	.act-search .search-wrap {
+		position: absolute;
+		top: 10px;
+		left: 15px;
+		width: 100%;
+		max-width: calc(100% - 30px);
+		z-index: 35;
+	}
+
+	#header .menu.act {
+		display: block;
+	}
+
+	#header .menu a.link-ask,
+	#header .menu a.green {
+		background-color: transparent;
+		color: #333;
+	}
+
+	#header .menu ul {
+		padding: 10px 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+	}
+
 	li.blog-item_block {
 		width: 50% !important;
+	}
+
+	.menu-wrap .burger {
+		display: flex;
 	}
 
 	.blog-page .blog-item_block img {
@@ -5495,14 +5598,6 @@ img.f-logos {
 
 	.advantages-item .advantages-text {
 		font-size: 15px;
-	}
-
-	.menu-wrapper {
-		display: none;
-	}
-
-	.menu-wrapper-mobile {
-		display: block;
 	}
 
 	#header ul.all-contry-mobile li {
@@ -5935,6 +6030,24 @@ img.f-logos {
 }
 
 @media (max-width: 560px) {
+	.search-list_wrap .result-item {
+		padding: 5px;
+		font-size: 14px;
+	}
+
+	.menu-wrap .search-icon,
+	.menu-wrap .burger {
+		display: block;
+	}
+
+	.search-wrap {
+		display: none;
+	}
+
+	.act-search .search-wrap {
+		display: block;
+	}
+
 	.description-content-text .guide.des {
 		display: none;
 	}
@@ -6116,4 +6229,19 @@ html {
 	height: 30px;
 	background-image: url("https://travel-mania.org/wp-content/themes/lz-computer-repair/assets/images/icon-dzen.png");
 	background-size: contain;
+}
+
+
+.simplebar-content {
+	padding-right: 20px !important;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.simplebar-scrollbar:before {
+	cursor: pointer;
+}
+
+.not-found {
+	padding: 10px;
 }

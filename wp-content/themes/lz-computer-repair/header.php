@@ -25,6 +25,7 @@ require_once 'sys/inc.php';
     <link rel="profile" href="<?php echo esc_url(__('http://gmpg.org/xfn/11', 'lz-computer-repair')); ?>">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,900" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/css/simplebar.css">
     <link rel='stylesheet' id='style-css' href="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/css/style.css?ver=5.1.1" type='text/css' media='all' />
     <link rel='stylesheet' id='style-css' href="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/css/icomoon.css?ver=5.1.1" type='text/css' media='all' />
     <link rel='stylesheet' id='style-css' href="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/css/jquery.fancybox.min.css" type='text/css' media='all' />
@@ -32,6 +33,7 @@ require_once 'sys/inc.php';
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/simplebar.min.js"></script>
     <script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/main.js"></script>
     <script data-ad-client="ca-pub-1224554491202001" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Google Tag Manager -->
@@ -66,13 +68,13 @@ require_once 'sys/inc.php';
 </style>
 
 <body <?php body_class(); ?>>
-    <div class="bc-search"></div>
     <div id="header">
+        <div class="bc-search"></div>
         <div class="menu-wrapper">
             <div class="container">
                 <div class="menu-wrap">
                     <div class="menu-logo"><a href="<?= home_url() ?>/"><img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/logo.png" alt=""></a></div>
-                    <div class="search-wrap" style="display: none;">
+                    <div class="search-wrap" style="display:;">
                         <div class="search-block">
                             <div class="search-item">
                                 <div class="input-search_wrap">
@@ -80,10 +82,11 @@ require_once 'sys/inc.php';
                                     <div class="windows8" style="display: none;">
                                         <img src="/wp-content/themes/lz-computer-repair/assets/images/2.gif" alt=""></div>
                                 </div>
-                                <div class="search-list_wrap">
+                                <div class="search-list_wrap block-scrollbar scroll-init">
                                     <div class="list-country"></div>
                                     <div class="exp-header" style="display:none;">ПОПУЛЯРНЫЕ ЭКСКУРСИИ</div>
                                     <div class="list-tours"></div>
+                                    <div class="not-found" style="display: none;">По Вашему запросу ничего не найдено (</div>
                                 </div>
                             </div>
                         </div>
@@ -96,27 +99,11 @@ require_once 'sys/inc.php';
                             <li><a class="link-ask" href="<?= home_url() ?>/feedback/">ЗАДАТЬ ВОПРОС</a></li>
                         </ul>
                     </nav>
-                </div>
-
-            </div>
-        </div>
-        <div class="menu-wrapper-mobile">
-            <div class="menu-wrap">
-                <div class="container">
-                    <div class="menu-logo"><a href="<?= home_url() ?>/"><img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/logo.png" alt=""></a></div>
                     <div class="burger"><img class="burger-btn" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/burger-icon.png" alt=""></div>
+                    <div class="search-icon"><img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/search-icon.svg" alt=""></div>
                 </div>
             </div>
-            <nav class="menu-mobile">
-                <ul>
-                    <li><a href="<?= home_url() ?>/all-countries/" class="open-contry-mobile">СТРАНЫ</a></li>
-                    <li><a href=" <?= home_url() ?>/blog/">БЛОГ</a></li>
-                    <li><a href="<?= home_url() ?>/about/">О НАС</a></li>
-                    <li><a class="link-ask" href="<?= home_url() ?>/feedback/">ЗАДАТЬ ВОПРОС</a></li>
-                </ul>
-            </nav>
         </div>
-
     </div>
 
 

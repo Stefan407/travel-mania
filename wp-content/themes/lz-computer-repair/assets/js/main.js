@@ -137,7 +137,7 @@ $(document).ready(function () {
                         break;
                     case "experience":
                         searchListHeader.show();
-                        searchListTours.append("<div data-type='" + type + "' data-id='" + this.id + "' class='result-item " + type + "'><img class='tour' src='" + this.image + "'><div class='inner'><div class='title1'>" + this.title + "</div><div class='title2'></div></div><div class='left-block'>" + this.price + "</div></div>")
+                        searchListTours.append("<div data-type='" + type + "' data-id='" + this.id + "' class='result-item " + type + "'><img class='tour' src='" + this.image + "'><div class='inner'><div class='title1'>" + this.title + "</div><div class='title2'><span class='city'>" + this.city.name_ru + "</span><span class='price-text'>" + this.price + "</span></div></div><div class='left-block'>" + this.price + "</div></div>")
                         break;
                     case "citytag":
                         break;
@@ -147,10 +147,12 @@ $(document).ready(function () {
             });
             createEvens();
             $(".windows8").hide();
+            $(".not-found").hide();
         } else {
-            console.log("222")
+            $(".not-found").show();
             $(".windows8").hide();
         }
+        console.log(data)
     }
     $("#searchInput").on("keyup", function () {
         var value = $(this).val().toLowerCase();
@@ -169,7 +171,51 @@ $(document).ready(function () {
             valueLength = value.length;
         }
     })
-    $("#searchInput").blur(function (e) {
-        $("body").removeClass("act-search")
+    $(".search-icon").on("click", function () {
+        $("body").addClass("act-search")
     })
+    $(".menu-wrap .burger").on("click", function () {
+        $("#header .menu").toggleClass("act")
+    })
+    // $("#searchInput").blur(function (e) {
+    //     console.log(e.target)
+    //     if (!e.target.closest(".list-country")) {
+    //         // $("body").removeClass("act-search")
+    //     }
+    // })
+
+
+    function clickInWindow(e) {
+        let click = e.target;
+        if (document.querySelector(".search-wrap")) {
+            if (click != document.querySelector("#searchInput") &&
+                click != document.querySelector(".search-icon") &&
+                !click.closest(".search-icon") &&
+                !click.closest(".search-wrap") &&
+                !click.closest("#searchInput")) {
+                $("body").removeClass("act-search");
+            }
+        }
+        if (document.querySelector("#header .menu")) {
+            if (click != document.querySelector(".burger-btn img") &&
+                !click.closest(".burger-btn") &&
+                !click.closest("#header .menu.act")) {
+                $("#header .menu").removeClass("act");
+            }
+        }
+
+    }
+    document.addEventListener("click", function (e) {
+        clickInWindow(e);
+    })
+
+    let simplebarItems = document.querySelectorAll('.scroll-init');
+    simplebarItems.forEach(function (item) {
+        new SimpleBar(item, {
+            autoHide: false
+        })
+    })
+
+
+
 });
