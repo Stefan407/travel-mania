@@ -99,6 +99,22 @@ require_once 'sys/inc.php';
                 </ul>
             </nav>
         </div>
+        <div class="search-wrap" style="display:none;">
+            <div class="search-block">
+                <div class="search-item">
+                    <div class="input-search_wrap">
+                        <input placeholder="Куда вы собираетесь?" type="text" id="searchInput" class="search-input">
+                        <div class="windows8" style="display: none;">
+                            <img src="/wp-content/themes/lz-computer-repair/assets/images/2.gif" alt=""></div>
+                    </div>
+                    <div class="search-list_wrap">
+                        <div class="list-country"></div>
+                        <div class="exp-header" style="display:none;">ПОПУЛЯРНЫЕ ЭКСКУРСИИ</div>
+                        <div class="list-tours"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -106,8 +122,6 @@ require_once 'sys/inc.php';
         $('.burger-btn').click(function() {
             $(".menu-mobile").toggleClass('menu-mobile-active');
         });
-
-        
     </script>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH5TPRC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
