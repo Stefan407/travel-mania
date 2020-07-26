@@ -23,7 +23,7 @@ $current_des_city = reset($current_des_cities);
 
 $my_var = $list[0]->city->in_obj_phrase;
 
-$page_title =  "Авторские экскурсии " . $my_var . " на русском языке - Travel Mania";
+$page_title =  "Авторские экскурсии " . $my_var . " на русском языке 2020 - цены и описание Travel Mania";
 add_action('pre_get_document_title', function () use ($page_title) {
     return $page_title;
 });
@@ -37,11 +37,6 @@ get_header();
 
 
 ?>
-<style>
-    body {
-        transform: translate(0, -2px)
-    }
-</style>
 <section class="top">
     <div class="top__slider">
         <div id="top-images-city" class="image <?php echo ($current_des_city->images) ?>">
@@ -219,16 +214,6 @@ get_header();
 
 <section class="video">
     <div class="container">
-<!-- Квадрат 3 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1224554491202001"
-     data-ad-slot="6391353302"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>         
         <div class="border-box">
             <h2>Главные экскурсионные места <?php echo ($list[0]->city->in_obj_phrase); ?></h2>
             <div class="video-box">

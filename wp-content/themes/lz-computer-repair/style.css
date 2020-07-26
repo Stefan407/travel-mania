@@ -4537,9 +4537,12 @@ h2 {
 
 .search-list_wrap .result-item .inner {
 	display: flex;
-	width: calc(100% - 170px);
+	width: calc(100% - 75px);
 	align-items: center;
 	flex-wrap: wrap;
+}
+.search-list_wrap .result-item.experience .inner {
+	width: calc(100% - 170px);
 }
 
 .search-list_wrap .result-item .inner .title1 {

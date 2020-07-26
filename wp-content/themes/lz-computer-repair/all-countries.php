@@ -17,7 +17,7 @@ if (!function_exists('filter_function_name_Countries')) {
     add_filter('document_title_parts', 'filter_function_name_Countries');
     function filter_function_name_Countries($title)
     {
-        $title['title'] = 'Авторские экскурсии в 93 странах';
+        $title['title'] = 'Авторские экскурсии в 93 странах 2020 - цены и описание';
         $title['site'] = '';
         $title['page '] = '';
         $title['tagline '] = '';
@@ -131,17 +131,6 @@ if (!function_exists('filter_function_name_Countries')) {
             <h2>Экскурсии в 93 странах мира</h2>
             <p>Travel Mania — лучшие экскурсионные предложения в 93 странах мира. Все экскурсии авторские: обзорные, исторические, гастрономические и шоппинг туры, экскурсии с детьми, а также спортивные и развлекательные поездки. Мы предлагаем тысячи эксклюзивных экскурсий, которые можно забронировать онлайн. Только тщательно продуманные маршруты и выгодные цены, о чем свидетельствуют более 140 000 отзывов.</p>
             <div class="video-box">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Квадрат 3 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1224554491202001"
-     data-ad-slot="6391353302"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>                
                 <h2>Весь мир за одну минуту</h2>
                 <video controls="controls" playsinline poster="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png">
                     <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/webm">

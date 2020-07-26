@@ -20,7 +20,7 @@ for ($i = 0; $i <= count($arr); $i++) {
 }
 $new_str = implode(", ", $arr);
 
-$page_title =  $my_var . " на русском языке - Travel Mania";
+$page_title =  $my_var . " 2020 - цена и описание Travel Mania";
 add_action('pre_get_document_title', function () use ($page_title) {
     return $page_title;
 });
@@ -166,9 +166,9 @@ $current_city = str_replace(" ", "-", $current_city);
                                     <div class="order-item-string"><img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/warranty-icon.svg"> Гарантия лучшей цены </div>
                                     <div>
                                         <div class="panel-btns">
-                                            <div> <a class="order-btn" target="_blank" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Забронировать </a> </div>
-                                            <div> <a class="more-btn" target="_blank" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Выбрать дату </a> </div>
-                                            <div> <a class="order-ask" target="_blank" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Задать вопрос гиду</a> </div>
+                                            <div> <a class="order-btn" target="_blank" onclick="ym(56569540,'reachGoal','bron')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Забронировать </a> </div>
+                                            <div> <a class="more-btn" target="_blank" onclick="ym(56569540,'reachGoal','data')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Выбрать дату </a> </div>
+                                            <div> <a class="order-ask" target="_blank" onclick="ym(56569540,'reachGoal','vopros')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Задать вопрос гиду</a> </div>
                                         </div>
                                 </span>
                             </div>
@@ -220,17 +220,6 @@ $current_city = str_replace(" ", "-", $current_city);
                             </div>
                         <?php } ?>
                     </div>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Квадрат 3 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1224554491202001"
-     data-ad-slot="6391353302"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>                    
                 </div>
             </div>
             <div class="order-panel  col-12 col-md-5 col-lg-4">
@@ -280,9 +269,9 @@ $current_city = str_replace(" ", "-", $current_city);
                         <div class="order-item-string"><img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/warranty-icon.svg"> Гарантия лучшей цены </div>
                         <div>
                             <div class="panel-btns">
-                                <div> <a class="order-btn" target="_blank" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Забронировать </a> </div>
-                                <div> <a class="more-btn" target="_blank" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Выбрать дату </a> </div>
-                                <div> <a class="order-ask" target="_blank" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Задать вопрос гиду</a> </div>
+                                <div> <a class="order-btn" target="_blank" onclick="ym(56569540,'reachGoal','bron');ym(56569540, 'reachGoal', 'trip')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Забронировать </a> </div>
+                                <div> <a class="more-btn" target="_blank" onclick="ym(56569540,'reachGoal','data');ym(56569540, 'reachGoal', 'trip')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Выбрать дату </a> </div>
+                                <div> <a class="order-ask" target="_blank" onclick="ym(56569540,'reachGoal','vopros');ym(56569540, 'reachGoal', 'trip')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Задать вопрос гиду</a> </div>
                             </div>
                     </span>
                 </div>

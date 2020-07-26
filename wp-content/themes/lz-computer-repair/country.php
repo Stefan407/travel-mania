@@ -22,7 +22,7 @@ $current_des_country = reset($current_des_countries);
 
 $my_var = $list[0]->country->in_obj_phrase;
 
-$page_title =  "Авторские экскурсии " . $my_var . " на русском языке - Travel Mania";
+$page_title =  "Авторские экскурсии " . $my_var . " на русском языке 2020 - цены и описание Travel Mania";
 add_action('pre_get_document_title', function () use ($page_title) {
     return $page_title;
 });
@@ -179,16 +179,6 @@ add_action('wp_head', function () use ($list) {
 
 <section class="video">
     <div class="container">
-<!-- Квадрат 3 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1224554491202001"
-     data-ad-slot="6391353302"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>        
         <div class="border-box">
             <h2>Главные экскурсионные места <?php echo ($list[0]->country->in_obj_phrase); ?></h2>
             <div class="video-box">
