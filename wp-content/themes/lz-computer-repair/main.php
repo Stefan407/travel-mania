@@ -28,7 +28,7 @@
             <div class="border-box">
                 <h2>Экскурсии по всему миру на русском языке</h2>
                 <div class="border-box__text">
-                <p>От чего в жизни можно получать положительные эмоции, новые знания, драйв и удовольствие? Только поездки в новые места, города и страны дают весь спектр этих эмоций. Хорошо организованное, тщательно спланированное путешествие оставляет приятное послевкусие, которое остается с Вами надолго. Если Вы путешествуете и хотите забронировать необычную экскурсию в этом регионе, проект Travel Mania предлагает авторские экскурсионные предложения.</p>
+                    <p>От чего в жизни можно получать положительные эмоции, новые знания, драйв и удовольствие? Только поездки в новые места, города и страны дают весь спектр этих эмоций. Хорошо организованное, тщательно спланированное путешествие оставляет приятное послевкусие, которое остается с Вами надолго. Если Вы путешествуете и хотите забронировать необычную экскурсию в этом регионе, проект Travel Mania предлагает авторские экскурсионные предложения.</p>
                 </div>
                 <div class="advantages-wrap">
                     <div class="advantages-item">
@@ -89,24 +89,36 @@
                                             <span class="slick-tours__item-img-span "><?php echo ($tour->price->discount->value * 100) ?>%</span>
                                         </div>
                                     <?php } ?>
+                                    <?php if ($tour->tags[0]->name) { ?>
+                                        <div class="slick-tours__tag"><?php echo ($tour->tags[0]->name) ?></div>
+                                    <?php } ?>
                                 </div>
 
                                 <div class="item-time-rating">
                                     <span class="item-time">
                                         <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-time.png" alt=""> <span><?php echo $tour->duration ?> </span>
                                     </span>
-                                    <span class="item-rating">
-                                        <span style="display:none;" class="reviews-rating"><?php echo $tour->rating ?> </span>
-                                        <div class="star-rating-item">
-                                            <span class="reviews-rating-img" style="width: <?php echo ($tour->rating * 20) ?>%">
-                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                            </span>
-                                        </div>
-                                    </span>
+                                    <?php if ($tour->rating) { ?>
+                                        <span class="item-rating">
+                                            <span style="display:none;" class="reviews-rating"><?php echo $tour->rating ?> </span>
+                                            <div class="star-rating-item">
+                                                <span class="reviews-rating-img" style="width: <?php echo ($tour->rating * 20) ?>%">
+                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                </span>
+                                                <span class="reviews-rating-img bac">
+                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                </span>
+                                            </div>
+                                        </span>
+                                    <?php } ?>
                                 </div>
                                 <div class="tours__item-content ">
                                     <div class="item-title ">
@@ -121,9 +133,7 @@
                                                 <span>
                                                     <?php echo $tour->guide->first_name ?>
                                                 </span>
-                                                <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', str_replace(' ', '-', $tour->city->country->name_en)) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/">
-                                                    <?= $tour->city->name_ru ?>
-                                                </a>
+                                                <a><?= $tour->city->name_ru ?></a>
                                             </div>
                                         </div>
                                         <div class="item-price">
@@ -138,7 +148,7 @@
                 </div>
                 <section class="video">
                     <h2>600+ городов в 93 странах</h2>
-                    <p>Travel Mania охватывает более <a href="/all-cities/" class="azure-link">600 городов</a> в <a href="/all-countries/" class="azure-link">93 странах</a> мира. У нас можно подобрать: исторические экскурсии, гастрономические и шоппинг туры, экскурсии с детьми, а также спортивные и развлекательные поездки. Предлагаются тысячи эксклюзивных и авторских экскурсий, которые можно забронировать и оплатить онлайн. Только самые продуманные маршруты и выгодные цены, о чем свидетельствуют более 140 000 отзывов.</p> 
+                    <p>Travel Mania охватывает более <a href="/all-cities/" class="azure-link">600 городов</a> в <a href="/all-countries/" class="azure-link">93 странах</a> мира. У нас можно подобрать: исторические экскурсии, гастрономические и шоппинг туры, экскурсии с детьми, а также спортивные и развлекательные поездки. Предлагаются тысячи эксклюзивных и авторских экскурсий, которые можно забронировать и оплатить онлайн. Только самые продуманные маршруты и выгодные цены, о чем свидетельствуют более 140 000 отзывов.</p>
                     <div class="video-box">
                         <h2>Мир за одну минуту</h2>
                         <div class="video__text">
@@ -162,13 +172,6 @@
     <script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/jquery.appear.js"></script>
 
     <script>
-        // let reviewsRatings = document.getElementsByClassName("reviews-rating");
-        // let reviewsRatingImg = document.getElementsByClassName("reviews-rating-img");
-        // for (i = 0; i < reviewsRatings.length; i++) {
-        //     reviewsRatingImg[i].style.width = reviewsRatings[i].innerHTML * 20 + "%";
-        // }
-
-
         $('.image').slick({
             arrows: false,
             dots: true,
@@ -194,6 +197,5 @@
                     }
                 }
             ]
-
         });
     </script>

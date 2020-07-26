@@ -46,37 +46,54 @@ $current_city = str_replace(" ", "-", $current_city);
         <div class="main_wrap">
             <div class="row">
                 <div class="main_content col-12 col-md-7 col-lg-8">
-                    <div class="breadcrumbs">
+                    <div class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
                         <div class="breadcrumbs-wrap">
-                            <div class="breadcrumbs-item">
-                                <div class="breadcrumbs__block" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                                    <a class="breadcrumbs__link" href="/<?php echo ($current_country) ?>/" itemprop="url">
-                                        <span itemprop="title"><?php echo ($list->city->country->name_ru) ?></span>
+                            <div class="breadcrumbs-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                <div class="breadcrumbs__block" >
+                                    <a class="breadcrumbs__link" href="/<?php echo ($current_country) ?>/" itemprop="item">
+                                        <span itemprop="name"><?php echo ($list->city->country->name_ru) ?></span>
                                     </a>
                                 </div>
                                 <div class="breadcrumbs__arrow">
                                     <img src="/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
                                 </div>
+                                <meta itemprop="position" content="1">
                             </div>
-                            <div class="breadcrumbs-item">
-                                <div class="breadcrumbs__block" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                            <div class="breadcrumbs-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                <div class="breadcrumbs__block">
                                     <?php
-                                        $city_name = str_replace('é', 'e', $list->city->name_en);
-                                        $city_name = str_replace('ё', 'e', $city_name);
-                                        $city_name = str_replace("'", '', $city_name);
-                                        $city_name = str_replace("'", '', $city_name);
-                                        $city_name = str_replace("ó", 'o', $city_name);
-                                        if ($city__name_en == 'Villefranche-sur-Saône') {
-                                            $city__name_en = "Villefranche-sur-Saone";
-                                        }
+                                    $city_name = str_replace('é', 'e', $list->city->name_en);
+                                    $city_name = str_replace('ё', 'e', $city_name);
+                                    $city_name = str_replace("'", '', $city_name);
+                                    $city_name = str_replace("'", '', $city_name);
+                                    $city_name = str_replace("ó", 'o', $city_name);
+                                    if ($city__name_en == 'Villefranche-sur-Saône') {
+                                        $city__name_en = "Villefranche-sur-Saone";
+                                    }
                                     ?>
-                                    <a class="breadcrumbs__link" href="/<?php echo ($current_country) ?>/<?php echo ($current_city) ?>/" itemprop="url">
-                                        <span itemprop="title">Экскурсии <?php echo ($list->city->in_obj_phrase) ?></span>
+                                    <a class="breadcrumbs__link" href="/<?php echo ($current_country) ?>/<?php echo ($current_city) ?>/" itemprop="item">
+                                        <span itemprop="name" >Экскурсии <?php echo ($list->city->in_obj_phrase) ?></span>
                                     </a>
                                 </div>
+                                <meta itemprop="position" content="2">
                             </div>
                         </div>
                     </div>
+
+                    <div itemscope itemtype="http://schema.org/Product">
+                        <meta itemprop="name" content="<?php echo($page_title) ?>" />
+                        <meta itemprop="description" content="<?php echo($list->tagline) ?>" />
+                        <meta itemprop="image" content="<?php echo $list->photos[0]->medium ?>" />
+                        <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <meta itemprop="price" content="<?php echo $list->price->value ?> " />
+                            <meta itemprop="priceCurrency" content="<?php echo $list->price->currency ?>" />
+                        </span>
+                        <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                            <meta itemprop="ratingValue" content="<?php echo ($list->rating ) ?>" />
+                            <meta itemprop="reviewCount" content="<?php echo ($list->review_count ) ?>" />
+                        </span>
+                    </div>
+
                     <div class="main_content-title">
                         <h1> <?php echo ($list->title) ?> </h1>
                     </div>
@@ -154,7 +171,7 @@ $current_city = str_replace(" ", "-", $current_city);
                                         <?php if ($list->price->discount->original_price) { ?>
                                             <div class="price-discount">
                                                 <span id="price-discount-value">
-                                                    <?php echo($list->price->discount->value*100) ?>
+                                                    <?php echo ($list->price->discount->value * 100) ?>
                                                 </span>
                                                 <span>%</span> Скидка при заказе до <span id="discount-date"><?php echo ($list->price->discount->expiration_date) ?></span>
                                             </div>
@@ -198,8 +215,8 @@ $current_city = str_replace(" ", "-", $current_city);
                                                         <div class="name"><span><?php echo $rew->name  ?></span>
                                                             <span class="reviews-date"><?php echo $rew->created_on ?></span>
                                                         </div>
-                                                        <div class="star-rating-item" >
-                                                            <span class="reviews-rating-img" style="width: <?php echo(20*($rew->rating)) ?>%">
+                                                        <div class="star-rating-item">
+                                                            <span class="reviews-rating-img" style="width: <?php echo (20 * ($rew->rating)) ?>%">
                                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
@@ -257,7 +274,7 @@ $current_city = str_replace(" ", "-", $current_city);
                             <?php if ($list->price->discount->original_price) { ?>
                                 <div class="price-discount">
                                     <span id="price-discount-value">
-                                        <?php echo($list->price->discount->value*100) ?>
+                                        <?php echo ($list->price->discount->value * 100) ?>
                                     </span>
                                     <span>%</span> Скидка при заказе до <span id="discount-date"><?php echo ($list->price->discount->expiration_date) ?></span>
                                 </div>

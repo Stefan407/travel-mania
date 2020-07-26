@@ -22,8 +22,11 @@ $current_des_city = reset($current_des_cities);
 
 
 $my_var = $list[0]->city->in_obj_phrase;
-
-$page_title =  "Авторские экскурсии " . $my_var . " на русском языке 2020 - цены и описание Travel Mania";
+$textRu = " на русском языке ";
+if ($list[0]->city->country->name_en == "Russia" or $list[0]->city->country->name_en == "Ukraine") {
+    $textRu = "";
+};
+$page_title =  "Авторские экскурсии " . $my_var . $textRu . " 2020 - цены и описание Travel Mania";
 add_action('pre_get_document_title', function () use ($page_title) {
     return $page_title;
 });
@@ -35,6 +38,9 @@ add_action('wp_head', function () use ($list) {
 
 get_header();
 
+$priceAll = [];
+$reviewsAll = 0;
+$reviewsAllCount = 0;
 
 ?>
 <section class="top">
@@ -97,9 +103,11 @@ get_header();
             </div>
         </div>
     </div>
+
     <div class="container">
         <div class="border-box">
-            <h2>Экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> на русском языке</h2>
+            <h2>Экскурсии <?php echo ($list[0]->city->in_obj_phrase);
+                            echo ($textRu); ?></h2>
             <div id="top-text-city" class="border-box__text">
                 <?php if ($current_des_city->textTop != "") : ?>
                     <?php echo $current_des_city->textTop; ?>
@@ -130,46 +138,59 @@ get_header();
     <div class="container">
         <div id="slick-tours" class="slick-tours row">
             <?php $count = 1 ?>
-            <?php foreach ($list as $country) { ?>
-                <div id="slick-tours__item" class="slick-tours__item <?php if ($count > 24) { ?>hide<?php } ?>">
+            <?php $countReviews = 0 ?>
+            <?php foreach ($list as $item) { ?>
+                <div id="slick-tours__item " class="slick-tours__item <?php if ($count > 24) { ?>hide<?php } ?>">
                     <div class="slick-tours__wrap">
-                        <div class="slick-tours__item-img">
+                        <div class="slick-tours__item-img ">
                             <?php
                             $countImg = 0;
                             $arrayImg = [];
-                            foreach ($country->photos as $img) {
+                            foreach ($item->photos as $img) {
                                 if ($countImg != 0 && $countImg <= 6) {
                                     array_push($arrayImg,  $img->thumbnail);
                                 }
                                 $countImg++;
                             }
                             ?>
-                            <a class="link" href="<?= home_url() ?>/<?= str_replace('+', '-', $country__name_en) ?>/<?= str_replace('+', '-', $city__name_en) ?>/excursion-<?= $country->id; ?>/" data-images="<?php echo htmlspecialchars(json_encode($arrayImg)) ?>">
-                                <img class="static" src="<?php echo $country->photos['0']->thumbnail ?>" alt="">
+                            <a class="link" href="<?= home_url() ?>/<?= str_replace('+', '-', $country__name_en) ?>/<?= str_replace('+', '-', $city__name_en) ?>/excursion-<?= $item->id; ?>/" data-images="<?php echo htmlspecialchars(json_encode($arrayImg)) ?>">
+                                <img class="static" src="<?php echo $item->photos['0']->thumbnail ?>" alt="">
                             </a>
-                            <?php if ($country->price->discount->value) { ?>
+                            <?php if ($item->price->discount->value) { ?>
                                 <div class="slick-tours__item-img-box">
                                     <span>Скидка</span> <br>
-                                    <span class="slick-tours__item-img-span "><?php echo ($country->price->discount->value * 100) ?>%</span>
+                                    <span class="slick-tours__item-img-span "><?php echo ($item->price->discount->value * 100) ?>%</span>
                                 </div>
+                            <?php } ?>
+                            <?php if ($item->tags[0]->name) { ?>
+                                <div class="slick-tours__tag"><?php echo ($item->tags[0]->name) ?></div>
                             <?php } ?>
                         </div>
                         <div class="item-time-rating">
                             <span class="item-time">
-                                <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-time.png" alt=""> <span><?php echo $country->duration ?> </span>
+                                <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-time.png" alt=""> <span><?php echo $item->duration ?> </span>
                             </span>
-                            <span class="item-rating">
-                                <span style="display:none;" class="reviews-rating"><?php echo $country->rating ?> </span>
-                                <div class="star-rating-item">
-                                    <span class="reviews-rating-img" style="width: <?php echo ($country->rating * 20) ?>%">
-                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                    </span>
-                                </div>
-                            </span>
+                            <?php if ($item->rating) { ?>
+                                <span class="item-rating">
+                                    <span style="display:none;" class="reviews-rating"><?php echo $item->rating ?> </span>
+                                    <div class="star-rating-item">
+                                        <span class="reviews-rating-img" style="width: <?php echo ($item->rating * 20) ?>%">
+                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                        </span>
+                                        <span class="reviews-rating-img bac">
+                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                        </span>
+                                    </div>
+                                </span>
+                            <?php } ?>
 
                         </div>
                         <div class="tours__item-content ">
@@ -183,22 +204,25 @@ get_header();
                                     $city__name_en = "Villefranche-sur-Saone";
                                 }
                                 ?>
-                                <a href="<?= home_url() ?>/<?= str_replace('+', '-', $country__name_en) ?>/<?= str_replace('+', '-', $city__name_en) ?>/excursion-<?= $country->id; ?>/"><?php echo $country->title ?> </a>
+                                <a href="<?= home_url() ?>/<?= str_replace('+', '-', $country__name_en) ?>/<?= str_replace('+', '-', $city__name_en) ?>/excursion-<?= $item->id; ?>/"><?php echo $item->title ?> </a>
                             </div>
                             <div class="item-price-guide">
                                 <div class="item-guide">
-                                    <div class="item-guide-photo"> <img src="<?php echo $country->guide->avatar->medium  ?>" alt=""> </div>
-                                    <div class="item-guide-name"><?php echo $country->guide->first_name ?> <br>
+                                    <div class="item-guide-photo"> <img src="<?php echo $item->guide->avatar->medium  ?>" alt=""> </div>
+                                    <div class="item-guide-name"><?php echo $item->guide->first_name ?> <br>
                                         <?php
-                                        $city_name = str_replace('é', 'e', $country->name_en);
+                                        $city_name = str_replace('é', 'e', $item->name_en);
                                         $city_name = str_replace("'", '', $city_name);
                                         ?>
-                                        <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', $country__name_en) ?>/<?php echo str_replace('+', '-', urlencode($country->city->name_en)) ?>/"><?php echo $country->city->name_ru ?></a>
+                                        <a><?php echo $item->city->name_ru ?></a>
                                     </div>
                                 </div>
+                                <?php array_push($priceAll, $item->price->value); ?>
+                                <?php if($item->rating){$reviewsAll= $reviewsAll + $item->rating; $countReviews ++; }; ?>
+                                <?php if($item->review_count){$reviewsAllCount = $reviewsAllCount + $item->review_count;}; ?>
                                 <div class="item-price">
-                                    <div class="item-price-value"> <?php echo $country->price->value . ' ' . $country->price->currency ?></div>
-                                    <div class="item-price-people"> <?php echo $country->price->unit_string  ?> </div>
+                                    <div class="item-price-value"> <?php echo $item->price->value . ' ' . $item->price->currency ?></div>
+                                    <div class="item-price-people"> <?php echo $item->price->unit_string  ?> </div>
                                 </div>
                             </div>
                         </div>
@@ -206,11 +230,22 @@ get_header();
                 </div>
                 <?php $count++ ?>
             <?php } ?>
-
         </div>
         <button id="btn-more" class="btn-more">Показать ещё... <span id="span-col">всего <?php echo (count($list)) ?></span> </button>
     </div>
 </section>
+<div itemscope="itemscope" itemtype="http://schema.org/Product">
+    <meta itemprop="name" content="<?php echo("Авторские экскурсии" . $list[0]->city->in_obj_phrase);?>" > 
+    <meta itemprop="description" content="У нас можно заказать авторские экскурсии <?php $list[0]->city->in_obj_phrase ?> на русском языке с лучшими гидами. Выгодные цены без посредников и удобные даты проведения.">
+    <span itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/aggregateoffer">
+        <meta itemprop="lowprice" content="<?php echo (min($priceAll)) ?>">
+        <meta itemprop="highprice" content="<?php echo (max($priceAll)) ?>">
+        <meta itemprop="pricecurrency" content="<?php echo $list[0]->price->currency ?>"></span>
+    <span itemprop="aggregaterating" itemscope="itemscope" itemtype="http://schema.org/aggregaterating">
+        <meta itemprop="ratingValue" content="<?php echo($reviewsAll/$countReviews); ?>">
+        <meta itemprop="reviewCount" content="<?php echo($reviewsAllCount); ?>">
+    </span>
+</div>
 
 <section class="video">
     <div class="container">
