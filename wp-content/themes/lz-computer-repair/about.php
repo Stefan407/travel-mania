@@ -28,23 +28,23 @@ if (!function_exists('filter_function_name_Cities')) {
 </head>
 <?php get_header(); ?>
 <section class="top">
-    <div class="breadcrumbs" style="display:none">
+    <div class="breadcrumbs" style="display:none" itemscope="itemscope" itemtype="http://schema.org/BreadcrumbList">
         <div class="container breadcrumbs-wrap">
             <div class="breadcrumbs-item">
-                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                    <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
-                        <span itemprop="title">
-                            <span>Главная</span>
-                        </span>
+                <div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="/" itemprop="item">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="1">
                     </a>
                 </div>
                 <div class="breadcrumbs__arrow">
                     <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
                 </div>
-                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                    <link itemprop="url" href="/about/">
+                <div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <p class="breadcrumbs__text">
-                        <span itemprop="title">О нас</span>
+                        <span itemprop="name">О нас</span>
+                        <meta itemprop="item" content="<?= home_url() ?>/about">
+                        <meta itemprop="position" content="2">
                     </p>
                 </div>
             </div>

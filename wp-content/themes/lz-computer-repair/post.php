@@ -17,30 +17,32 @@ add_action('pre_get_document_title', function () use ($page_title) {
 
 
 <div id="post-<?php echo ($post["ID"]) ?>" class="post-page">
-	<div class="breadcrumbs">
+	<div class="breadcrumbs" itemscope="itemscope" itemtype="http://schema.org/BreadcrumbList">
 		<div class="container breadcrumbs-wrap">
-			<div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-				<a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
-					<span itemprop="title">
-						<span>Главная</span>
-					</span>
+			<div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
+				<a class="breadcrumbs__link" href="/" itemprop="item">
+					<span itemprop="name">Главная</span>
+					<meta itemprop="position" content="1">
 				</a>
 			</div>
 			<div class="breadcrumbs__arrow">
-				<img src="/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+				<img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
 			</div>
-			<div class="breadcrumbs__block" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-				<a class="breadcrumbs__link" href="/blog" itemprop="url">
-					<span itemprop="title">Блог</span>
-				</a>
-			</div>
-			<div class="breadcrumbs__arrow">
-				<img src="/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
-			</div>
-			<div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-				<link itemprop="url" href="/<?php echo ($post["post_name"]) ?>/">
+			<div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
 				<p class="breadcrumbs__text">
-					<span itemprop="title"><?php echo ($post["post_title"]) ?></span>
+					<span itemprop="name">Блог</span>
+					<meta itemprop="item" content="<?= home_url() ?>blog/">
+					<meta itemprop="position" content="2">
+				</p>
+			</div>
+			<div class="breadcrumbs__arrow">
+				<img src="/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+			</div>
+			<div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
+				<p class="breadcrumbs__text">
+					<meta itemprop="item" content="<?= home_url() ?>/<?php echo ($post["post_name"]) ?>">
+					<span itemprop="name"><?php echo ($post["post_title"]) ?></span>
+					<meta itemprop="position" content="3">
 				</p>
 			</div>
 		</div>

@@ -69,36 +69,37 @@ $reviewsAllCount = 0;
             </div>
         </div>
     </div>
-    <div class="breadcrumbs">
+    <div class="breadcrumbs" itemscope="itemscope" itemtype="http://schema.org/BreadcrumbList">
         <div class="container breadcrumbs-wrap">
-            <div class="breadcrumbs-item">
-                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                    <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
-                        <span itemprop="title">
-                            <span>Главная</span>
-                        </span>
+            <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
+                <div class="breadcrumbs__block">
+                    <a class="breadcrumbs__link" href="/" itemprop="item">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="1">
                     </a>
                 </div>
                 <div class="breadcrumbs__arrow">
                     <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
                 </div>
             </div>
-            <div class="breadcrumbs-item">
-                <div class="breadcrumbs__block" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                    <a class="breadcrumbs__link" href="/<?= str_replace('+', '-', $country__name_en) ?>/" itemprop="url">
-                        <span itemprop="title"><?php echo ($list[0]->city->country->name_ru) ?></span>
+            <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
+                <div class="breadcrumbs__block">
+                    <a class="breadcrumbs__link" href="/<?= str_replace('+', '-', $country__name_en) ?>/" itemprop="item">
+                        <span itemprop="name"><?php echo ($list[0]->city->country->name_ru) ?></span>
+                        <meta itemprop="position" content="2">
                     </a>
                 </div>
                 <div class="breadcrumbs__arrow">
                     <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
                 </div>
             </div>
-            <div class="breadcrumbs-item">
-                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                    <link itemprop="url" href="/<?= str_replace('+', '-', $country__name_en) ?>/<?= str_replace('+', '-', $city__name_en) ?>/">
+            <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
+                <div class="breadcrumbs__block">
+                    <meta itemprop="item" content="<?= home_url() ?>/<?= str_replace('+', '-', $country__name_en) ?>/<?= str_replace('+', '-', $city__name_en) ?>/">
                     <p class="breadcrumbs__text">
-                        <span itemprop="title"><?php echo ($list[0]->city->name_ru) ?></span>
+                        <span itemprop="name"><?php echo ($list[0]->city->name_ru) ?></span>
                     </p>
+                    <meta itemprop="position" content="3">
                 </div>
             </div>
         </div>
@@ -218,8 +219,13 @@ $reviewsAllCount = 0;
                                     </div>
                                 </div>
                                 <?php array_push($priceAll, $item->price->value); ?>
-                                <?php if($item->rating){$reviewsAll= $reviewsAll + $item->rating; $countReviews ++; }; ?>
-                                <?php if($item->review_count){$reviewsAllCount = $reviewsAllCount + $item->review_count;}; ?>
+                                <?php if ($item->rating) {
+                                    $reviewsAll = $reviewsAll + $item->rating;
+                                    $countReviews++;
+                                }; ?>
+                                <?php if ($item->review_count) {
+                                    $reviewsAllCount = $reviewsAllCount + $item->review_count;
+                                }; ?>
                                 <div class="item-price">
                                     <div class="item-price-value"> <?php echo $item->price->value . ' ' . $item->price->currency ?></div>
                                     <div class="item-price-people"> <?php echo $item->price->unit_string  ?> </div>
@@ -235,15 +241,15 @@ $reviewsAllCount = 0;
     </div>
 </section>
 <div itemscope="itemscope" itemtype="http://schema.org/Product">
-    <meta itemprop="name" content="<?php echo("Авторские экскурсии" . $list[0]->city->in_obj_phrase);?>" > 
+    <meta itemprop="name" content="<?php echo ("Авторские экскурсии" . $list[0]->city->in_obj_phrase); ?>">
     <meta itemprop="description" content="У нас можно заказать авторские экскурсии <?php $list[0]->city->in_obj_phrase ?> на русском языке с лучшими гидами. Выгодные цены без посредников и удобные даты проведения.">
     <span itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/aggregateoffer">
         <meta itemprop="lowprice" content="<?php echo (min($priceAll)) ?>">
         <meta itemprop="highprice" content="<?php echo (max($priceAll)) ?>">
         <meta itemprop="pricecurrency" content="<?php echo $list[0]->price->currency ?>"></span>
     <span itemprop="aggregaterating" itemscope="itemscope" itemtype="http://schema.org/aggregaterating">
-        <meta itemprop="ratingValue" content="<?php echo($reviewsAll/$countReviews); ?>">
-        <meta itemprop="reviewCount" content="<?php echo($reviewsAllCount); ?>">
+        <meta itemprop="ratingValue" content="<?php echo ($reviewsAll / $countReviews); ?>">
+        <meta itemprop="reviewCount" content="<?php echo ($reviewsAllCount); ?>">
     </span>
 </div>
 

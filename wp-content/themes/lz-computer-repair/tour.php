@@ -148,7 +148,14 @@ $current_city = str_replace(" ", "-", $current_city);
                                             <span>Рейтинг </span>
                                             <span id="star-value"><?php echo $list->rating ?></span>
                                             <div class="star-rating-item">
-                                                <span id="star-rating" style="width: <?php echo ($list->rating * 20) ?>%">
+                                                <span class="reviews-rating-img" style="width: <?php echo ($list->rating * 20) ?>%">
+                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                </span>
+                                                <span class="reviews-rating-img bac">
                                                     <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                                     <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                                     <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
@@ -216,7 +223,14 @@ $current_city = str_replace(" ", "-", $current_city);
                                                             <span class="reviews-date"><?php echo $rew->created_on ?></span>
                                                         </div>
                                                         <div class="star-rating-item">
-                                                            <span class="reviews-rating-img" style="width: <?php echo (20 * ($rew->rating)) ?>%">
+                                                            <span class="reviews-rating-img" style="width: <?php echo ($rew->rating * 20) ?>%">
+                                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                            </span>
+                                                            <span class="reviews-rating-img bac">
                                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                                                 <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
@@ -251,7 +265,14 @@ $current_city = str_replace(" ", "-", $current_city);
                                 <span>Рейтинг </span>
                                 <span id="star-value"><?php echo $list->rating ?></span>
                                 <div class="star-rating-item">
-                                    <span id="star-rating" style="width: <?php echo ($list->rating * 20) ?>%">
+                                    <span class="reviews-rating-img" style="width: <?php echo ($list->rating * 20) ?>%">
+                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                    </span>
+                                    <span class="reviews-rating-img bac">
                                         <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                         <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
                                         <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
