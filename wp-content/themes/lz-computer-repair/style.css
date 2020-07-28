@@ -4498,7 +4498,9 @@ h2 {
 	box-sizing: border-box;
 	overflow: hidden;
 	text-decoration: none;
-
+}
+.search-wrap input.search-input::placeholder {
+	color: #828282;
 }
 
 .act-search .search-wrap input.search-input {
@@ -4573,7 +4575,7 @@ h2 {
 
 .search-list_wrap .result-item .inner {
 	display: flex;
-	width: calc(100% - 75px);
+	width: calc(100% - 100px);
 	align-items: center;
 	flex-wrap: wrap;
 }
@@ -4591,10 +4593,10 @@ h2 {
 }
 
 .search-list_wrap .result-item .inner .price-text {
-	background: #e66363;
+	background: #d6f2ff;
 	padding: 1px 5px;
 	border-radius: 15px;
-	color: #fff;
+	color: #333;
 	margin-left: 10px;
 	display: none;
 }
@@ -5664,8 +5666,15 @@ img.f-logos {
 }
 
 @media (max-width: 768px) {
+	.search-list_wrap .result-item img.loc{
+		width: 20px;
+	}
 	.description-section_text {
 		margin-top: 10px;
+	}
+	.search-list_wrap .result-item .left-block{
+		right: 0;
+		font-size: 12px;
 	}
 
 	.slick-tours .tours__item-content .item-title {

@@ -313,7 +313,7 @@ $reviewsAllCount = 0;
     var timeout = false;
     let coordinatesYT = window.pageYOffset;
     let coordinatesYB = coordinatesYT + window.innerHeight;
-    let elements = document.querySelectorAll(".slick-tours__item");
+    let elements = document.querySelectorAll(".slick-tours__item-img ");
     let elementsArray = [];
     let currentElement;
 

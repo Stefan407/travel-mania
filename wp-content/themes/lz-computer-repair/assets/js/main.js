@@ -55,7 +55,6 @@ $(document).ready(function () {
         } else {
             data = jQuery.parseJSON(xhr.responseText);
         }
-        console.log(data)
         let cityName = replaceName("noSpace", data.city.name_en);
         let countryName = replaceName("noSpace", data.city.country.name_en);
         let url = "https://travel-mania.org/" + countryName + "/" + cityName + "/excursion-" + id;
@@ -73,7 +72,6 @@ $(document).ready(function () {
         } else {
             data = jQuery.parseJSON(xhr.responseText);
         }
-        console.log(data)
         let countryName = replaceName("noSpace", data.results[0].name_en);
         let url = "https://travel-mania.org/" + countryName;
         location.href = url;
@@ -90,8 +88,6 @@ $(document).ready(function () {
         } else {
             data = jQuery.parseJSON(xhr.responseText);
         }
-        console.log(data)
-        console.log(id)
         let cityName = replaceName("noSpace", data.results[0].name_en);
         let countryName = replaceName("noSpace", data.results[0].country.name_en);
         let url = "https://travel-mania.org/" + countryName + "/" + cityName;
@@ -118,7 +114,10 @@ $(document).ready(function () {
             }
         })
     }
-
+    function declOfNum(number, titles) {
+        cases = [2, 0, 1, 1, 1, 2];
+        return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
+    };
     function editListSearch(data) {
         searchListCountries.text("");
         searchListTours.text("");
@@ -129,11 +128,11 @@ $(document).ready(function () {
                 switch (type) {
                     case "country":
                         let newNameCountry = replaceName("noEm", this.title)
-                        searchListCountries.append("<div data-type='" + type + "' data-id='" + newNameCountry + "' class='result-item " + type + "'><img class='loc' src='/wp-content/themes/lz-computer-repair/assets/images/icon-location.svg'><div class='inner'><div class='title1'>" + this.title + "</div><div class='title2'></div></div><div class='left-block'>" + this.experience_count + "</div></div>");
+                        searchListCountries.append("<div data-type='" + type + "' data-id='" + newNameCountry + "' class='result-item " + type + "'><img class='loc' src='/wp-content/themes/lz-computer-repair/assets/images/icon-location.svg'><div class='inner'><div class='title1'>" + this.title + "</div><div class='title2'></div></div><div class='left-block'>" + this.experience_count + " " + declOfNum(this.experience_count, ['экскурсия', 'экскурсии', 'экскурсий']) + "</div></div>");
                         break;
                     case "city":
                         let newNameCity = replaceName("noEm", this.title)
-                        searchListCountries.append("<div data-type='" + type + "' data-id='" + newNameCity + "' class='result-item " + type + "'><img class='loc' src='/wp-content/themes/lz-computer-repair/assets/images/icon-location.svg'><div class='inner'><div class='title1'>" + this.title + "</div><div class='title2'>" + this.country.name_ru + "</div></div><div class='left-block'>" + this.experience_count + "</div></div>");
+                        searchListCountries.append("<div data-type='" + type + "' data-id='" + newNameCity + "' class='result-item " + type + "'><img class='loc' src='/wp-content/themes/lz-computer-repair/assets/images/icon-location.svg'><div class='inner'><div class='title1'>" + this.title + "</div><div class='title2'>" + this.country.name_ru + "</div></div><div class='left-block'>" + this.experience_count + " " + declOfNum(this.experience_count, ['экскурсия', 'экскурсии', 'экскурсий']) + "</div></div>");
                         break;
                     case "experience":
                         searchListHeader.show();
@@ -152,7 +151,6 @@ $(document).ready(function () {
             $(".not-found").show();
             $(".windows8").hide();
         }
-        console.log(data)
     }
     $("#searchInput").on("keyup", function () {
         var value = $(this).val().toLowerCase();
@@ -173,16 +171,16 @@ $(document).ready(function () {
     })
     $(".search-icon").on("click", function () {
         $("body").addClass("act-search")
+        var value = $("#searchInput").val();
+        $("body").addClass("act-search")
+        if (!value.length && value.length !== valueLength) {
+            request(value);
+            valueLength = value.length;
+        }
     })
     $(".menu-wrap .burger").on("click", function () {
         $("#header .menu").toggleClass("act")
     })
-    // $("#searchInput").blur(function (e) {
-    //     console.log(e.target)
-    //     if (!e.target.closest(".list-country")) {
-    //         // $("body").removeClass("act-search")
-    //     }
-    // })
 
 
     function clickInWindow(e) {
