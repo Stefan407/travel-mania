@@ -173,6 +173,7 @@ $(document).ready(function () {
         $("body").addClass("act-search")
         var value = $("#searchInput").val();
         $("body").addClass("act-search")
+        $("#searchInput").focus();
         if (!value.length && value.length !== valueLength) {
             request(value);
             valueLength = value.length;

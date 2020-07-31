@@ -78,9 +78,13 @@ require_once 'sys/inc.php';
                         <div class="search-block">
                             <div class="search-item">
                                 <div class="input-search_wrap">
-                                    <input placeholder="Куда вы собираетесь?" type="text" id="searchInput" class="search-input">
+                                    <input placeholder="Куда вы едете?" type="text" id="searchInput" class="search-input">
                                     <div class="windows8" style="display: none;">
-                                        <img src="/wp-content/themes/lz-computer-repair/assets/images/2.gif" alt=""></div>
+                                        <img src="/wp-content/themes/lz-computer-repair/assets/images/2.gif" alt="">
+                                    </div>
+                                    <div class="search-icon-des">
+                                        <img src="/wp-content/themes/lz-computer-repair/assets/images/search-icon-white.svg" alt="">
+                                    </div>
                                 </div>
                                 <div class="search-list_wrap block-scrollbar scroll-init">
                                     <div class="list-country"></div>

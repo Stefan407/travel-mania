@@ -21,11 +21,11 @@ $current_des_country = reset($current_des_countries);
 
 
 $my_var = $list[0]->country->in_obj_phrase;
-$textRu = " на русском языке ";
+$textRu = "на русском языке";
 if ($list[0]->country->name_en == "Russia" or $list[0]->country->name_en == "Ukraine") {
     $textRu = "";
 };
-$page_title =  "Авторские экскурсии " . $my_var . $textRu . "2020 - цены и описание Travel Mania";
+$page_title =  "Авторские экскурсии " . $my_var . $textRu . " 2020 - цены и описание Travel Mania";
 add_action('pre_get_document_title', function () use ($page_title) {
     return $page_title;
 });
