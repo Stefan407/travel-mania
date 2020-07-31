@@ -21,7 +21,7 @@ $current_des_country = reset($current_des_countries);
 
 
 $my_var = $list[0]->country->in_obj_phrase;
-$textRu = "на русском языке";
+$textRu = " на русском языке ";
 if ($list[0]->country->name_en == "Russia" or $list[0]->country->name_en == "Ukraine") {
     $textRu = "";
 };
@@ -91,8 +91,7 @@ add_action('wp_head', function () use ($list) {
         <div style="display:none;" id="country"><?php echo ($list[0]->country->name_en); ?></div>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <div class="border-box">
-            <h2>Экскурсии <?php echo ($list[0]->country->in_obj_phrase);
-                            echo ($textRu); ?></h2>
+            <h2>Экскурсии <?php echo ($list[0]->country->in_obj_phrase); echo(" "); echo ($textRu); ?></h2>
             <div id="top-text" class="border-box__text">
                 <?php if ($current_des_country->textTop != "") : ?>
                     <?php echo $current_des_country->textTop; ?>
