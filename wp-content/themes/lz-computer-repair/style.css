@@ -67,6 +67,7 @@ html {
 body {
 	margin: 0;
 	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
 }
 
 
@@ -4270,10 +4271,9 @@ h2 {
 
 .slick-tours .tours__item-content .item-guide-name {
 	display: flex;
-	text-align: start;
-	flex-flow: column;
-	align-items: flex-start;
-	justify-content: flex-start;
+    text-align: start;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .slick-tours .tours__item-content .item-guide-photo {
@@ -4291,6 +4291,10 @@ h2 {
 	font-size: 20px;
 	text-align: start;
 	font-weight: 500;
+	color: #0785b0;
+}
+.slick-tours .tours__item-content .item-title a{
+	color: #0785b0;
 }
 
 .popular-tours-text .slick-tours .slick-tours__item .slick-tours__wrap {
@@ -4568,7 +4572,7 @@ h2 {
 }
 
 .search-list_wrap .result-item img.tour {
-	width: 65px;
+	width: 78px;
 	max-height: 100%;
 	margin-right: 10px;
 	height: 100%;
@@ -4588,8 +4592,6 @@ h2 {
 
 .search-list_wrap .result-item .inner .title1 {
 	margin-right: 10px;
-	max-height: 42px;
-	overflow: hidden;
 }
 
 .search-icon-des {
@@ -4639,7 +4641,7 @@ h2 {
 .search-list_wrap .result-item .left-block {
 	position: absolute;
 	right: 10px;
-	color: #828282;
+	color: #1192bd;
 }
 
 .search-list_wrap .exp-header {
@@ -4891,7 +4893,7 @@ h2 {
 /* VIEW */
 
 .star-rating-item {
-	/* background-image: url("https://travel-mania.org/wp-content/themes/lz-computer-repair/assets/images/icon-stars.png"); */
+	/* background-image: url("http://test-tm.ru/wp-content/themes/lz-computer-repair/assets/images/icon-stars.png"); */
 	position: relative;
 	background-size: cover;
 	width: 125px;
@@ -5710,6 +5712,9 @@ img.f-logos {
 }
 
 @media (max-width: 768px) {
+	.search-list_wrap .result-item img.tour {
+		width: 65px;
+	}
 	.search-list_wrap .result-item img.loc {
 		width: 20px;
 	}
@@ -6141,7 +6146,7 @@ img.f-logos {
 @media (max-width: 560px) {
 	.search-list_wrap .result-item {
 		padding: 5px;
-		font-size: 14px;
+		font-size: 15px;
 	}
 
 	.menu-wrap .search-icon,
@@ -6336,7 +6341,7 @@ html {
 .yandex-link {
 	width: 30px;
 	height: 30px;
-	background-image: url("https://travel-mania.org/wp-content/themes/lz-computer-repair/assets/images/icon-dzen.png");
+	background-image: url("http://test-tm.ru/wp-content/themes/lz-computer-repair/assets/images/icon-dzen.png");
 	background-size: contain;
 }
 

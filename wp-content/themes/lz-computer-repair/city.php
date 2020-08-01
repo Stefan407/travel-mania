@@ -215,7 +215,6 @@ $reviewsAllCount = 0;
                                         $city_name = str_replace('é', 'e', $item->name_en);
                                         $city_name = str_replace("'", '', $city_name);
                                         ?>
-                                        <a><?php echo $item->city->name_ru ?></a>
                                     </div>
                                 </div>
                                 <?php array_push($priceAll, $item->price->value); ?>
