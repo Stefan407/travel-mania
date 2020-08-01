@@ -22,7 +22,7 @@ $current_des_country = reset($current_des_countries);
 
 $my_var = $list[0]->country->in_obj_phrase;
 $textRu = " на русском языке ";
-if ($list[0]->country->name_en == "Russia" or $list[0]->country->name_en == "Ukraine") {
+if ($list[0]->country->name_en == "Russia" or $list[0]->country->name_en == "Ukraine" or $list[0]->country->name_en == "Crimea") {
     $textRu = "";
 };
 $page_title =  "Авторские экскурсии " . $my_var . $textRu . " 2020 - цены и описание Travel Mania";
