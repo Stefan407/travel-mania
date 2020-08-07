@@ -23,7 +23,7 @@ $current_des_city = reset($current_des_cities);
 
 $my_var = $list[0]->city->in_obj_phrase;
 $textRu = " на русском языке ";
-if ($list[0]->city->country->name_en == "Russia" or $list[0]->city->country->name_en == "Ukraine" or $list[0]->city->country->name_en == "Crimea") { 
+if ($list[0]->city->country->name_en == "Russia" or $list[0]->city->country->name_en == "Ukraine" or $list[0]->city->country->name_en == "Crimea") {
     $textRu = " ";
 };
 $page_title =  "Авторские экскурсии " . $my_var . $textRu . " 2020 - цены и описание Travel Mania";
@@ -32,8 +32,8 @@ add_action('pre_get_document_title', function () use ($page_title) {
 });
 
 add_action('wp_head', function () use ($list) {
-    echo '<meta name="keywords" content="экскурсии, ' . $list[0]->city->name_ru . ', русский, на русском, гиды, авторские, эксклюзивные, исторические, обзорные, пешеходные, на автобусе, купить, заказать, забронировать, цена, недорого, дешево, скидка, описание, список, прайс, травэл, мания, travel, mania" />';
-    echo '<meta name="description" content="У нас можно заказать авторские экскурсии ' . $list[0]->city->in_obj_phrase . ' на русском языке с лучшими гидами. Выгодные цены без посредников и удобные даты проведения." />';
+    echo '<meta name="keywords" content="экскурсии, ' . $list[0]->city->name_ru . ', русский, на русском, гиды, 2020, авторские, эксклюзивные, исторические, обзорные, пешеходные, на автобусе, купить, заказать, забронировать, цена, описание, недорого, дешево, скидка, описание, список, прайс, травэл, мания, travel, mania" />';
+    echo '<meta name="description" content="Групповые и индивидуальные экскурсии ' . $list[0]->city->in_obj_phrase . ' с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны лучшие экскурсии ' . $list[0]->city->in_obj_phrase . ', которые тщательно продуманы и составлены гидами" />';
 });
 
 get_header();
@@ -247,8 +247,12 @@ $reviewsAllCount = 0;
         <meta itemprop="highprice" content="<?php echo (max($priceAll)) ?>">
         <meta itemprop="pricecurrency" content="<?php echo $list[0]->price->currency ?>"></span>
     <span itemprop="aggregaterating" itemscope="itemscope" itemtype="http://schema.org/aggregaterating">
-        <meta itemprop="ratingValue" content="<?php echo ($reviewsAll / $countReviews); ?>">
-        <meta itemprop="reviewCount" content="<?php echo ($reviewsAllCount); ?>">
+        <?php if (($reviewsAll / $countReviews) > 0) { ?>
+            <meta itemprop="ratingValue" content="<?php echo ($reviewsAll / $countReviews); ?>">
+        <?php } ?>
+        <?php if ($reviewsAllCount > 0) { ?>
+            <meta itemprop="reviewCount" content="<?php echo ($reviewsAllCount); ?>">
+        <?php } ?>
     </span>
 </div>
 

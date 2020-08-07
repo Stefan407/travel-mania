@@ -89,8 +89,12 @@ $current_city = str_replace(" ", "-", $current_city);
                             <meta itemprop="priceCurrency" content="<?php echo $list->price->currency ?>" />
                         </span>
                         <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                        <?php if( $list->rating > 0){ ?>
                             <meta itemprop="ratingValue" content="<?php echo ($list->rating ) ?>" />
+                        <?php } ?>
+                        <?php if( $list->review_count > 0){ ?>
                             <meta itemprop="reviewCount" content="<?php echo ($list->review_count ) ?>" />
+                        <?php } ?>
                         </span>
                     </div>
 
