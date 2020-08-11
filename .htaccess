@@ -7,16 +7,13 @@ RewriteEngine On
 RewriteBase /
 RewriteRule ^wp-admin/$ /wp-admin/index.php [L]
 
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^www.magickids.com.ua$ [NC]
-RewriteRule ^(.*)$ http://magickids.com.ua/$1 [R=301,L]
 
 RewriteRule ^index\.php$ - [L]
 RewriteRule ^go/?$ index.php?page=go$1 [QSA,L]
-RewriteRule ^(about|blog|map|feedback|all-cities|all-countries)/?$ index.php?page=$1 [L]
+RewriteRule ^(about|blog|feedback|all-cities|all-countries)/?$ index.php?page=$1 [L]
 RewriteRule ^post/(\d+)/$ index.php?p=$1 [L]
 RewriteRule ^([A-Za-z\+\-\_]+)/([A-Za-z\+\-\_]+)/excursion[-+_]([0-9]+)/?$ index.php?id=$3&city=$2&country__name_en=$1 [QSA]
-RewriteRule ^([A-Za-z\+\-\_]+)/([A-Za-z\+\-\_]+)/([0-9]+)/?$ index.php?id=$3&city=$2&country__name_en=$1 [QSA]
+# RewriteRule ^([A-Za-z\+\-\_]+)/([A-Za-z\+\-\_]+)/([0-9]+)/?$ index.php?id=$3&city=$2&country__name_en=$1 [QSA]
 RewriteRule ^([A-Za-z\+\-\_]+)/([A-Za-z\+\-\_]+)/?$ index.php?city__name_en=$2&country__name_en=$1 [QSA]
 RewriteRule ^([A-Za-z\+\-\_]+)/?$ index.php?country__name_en=$1 [L]
 
@@ -24,4 +21,16 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 
+
 </IfModule>
+
+
+
+
+
+# BEGIN WordPress
+# Директивы (строки) между `BEGIN WordPress` и `END WordPress`
+# созданы автоматически и подлежат изменению только через фильтры WordPress.
+# Сделанные вручную изменения между этими маркерами будут перезаписаны.
+
+# END WordPress
