@@ -21,15 +21,18 @@ $current_des_country = reset($current_des_countries);
 
 
 $my_var = $list[0]->country->in_obj_phrase;
-
-$page_title =  "Авторские экскурсии " . $my_var . " на русском языке - Travel Mania";
+$textRu = " на русском языке ";
+if ($list[0]->country->name_en == "Russia" or $list[0]->country->name_en == "Ukraine" or $list[0]->country->name_en == "Crimea") {
+    $textRu = "";
+};
+$page_title =  "Экскурсии " . $my_var . $textRu . " 2020 ⭐ цены и описание - Travel Mania ⭐";
 add_action('pre_get_document_title', function () use ($page_title) {
     return $page_title;
 });
 
 add_action('wp_head', function () use ($list) {
-    echo '<meta name="keywords" content="экскурсии, ' . $list[0]->country->name_ru . ' , русский, на русском, гиды, авторские, эксклюзивные, исторические, обзорные, пешеходные, на автобусе, купить, заказать, забронировать, цена, недорого, дешево, скидка, описание, список, прайс, травэл, мания, travel, mania" />';
-    echo '<meta name="description" content="У нас можно заказать авторские экскурсии ' . $list[0]->country->in_obj_phrase . ' на русском языке с лучшими гидами. Выгодные цены без посредников и удобные даты проведения." />';
+    echo '<meta name="keywords" content="экскурсии, ' . $list[0]->country->name_ru . ' , русский, на русском, гиды, 2020 авторские, эксклюзивные, исторические, обзорные, пешеходные, на автобусе, купить, заказать, забронировать, цена, недорого, дешево, скидка, описание, список, прайс, травэл, мания, travel, mania" />';
+    echo '<meta name="description" content="✅ Групповые и индивидуальные экскурсии ' . $list[0]->country->in_obj_phrase . ' с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны лучшие экскурсии ' . $list[0]->country->in_obj_phrase . ', которые тщательно продуманы и составлены гидами." />';
 });
 ?>
 
@@ -61,25 +64,24 @@ add_action('wp_head', function () use ($list) {
             </div>
         </div>
     </div>
-    <div class="breadcrumbs">
+    <div class="breadcrumbs" itemscope="itemscope" itemtype="http://schema.org/BreadcrumbList">
         <div class="container breadcrumbs-wrap">
-            <div class="breadcrumbs-item">
-                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                    <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
-                        <span itemprop="title">
-                            <span>Главная</span>
-                        </span>
+            <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
+                <div class="breadcrumbs__block">
+                    <a class="breadcrumbs__link" href="<?= home_url() ?>" itemprop="item">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="1">
                     </a>
                 </div>
                 <div class="breadcrumbs__arrow">
                     <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
                 </div>
             </div>
-            <div class="breadcrumbs-item">
-                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                    <link itemprop="url" href="/<?= str_replace('+', '-', $country__name_en) ?>/">
+            <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
+                <div class="breadcrumbs__block">
                     <p class="breadcrumbs__text">
-                        <span itemprop="title"><?php echo ($list[0]->country->name_ru) ?></span>
+                        <span itemprop="name"><?php echo ($list[0]->country->name_ru) ?></span>
+                        <meta itemprop="position" content="2">
                     </p>
                 </div>
             </div>
@@ -87,8 +89,9 @@ add_action('wp_head', function () use ($list) {
     </div>
     <div class="container">
         <div style="display:none;" id="country"><?php echo ($list[0]->country->name_en); ?></div>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <div class="border-box">
-            <h2>Экскурсии <?php echo ($list[0]->country->in_obj_phrase); ?> на русском языке</h2>
+            <h2>Экскурсии <?php echo ($list[0]->country->in_obj_phrase); echo(" "); echo ($textRu); ?></h2>
             <div id="top-text" class="border-box__text">
                 <?php if ($current_des_country->textTop != "") : ?>
                     <?php echo $current_des_country->textTop; ?>

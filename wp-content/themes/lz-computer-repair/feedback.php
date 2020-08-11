@@ -44,23 +44,23 @@ if (!function_exists('filter_function_name_Cities')) {
             </div>
         </div>
     </div>
-    <div class="breadcrumbs">
+    <div class="breadcrumbs" itemscope="itemscope" itemtype="http://schema.org/BreadcrumbList">
         <div class="container breadcrumbs-wrap">
             <div class="breadcrumbs-item">
-                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                    <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
-                        <span itemprop="title">
-                            <span>Главная</span>
-                        </span>
+                <div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="/" itemprop="item">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="1">
                     </a>
                 </div>
                 <div class="breadcrumbs__arrow">
                     <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
                 </div>
-                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                    <link itemprop="url" href="/feedback/">
+                <div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <p class="breadcrumbs__text">
-                        <span itemprop="title">Задать вопрос</span>
+                        <span itemprop="name">Задать вопрос</span>
+                        <meta itemprop="item" content="<?= home_url() ?>/feedback">
+                        <meta itemprop="position" content="2">
                     </p>
                 </div>
             </div>
@@ -70,7 +70,7 @@ if (!function_exists('filter_function_name_Cities')) {
         <div class="border-box">
             <h2>У Вас есть вопрос?</h2>
             <div class="border-box__text">
-            Если у Вас возник вопрос по поводу какой-либо экскурсии, откройте описание нужной экскурсии, найдите кнопку <b>«задать вопрос гиду»</b> и перейдите по ссылке. Вы будете направленны на страницу более подробного описания, где есть форма связи с гидом. Все вопросы по поводу проведения и оплаты экскурсии, задавайте гиду напрямую. Как только Вы проясните все детали, можно будет внести предоплату и забронировать экскурсию на выбранную дату. Ниже мы подготовили ответы на часто задаваемые вопросы. Если у Вас есть вопросы по поводу работы сайта или предложения по его улучшению, заполните форму ниже и отправьте запрос. В ближайшее время мы обязательно Вам ответим.
+                Если у Вас возник вопрос по поводу какой-либо экскурсии, откройте описание нужной экскурсии, найдите кнопку <b>«задать вопрос гиду»</b> и перейдите по ссылке. Вы будете направленны на страницу более подробного описания, где есть форма связи с гидом. Все вопросы по поводу проведения и оплаты экскурсии, задавайте гиду напрямую. Как только Вы проясните все детали, можно будет внести предоплату и забронировать экскурсию на выбранную дату. Ниже мы подготовили ответы на часто задаваемые вопросы. Если у Вас есть вопросы по поводу работы сайта или предложения по его улучшению, заполните форму ниже и отправьте запрос. В ближайшее время мы обязательно Вам ответим.
             </div>
             <section class="advantages">
             </section>

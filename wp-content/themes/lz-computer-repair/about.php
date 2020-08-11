@@ -28,23 +28,23 @@ if (!function_exists('filter_function_name_Cities')) {
 </head>
 <?php get_header(); ?>
 <section class="top">
-    <div class="breadcrumbs" style="display:none">
+    <div class="breadcrumbs" style="display:none" itemscope="itemscope" itemtype="http://schema.org/BreadcrumbList">
         <div class="container breadcrumbs-wrap">
             <div class="breadcrumbs-item">
-                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                    <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
-                        <span itemprop="title">
-                            <span>Главная</span>
-                        </span>
+                <div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="/" itemprop="item">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="1">
                     </a>
                 </div>
                 <div class="breadcrumbs__arrow">
                     <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
                 </div>
-                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                    <link itemprop="url" href="/about/">
+                <div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <p class="breadcrumbs__text">
-                        <span itemprop="title">О нас</span>
+                        <span itemprop="name">О нас</span>
+                        <meta itemprop="item" content="<?= home_url() ?>/about">
+                        <meta itemprop="position" content="2">
                     </p>
                 </div>
             </div>
@@ -55,7 +55,7 @@ if (!function_exists('filter_function_name_Cities')) {
         <div class="container">
             <h1 class="about-title g-ac">Проект Travel Mania</h1>
             <div class="about-text gm_t10 gm_b20">
-            Travel Mania находит лучшие предложения по самым выгодным ценам и размещаем у себя на сайте. При бронировании Вы переходите на страницу поставщика и бронируете выбранные экскурсии без посредников.
+                Travel Mania находит лучшие предложения по самым выгодным ценам и размещаем у себя на сайте. При бронировании Вы переходите на страницу поставщика и бронируете выбранные экскурсии без посредников.
             </div><br>
             <div class="about-text gm_t10 gm_b20">
                 На сегодня охвачено более <a href="/all-cities/" class="azure-link">600 городов</a> в <a href="/all-countries/" class="azure-link">93 странах</a> мира. Предлагаются тысячи эксклюзивных экскурсий, которые можно забронировать и оплатить онлайн. Только самые продуманные маршруты и выгодные цены, о чем свидетельствуют более 140 000 отзывов.
@@ -85,21 +85,21 @@ if (!function_exists('filter_function_name_Cities')) {
             <h2 class="about-title g-ac">Как бронировать экскурсии</h2>
 
             <div class="about-how-block">
-                <img src="/wp-content/themes/lz-computer-repair/assets/images/about-img-1.png" alt="" class="about-how__img" data-pagespeed-url-hash="2549494515" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                <img src="/wp-content/themes/lz-computer-repair/assets/images/about-img-1.png" alt="" class="about-how__img">
                 <div class="about-how__info">
                     <div class="about-how__info-title">Выбирайте экскурсию на сайте</div>
-                    Все экскурсии, представленные на сайте – авторские, экскурсию проводит человек, который её продумал до мелочей! Выбрав экскурсию можно заранее прочитать полное описание программы, посмотреть, что гид написал о себе. Вы можете познакомиться с отзывами других путешественников, которые уже побывали на выбранной Вами экскурсии.  
+                    Все экскурсии, представленные на сайте - авторские, экскурсию проводит человек, который её продумал до мелочей! Выбрав экскурсию можно заранее прочитать полное описание программы, посмотреть, что гид написал о себе. Вы можете познакомиться с отзывами других путешественников, которые уже побывали на выбранной Вами экскурсии.
                 </div>
             </div>
             <div class="about-how-block about-how-block_2">
-                <img src="/wp-content/themes/lz-computer-repair/assets/images/about-img-2.png" alt="" class="about-how__img" data-pagespeed-url-hash="982884928" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                <img src="/wp-content/themes/lz-computer-repair/assets/images/about-img-2.png" alt="" class="about-how__img">
                 <div class="about-how__info">
                     <div class="about-how__info-title">Задайте вопрос гиду до оплаты</div>
-                    До момента бронирования экскурсии, возможно задать любой вопрос гиду! Подберите экскурсию и прейдите по ссылке «задать вопрос гиду». Вы будете направлены на страницу полного описания экскурсии и формы «обратной связи с гидом», где можно задать любой вопрос. Оплачивайте экскурсию тогда, когда проясните важные для себя детали. 
-                  </div>
+                    До момента бронирования экскурсии, возможно задать любой вопрос гиду! Подберите экскурсию и прейдите по ссылке "задать вопрос гиду". Вы будете направлены на страницу полного описания экскурсии и формы "обратной связи с гидом", где можно задать любой вопрос. Оплачивайте экскурсию тогда, когда проясните важные для себя детали.
+                </div>
             </div>
             <div class="about-how-block about-how-block_3">
-                <img src="/wp-content/themes/lz-computer-repair/assets/images/about-img-3.png" alt="" class="about-how__img" data-pagespeed-url-hash="2327365792" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                <img src="/wp-content/themes/lz-computer-repair/assets/images/about-img-3.png" alt="" class="about-how__img">
                 <div class="about-how__info">
                     <div class="about-how__info-title">Оплачивайте только часть суммы</div>
                     Бронируя экскурсию, Вы оплачиваете только 20% от стоимости, что позволяет гиду запланировать точное время экскурсии, которое вы выбрали. Оставшуюся часть Вы оплачиваете после экскурсии гиду.

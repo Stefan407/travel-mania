@@ -26,14 +26,15 @@
             </ul>
         </nav>
         <div class="f-bottom">
-            <div class="f-social" style="display:flex; align-items: flex-start;    width: 100%; justify-content: space-between;">
+            <div class="f-social" style="display: flex;align-items: center;width: 100%;flex-direction: column-reverse;">
                 <div class="f-social__text-wrap">
                     Служба поддержки:
                     <a href="mailto:excurs.mania@gmail.com" class="f-social__email-link" target="_blank">excurs.mania@gmail.com</a>
                 </div>
                 <div style="display:flex; align-items:center; margin-bottom:10px">
-                    <a style="padding: 0 5px" href="/go/?url=https://www.facebook.com/Travel-Mania-101680788282337/" target="_blank"><img src="/wp-content/themes/lz-computer-repair/assets/images/icon-facebook.png"></a>
                     <a style="padding: 0 5px" href="/go/?url=https://www.instagram.com/travel_mania_org/" target="_blank"><img src="/wp-content/themes/lz-computer-repair/assets/images/icon-instagram.png"></a>
+                    <a style="padding: 0 5px" href="/go/?url=https://www.facebook.com/Travel-Mania-101680788282337/" target="_blank"><img src="/wp-content/themes/lz-computer-repair/assets/images/icon-facebook.png"></a>
+                    <a style="padding: 0 5px" href="/go/?url=https://zen.yandex.ru/id/5ca2681dc604dc021df33539" target="_blank"><img src="/wp-content/themes/lz-computer-repair/assets/images/icon-dzen.png"></a>
                     <a style="padding: 0 5px" href="/go/?url=https://twitter.com/TravelMania_org" target="_blank"><img src="/wp-content/themes/lz-computer-repair/assets/images/icon-twitter.png"></a>
                     <a style="padding: 0 5px" href="/go/?url=https://vk.com/trl_mania" target="_blank"><img src="/wp-content/themes/lz-computer-repair/assets/images/icon-vk.png"></a>
                     <a style="padding: 0 5px" href="/go/?url=https://ok.ru/travel.mania" target="_blank"><img src="/wp-content/themes/lz-computer-repair/assets/images/icon-ok.png"></a>
@@ -50,5 +51,4 @@
     }
 </style>
 <body>
-
     </html>

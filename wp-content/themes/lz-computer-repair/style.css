@@ -67,7 +67,9 @@ html {
 body {
 	margin: 0;
 	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
 }
+
 
 article,
 aside,
@@ -3645,7 +3647,7 @@ h2 {
 	font-size: 20px;
 }
 
-#header .menu-wrapper {
+#header {
 	background-color: #d6f2ff;
 }
 
@@ -3693,6 +3695,7 @@ h2 {
 	overflow: hidden;
 	top: 49px;
 	flex-direction: column;
+	z-index: 2;
 }
 
 #header ul.all-contry-mobile {
@@ -3866,8 +3869,12 @@ h2 {
 	align-items: center;
 }
 
+.breadcrumbs-item a {
+	color: #6299ac;
+}
+
 .breadcrumbs-item:last-child p {
-	color: #6299ac !important;
+	color: #222 !important;
 }
 
 .slick-dots li {
@@ -4113,12 +4120,13 @@ h2 {
 
 .item-guide-name a {
 	font-size: 17px;
-	color: rgb(228, 148, 148);
+	/* color: rgb(228, 148, 148); */
 }
 
+/* 
 .item-guide-name a:hover {
 	color: rgb(190, 54, 54);
-}
+} */
 
 /* .slick-tours .slick-track {
 	display: flex;
@@ -4162,6 +4170,38 @@ h2 {
 
 .slick-tours__item-img {
 	position: relative;
+}
+
+.slick-tours__tag {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	position: absolute;
+	top: 16px;
+	left: 16px;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	z-index: 3;
+	pointer-events: none;
+
+}
+
+.slick-tours__item-img::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "";
+	width: 100%;
+	pointer-events: none;
+	height: 100%;
+	background: -o-linear-gradient(299.65deg, rgba(0, 0, 0, .88) 0, rgba(43, 55, 67, 0) 37.86%);
+	background: linear-gradient(150.35deg, rgba(0, 0, 0, .88), rgba(43, 55, 67, 0) 37.86%);
 }
 
 .slick-tours__item-img .slick-tours__item-img-box {
@@ -4231,10 +4271,9 @@ h2 {
 
 .slick-tours .tours__item-content .item-guide-name {
 	display: flex;
-	text-align: start;
-	flex-flow: column;
-	align-items: flex-start;
-	justify-content: flex-start;
+    text-align: start;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .slick-tours .tours__item-content .item-guide-photo {
@@ -4252,6 +4291,10 @@ h2 {
 	font-size: 20px;
 	text-align: start;
 	font-weight: 500;
+	color: #0785b0;
+}
+.slick-tours .tours__item-content .item-title a{
+	color: #0785b0;
 }
 
 .popular-tours-text .slick-tours .slick-tours__item .slick-tours__wrap {
@@ -4390,6 +4433,228 @@ h2 {
 	margin-bottom: 20px;
 }
 
+
+/* /
+/
+/
+/
+/
+/
+/
+/
+/ */
+/* SEARCH BLOCK */
+
+.bc-search {
+	z-index: 30;
+	display: none;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	background-color: #2a2a2a94;
+	top: 0;
+	right: 0;
+}
+
+.act-search .bc-search {
+	display: block;
+}
+
+.input-search_wrap {
+	position: relative;
+}
+
+.windows8 {
+	position: absolute;
+	top: 8px;
+	right: 10px;
+	width: 20px;
+}
+
+.search-wrap {
+	position: absolute;
+	top: 10px;
+	left: auto;
+	right: 470px;
+	width: 100%;
+	max-width: 300px;
+	z-index: 35;
+}
+
+.act-search .search-wrap {
+	position: absolute;
+	top: 10px;
+	left: 215px;
+	width: 100%;
+	max-width: 600px;
+	z-index: 35;
+}
+
+
+.search-wrap input.search-input {
+	width: 100%;
+    height: 36px;
+    padding: 5px 20px 6px 7px;
+    border-radius: 5px;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.search-wrap input.search-input::placeholder {
+	color: #828282;
+}
+
+.act-search .search-wrap input.search-input {
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+
+.search-wrap .search-block {
+	position: relative;
+}
+
+.search-item {
+	position: relative;
+	width: 100%;
+}
+
+.search-list_wrap {
+	display: none;
+	flex-direction: column;
+	position: absolute;
+	width: 100%;
+	background: #fff;
+	height: auto;
+	max-height: 350px;
+	overflow-y: auto;
+	border-radius: 0;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	padding-right: 20px;
+}
+
+.act-search .search-list_wrap {
+	display: flex;
+}
+
+.search-icon img {
+	width: 20px;
+}
+
+.search-icon {
+	position: absolute;
+	right: 55px;
+}
+
+.search-list_wrap .result-item {
+	display: flex;
+	position: relative;
+	padding: 10px 10px;
+	align-items: center;
+	cursor: pointer;
+}
+
+.search-list_wrap .result-item:hover {
+	background: #f3f3f3;
+}
+
+.search-list_wrap .result-item img.loc {
+	width: 25px;
+	margin-right: 5px;
+}
+
+.search-list_wrap .result-item img.tour {
+	width: 78px;
+	max-height: 100%;
+	margin-right: 10px;
+	height: 100%;
+	object-fit: cover;
+}
+
+.search-list_wrap .result-item .inner {
+	display: flex;
+	width: calc(100% - 100px);
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.search-list_wrap .result-item.experience .inner {
+	width: calc(100% - 170px);
+}
+
+.search-list_wrap .result-item .inner .title1 {
+	margin-right: 10px;
+}
+
+.search-icon-des {
+	width: 36px;
+	position: absolute;
+	height: 100%;
+	top: 0;
+	right: 0;
+	background: #0785b0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
+	pointer-events: none;
+}
+
+.act-search .search-icon-des {
+	display: none;
+	/* border-bottom-right-radius: 0;
+	border-top-right-radius: 3px; */
+}
+
+.search-icon-des img {
+	width: 20px;
+	height: 20px;
+}
+
+.search-list_wrap .result-item .inner .title2 {
+	color: #828282;
+}
+
+.search-list_wrap .result-item .inner .price-text {
+	background: #d6f2ff;
+	padding: 1px 5px;
+	border-radius: 15px;
+	color: #333;
+	margin-left: 10px;
+	display: none;
+}
+
+.search-list_wrap .result-item .inner em {
+	font-weight: 500;
+	font-style: inherit;
+}
+
+.search-list_wrap .result-item .left-block {
+	position: absolute;
+	right: 10px;
+	color: #1192bd;
+}
+
+.search-list_wrap .exp-header {
+	color: #8b8b8b;
+	font-size: 15px;
+	border-top: 1px solid #ececef;
+	padding: 15px 10px 10px;
+}
+
+
+
+
+
 .video .video-box {
 	display: flex;
 	justify-content: center;
@@ -4403,42 +4668,6 @@ h2 {
 	color: #7d7d7d;
 }
 
-.search-wrap {
-	padding-bottom: 10px;
-
-	display: flex;
-	justify-content: center;
-}
-
-.search-wrap input {
-	display: block;
-	width: 340px;
-	height: 50px;
-	font-size: 16px !important;
-	padding: 0 10px;
-	margin: 0;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	color: #495662;
-	line-height: 22px;
-	border-radius: 3px;
-	border: 1px solid #b6b7bb;
-	-webkit-box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, .2);
-	box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, .2);
-}
-
-.search-item {
-	position: relative;
-	width: 675px;
-	padding: 15px 0;
-	border-radius: 90px;
-	display: flex;
-	justify-content: center;
-	background: -webkit-gradient(linear, left top, right top, from(#b5f2b5), to(#fafab1));
-	background: -o-linear-gradient(left, #b5f2b5 0, #fafab1 100%);
-	background: linear-gradient(90deg, #b5f2b5 0, #fafab1);
-	margin: 10px 0;
-}
 
 
 .video .video-box video {
@@ -4664,7 +4893,7 @@ h2 {
 /* VIEW */
 
 .star-rating-item {
-	/* background-image: url("https://travel-mania.org/wp-content/themes/lz-computer-repair/assets/images/icon-stars.png"); */
+	/* background-image: url("http://test-tm.ru/wp-content/themes/lz-computer-repair/assets/images/icon-stars.png"); */
 	position: relative;
 	background-size: cover;
 	width: 125px;
@@ -4701,10 +4930,26 @@ h2 {
 	position: absolute;
 	top: 0;
 	left: 0;
+	overflow: hidden;
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
+	z-index: 4;
+}
+
+.reviews-rating-img.bac {
+	position: absolute;
+	top: 0;
+	left: 0;
 	float: right;
 	overflow: hidden;
 	display: flex;
 	width: 100%;
+	z-index: 2;
+}
+
+.reviews-rating-img.bac img {
+	filter: grayscale(1);
 }
 
 .reviews-title .star-rating-item {
@@ -5170,9 +5415,6 @@ h6 {
 	font-size: 25px;
 }
 
-.menu-wrapper-mobile {
-	display: none;
-}
 
 .footer-site {
 	padding: 25px 0;
@@ -5264,6 +5506,27 @@ img.f-logos {
 	margin: 20px 0;
 }
 
+
+@media screen and (max-width: 1100px) {
+
+	.act-search .search-wrap .search-block {
+		position: absolute;
+		width: 100%;
+		max-width: 100%;
+		z-index: 10;
+		top: 0;
+	}
+	.search-wrap .search-block {
+		background-color: #d6f2ff;
+		width: 100%;
+		max-width: 250px;
+	}
+
+	.search-wrap {
+		max-width: 250px;
+	}
+}
+
 @media screen and (max-width: 1000px) {
 	.about-how-block {
 		overflow: hidden;
@@ -5271,9 +5534,88 @@ img.f-logos {
 	}
 }
 
+.menu-wrap .search-icon,
+.menu-wrap .burger {
+	display: none;
+}
+
 @media (max-width: 950px) {
+	.search-wrap .search-block {
+		background-color: transparent;
+	}
+
+	.search-wrap .search-block {
+		background-color: #d6f2ff;
+		width: 100%;
+		max-width: 250px;
+	}
+
+	.search-wrap {
+		max-width: 250px;
+		right: 80px;
+	}
+
+	.search-list_wrap .result-item .inner .price-text {
+		display: inline-block;
+	}
+
+	.search-list_wrap .result-item.experience .left-block {
+		display: none;
+	}
+
+	.search-list_wrap .result-item.experience .inner {
+		width: 100%;
+	}
+
+	.search-list_wrap .result-item .inner {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	#header .menu {
+		position: absolute;
+		top: 56px;
+		width: 100%;
+		left: 0;
+		background-color: #d6f2ff;
+		padding: 5px 0;
+		display: none;
+	}
+
+	.act-search .search-wrap {
+		position: absolute;
+		top: 10px;
+		left: 15px;
+		width: 100%;
+		max-width: calc(100% - 30px);
+		z-index: 35;
+	}
+
+	#header .menu.act {
+		display: block;
+	}
+
+	#header .menu a.link-ask,
+	#header .menu a.green {
+		background-color: transparent;
+		color: #333;
+	}
+
+	#header .menu ul {
+		padding: 10px 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+	}
+
 	li.blog-item_block {
 		width: 50% !important;
+	}
+
+	.menu-wrap .burger {
+		display: flex;
 	}
 
 	.blog-page .blog-item_block img {
@@ -5360,14 +5702,6 @@ img.f-logos {
 		font-size: 15px;
 	}
 
-	.menu-wrapper {
-		display: none;
-	}
-
-	.menu-wrapper-mobile {
-		display: block;
-	}
-
 	#header ul.all-contry-mobile li {
 		display: none;
 	}
@@ -5378,8 +5712,20 @@ img.f-logos {
 }
 
 @media (max-width: 768px) {
+	.search-list_wrap .result-item img.tour {
+		width: 65px;
+	}
+	.search-list_wrap .result-item img.loc {
+		width: 20px;
+	}
+
 	.description-section_text {
 		margin-top: 10px;
+	}
+
+	.search-list_wrap .result-item .left-block {
+		right: 0;
+		font-size: 12px;
 	}
 
 	.slick-tours .tours__item-content .item-title {
@@ -5798,6 +6144,24 @@ img.f-logos {
 }
 
 @media (max-width: 560px) {
+	.search-list_wrap .result-item {
+		padding: 5px;
+		font-size: 15px;
+	}
+
+	.menu-wrap .search-icon,
+	.menu-wrap .burger {
+		display: block;
+	}
+
+	.search-wrap {
+		display: none;
+	}
+
+	.act-search .search-wrap {
+		display: block;
+	}
+
 	.description-content-text .guide.des {
 		display: none;
 	}
@@ -5977,6 +6341,21 @@ html {
 .yandex-link {
 	width: 30px;
 	height: 30px;
-	background-image: url("https://travel-mania.org/wp-content/themes/lz-computer-repair/assets/images/icon-dzen.png");
+	background-image: url("http://test-tm.ru/wp-content/themes/lz-computer-repair/assets/images/icon-dzen.png");
 	background-size: contain;
+}
+
+
+.simplebar-content {
+	padding-right: 20px !important;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.simplebar-scrollbar:before {
+	cursor: pointer;
+}
+
+.not-found {
+	padding: 10px;
 }

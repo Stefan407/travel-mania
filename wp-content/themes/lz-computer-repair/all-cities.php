@@ -20,7 +20,7 @@ if (!function_exists('filter_function_name_Cities')) {
     function filter_function_name_Cities($title)
     {
 
-        $title['title'] = 'Авторские экскурсии в 600+ городах';
+        $title['title'] = 'Авторские экскурсии в 600+ городах 2020 ⭐ цены и описание ⭐';
         $title['site'] = '';
         $title['page '] = '';
         $title['tagline '] = '';
@@ -33,7 +33,7 @@ if (!function_exists('filter_function_name_Cities')) {
 <head>
     <?php wp_head(); ?>
     <meta name="keywords" content="экскурсии, все, города, направления, в городах, на русском, язык, выбрать, заказать, купить, забронировать, трэвэл, мания, travel, mania" />
-    <meta name="description" content="Здесь можно выбрать город в котором хотите заказать экскурсию на русском языке от Тревел Мании!" />
+    <meta name="description" content="✅ Здесь можно выбрать город в котором хотите заказать экскурсию на русском языке от Тревел Мании!" />
 </head>
 <?php get_header(); ?>
 <section class="top">
@@ -49,23 +49,23 @@ if (!function_exists('filter_function_name_Cities')) {
             </div>
         </div>
     </div>
-    <div class="breadcrumbs">
+    <div class="breadcrumbs" itemscope="itemscope" itemtype="http://schema.org/BreadcrumbList">
         <div class="container breadcrumbs-wrap">
             <div class="breadcrumbs-item">
-                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                    <a class="breadcrumbs__link" href="/" itemprop="url" title="Главная">
-                        <span itemprop="title">
-                            <span>Главная</span>
-                        </span>
+                <div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="/" itemprop="item">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="1">
                     </a>
                 </div>
                 <div class="breadcrumbs__arrow">
                     <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
                 </div>
-                <div class="breadcrumbs__block" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                    <link itemprop="url" href="/all-cities/">
+                <div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <p class="breadcrumbs__text">
-                        <span itemprop="title">Все города</span>
+                        <span itemprop="name">Все города</span>
+                        <meta itemprop="item" content="<?= home_url() ?>/all-cities">
+                        <meta itemprop="position" content="2">
                     </p>
                 </div>
             </div>
