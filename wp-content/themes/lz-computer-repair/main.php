@@ -13,7 +13,7 @@
     <link rel="icon" href="/favicon.png" type="image/x-icon">
     <section class="top">
         <div class="top__slider">
-            <div class="image">
+            <div class="image-top_slider">
                 <img src="<?= home_url() ?>/wp-content/uploads/Main/Main-11.jpg" alt="">
             </div>
             <div class="top__slider-text">
@@ -96,25 +96,25 @@
 
                                 <div class="item-time-rating">
                                     <span class="item-time">
-                                        <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-time.png" alt=""> <span><?php echo $tour->duration ?> </span>
+                                        <img src="<?php bloginfo("template_url"); ?>/assets/images/icon-time.png" alt=""> <span><?php echo $tour->duration ?> </span>
                                     </span>
                                     <?php if ($tour->rating) { ?>
                                         <span class="item-rating">
                                             <span style="display:none;" class="reviews-rating"><?php echo $tour->rating ?> </span>
                                             <div class="star-rating-item">
                                                 <span class="reviews-rating-img" style="width: <?php echo ($tour->rating * 20) ?>%">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
                                                 </span>
                                                 <span class="reviews-rating-img bac">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
                                                 </span>
                                             </div>
                                         </span>
@@ -152,9 +152,9 @@
                     <div class="video-box">
                         <h2>Мир за одну минуту</h2>
                         <div class="video__text">
-                            <video controls="controls" playsinline poster="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png">
-                                <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/webm">
-                                <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/mp4">
+                            <video controls="controls" playsinline poster="<?php bloginfo("template_url"); ?>/assets/images/move-img.png">
+                                <source src="<?php bloginfo("template_url"); ?>/assets/video/MOVE.mp4" type="video/webm">
+                                <source src="<?php bloginfo("template_url"); ?>/assets/video/MOVE.mp4" type="video/mp4">
                             </video>
                             <p class="autor">
                                 Видео: <a href="/go/?url=https://vimeo.com/27246366" target="_blank">Rick Mereki</a>
@@ -167,10 +167,6 @@
         </div>
     </section>
     <?php get_footer(); ?>
-
-    <script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/slick.min.js"></script>
-    <script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/jquery.appear.js"></script>
-
     <script>
         $('.image').slick({
             arrows: false,
@@ -179,8 +175,8 @@
             autoplaySpeed: 3000
         });
         $('.slick-tours').slick({
-            prevArrow: '<button type="button" class="slick-prev slick-btn" ><img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-icon.png" alt=""></button>',
-            nextArrow: '<button type="button" class="slick-next slick-btn" ><img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-icon.png" alt=""></button>',
+            prevArrow: '<button type="button" class="slick-prev slick-btn" ><img src="<?php bloginfo("template_url"); ?>/assets/images/arrow-icon.png" alt=""></button>',
+            nextArrow: '<button type="button" class="slick-next slick-btn" ><img src="<?php bloginfo("template_url"); ?>/assets/images/arrow-icon.png" alt=""></button>',
             dots: false,
             slidesToShow: 3,
             slidesToScroll: 1,

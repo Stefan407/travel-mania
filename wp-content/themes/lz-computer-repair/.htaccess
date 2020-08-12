@@ -1,8 +1,0 @@
-AddDefaultCharset UTF-8
-
-<IfModule mod_rewrite.c>
-RewriteEngine on
-RewriteRule ^([a-zA-Z]+)/?$ contry.php?country__name_en=$1 [L]
-RewriteRule ^([a-zA-Z|\+]+)/([a-zA-Z|\+]+)/?$ city.php?city__name_en=$2&contry=$1 [L]
-RewriteRule ^([a-zA-Z|\+]+)/([a-zA-Z|\+]+)/([0-9]+)/?$ view.php?id=$3&city=$2&contry=$1 [L]
-</IfModule>

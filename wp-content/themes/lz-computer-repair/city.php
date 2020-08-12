@@ -45,7 +45,7 @@ $reviewsAllCount = 0;
 ?>
 <section class="top">
     <div class="top__slider">
-        <div id="top-images-city" class="image <?php echo ($current_des_city->images) ?>">
+        <div id="top-images-city" class="image-top_slider <?php echo ($current_des_city->images) ?>">
             <?php if ($current_des_city->images != "") : ?>
                 <?php $indexImg = 0; ?>
                 <?php foreach ($current_des_city->images as $imgUrls) {
@@ -79,7 +79,7 @@ $reviewsAllCount = 0;
                     </a>
                 </div>
                 <div class="breadcrumbs__arrow">
-                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+                    <img src="<?php bloginfo("template_url"); ?>/assets/images/arrow-bread.png" alt="">
                 </div>
             </div>
             <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
@@ -90,7 +90,7 @@ $reviewsAllCount = 0;
                     </a>
                 </div>
                 <div class="breadcrumbs__arrow">
-                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+                    <img src="<?php bloginfo("template_url"); ?>/assets/images/arrow-bread.png" alt="">
                 </div>
             </div>
             <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
@@ -169,25 +169,25 @@ $reviewsAllCount = 0;
                         </div>
                         <div class="item-time-rating">
                             <span class="item-time">
-                                <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-time.png" alt=""> <span><?php echo $item->duration ?> </span>
+                                <img src="<?php bloginfo("template_url"); ?>/assets/images/icon-time.png" alt=""> <span><?php echo $item->duration ?> </span>
                             </span>
                             <?php if ($item->rating) { ?>
                                 <span class="item-rating">
                                     <span style="display:none;" class="reviews-rating"><?php echo $item->rating ?> </span>
                                     <div class="star-rating-item">
                                         <span class="reviews-rating-img" style="width: <?php echo ($item->rating * 20) ?>%">
-                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                            <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                            <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                            <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                            <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                            <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
                                         </span>
                                         <span class="reviews-rating-img bac">
-                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                            <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                            <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                            <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                            <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                            <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                            <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
                                         </span>
                                     </div>
                                 </span>
@@ -211,10 +211,6 @@ $reviewsAllCount = 0;
                                 <div class="item-guide">
                                     <div class="item-guide-photo"> <img src="<?php echo $item->guide->avatar->medium  ?>" alt=""> </div>
                                     <div class="item-guide-name"><?php echo $item->guide->first_name ?> <br>
-                                        <?php
-                                        $city_name = str_replace('é', 'e', $item->name_en);
-                                        $city_name = str_replace("'", '', $city_name);
-                                        ?>
                                     </div>
                                 </div>
                                 <?php array_push($priceAll, $item->price->value); ?>
@@ -273,9 +269,9 @@ $reviewsAllCount = 0;
             <div class="video-box">
                 <div>
                     <p>Забронировать экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> поможет наш видиопример. Перед тем, как Вы определитесь с тематикой экскурсии и выбирите удобную дату, можно задать любой вопрос гиду. Посмотрите видео и узнайте все наши приемущества.</p>
-                    <video controls="controls" playsinline poster="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/TRAVEL-MANIA-EXMP.png">
-                        <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/webm">
-                        <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/mp4">
+                    <video controls="controls" playsinline poster="<?php bloginfo("template_url"); ?>/assets/images/TRAVEL-MANIA-EXMP.png">
+                        <source src="<?php bloginfo("template_url"); ?>/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/webm">
+                        <source src="<?php bloginfo("template_url"); ?>/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/mp4">
                     </video>
                     <p class="autor">
                         Видео: © Travel Mania
@@ -288,23 +284,12 @@ $reviewsAllCount = 0;
         </div>
 
 </section>
-<link rel="stylesheet" type="text/css" href="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/css/slick.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/slick.min.js"></script>
-<script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/jquery.appear.js"></script>
-
 
 <script>
     function slideFunc() {
         $("#top-images-city img").css({
             "opacity": "1",
             "display": "block"
-        });
-        $('.image').slick({
-            arrows: false,
-            dots: true,
-            autoplay: true,
-            autoplaySpeed: 3000
         });
     }
     setTimeout(slideFunc, 1000);
@@ -391,6 +376,8 @@ $reviewsAllCount = 0;
                         autoplaySpeed: 2000,
                         pauseOnHover: false,
                         pauseOnFocus: false,
+                        fade: true,
+                        cssEase: 'linear'
                     });
                 } else {
                     $(item).find(".link .slick-active").addClass("slick-current");
@@ -435,6 +422,8 @@ $reviewsAllCount = 0;
                             autoplaySpeed: 2000,
                             pauseOnHover: false,
                             pauseOnFocus: false,
+                            fade: true,
+                            cssEase: 'linear'
                         });
                     } else {
                         $(this).find(".link .slick-active").addClass("slick-current");
@@ -450,72 +439,8 @@ $reviewsAllCount = 0;
                 });
         } else {
             editElemsTour();
-
-            // var observableElements = [];
-
-            // if (document.querySelector('.slick-tours__item')) {
-            //     let itemsTours = $('.slick-tours__item');
-            //     for (i = 0; i < itemsTours.length; i++) {
-            //         observableElements.push(itemsTours[i]);
-            //     }
-            // }
-
-            // if ("IntersectionObserver" in window) {
-            //     let animationObserver = new IntersectionObserver(function(entries, observer) {
-            //         entries.forEach(function(entry) {
-            //             console.log(entry.intersectionRatio)
-            //             if (entry.isIntersecting) {
-            //                 let urls = $(entry.target).find(".link").data("images");
-            //                 if (!$(entry.target).find(".new-img").length) {
-            //                     for (i = 0; i < urls.length; i++) {
-            //                         $(entry.target).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
-            //                     }
-            //                 }
-            //                 if ($(entry.target).find(".slick-track").length == 0) {
-            //                     $(entry.target).find(".link").on('init', function(event, slick) {
-            //                         var initSlide = slick.slickCurrentSlide();
-            //                         var slickDots = slick.$dots[0];
-            //                         slickDots.childNodes[initSlide].classList.add("slick-current");
-            //                     });
-            //                     $(entry.target).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-            //                         var slickDots = slick.$dots[0];
-            //                         slickDots.childNodes[currentSlide].classList.remove("slick-current");
-            //                         slickDots.childNodes[nextSlide].classList.add("slick-current");
-            //                     });
-            //                     $(entry.target).find(".link").slick({
-            //                         arrows: false,
-            //                         dots: true,
-            //                         autoplay: true,
-            //                         autoplaySpeed: 2000,
-            //                         pauseOnHover: false,
-            //                         pauseOnFocus: false,
-            //                     });
-            //                 } else {
-            //                     $(entry.target).find(".link .slick-active").addClass("slick-current");
-            //                     $(entry.target).find(".link .slick-dots").css("opacity", "1");
-            //                     $(entry.target).find(".link").slick('slickPlay');
-            //                 }
-            //             } else {
-            //                 if ($(entry.target).find(".slick-track").length) {
-            //                     $(entry.target).find(".link .slick-dots").css("opacity", "0");
-            //                     $(entry.target).find(".link .slick-active").removeClass("slick-current");
-            //                     $(entry.target).find(".link").slick('slickPause');
-            //                 }
-            //             }
-            //         });
-            //     });
-
-            //     observableElements.forEach(function(observableElement) {
-            //         animationObserver.observe(observableElement);
-            //     });
-            // } else {
-            //     observableElements.forEach(function(observableElement) {});
-            // }
         }
     }
-
-    // let reviewsRatings = document.getElementsByClassName("reviews-rating");
-    // let reviewsRatingImg = document.getElementsByClassName("reviews-rating-img");
 
 
     if ($(".slick-tours__item").length > 24) {
@@ -551,9 +476,6 @@ $reviewsAllCount = 0;
             $(".popular-tours .btn-more").css("display", "none");
         }
     }
-    // for (i = 0; i < reviewsRatings.length; i++) {
-    //     reviewsRatingImg[i].style.width = reviewsRatings[i].innerHTML * 20 + "%";
-    // }
 </script>
 
 <?php get_footer(); ?>

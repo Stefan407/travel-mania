@@ -32,7 +32,7 @@ if (!function_exists('filter_function_name_Cities')) {
 <?php get_header(); ?>
 <section class="top">
     <div class="top__slider">
-        <div class="image">
+        <div class="image-top_slider">
             <img src="<?= home_url() ?>/wp-content/uploads/Main/Main-11.jpg" alt="">
         </div>
         <div class="top__slider-text">
@@ -53,7 +53,7 @@ if (!function_exists('filter_function_name_Cities')) {
                     </a>
                 </div>
                 <div class="breadcrumbs__arrow">
-                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+                    <img src="<?php bloginfo("template_url"); ?>/assets/images/arrow-bread.png" alt="">
                 </div>
                 <div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <p class="breadcrumbs__text">
@@ -94,14 +94,8 @@ if (!function_exists('filter_function_name_Cities')) {
     </div>
 </div>
 
-<script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/slick.min.js"></script>
 <script>
-    $('.image').slick({
-        arrows: false,
-        dots: true,
-        autoplay: true,
-        autoplaySpeed: 3000
-    });
+
     if ($(".color-bac").length) {
         $(".color-bac").each(function() {
             if ($(this).data("bac-color")) {

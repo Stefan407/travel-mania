@@ -40,7 +40,7 @@ add_action('wp_head', function () use ($list) {
 
 <section class="top">
     <div class="top__slider">
-        <div id="top-images" class="image">
+        <div id="top-images" class="image-top_slider">
             <?php if ($current_des_country->images != "") : ?>
                 <?php $indexImg = 0; ?>
                 <?php foreach ($current_des_country->images as $imgUrls) {
@@ -74,7 +74,7 @@ add_action('wp_head', function () use ($list) {
                     </a>
                 </div>
                 <div class="breadcrumbs__arrow">
-                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+                    <img src="<?php bloginfo("template_url"); ?>/assets/images/arrow-bread.png" alt="">
                 </div>
             </div>
             <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
@@ -194,9 +194,9 @@ add_action('wp_head', function () use ($list) {
                 <div>
                     <h2>Как забронировать экскурсию</h2>
                     <p>Забронировать экскурсии <?php echo ($list[0]->country->in_obj_phrase); ?> поможет наш видиопример. Перед тем, как Вы определитесь с тематикой экскурсии и выбирите удобную дату, можно задать любой вопрос гиду. Посмотрите видео и узнайте все наши приемущества.</p>
-                    <video controls="controls" playsinline poster="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/TRAVEL-MANIA-EXMP.png">
-                        <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/webm">
-                        <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/mp4">
+                    <video controls="controls" playsinline poster="<?php bloginfo("template_url"); ?>/assets/images/TRAVEL-MANIA-EXMP.png">
+                        <source src="<?php bloginfo("template_url"); ?>/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/webm">
+                        <source src="<?php bloginfo("template_url"); ?>/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/mp4">
                     </video>
                     <p class="autor">
                         Видео: Travel Mania ©
@@ -278,12 +278,6 @@ add_action('wp_head', function () use ($list) {
         $("#top-images img").css({
             "opacity": "1",
             "display": "block"
-        });
-        $('.image').slick({
-            arrows: false,
-            dots: true,
-            autoplay: true,
-            autoplaySpeed: 3000
         });
     }
 

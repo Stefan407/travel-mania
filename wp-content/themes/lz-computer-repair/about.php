@@ -38,7 +38,7 @@ if (!function_exists('filter_function_name_Cities')) {
                     </a>
                 </div>
                 <div class="breadcrumbs__arrow">
-                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+                    <img src="<?php bloginfo("template_url"); ?>/assets/images/arrow-bread.png" alt="">
                 </div>
                 <div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <p class="breadcrumbs__text">
@@ -62,19 +62,19 @@ if (!function_exists('filter_function_name_Cities')) {
             </div>
             <div class="about-what-wrap">
                 <div class="about-what-block">
-                    <img src="/wp-content/themes/lz-computer-repair/assets/images/countrie.png">
+                    <img src="<?php bloginfo("template_url"); ?>/assets/images/countrie.png">
                     <div class="about-what__title">93<br>страны</div>
                 </div>
                 <div class="about-what-block">
-                    <img src="/wp-content/themes/lz-computer-repair/assets/images/city.png">
+                    <img src="<?php bloginfo("template_url"); ?>/assets/images/city.png">
                     <div class="about-what__title">600+<br>городов</div>
                 </div>
                 <div class="about-what-block">
-                    <img src="/wp-content/themes/lz-computer-repair/assets/images/review.png">
+                    <img src="<?php bloginfo("template_url"); ?>/assets/images/review.png">
                     <div class="about-what__title">140 000+<br>отзывов</div>
                 </div>
                 <div class="about-what-block">
-                    <img src="/wp-content/themes/lz-computer-repair/assets/images/blog.png">
+                    <img src="<?php bloginfo("template_url"); ?>/assets/images/blog.png">
                     <div class="about-what__title"><a href="/blog/" class="azure-link">Блог<br>лайфхаков</a></div>
                 </div>
             </div>
@@ -85,21 +85,21 @@ if (!function_exists('filter_function_name_Cities')) {
             <h2 class="about-title g-ac">Как бронировать экскурсии</h2>
 
             <div class="about-how-block">
-                <img src="/wp-content/themes/lz-computer-repair/assets/images/about-img-1.png" alt="" class="about-how__img">
+                <img src="<?php bloginfo("template_url"); ?>/assets/images/about-img-1.png" alt="" class="about-how__img">
                 <div class="about-how__info">
                     <div class="about-how__info-title">Выбирайте экскурсию на сайте</div>
                     Все экскурсии, представленные на сайте - авторские, экскурсию проводит человек, который её продумал до мелочей! Выбрав экскурсию можно заранее прочитать полное описание программы, посмотреть, что гид написал о себе. Вы можете познакомиться с отзывами других путешественников, которые уже побывали на выбранной Вами экскурсии.
                 </div>
             </div>
             <div class="about-how-block about-how-block_2">
-                <img src="/wp-content/themes/lz-computer-repair/assets/images/about-img-2.png" alt="" class="about-how__img">
+                <img src="<?php bloginfo("template_url"); ?>/assets/images/about-img-2.png" alt="" class="about-how__img">
                 <div class="about-how__info">
                     <div class="about-how__info-title">Задайте вопрос гиду до оплаты</div>
                     До момента бронирования экскурсии, возможно задать любой вопрос гиду! Подберите экскурсию и прейдите по ссылке "задать вопрос гиду". Вы будете направлены на страницу полного описания экскурсии и формы "обратной связи с гидом", где можно задать любой вопрос. Оплачивайте экскурсию тогда, когда проясните важные для себя детали.
                 </div>
             </div>
             <div class="about-how-block about-how-block_3">
-                <img src="/wp-content/themes/lz-computer-repair/assets/images/about-img-3.png" alt="" class="about-how__img">
+                <img src="<?php bloginfo("template_url"); ?>/assets/images/about-img-3.png" alt="" class="about-how__img">
                 <div class="about-how__info">
                     <div class="about-how__info-title">Оплачивайте только часть суммы</div>
                     Бронируя экскурсию, Вы оплачиваете только 20% от стоимости, что позволяет гиду запланировать точное время экскурсии, которое вы выбрали. Оставшуюся часть Вы оплачиваете после экскурсии гиду.
@@ -108,12 +108,4 @@ if (!function_exists('filter_function_name_Cities')) {
         </div>
     </div>
 </section>
-<script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/slick.min.js"></script>
-<script>
-    $('.image').slick({
-        arrows: false,
-        dots: true,
-        autoplay: true,
-        autoplaySpeed: 3000
-    });
-</script><?php get_footer(); ?>
+<?php get_footer(); ?>

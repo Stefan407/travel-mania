@@ -12,7 +12,7 @@ Template Name: Tour-page
 $my_var = $list->title;
 $arr = explode(' ', $my_var);
 for ($i = 0; $i <= count($arr); $i++) {
-    $arr[$i] = str_replace("—", "", $arr[$i]);
+    $arr[$i] = str_replace("-", "", $arr[$i]);
     $arr[$i] = str_replace(" ", "", $arr[$i]);
     if (mb_strlen($arr[$i]) <= 2) {
         unset($arr[$i]);
@@ -49,7 +49,7 @@ $current_city = str_replace(" ", "-", $current_city);
                     <div class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
                         <div class="breadcrumbs-wrap">
                             <div class="breadcrumbs-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                <div class="breadcrumbs__block" >
+                                <div class="breadcrumbs__block">
                                     <a class="breadcrumbs__link" href="/<?php echo ($current_country) ?>/" itemprop="item">
                                         <span itemprop="name"><?php echo ($list->city->country->name_ru) ?></span>
                                     </a>
@@ -72,32 +72,30 @@ $current_city = str_replace(" ", "-", $current_city);
                                     }
                                     ?>
                                     <a class="breadcrumbs__link" href="/<?php echo ($current_country) ?>/<?php echo ($current_city) ?>/" itemprop="item">
-                                        <span itemprop="name" >Экскурсии <?php echo ($list->city->in_obj_phrase) ?></span>
+                                        <span itemprop="name">Экскурсии <?php echo ($list->city->in_obj_phrase) ?></span>
                                     </a>
                                 </div>
                                 <meta itemprop="position" content="2">
                             </div>
                         </div>
                     </div>
-
                     <div itemscope itemtype="http://schema.org/Product">
-                        <meta itemprop="name" content="<?php echo($page_title) ?>" />
-                        <meta itemprop="description" content="<?php echo($list->tagline) ?>" />
+                        <meta itemprop="name" content="<?php echo ($page_title) ?>" />
+                        <meta itemprop="description" content="<?php echo ($list->tagline) ?>" />
                         <meta itemprop="image" content="<?php echo $list->photos[0]->medium ?>" />
                         <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                             <meta itemprop="price" content="<?php echo $list->price->value ?> " />
                             <meta itemprop="priceCurrency" content="<?php echo $list->price->currency ?>" />
                         </span>
                         <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-                        <?php if( $list->rating > 0){ ?>
-                            <meta itemprop="ratingValue" content="<?php echo ($list->rating ) ?>" />
-                        <?php } ?>
-                        <?php if( $list->review_count > 0){ ?>
-                            <meta itemprop="reviewCount" content="<?php echo ($list->review_count ) ?>" />
-                        <?php } ?>
+                            <?php if ($list->rating > 0) { ?>
+                                <meta itemprop="ratingValue" content="<?php echo ($list->rating) ?>" />
+                            <?php } ?>
+                            <?php if ($list->review_count > 0) { ?>
+                                <meta itemprop="reviewCount" content="<?php echo ($list->review_count) ?>" />
+                            <?php } ?>
                         </span>
                     </div>
-
                     <div class="main_content-title">
                         <h1> <?php echo ($list->title) ?> </h1>
                     </div>
@@ -134,11 +132,55 @@ $current_city = str_replace(" ", "-", $current_city);
                                                 </div>
                                             </div>
                                         </div>
+                                        <h3 style="text-align: center;margin-bottom:20px; display:none;">Выберите дату</h3>
+                                        <div class="container-calendar" style="display: none;">
+                                            <h3 id="monthAndYear"></h3>
+                                            <div class="button-container-calendar">
+                                                <button id="previous" style="display:none;">&#8249;</button>
+                                                <button id="next">&#8250;</button>
+                                            </div>
+
+                                            <table class="table-calendar" id="calendar" data-lang="en">
+                                                <thead id="thead-month"></thead>
+                                                <tbody id="calendar-body"></tbody>
+                                            </table>
+                                            <div class="legend">
+                                                <div class="legend-item busy">День для заказа не доступен</div>
+                                                <div class="legend-item available">День свободен</div>
+                                            </div>
+
+                                            <div class="footer-container-calendar">
+                                                <label for="month">Jump To: </label>
+                                                <select id="month" onchange="jump()">
+                                                    <option value=0>Jan</option>
+                                                    <option value=1>Feb</option>
+                                                    <option value=2>Mar</option>
+                                                    <option value=3>Apr</option>
+                                                    <option value=4>May</option>
+                                                    <option value=5>Jun</option>
+                                                    <option value=6>Jul</option>
+                                                    <option value=7>Aug</option>
+                                                    <option value=8>Sep</option>
+                                                    <option value=9>Oct</option>
+                                                    <option value=10>Nov</option>
+                                                    <option value=11>Dec</option>
+                                                </select>
+                                                <select id="year" onchange="jump()"></select>
+                                            </div>
+                                        </div>
                                         <div class="guide des">
-                                            <img src="<?php echo $list->guide->avatar->medium ?>" alt="">
-                                            <h3> Гид <?php echo $list->guide->first_name ?> </h3>
+                                            <div class="guide-left">
+                                                <img src="<?php echo $list->guide->avatar->medium ?>" alt="">
+                                                <h3><?php echo $list->guide->first_name ?> </h3>
+                                            </div>
+                                            <div class="guide-right">
+                                                <div class="text-guid"> <?php echo $list->guide->description ?> </div>
+                                                <div class="btn-guid">Подробнее</div>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="expage-dates-list"></div>
+
                                 </div>
                             </div>
                             <div class="order-panel-wrap">
@@ -153,18 +195,18 @@ $current_city = str_replace(" ", "-", $current_city);
                                             <span id="star-value"><?php echo $list->rating ?></span>
                                             <div class="star-rating-item">
                                                 <span class="reviews-rating-img" style="width: <?php echo ($list->rating * 20) ?>%">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
                                                 </span>
                                                 <span class="reviews-rating-img bac">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                    <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
                                                 </span>
                                             </div>
                                         </div>
@@ -190,12 +232,11 @@ $current_city = str_replace(" ", "-", $current_city);
                                     </div>
                                 </div>
                                 <span class="order-item">
-                                    <div class="order-item-string"><img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/lightning.svg"> Быстрое бранирование </div>
-                                    <div class="order-item-string"><img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/warranty-icon.svg"> Гарантия лучшей цены </div>
+                                    <div class="order-item-string"><img src="<?php bloginfo("template_url"); ?>/assets/images/lightning.svg"> Быстрое бранирование </div>
+                                    <div class="order-item-string"><img src="<?php bloginfo("template_url"); ?>/assets/images/warranty-icon.svg"> Гарантия лучшей цены </div>
                                     <div>
                                         <div class="panel-btns">
                                             <div> <a class="order-btn" target="_blank" onclick="ym(56569540,'reachGoal','bron')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Забронировать </a> </div>
-                                            <div> <a class="more-btn" target="_blank" onclick="ym(56569540,'reachGoal','data')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Выбрать дату </a> </div>
                                             <div> <a class="order-ask" target="_blank" onclick="ym(56569540,'reachGoal','vopros')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Задать вопрос гиду</a> </div>
                                         </div>
                                 </span>
@@ -203,8 +244,14 @@ $current_city = str_replace(" ", "-", $current_city);
                         </div>
                         <div class="description-content-text">
                             <div class="guide mob">
-                                <img src="<?php echo $list->guide->avatar->medium ?>" alt="">
-                                <h3> Гид <?php echo $list->guide->first_name ?> </h3>
+                                <div class="guide-left">
+                                    <img src="<?php echo $list->guide->avatar->medium ?>" alt="">
+                                    <h3><?php echo $list->guide->first_name ?> </h3>
+                                </div>
+                                <div class="guide-right">
+                                    <div class="text-guid"> <?php echo $list->guide->description ?> </div>
+                                    <div class="btn-guid">Подробнее</div>
+                                </div>
                             </div>
                         </div>
                         <?php if ($reviews->results) { ?>
@@ -219,7 +266,7 @@ $current_city = str_replace(" ", "-", $current_city);
                                         <?php foreach ($reviews->results as $rew) { ?>
                                             <div class=" description-content-text-reviews ">
                                                 <div class="reviews-photo ">
-                                                    <img class="reviews-photo-img" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/user-icon.png" alt="">
+                                                    <img class="reviews-photo-img" src="<?php bloginfo("template_url"); ?>/assets/images/user-icon.png" alt="">
                                                 </div>
                                                 <div class="reviews-box">
                                                     <div class="reviews-title">
@@ -228,18 +275,18 @@ $current_city = str_replace(" ", "-", $current_city);
                                                         </div>
                                                         <div class="star-rating-item">
                                                             <span class="reviews-rating-img" style="width: <?php echo ($rew->rating * 20) ?>%">
-                                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                                <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                                <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                                <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                                <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                                <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
                                                             </span>
                                                             <span class="reviews-rating-img bac">
-                                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                                                <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                                                <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                                <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                                <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                                <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                                <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
                                                             </span>
                                                         </div>
                                                     </div>
@@ -270,18 +317,18 @@ $current_city = str_replace(" ", "-", $current_city);
                                 <span id="star-value"><?php echo $list->rating ?></span>
                                 <div class="star-rating-item">
                                     <span class="reviews-rating-img" style="width: <?php echo ($list->rating * 20) ?>%">
-                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
                                     </span>
                                     <span class="reviews-rating-img bac">
-                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
-                                        <img class="icon-star" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/icon-star-1.png" alt="">
+                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
                                     </span>
                                 </div>
                             </div>
@@ -307,12 +354,11 @@ $current_city = str_replace(" ", "-", $current_city);
                         </div>
                     </div>
                     <span class="order-item">
-                        <div class="order-item-string"><img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/lightning.svg"> Быстрое бранирование </div>
-                        <div class="order-item-string"><img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/warranty-icon.svg"> Гарантия лучшей цены </div>
+                        <div class="order-item-string"><img src="<?php bloginfo("template_url"); ?>/assets/images/lightning.svg"> Быстрое бранирование </div>
+                        <div class="order-item-string"><img src="<?php bloginfo("template_url"); ?>/assets/images/warranty-icon.svg"> Гарантия лучшей цены </div>
                         <div>
                             <div class="panel-btns">
                                 <div> <a class="order-btn" target="_blank" onclick="ym(56569540,'reachGoal','bron');ym(56569540, 'reachGoal', 'trip')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Забронировать </a> </div>
-                                <div> <a class="more-btn" target="_blank" onclick="ym(56569540,'reachGoal','data');ym(56569540, 'reachGoal', 'trip')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Выбрать дату </a> </div>
                                 <div> <a class="order-ask" target="_blank" onclick="ym(56569540,'reachGoal','vopros');ym(56569540, 'reachGoal', 'trip')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Задать вопрос гиду</a> </div>
                             </div>
                     </span>
@@ -321,34 +367,96 @@ $current_city = str_replace(" ", "-", $current_city);
         </div>
     </div>
 </section>
-<script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/slick.min.js"></script>
-<script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/jquery.fancybox.min.js"></script>
+<?php
+$listTour = getData('https://experience.tripster.ru/api/experiences/?city=' . $list->city->id);
+$listTourNew = $listTour->results;
+if ($listTour->count > 1) {
+?>
+    <section class="popular-tours slider-tour">
+        <div class="container">
+            <div class="popular-tours-text">
+                <div>
+                    <h2>Популярные экскурсии <?php echo ($list->city->in_obj_phrase); ?></h2>
+                </div>
+                <div class="slick-tours">
+                    <?php foreach ($listTourNew as $tour) {
+                        if ($tour->id != $list->id) { ?>
+                            <div class="slick-tours__item" style="background-color:#fff;">
+                                <div class="slick-tours__wrap">
+                                    <div class="slick-tours__item-img">
+                                        <a class="link" href="<?= home_url() ?>/<?php echo str_replace('+', '-', $tour->city->country->name_en) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/excursion-<?= $tour->id ?>/" data-images="<?php echo htmlspecialchars(json_encode($arrayImg)) ?>">
+                                            <img class="static" src="<?php echo $tour->photos['0']->thumbnail ?>" alt="">
+                                        </a>
+                                        <?php if ($tour->price->discount->value) { ?>
+                                            <div class="slick-tours__item-img-box">
+                                                <span>Скидка</span> <br>
+                                                <span class="slick-tours__item-img-span "><?php echo ($tour->price->discount->value * 100) ?>%</span>
+                                            </div>
+                                        <?php } ?>
+                                        <?php if ($tour->tags[0]->name) { ?>
+                                            <div class="slick-tours__tag"><?php echo ($tour->tags[0]->name) ?></div>
+                                        <?php } ?>
+                                    </div>
+
+                                    <div class="item-time-rating">
+                                        <span class="item-time">
+                                            <img src="<?php bloginfo("template_url"); ?>/assets/images/icon-time.png" alt=""> <span><?php echo $tour->duration ?> </span>
+                                        </span>
+                                        <?php if ($tour->rating) { ?>
+                                            <span class="item-rating">
+                                                <span style="display:none;" class="reviews-rating"><?php echo $tour->rating ?> </span>
+                                                <div class="star-rating-item">
+                                                    <span class="reviews-rating-img" style="width: <?php echo ($tour->rating * 20) ?>%">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    </span>
+                                                    <span class="reviews-rating-img bac">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    </span>
+                                                </div>
+                                            </span>
+                                        <?php } ?>
+                                    </div>
+                                    <div class="tours__item-content ">
+                                        <div class="item-title ">
+                                            <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', str_replace(' ', '-', $tour->city->country->name_en)) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/excursion-<?= $tour->id ?>/">
+                                                <?= $tour->title ?>
+                                            </a>
+                                        </div>
+                                        <div class="item-price-guide">
+                                            <div class="item-guide">
+                                                <div class="item-guide-photo"> <img src="<?php echo $tour->guide->avatar->medium  ?>" alt=""> </div>
+                                                <div class="item-guide-name"><?php echo $tour->guide->first_name ?> <br>
+                                                </div>
+                                            </div>
+                                            <div class="item-price">
+                                                <div class="item-price-value"> <?= $tour->price->value . ' ' . $tour->price->currency ?></div>
+                                                <div class="item-price-people"> <?= $tour->price->unit_string  ?> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    <?php }
+                    } ?>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php } ?>
 <script>
-    $('.slider-tours-photo').slick({
-        arrows: false,
-        dots: true,
-        autoplay: true,
-        autoplaySpeed: 3000
-    });
-
     function parametrEdit() {
-        // if (document.getElementById("star-value")) {
-        //     let starValue = (20 * document.getElementById("star-value").innerHTML);
-        //     document.getElementById("star-rating").style.width = starValue + "%";
-        // }
         let reviewsDate = document.getElementsByClassName("reviews-date");
-        // let reviewsRatings = document.getElementsByClassName("reviews-rating");
-        // let reviewsRatingImg = document.getElementsByClassName("reviews-rating-img");
-
-
         for (i = 0; i < reviewsDate.length; i++) {
             reviewsDate[i].innerHTML = reviewsDate[i].innerHTML.split("-").reverse().join(".");
         }
-
-        // for (i = 0; i < reviewsRatings.length; i++) {
-        //     reviewsRatingImg[i].style.width = reviewsRatings[i].innerHTML * 20 + "%";
-        //     reviewsRatingImg[i].style.minWidth = reviewsRatings[i].innerHTML * 20 + "%";
-        // }
     };
     parametrEdit();
     $('[data-fancybox]').fancybox({
@@ -359,5 +467,25 @@ $current_city = str_replace(" ", "-", $current_city);
         document.getElementById("description-item-reviews").style.maxHeight = "100%";
         document.querySelector(".reviews-btn").style.display = "none";
     }
+    $('.slick-tours').slick({
+        prevArrow: '<button type="button" class="slick-prev slick-btn" ><img src="<?php bloginfo("template_url"); ?>/assets/images/arrow-icon.png" alt=""></button>',
+        nextArrow: '<button type="button" class="slick-next slick-btn" ><img src="<?php bloginfo("template_url"); ?>/assets/images/arrow-icon.png" alt=""></button>',
+        dots: false,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [{
+                breakpoint: 1000,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
+        ]
+    });
 </script>
 <?php get_footer(); ?>

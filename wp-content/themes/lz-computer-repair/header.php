@@ -21,20 +21,15 @@ require_once 'sys/inc.php';
 
 
 <head>
-    <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="http://travel-mania.org/favicon.ico" type="image/x-icon">
     <link rel="profile" href="<?php echo esc_url(__('http://gmpg.org/xfn/11', 'lz-computer-repair')); ?>">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,900" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/css/slick.css">
-    <link rel="stylesheet" type="text/css" href="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/css/simplebar.css">
-    <link rel='stylesheet' id='style-css' href="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/css/style.css" type='text/css' media='all' />
-    <link rel='stylesheet' id='style-css' href="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/css/icomoon.css" type='text/css' media='all' />
-    <link rel='stylesheet' id='style-css' href="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/css/jquery.fancybox.min.css" type='text/css' media='all' />
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_url"); ?>/assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_url"); ?>/assets/css/calendar.css?v=0.1">
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_url"); ?>/assets/css/simplebar.css">
+    <link rel='stylesheet' href="<?php bloginfo("template_url"); ?>/assets/css/jquery.fancybox.min.css" type='text/css'/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/simplebar.min.js"></script>
-    <script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/main.js"></script>
+    <?php wp_enqueue_script("jquery"); ?>
     <script data-ad-client="ca-pub-1224554491202001" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Google Tag Manager -->
     <script data-ad-client="ca-pub-1224554491202001" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -60,6 +55,12 @@ require_once 'sys/inc.php';
         <meta name="description" content="У нас можно заказать недорогие авторские экскурсии  <?php echo ($list[0]->country->in_obj_phrase); ?> на русском языке с лучшими гидами. Цены без посредников и удобные даты." />
     <?php } ?>
     <?php wp_head(); ?>
+    <script type="text/javascript" src="<?php bloginfo("template_url"); ?>/assets/js/jquery.js"></script>
+    <script type="text/javascript" src="<?php bloginfo("template_url"); ?>/assets/js/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="<?php bloginfo("template_url"); ?>/assets/js/simplebar.min.js"></script>
+    <script type="text/javascript" src="<?php bloginfo("template_url"); ?>/assets/js/slick.min.js"></script>
+    <script type="text/javascript" src="<?php bloginfo("template_url"); ?>/assets/js/libTime.js"></script>
+    <script type="text/javascript" src="<?php bloginfo("template_url"); ?>/assets/js/main.js"></script>
 </head>
 <style>
     html {
@@ -73,17 +74,17 @@ require_once 'sys/inc.php';
         <div class="menu-wrapper">
             <div class="container">
                 <div class="menu-wrap">
-                    <div class="menu-logo"><a href="<?= home_url() ?>/"><img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/logo.png" alt=""></a></div>
+                    <div class="menu-logo"><a href="<?= home_url() ?>/"><img src="<?php bloginfo("template_url"); ?>/assets/images/logo.png" alt=""></a></div>
                     <div class="search-wrap" style="display:;">
                         <div class="search-block">
                             <div class="search-item">
                                 <div class="input-search_wrap">
                                     <input placeholder="Куда вы едете?" type="text" id="searchInput" class="search-input">
                                     <div class="windows8" style="display: none;">
-                                        <img src="/wp-content/themes/lz-computer-repair/assets/images/2.gif" alt="">
+                                        <img src="<?php bloginfo("template_url"); ?>/assets/images/2.gif" alt="">
                                     </div>
                                     <div class="search-icon-des">
-                                        <img src="/wp-content/themes/lz-computer-repair/assets/images/search-icon-white.svg" alt="">
+                                        <img src="<?php bloginfo("template_url"); ?>/assets/images/search-icon-white.svg" alt="">
                                     </div>
                                 </div>
                                 <div class="search-list_wrap block-scrollbar scroll-init">
@@ -103,8 +104,8 @@ require_once 'sys/inc.php';
                             <li><a class="link-ask" href="<?= home_url() ?>/feedback/">ЗАДАТЬ ВОПРОС</a></li>
                         </ul>
                     </nav>
-                    <div class="burger"><img class="burger-btn" src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/burger-icon.png" alt=""></div>
-                    <div class="search-icon"><img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/search-icon.svg" alt=""></div>
+                    <div class="burger"><img class="burger-btn" src="<?php bloginfo("template_url"); ?>/assets/images/burger-icon.png" alt=""></div>
+                    <div class="search-icon"><img src="<?php bloginfo("template_url"); ?>/assets/images/search-icon.svg" alt=""></div>
                 </div>
             </div>
         </div>

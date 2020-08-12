@@ -21,13 +21,8 @@ add_filter('document_title_parts', 'custom_title');
 
 </head>
 <?php get_header(); ?>
-<section class="top">
-    <div class="top__slider">
-        <div class="image">
-            <img src="<?= home_url() ?>/wp-content/uploads/Main/404-0.png" width="189" height="255" alt="">
-        </div>
-
-    </div>
+<section class="top" style="display: flex;justify-content: center;">
+    <img src="<?= home_url() ?>/wp-content/uploads/Main/404-0.png"  alt="">
 </section>
 
 <section class="main">
@@ -36,12 +31,3 @@ add_filter('document_title_parts', 'custom_title');
     </div>
 </section>
 <?php get_footer(); ?>
-<script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/slick.min.js"></script>
-<script>
-    $('.image').slick({
-        arrows: false,
-        dots: true,
-        autoplay: true,
-        autoplaySpeed: 3000
-    });
-</script>

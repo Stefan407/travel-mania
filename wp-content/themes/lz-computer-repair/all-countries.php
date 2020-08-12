@@ -35,13 +35,13 @@ if (!function_exists('filter_function_name_Countries')) {
 <?php get_header(); ?>
 <section class="top">
     <div class="top__slider">
-        <div class="image">
+        <div class="image-top_slider">
             <img src="<?= home_url() ?>/wp-content/uploads/Main/Main-11.jpg" alt="">
         </div>
         <div class="top__slider-text">
             <div class="container">
                 <div class="top__content-text">
-                    <h1>Авторские экскурсии в 93 странах </h1>
+                    <h1>Авторские экскурсии в 93 странах</h1>
                 </div>
             </div>
         </div>
@@ -56,7 +56,7 @@ if (!function_exists('filter_function_name_Countries')) {
                     </a>
                 </div>
                 <div class="breadcrumbs__arrow">
-                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+                    <img src="<?php bloginfo("template_url"); ?>/assets/images/arrow-bread.png" alt="">
                 </div>
                 <div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <p class="breadcrumbs__text">
@@ -132,9 +132,9 @@ if (!function_exists('filter_function_name_Countries')) {
             <p>Travel Mania — лучшие экскурсионные предложения в 93 странах мира. Все экскурсии авторские: обзорные, исторические, гастрономические и шоппинг туры, экскурсии с детьми, а также спортивные и развлекательные поездки. Мы предлагаем тысячи эксклюзивных экскурсий, которые можно забронировать онлайн. Только тщательно продуманные маршруты и выгодные цены, о чем свидетельствуют более 140 000 отзывов.</p>
             <div class="video-box">
                 <h2>Весь мир за одну минуту</h2>
-                <video controls="controls" playsinline poster="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png">
-                    <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/webm">
-                    <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/mp4">
+                <video controls="controls" playsinline poster="<?php bloginfo("template_url"); ?>/assets/images/move-img.png">
+                    <source src="<?php bloginfo("template_url"); ?>/assets/video/MOVE.mp4" type="video/webm">
+                    <source src="<?php bloginfo("template_url"); ?>/assets/video/MOVE.mp4" type="video/mp4">
                 </video>
                 <p class="autor">
                     Видео: <a href="/go/?url=https://vimeo.com/27246366" target="_blank">Rick Mereki</a>
@@ -146,7 +146,6 @@ if (!function_exists('filter_function_name_Countries')) {
         </div>
     </div>
 </section>
-<script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/slick.min.js"></script>
 <script>
     $(".country-btn-wrap .btn-title").on("click", function() {
         $(".country-btn-wrap .btn-block").toggleClass("active");
@@ -183,11 +182,6 @@ if (!function_exists('filter_function_name_Countries')) {
         $("#btn-al").trigger("click");
     })
 
-    $('.image').slick({
-        arrows: false,
-        dots: true,
-        autoplay: true,
-        autoplaySpeed: 3000
-    });
+
 </script>
 <?php get_footer(); ?>

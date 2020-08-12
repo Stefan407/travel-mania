@@ -38,7 +38,7 @@ if (!function_exists('filter_function_name_Cities')) {
 <?php get_header(); ?>
 <section class="top">
     <div class="top__slider">
-        <div class="image">
+        <div class="image-top_slider">
             <img src="<?= home_url() ?>/wp-content/uploads/Main/Main-11.jpg" alt="">
         </div>
         <div class="top__slider-text">
@@ -59,7 +59,7 @@ if (!function_exists('filter_function_name_Cities')) {
                     </a>
                 </div>
                 <div class="breadcrumbs__arrow">
-                    <img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+                    <img src="<?php bloginfo("template_url"); ?>/assets/images/arrow-bread.png" alt="">
                 </div>
                 <div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <p class="breadcrumbs__text">
@@ -191,9 +191,9 @@ if (!function_exists('filter_function_name_Cities')) {
             <div class="border-box">
                 <div class="video-box">
                     <h2> Весь мир за одну минуту</h2>
-                    <video controls="controls" playsinline poster="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/move-img.png">
-                        <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/webm">
-                        <source src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/video/MOVE.mp4" type="video/mp4">
+                    <video controls="controls" playsinline poster="<?php bloginfo("template_url"); ?>/assets/images/move-img.png">
+                        <source src="<?php bloginfo("template_url"); ?>/assets/video/MOVE.mp4" type="video/webm">
+                        <source src="<?php bloginfo("template_url"); ?>/assets/video/MOVE.mp4" type="video/mp4">
                     </video>
                     <p class="autor">
                         Видео: <a href="/go/?url=https://vimeo.com/27246366" target="_blank">Rick Mereki</a>
@@ -206,7 +206,6 @@ if (!function_exists('filter_function_name_Cities')) {
         </div>
     </div>
 </section>
-<script src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/js/slick.min.js"></script>
 <script>
     $(".country-btn-wrap .btn-title").on("click", function() {
         $(".country-btn-wrap .btn-block").toggleClass("active");
@@ -307,11 +306,6 @@ if (!function_exists('filter_function_name_Cities')) {
         }
     }
 
-    $('.image').slick({
-        arrows: false,
-        dots: true,
-        autoplay: true,
-        autoplaySpeed: 3000
-    });
+
 </script>
 <?php get_footer(); ?>

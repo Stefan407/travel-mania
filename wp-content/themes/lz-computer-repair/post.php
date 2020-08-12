@@ -26,7 +26,7 @@ add_action('pre_get_document_title', function () use ($page_title) {
 				</a>
 			</div>
 			<div class="breadcrumbs__arrow">
-				<img src="<?= home_url() ?>/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+				<img src="<?php bloginfo("template_url"); ?>/assets/images/arrow-bread.png" alt="">
 			</div>
 			<div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
 				<p class="breadcrumbs__text">
@@ -36,7 +36,7 @@ add_action('pre_get_document_title', function () use ($page_title) {
 				</p>
 			</div>
 			<div class="breadcrumbs__arrow">
-				<img src="/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+				<img src="<?php bloginfo("template_url"); ?>/assets/images/arrow-bread.png" alt="">
 			</div>
 			<div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
 				<p class="breadcrumbs__text">

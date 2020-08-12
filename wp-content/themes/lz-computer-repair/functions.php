@@ -86,7 +86,6 @@ function lz_computer_repair_scripts()
     //Bootstarp
     wp_enqueue_style('bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css');
     //style.css
-    wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/style.css');
 
 
     //slick

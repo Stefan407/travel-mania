@@ -61,7 +61,7 @@ html {
 
 * {
 	outline: none;
-	font-family: "Roboto" !important;
+	font-family: "Roboto", 'Open Sans', sans-serif !important;
 }
 
 body {
@@ -578,25 +578,12 @@ th {
 	text-align: left;
 }
 
-tbody,
-td,
-th {
-	border: 1px dashed;
-}
 
 td {
 	padding: 0.4em;
 }
 
-th:first-child,
-td:first-child {
-	padding-left: 0;
-}
 
-th:last-child,
-td:last-child {
-	padding-right: 0;
-}
 
 /*---------- Links -----------*/
 
@@ -3838,7 +3825,7 @@ h2 {
 	font-weight: 700;
 }
 
-.top__slider .image .breadcrumbs__wrapper img {
+.top__slider .image-top_slider .breadcrumbs__wrapper img {
 	height: auto;
 	min-height: 50vh;
 	object-fit: cover;
@@ -3851,7 +3838,7 @@ h2 {
 	line-height: 40px;
 }
 
-.image {
+.image-top_slider {
 	position: relative;
 }
 
@@ -3894,27 +3881,28 @@ h2 {
 	background-color: rgb(161, 35, 35);
 }
 
-.slick-dots li button {
-	padding: 0;
-	background-color: #8d8e9c;
-	color: #8d8e9c;
+.image-top_slider .slick-dots li button {
+	display: none;
+}
+
+.slider-tours-photo .slick-dots li button {
+	display: none;
 }
 
 .link .slick-dots li {
 	display: block;
 	float: left;
 	width: 40px;
-	height: 5px;
+	height: 3px;
 	overflow: hidden;
 	margin: 0 2px;
 	border-radius: 0;
 	border: none;
-	background-color: #ececef;
+	background-color: #e7e7e7;
 	position: relative;
 	border-radius: 3px;
 }
 
-.link li.slick-active {}
 
 .link .slick-dots li button {
 	padding: 0;
@@ -3929,12 +3917,12 @@ h2 {
 	transform: translate(-40px, 0px);
 	transition: 0s;
 	font-size: 0px;
-	background-color: rgb(41, 17, 131) !important;
+	background-color: #828282 !important;
 }
 
 .link li.slick-current button {
 	transition: 2s linear;
-	background-color: rgb(41, 17, 131) !important;
+	background-color: #828282 !important;
 	transform: translate(0px, 0px);
 }
 
@@ -4271,9 +4259,9 @@ h2 {
 
 .slick-tours .tours__item-content .item-guide-name {
 	display: flex;
-    text-align: start;
-    flex-direction: column;
-    justify-content: center;
+	text-align: start;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .slick-tours .tours__item-content .item-guide-photo {
@@ -4293,7 +4281,8 @@ h2 {
 	font-weight: 500;
 	color: #0785b0;
 }
-.slick-tours .tours__item-content .item-title a{
+
+.slick-tours .tours__item-content .item-title a {
 	color: #0785b0;
 }
 
@@ -4493,16 +4482,16 @@ h2 {
 
 .search-wrap input.search-input {
 	width: 100%;
-    height: 36px;
-    padding: 5px 20px 6px 7px;
-    border-radius: 5px;
-    margin: 0;
-    border: 0;
-    box-sizing: border-box;
-    overflow: hidden;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 400;
+	height: 36px;
+	padding: 5px 20px 6px 7px;
+	border-radius: 5px;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+	overflow: hidden;
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: 400;
 }
 
 .search-wrap input.search-input::placeholder {
@@ -5137,6 +5126,67 @@ h2 {
 	display: flex;
 }
 
+.description-content-text .guide .guide-left {
+	margin-right: 20px;
+	width: 100px;
+	min-width: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.description-content-text .guide .guide-right .tit {
+	margin-bottom: 10px;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.description-content-text .guide .guide-right .text-guid {
+	font-size: 16px;
+	position: relative;
+}
+
+.description-content-text .guide .guide-right.h-100 .text-guid {
+	font-size: 16px;
+	max-height: 122px;
+	overflow: hidden;
+	position: relative;
+}
+
+.description-content-text .guide .guide-right.act .text-guid {
+	max-height: 100%;
+	overflow: visible;
+}
+
+.description-content-text .guide .guide-right .btn-guid {
+	display: none;
+	color: #00be8b;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.description-content-text .guide .guide-right .btn-guid.show {
+	display: inline-block;
+}
+
+.description-content-text .guide .guide-right.act .btn-guid {
+	display: none;
+}
+
+.description-content-text .guide .guide-right.h-100 .text-guid::after {
+	position: absolute;
+	display: block;
+	content: "";
+	width: 100%;
+	height: 27px;
+	bottom: 0;
+	background: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 0, #f9fafa 59%, #fff);
+}
+
+.description-content-text .guide .guide-right.act .text-guid::after {
+	display: none;
+}
+
 .description-content-text .guide.mob {
 	display: none;
 }
@@ -5267,17 +5317,17 @@ h6 {
 
 .description-content-text .guide {
 	display: flex;
-	align-items: center;
 	margin-top: 30px;
 	border-radius: 6px;
 	box-shadow: 0 0 4px #9c9c9d;
+	padding: 20px;
 }
 
 .description-content-text .guide img {
 	width: 100px;
 	height: 100px;
 	border-radius: 8%;
-	margin: 10px 30px 10px 10px;
+	margin-bottom: 20px;
 }
 
 .order-panel-wrap .span-price {
@@ -5516,6 +5566,7 @@ img.f-logos {
 		z-index: 10;
 		top: 0;
 	}
+
 	.search-wrap .search-block {
 		background-color: #d6f2ff;
 		width: 100%;
@@ -5712,9 +5763,16 @@ img.f-logos {
 }
 
 @media (max-width: 768px) {
+
+	.table-calendar td.date-picker,
+	.table-calendar th {
+		border: 5px solid #fff;
+	}
+
 	.search-list_wrap .result-item img.tour {
 		width: 65px;
 	}
+
 	.search-list_wrap .result-item img.loc {
 		width: 20px;
 	}
@@ -5905,14 +5963,13 @@ img.f-logos {
 		font-size: 11px;
 	}
 
-	.description-content-text .guide img {
-		width: 50px;
-		height: 50px;
-		margin-right: 15px;
-	}
-
 	.description-content-text .guide h3 {
 		font-size: 20px;
+	}
+
+	.description-content-text .guide .guide-right .tit {
+		display: flex;
+		justify-content: center;
 	}
 
 	.popular-tours .popular-tours-text {
@@ -6168,6 +6225,15 @@ img.f-logos {
 
 	.description-content-text .guide.mob {
 		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 10px;
+
+	}
+
+	.description-content-text .guide .guide-left {
+		margin: 0 auto;
+		margin-bottom: 20px;
 	}
 
 	.all-cauntries #search {
@@ -6358,4 +6424,42 @@ html {
 
 .not-found {
 	padding: 10px;
+}
+
+
+.expage-dates-list {
+	display: none;
+}
+
+.expage-dates-list.vis {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	margin-right: -10px;
+}
+
+.expage-dates__item {
+	margin: 0 10px 10px 0;
+	padding: 10px 15px;
+	font-weight: 700;
+	font-size: 15px;
+	color: #424548;
+	text-decoration: none;
+	border: 2px solid #eaeadb;
+	background: #fffdea;
+	border-radius: 2px;
+	-webkit-transition: all .2s ease;
+	-o-transition: all .2s ease;
+	transition: all .2s ease;
+	color: #00be8b;
+	cursor: pointer;
+	width: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.expage-dates__item:hover {
+	color: #e66363;
 }
