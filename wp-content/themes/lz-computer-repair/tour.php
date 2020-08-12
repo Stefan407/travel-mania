@@ -237,6 +237,7 @@ $current_city = str_replace(" ", "-", $current_city);
                                     <div>
                                         <div class="panel-btns">
                                             <div> <a class="order-btn" target="_blank" onclick="ym(56569540,'reachGoal','bron')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Забронировать </a> </div>
+                                            <div> <a class="more-btn" target="_blank" onclick="ym(56569540,'reachGoal','data')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Выбрать дату </a> </div>
                                             <div> <a class="order-ask" target="_blank" onclick="ym(56569540,'reachGoal','vopros')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Задать вопрос гиду</a> </div>
                                         </div>
                                 </span>
@@ -359,6 +360,7 @@ $current_city = str_replace(" ", "-", $current_city);
                         <div>
                             <div class="panel-btns">
                                 <div> <a class="order-btn" target="_blank" onclick="ym(56569540,'reachGoal','bron');ym(56569540, 'reachGoal', 'trip')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Забронировать </a> </div>
+                                <div> <a class="more-btn" target="_blank" onclick="ym(56569540,'reachGoal','data')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Выбрать дату </a> </div>
                                 <div> <a class="order-ask" target="_blank" onclick="ym(56569540,'reachGoal','vopros');ym(56569540, 'reachGoal', 'trip')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Задать вопрос гиду</a> </div>
                             </div>
                     </span>
