@@ -17,7 +17,7 @@ if (!function_exists('filter_function_name_Countries')) {
     add_filter('document_title_parts', 'filter_function_name_Countries');
     function filter_function_name_Countries($title)
     {
-        $title['title'] = 'Авторские экскурсии в 93 странах 2020 - цены и описание';
+        $title['title'] = 'Авторские экскурсии в 93 странах 2020 ⭐ цены и описание ⭐';
         $title['site'] = '';
         $title['page '] = '';
         $title['tagline '] = '';
@@ -30,7 +30,7 @@ if (!function_exists('filter_function_name_Countries')) {
 <head>
     <?php wp_head(); ?>
     <meta name="keywords" content="экскурсии, страны, все, на русском, язык, выбрать, заказать, купить, забронировать, трэвэл, мания, travel, mania" />
-    <meta name="description" content="Здесь можно выбрать страну в которой хотите заказать экскурсию на русском языке от Тревел Мании" />
+    <meta name="description" content="✅ Здесь можно выбрать страну в которой хотите заказать экскурсию на русском языке от Тревел Мании" />
 </head>
 <?php get_header(); ?>
 <section class="top">
@@ -41,7 +41,7 @@ if (!function_exists('filter_function_name_Countries')) {
         <div class="top__slider-text">
             <div class="container">
                 <div class="top__content-text">
-                    <h1>Авторские экскурсии в 93 странах</h1>
+                    <h1>Авторские экскурсии в 93 странах </h1>
                 </div>
             </div>
         </div>

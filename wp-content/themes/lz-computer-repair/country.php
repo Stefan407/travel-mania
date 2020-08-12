@@ -25,14 +25,14 @@ $textRu = " на русском языке ";
 if ($list[0]->country->name_en == "Russia" or $list[0]->country->name_en == "Ukraine" or $list[0]->country->name_en == "Crimea") {
     $textRu = "";
 };
-$page_title =  "Авторские экскурсии " . $my_var . $textRu . " 2020 - цены и описание Travel Mania";
+$page_title =  "Экскурсии " . $my_var . $textRu . " 2020 ⭐ цены и описание - Travel Mania ⭐";
 add_action('pre_get_document_title', function () use ($page_title) {
     return $page_title;
 });
 
 add_action('wp_head', function () use ($list) {
     echo '<meta name="keywords" content="экскурсии, ' . $list[0]->country->name_ru . ' , русский, на русском, гиды, 2020 авторские, эксклюзивные, исторические, обзорные, пешеходные, на автобусе, купить, заказать, забронировать, цена, недорого, дешево, скидка, описание, список, прайс, травэл, мания, travel, mania" />';
-    echo '<meta name="description" content="Групповые и индивидуальные экскурсии ' . $list[0]->country->in_obj_phrase . ' с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны лучшие экскурсии ' . $list[0]->country->in_obj_phrase . ', которые тщательно продуманы и составлены гидами." />';
+    echo '<meta name="description" content="✅ Групповые и индивидуальные экскурсии ' . $list[0]->country->in_obj_phrase . ' с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны лучшие экскурсии ' . $list[0]->country->in_obj_phrase . ', которые тщательно продуманы и составлены гидами." />';
 });
 ?>
 
