@@ -41,7 +41,7 @@ if (!function_exists('filter_function_name_Countries')) {
         <div class="top__slider-text">
             <div class="container">
                 <div class="top__content-text">
-                    <h1>Авторские экскурсии в 93 странах</h1>
+                    <h1>Авторские экскурсии в 93 странах </h1>
                 </div>
             </div>
         </div>
