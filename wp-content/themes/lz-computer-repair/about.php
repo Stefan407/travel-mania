@@ -11,7 +11,7 @@ if (!function_exists('filter_function_name_Cities')) {
     function filter_function_name_Cities($title)
     {
 
-        $title['title'] = 'Информация о нас';
+        $title['title'] = '⭐ Информация о нас ⭐';
         $title['site'] = '';
         $title['page '] = '';
         $title['tagline '] = '';
@@ -24,7 +24,7 @@ if (!function_exists('filter_function_name_Cities')) {
 <head>
     <?php wp_head(); ?>
     <meta name="keywords" content="о нас, о компании, о проекте, информация, травэл, мания, travel, mania," />
-    <meta name="description" content="Информация о проекте Travel Mania" />
+    <meta name="description" content="💎 Информация о проекте Travel Mania" />
 </head>
 <?php get_header(); ?>
 <section class="top">

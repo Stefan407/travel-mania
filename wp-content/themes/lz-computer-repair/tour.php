@@ -20,7 +20,7 @@ for ($i = 0; $i <= count($arr); $i++) {
 }
 $new_str = implode(", ", $arr);
 
-$page_title =  $my_var . " 2020 ⭐ цена и описание Travel Mania ⭐";
+$page_title =  $my_var . " 2020 🥇 цена и описание Travel Mania 🥇";
 add_action('pre_get_document_title', function () use ($page_title) {
     return $page_title;
 });

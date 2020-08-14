@@ -1,5 +1,5 @@
 ﻿    <?php
-    $page_title =  "Авторские экскурсии по всему миру 2020 ⭐ Travel Mania ⭐";
+    $page_title =  "Авторские экскурсии по всему миру 2020 🥇 Travel Mania 🥇";
     add_action('pre_get_document_title', function () use ($page_title) {
         return $page_title;
     });
