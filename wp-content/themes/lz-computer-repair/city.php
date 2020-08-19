@@ -53,7 +53,8 @@ $listTagsNew = $listTags->results;
                 <?php foreach ($current_des_city->images as $imgUrls) {
                     if ($indexImg == 0) { ?>
                         <img src="<?php echo ($imgUrls) ?>" alt="">
-                    <?php } $indexImg++;?>
+                    <?php }
+                    $indexImg++; ?>
                 <?php }  ?>
             <?php else : ?>
                 <img style="opacity:0" src="<?= home_url() ?>/wp-content/uploads/Main/Zaglushka-1-min.jpg" alt="">
@@ -240,12 +241,12 @@ $listTagsNew = $listTags->results;
 </section>
 <div itemscope="itemscope" itemtype="http://schema.org/Product">
     <meta itemprop="name" content="<?php echo ("Авторские экскурсии" . $list[0]->city->in_obj_phrase); ?>">
-    <meta itemprop="description" content="✅ Групповые и индивидуальные экскурсии ' . $list[0]->city->in_obj_phrase . ' с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны лучшие экскурсии ' . $list[0]->city->in_obj_phrase . ', которые тщательно продуманы и составлены гидами."">
+    <meta itemprop="description" content="✅ Групповые и индивидуальные экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны лучшие экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?>, которые тщательно продуманы и составлены гидами.">
     <span itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/aggregateoffer">
         <meta itemprop="lowprice" content="<?php echo (min($priceAll)) ?>">
         <meta itemprop="highprice" content="<?php echo (max($priceAll)) ?>">
-        <meta itemprop="pricecurrency" content="<?php echo $list[0]->price->currency ?>"></span>
-    <span itemprop="aggregaterating" itemscope="itemscope" itemtype="http://schema.org/aggregaterating">
+        <meta itemprop="pricecurrency" content="<?php echo($list[0]->price->currency); ?>"></span>
+        <span itemprop="aggregaterating" itemscope="itemscope" itemtype="http://schema.org/aggregaterating">
         <?php if (($reviewsAll / $countReviews) > 0) { ?>
             <meta itemprop="ratingValue" content="<?php echo ($reviewsAll / $countReviews); ?>">
         <?php } ?>
