@@ -4211,6 +4211,18 @@ h2 {
 .country-btn-wrap .btn-title:hover {
     background: #cdf2ff42;
 }
+
+.link-all-ex{
+    text-align: center;
+    margin: 20px auto;
+    font-size: 20px;
+}
+.link-all-ex a{
+    color: #e04f67;
+}
+.link-all-ex a:hover{
+    color: #841b1b;
+}
 .country-btn-wrap .btn-title {
     display: flex;
     justify-content: space-between;

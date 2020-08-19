@@ -374,6 +374,91 @@ $current_city = str_replace(" ", "-", $current_city);
         </div>
     </div>
 </section>
+<?php
+$listTour = getData('https://experience.tripster.ru/api/experiences/?city=' . $list->city->id);
+$listTourNew = $listTour->results;
+if ($listTour->count > 1) {
+?>
+    <section class="popular-tours slider-tour">
+        <div class="container">
+            <div class="popular-tours-text">
+                <div>
+                    <h2>Популярные экскурсии <?php echo ($list->city->in_obj_phrase); ?></h2>
+                </div>
+                <div class="slick-tours">
+                    <?php foreach ($listTourNew as $tour) {
+                        if ($tour->id != $list->id) { ?>
+                            <div class="slick-tours__item" style="background-color:#fff;">
+                                <div class="slick-tours__wrap">
+                                    <div class="slick-tours__item-img">
+                                        <a class="link" href="<?= home_url() ?>/<?php echo str_replace('+', '-', $tour->city->country->name_en) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/excursion-<?= $tour->id ?>/" data-images="<?php echo htmlspecialchars(json_encode($arrayImg)) ?>">
+                                            <img class="static" src="<?php echo $tour->photos['0']->thumbnail ?>" alt="">
+                                        </a>
+                                        <?php if ($tour->price->discount->value) { ?>
+                                            <div class="slick-tours__item-img-box">
+                                                <span>Скидка</span> <br>
+                                                <span class="slick-tours__item-img-span "><?php echo ($tour->price->discount->value * 100) ?>%</span>
+                                            </div>
+                                        <?php } ?>
+                                        <?php if ($tour->tags[0]->name) { ?>
+                                            <div class="slick-tours__tag"><?php echo ($tour->tags[0]->name) ?></div>
+                                        <?php } ?>
+                                    </div>
+
+                                    <div class="item-time-rating">
+                                        <span class="item-time">
+                                            <img src="<?php bloginfo("template_url"); ?>/assets/images/icon-time.png" alt=""> <span><?php echo $tour->duration ?> </span>
+                                        </span>
+                                        <?php if ($tour->rating) { ?>
+                                            <span class="item-rating">
+                                                <span style="display:none;" class="reviews-rating"><?php echo $tour->rating ?> </span>
+                                                <div class="star-rating-item">
+                                                    <span class="reviews-rating-img" style="width: <?php echo ($tour->rating * 20) ?>%">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    </span>
+                                                    <span class="reviews-rating-img bac">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
+                                                    </span>
+                                                </div>
+                                            </span>
+                                        <?php } ?>
+                                    </div>
+                                    <div class="tours__item-content ">
+                                        <div class="item-title ">
+                                            <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', str_replace(' ', '-', $tour->city->country->name_en)) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/excursion-<?= $tour->id ?>/">
+                                                <?= $tour->title ?>
+                                            </a>
+                                        </div>
+                                        <div class="item-price-guide">
+                                            <div class="item-guide">
+                                                <div class="item-guide-photo"> <img src="<?php echo $tour->guide->avatar->medium  ?>" alt=""> </div>
+                                                <div class="item-guide-name"><?php echo $tour->guide->first_name ?> <br>
+                                                </div>
+                                            </div>
+                                            <div class="item-price">
+                                                <div class="item-price-value"> <?= $tour->price->value . ' ' . $tour->price->currency ?></div>
+                                                <div class="item-price-people"> <?= $tour->price->unit_string  ?> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    <?php }
+                    } ?>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php } ?>
+<div class="link-all-ex"> <a href="/<?php echo ($current_country) ?>/<?php echo ($current_city) ?>/">Посмотреть все экскурсии <?php echo ($list->city->in_obj_phrase); ?></a> </div>
 <!--  -->
 <script>
     function parametrEdit() {
