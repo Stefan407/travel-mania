@@ -127,7 +127,6 @@ function lz_computer_repair_scripts()
     }
 
     wp_enqueue_script('lz-computer-repair-navigation-jquery', get_theme_file_uri('/assets/js/navigation.js'), array('jquery'), '2.1.2', true);
-    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.js', array('jquery'));
 
     wp_localize_script('lz-computer-repair-skip-link-focus-fix', 'lz_computer_repairScreenReaderText', $lz_computer_repair_l10n);
 

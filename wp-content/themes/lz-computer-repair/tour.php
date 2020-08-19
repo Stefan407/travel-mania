@@ -20,7 +20,7 @@ for ($i = 0; $i <= count($arr); $i++) {
 }
 $new_str = implode(", ", $arr);
 
-$page_title =  $my_var . " 2020 🥇 цена и описание Travel Mania 🥇";
+$page_title =  $my_var . " 2020 🥇 цена, отзывы, описание - Travel Mania 🥇";
 add_action('pre_get_document_title', function () use ($page_title) {
     return $page_title;
 });
@@ -38,10 +38,11 @@ $current_country = str_replace(" ", "-", $current_country);
 
 $current_city = $list->city->name_en;
 $current_city = str_replace(" ", "-", $current_city);
+
 ?>
 
-
-<section class="main" style="padding-top:56px">
+<div class="bg-cal"></div>
+<section class="main excursion-page" style="padding-top:56px" data-id-excursion="<?php echo ($list->id) ?>" data-url-tripster="<?php echo $list->url ?>">
     <div class="container">
         <div class="main_wrap">
             <div class="row">
@@ -55,7 +56,7 @@ $current_city = str_replace(" ", "-", $current_city);
                                     </a>
                                 </div>
                                 <div class="breadcrumbs__arrow">
-                                    <img src="/wp-content/themes/lz-computer-repair/assets/images/arrow-bread.png" alt="">
+                                    <img src="<?php bloginfo("template_url"); ?>/assets/images/arrow-bread.png" alt="">
                                 </div>
                                 <meta itemprop="position" content="1">
                             </div>
@@ -132,50 +133,54 @@ $current_city = str_replace(" ", "-", $current_city);
                                                 </div>
                                             </div>
                                         </div>
-                                        <h3 style="text-align: center;margin-bottom:20px; display:none;">Выберите дату</h3>
+                                        <h2 class="tit_cal" style="text-align: center; margin-bottom:20px;display: none;">Заказать экскурсию на свободную дату</h2>
                                         <div class="container-calendar" style="display: none;">
-                                            <h3 id="monthAndYear"></h3>
-                                            <div class="button-container-calendar">
-                                                <button id="previous" style="display:none;">&#8249;</button>
-                                                <button id="next">&#8250;</button>
-                                            </div>
+                                            <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M4.293,18.293,10.586,12,4.293,5.707A1,1,0,0,1,5.707,4.293L12,10.586l6.293-6.293a1,1,0,1,1,1.414,1.414L13.414,12l6.293,6.293a1,1,0,1,1-1.414,1.414L12,13.414,5.707,19.707a1,1,0,0,1-1.414-1.414Z" /></svg>
+                                            <div class="container-calendar-item">
+                                                <h3 id="monthAndYear"></h3>
+                                                <div class="button-container-calendar">
+                                                    <button id="previous" style="display:none;">&#8249;</button>
+                                                    <button id="next">&#8250;</button>
+                                                </div>
 
-                                            <table class="table-calendar" id="calendar" data-lang="en">
-                                                <thead id="thead-month"></thead>
-                                                <tbody id="calendar-body"></tbody>
-                                            </table>
-                                            <div class="legend">
-                                                <div class="legend-item busy">День для заказа не доступен</div>
-                                                <div class="legend-item available">День свободен</div>
-                                            </div>
+                                                <table class="table-calendar" id="calendar" data-lang="en">
+                                                    <thead id="thead-month"></thead>
+                                                    <tbody id="calendar-body"></tbody>
+                                                </table>
+                                                <div class="legend">
+                                                    <div class="legend-item busy">День для заказа не доступен</div>
+                                                    <div class="legend-item available">День свободен</div>
+                                                </div>
 
-                                            <div class="footer-container-calendar">
-                                                <label for="month">Jump To: </label>
-                                                <select id="month" onchange="jump()">
-                                                    <option value=0>Jan</option>
-                                                    <option value=1>Feb</option>
-                                                    <option value=2>Mar</option>
-                                                    <option value=3>Apr</option>
-                                                    <option value=4>May</option>
-                                                    <option value=5>Jun</option>
-                                                    <option value=6>Jul</option>
-                                                    <option value=7>Aug</option>
-                                                    <option value=8>Sep</option>
-                                                    <option value=9>Oct</option>
-                                                    <option value=10>Nov</option>
-                                                    <option value=11>Dec</option>
-                                                </select>
-                                                <select id="year" onchange="jump()"></select>
+                                                <div class="footer-container-calendar">
+                                                    <label for="month">Jump To: </label>
+                                                    <select id="month" onchange="jump()">
+                                                        <option value=0>Jan</option>
+                                                        <option value=1>Feb</option>
+                                                        <option value=2>Mar</option>
+                                                        <option value=3>Apr</option>
+                                                        <option value=4>May</option>
+                                                        <option value=5>Jun</option>
+                                                        <option value=6>Jul</option>
+                                                        <option value=7>Aug</option>
+                                                        <option value=8>Sep</option>
+                                                        <option value=9>Oct</option>
+                                                        <option value=10>Nov</option>
+                                                        <option value=11>Dec</option>
+                                                    </select>
+                                                    <select id="year" onchange="jump()"></select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="guide des">
                                             <div class="guide-left">
                                                 <img src="<?php echo $list->guide->avatar->medium ?>" alt="">
-                                                <h3><?php echo $list->guide->first_name ?> </h3>
+                                                <h3 style="text-align: center; ">гид<br><?php echo $list->guide->first_name ?></h3>
                                             </div>
                                             <div class="guide-right">
                                                 <div class="text-guid"> <?php echo $list->guide->description ?> </div>
-                                                <div class="btn-guid">Подробнее</div>
+                                                <div class="btn-guid">Подробнее...</div>
                                             </div>
                                         </div>
                                     </div>
@@ -236,9 +241,9 @@ $current_city = str_replace(" ", "-", $current_city);
                                     <div class="order-item-string"><img src="<?php bloginfo("template_url"); ?>/assets/images/warranty-icon.svg"> Гарантия лучшей цены </div>
                                     <div>
                                         <div class="panel-btns">
-                                            <div> <a class="order-btn" target="_blank" onclick="ym(56569540,'reachGoal','bron')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Забронировать </a> </div>
-                                            <div> <a class="more-btn" target="_blank" onclick="ym(56569540,'reachGoal','data')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Выбрать дату </a> </div>
-                                            <div> <a class="order-ask" target="_blank" onclick="ym(56569540,'reachGoal','vopros')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Задать вопрос гиду</a> </div>
+                                            <div> <a class="order-btn" target="_blank" onclick="ym(56569540,'reachGoal','bron')" href="/go/?url=https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Забронировать </a> </div>
+                                            <div> <a class="more-btn" style="display: none;" target="_blank" onclick="ym(56569540,'reachGoal','data')">Выбрать дату </a> </div>
+                                            <div> <a class="order-ask" target="_blank" onclick="ym(56569540,'reachGoal','vopros')" href="/go/?url=https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/message/&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Задать вопрос гиду</a> </div>
                                         </div>
                                 </span>
                             </div>
@@ -250,8 +255,8 @@ $current_city = str_replace(" ", "-", $current_city);
                                     <h3><?php echo $list->guide->first_name ?> </h3>
                                 </div>
                                 <div class="guide-right">
-                                    <div class="text-guid"> <?php echo $list->guide->description ?> </div>
-                                    <div class="btn-guid">Подробнее</div>
+                                    <div class="text-guid"><?php echo $list->guide->description ?> </div>
+                                    <div class="btn-guid">Подробнее...</div>
                                 </div>
                             </div>
                         </div>
@@ -261,13 +266,13 @@ $current_city = str_replace(" ", "-", $current_city);
                                     <div class="description-content col-12">
                                         <div class="description-title ">
                                             <h2>Отзывы</h2>
-                                            <p class="description-section_text">Написать отзыв могут только посетившие экскурсию гости</p>
+                                            <p class="description-section_text">*написать отзыв могут только посетившие экскурсию гости</p>
 
                                         </div>
                                         <?php foreach ($reviews->results as $rew) { ?>
                                             <div class=" description-content-text-reviews ">
                                                 <div class="reviews-photo ">
-                                                    <img class="reviews-photo-img" src="<?php bloginfo("template_url"); ?>/assets/images/user-icon.png" alt="">
+                                                    <img class="reviews-photo-img" src="<?php bloginfo("template_url"); ?>/assets/images/user-icon-3.png" alt="">
                                                 </div>
                                                 <div class="reviews-box">
                                                     <div class="reviews-title">
@@ -359,9 +364,9 @@ $current_city = str_replace(" ", "-", $current_city);
                         <div class="order-item-string"><img src="<?php bloginfo("template_url"); ?>/assets/images/warranty-icon.svg"> Гарантия лучшей цены </div>
                         <div>
                             <div class="panel-btns">
-                                <div> <a class="order-btn" target="_blank" onclick="ym(56569540,'reachGoal','bron');ym(56569540, 'reachGoal', 'trip')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Забронировать </a> </div>
-                                <div> <a class="more-btn" target="_blank" onclick="ym(56569540,'reachGoal','data')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Выбрать дату </a> </div>
-                                <div> <a class="order-ask" target="_blank" onclick="ym(56569540,'reachGoal','vopros');ym(56569540, 'reachGoal', 'trip')" href="/go/?url=<?php echo $list->url ?>&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Задать вопрос гиду</a> </div>
+                                <div> <a class="order-btn" target="_blank" onclick="ym(56569540,'reachGoal','bron')" href="/go/?url=https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Забронировать </a> </div>
+                                <div> <a class="more-btn" style="display: none;" target="_blank" onclick="ym(56569540,'reachGoal','data')">Выбрать дату </a> </div>
+                                <div> <a class="order-ask" target="_blank" onclick="ym(56569540,'reachGoal','vopros')" href="/go/?url=https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/message/&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Задать вопрос гиду</a> </div>
                             </div>
                     </span>
                 </div>
@@ -369,90 +374,7 @@ $current_city = str_replace(" ", "-", $current_city);
         </div>
     </div>
 </section>
-<?php
-$listTour = getData('https://experience.tripster.ru/api/experiences/?city=' . $list->city->id);
-$listTourNew = $listTour->results;
-if ($listTour->count > 1) {
-?>
-    <section class="popular-tours slider-tour">
-        <div class="container">
-            <div class="popular-tours-text">
-                <div>
-                    <h2>Популярные экскурсии <?php echo ($list->city->in_obj_phrase); ?></h2>
-                </div>
-                <div class="slick-tours">
-                    <?php foreach ($listTourNew as $tour) {
-                        if ($tour->id != $list->id) { ?>
-                            <div class="slick-tours__item" style="background-color:#fff;">
-                                <div class="slick-tours__wrap">
-                                    <div class="slick-tours__item-img">
-                                        <a class="link" href="<?= home_url() ?>/<?php echo str_replace('+', '-', $tour->city->country->name_en) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/excursion-<?= $tour->id ?>/" data-images="<?php echo htmlspecialchars(json_encode($arrayImg)) ?>">
-                                            <img class="static" src="<?php echo $tour->photos['0']->thumbnail ?>" alt="">
-                                        </a>
-                                        <?php if ($tour->price->discount->value) { ?>
-                                            <div class="slick-tours__item-img-box">
-                                                <span>Скидка</span> <br>
-                                                <span class="slick-tours__item-img-span "><?php echo ($tour->price->discount->value * 100) ?>%</span>
-                                            </div>
-                                        <?php } ?>
-                                        <?php if ($tour->tags[0]->name) { ?>
-                                            <div class="slick-tours__tag"><?php echo ($tour->tags[0]->name) ?></div>
-                                        <?php } ?>
-                                    </div>
-
-                                    <div class="item-time-rating">
-                                        <span class="item-time">
-                                            <img src="<?php bloginfo("template_url"); ?>/assets/images/icon-time.png" alt=""> <span><?php echo $tour->duration ?> </span>
-                                        </span>
-                                        <?php if ($tour->rating) { ?>
-                                            <span class="item-rating">
-                                                <span style="display:none;" class="reviews-rating"><?php echo $tour->rating ?> </span>
-                                                <div class="star-rating-item">
-                                                    <span class="reviews-rating-img" style="width: <?php echo ($tour->rating * 20) ?>%">
-                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
-                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
-                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
-                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
-                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
-                                                    </span>
-                                                    <span class="reviews-rating-img bac">
-                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
-                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
-                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
-                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
-                                                        <img class="icon-star" src="<?php bloginfo("template_url"); ?>/assets/images/icon-star-1.png" alt="">
-                                                    </span>
-                                                </div>
-                                            </span>
-                                        <?php } ?>
-                                    </div>
-                                    <div class="tours__item-content ">
-                                        <div class="item-title ">
-                                            <a href="<?= home_url() ?>/<?php echo str_replace('+', '-', str_replace(' ', '-', $tour->city->country->name_en)) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/excursion-<?= $tour->id ?>/">
-                                                <?= $tour->title ?>
-                                            </a>
-                                        </div>
-                                        <div class="item-price-guide">
-                                            <div class="item-guide">
-                                                <div class="item-guide-photo"> <img src="<?php echo $tour->guide->avatar->medium  ?>" alt=""> </div>
-                                                <div class="item-guide-name"><?php echo $tour->guide->first_name ?> <br>
-                                                </div>
-                                            </div>
-                                            <div class="item-price">
-                                                <div class="item-price-value"> <?= $tour->price->value . ' ' . $tour->price->currency ?></div>
-                                                <div class="item-price-people"> <?= $tour->price->unit_string  ?> </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    <?php }
-                    } ?>
-                </div>
-            </div>
-        </div>
-    </section>
-<?php } ?>
+<!--  -->
 <script>
     function parametrEdit() {
         let reviewsDate = document.getElementsByClassName("reviews-date");

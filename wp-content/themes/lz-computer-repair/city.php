@@ -26,14 +26,14 @@ $textRu = " на русском языке ";
 if ($list[0]->city->country->name_en == "Russia" or $list[0]->city->country->name_en == "Ukraine" or $list[0]->city->country->name_en == "Crimea") {
     $textRu = " ";
 };
-$page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены и описание - Travel Mania 🥇 ";
+$page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены, отзывы, описание - Travel Mania 🥇 ";
 add_action('pre_get_document_title', function () use ($page_title) {
     return $page_title;
 });
 
 add_action('wp_head', function () use ($list) {
-    echo '<meta name="keywords" content="экскурсии, ' . $list[0]->city->name_ru . ', русский, на русском, гиды, 2020, авторские, эксклюзивные, исторические, обзорные, пешеходные, на автобусе, купить, заказать, забронировать, цена, описание, недорого, дешево, скидка, описание, список, прайс, травэл, мания, travel, mania" />';
-    echo '<meta name="description" content="✅ Групповые и индивидуальные экскурсии ' . $list[0]->city->in_obj_phrase . ' с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны лучшие экскурсии ' . $list[0]->city->in_obj_phrase . ', которые тщательно продуманы и составлены гидами" />';
+    echo '<meta name="keywords" content="экскурсии, ' . $list[0]->city->name_ru . ', русский, на русском, гиды, авторские, эксклюзивные, исторические, обзорные, пешеходные, на автобусе, купить, заказать, забронировать, цена, недорого, дешево, скидка, описание, список, прайс, травэл, мания, travel, mania" />';
+    echo '<meta name="description" content="✅ Групповые и индивидуальные экскурсии ' . $list[0]->city->in_obj_phrase . ' с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны лучшие экскурсии ' . $list[0]->city->in_obj_phrase . ', которые тщательно продуманы и составлены гидами." />';
 });
 
 get_header();
@@ -41,6 +41,8 @@ get_header();
 $priceAll = [];
 $reviewsAll = 0;
 $reviewsAllCount = 0;
+$listTags = getData('https://experience.tripster.ru/api/citytags/?city=' . $list[0]->city->id);
+$listTagsNew = $listTags->results;
 
 ?>
 <section class="top">
@@ -50,12 +52,9 @@ $reviewsAllCount = 0;
                 <?php $indexImg = 0; ?>
                 <?php foreach ($current_des_city->images as $imgUrls) {
                     if ($indexImg == 0) { ?>
-                        <img style="opacity:0" src="<?php echo ($imgUrls) ?>" alt="">
-                    <?php } else { ?>
-                        <img style="opacity:0; display:none" src="<?php echo ($imgUrls) ?>" alt="">
-                <?php }
-                    $indexImg++;
-                } ?>
+                        <img src="<?php echo ($imgUrls) ?>" alt="">
+                    <?php } $indexImg++;?>
+                <?php }  ?>
             <?php else : ?>
                 <img style="opacity:0" src="<?= home_url() ?>/wp-content/uploads/Main/Zaglushka-1-min.jpg" alt="">
                 <img style="opacity:0" src="<?= home_url() ?>/wp-content/uploads/Main/Zaglushka-2-min.jpg" alt="">
@@ -211,6 +210,10 @@ $reviewsAllCount = 0;
                                 <div class="item-guide">
                                     <div class="item-guide-photo"> <img src="<?php echo $item->guide->avatar->medium  ?>" alt=""> </div>
                                     <div class="item-guide-name"><?php echo $item->guide->first_name ?> <br>
+                                        <?php
+                                        $city_name = str_replace('é', 'e', $item->name_en);
+                                        $city_name = str_replace("'", '', $city_name);
+                                        ?>
                                     </div>
                                 </div>
                                 <?php array_push($priceAll, $item->price->value); ?>
@@ -237,7 +240,7 @@ $reviewsAllCount = 0;
 </section>
 <div itemscope="itemscope" itemtype="http://schema.org/Product">
     <meta itemprop="name" content="<?php echo ("Авторские экскурсии" . $list[0]->city->in_obj_phrase); ?>">
-    <meta itemprop="description" content="У нас можно заказать авторские экскурсии <?php $list[0]->city->in_obj_phrase ?> на русском языке с лучшими гидами. Выгодные цены без посредников и удобные даты проведения.">
+    <meta itemprop="description" content="✅ Групповые и индивидуальные экскурсии ' . $list[0]->city->in_obj_phrase . ' с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны лучшие экскурсии ' . $list[0]->city->in_obj_phrase . ', которые тщательно продуманы и составлены гидами."">
     <span itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/aggregateoffer">
         <meta itemprop="lowprice" content="<?php echo (min($priceAll)) ?>">
         <meta itemprop="highprice" content="<?php echo (max($priceAll)) ?>">

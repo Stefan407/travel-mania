@@ -14,7 +14,7 @@ if (!function_exists('filter_function_name_Cities')) {
     function filter_function_name_Cities($title)
     {
 
-        $title['title'] = '⓵ Блог лайфхаков путешественника 🌏';
+        $title['title'] = 'Блог лайфхаков путешественника 🥇';
         $title['site'] = '';
         $title['page '] = '';
         $title['tagline '] = '';
