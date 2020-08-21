@@ -14,15 +14,16 @@
     <link rel="apple-touch-icon" href="https://travel-mania.org/wp-content/uploads/2019/05/cropped-Logo-180x180.png" />
     <meta name="msapplication-TileImage" content="https://travel-mania.org/wp-content/uploads/2019/05/cropped-Logo-270x270.png" />
 
-    <link rel="stylesheet" type="text/css" href="/assets/css/slick.min.css" defer>
-    <link rel="stylesheet" type="text/css" href="/assets/css/simplebar.min.css" defer>
-    <link rel='stylesheet' href='/style.css?ver=5.4.2' type='text/css' media='all' />
-    
-    <script type='text/javascript' src='/assets/js/jquery.min.js'></script>
-    <script type="text/javascript" src="/assets/js/jquery.fancybox.min.js" defer></script>
-    <script type="text/javascript" src="/assets/js/simplebar.min.js" defer></script>
-    <script type="text/javascript" src="/assets/js/slick.min.js" defer></script>
-    <script type="text/javascript" src="/assets/js/main.js"></script>
+    <link rel="preload" as="style" type="text/css" href="/assets/css/slick.min.css?v=0.5" onload="this.rel='stylesheet'">
+    <link rel="preload" as="style" type="text/css" href="/assets/css/simplebar.min.css?v=0.5" onload="this.rel='stylesheet'">
+    <link rel='stylesheet' href='/style.css?v=0.5' type='text/css' media='all' />
+
+    <script type='text/javascript' src='/assets/js/jquery.min.js?v=0.5'></script>
+    <script type="text/javascript" src="/assets/js/jquery.fancybox.min.js?v=0.5" defer></script>
+    <script type="text/javascript" src="/assets/js/simplebar.min.js?v=0.5" defer></script>
+    <script type="text/javascript" src="/assets/js/lazysizes.min.js?v=0.5" defer></script>
+    <script type="text/javascript" src="/assets/js/slick.min.js?v=0.5" defer></script>
+    <script type="text/javascript" src="/assets/js/main.js?v=0.5"></script>
 
 </head>
 <?php
@@ -188,7 +189,7 @@ getAllResults("https://experience.tripster.ru/api/cities/?country__name_en=Russi
                 <?php foreach ($list as $country) { ?>
                     <div id="item-element" class="item-element w-33">
                         <a href="">
-                            <img class="img-load" data-src="<?php echo ($country->image->thumbnail)?>" src="" alt="">
+                            <img  data-src="<?php echo ($country->image->thumbnail)?>" class="lazyload">
                             <div class="item-title-wrap">
                                 <div class="item-title"><span class="name-title"><?php echo $country->name_ru ?></span></div>
                                 <span class="item-span">Экскурсий: <?php echo ($country->experience_count) ?> </span>

@@ -23,8 +23,9 @@ $page = isset($_GET['page']) ?  $_GET['page'] : null;
 $list = [];
 $tag_list = [];
 $list1 = [];
-
 $reviews = [];
+
+var_dump($_GET);
 
 if (!is_null($page)) {
     include_once($page . '.php');
@@ -104,39 +105,8 @@ if (!is_null($page)) {
         exit;
     }
     $page = 'Main';
-    get_template_part('contry.php');
     getAllResultsNoNext('https://experience.tripster.ru/api/experiences/', $list);
     getAllResultsNoNext('https://experience.tripster.ru/api/cities/', $list1);
-}
-
-if (!$list and !$tag_list) {
-    $post_data = get_post(141);
-    $recent_posts = wp_get_recent_posts();
-    $country__name_en_new = str_replace('+', '-', $country__name_en);
-    foreach ($recent_posts as $post) {
-        if ($post["post_name"] == $country__name_en_new) {
-            include_once('post.php');
-            exit;
-        } else {
-            include_once('404.php');
-            exit;
-        }
-    }
-    exit;
-}
-
-add_filter('document_title_parts', 'filter_function_name_2114');
-function filter_function_name_2114($title)
-{
-    if ($city__name_en && $country__name_en) {
-        $title['title'] = '';
-    }
-
-    $title['site'] = '';
-    $title['page '] = '';
-    $title['tagline '] = '';
-
-    return $title;
 }
 
 switch ($page) {

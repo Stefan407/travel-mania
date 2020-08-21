@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     let searchListCountries = $(".search-list_wrap .list-country");
     let searchListTours = $(".search-list_wrap .list-tours");
     let searchListHeader = $(".search-list_wrap .exp-header");
@@ -6,13 +6,16 @@ $(document).ready(function() {
     let dataCalendar;
     let xhrOne = null;
 
-    if($(".img-load")){
-        console.log($(".img-load"))
-        $(".img-load").each((e)=>{
-            console.log($(this))
-            $(".img-load").src = $(".img-load").data("src");
-        }) 
+    if ($(".img-load")) {
+        $.each($(".img-load"), function (index, elem) {
+            console.log($(elem));
+            $(elem).src = $(elem).data("path");
+            $(elem).attr("src", $(elem).data("path"));
+        });
     }
+
+
+
 
     function request(url) {
         $(".windows8").show();
@@ -24,7 +27,7 @@ $(document).ready(function() {
         xhrOne.open('GET', 'https://experience.tripster.ru/api/search/site/?format=json&query=' + url + '&limit=12', true);
         xhrOne.send();
 
-        xhrOne.onreadystatechange = function() {
+        xhrOne.onreadystatechange = function () {
             if (xhrOne.readyState == 4) {
                 if (xhrOne.status == 200) {
                     data = jQuery.parseJSON(xhrOne.responseText);
@@ -102,7 +105,7 @@ $(document).ready(function() {
     }
 
     function createEvens() {
-        $(".search-list_wrap .result-item").on("click", function(e) {
+        $(".search-list_wrap .result-item").on("click", function (e) {
             switch (this.dataset.type) {
                 case "country":
                     initUrlCountry(this.dataset.id);
@@ -131,7 +134,7 @@ $(document).ready(function() {
         searchListTours.text("");
         searchListHeader.hide();
         if (data.length) {
-            $(data).each(function() {
+            $(data).each(function () {
                 let type = this.type;
                 switch (type) {
                     case "country":
@@ -160,7 +163,7 @@ $(document).ready(function() {
             $(".windows8").hide();
         }
     }
-    $("#searchInput").on("keyup", function() {
+    $("#searchInput").on("keyup", function () {
         var value = $(this).val().toLowerCase();
         $("body").addClass("act-search")
         if (value.length !== valueLength) {
@@ -169,7 +172,7 @@ $(document).ready(function() {
         }
     });
 
-    $("#searchInput").on("click", function(e) {
+    $("#searchInput").on("click", function (e) {
         var value = $(this).val();
         $("body").addClass("act-search")
         if (!value.length && value.length !== valueLength) {
@@ -177,7 +180,7 @@ $(document).ready(function() {
             valueLength = value.length;
         }
     })
-    $(".search-icon").on("click", function() {
+    $(".search-icon").on("click", function () {
         $("body").addClass("act-search")
         var value = $("#searchInput").val();
         $("body").addClass("act-search")
@@ -187,12 +190,12 @@ $(document).ready(function() {
             valueLength = value.length;
         }
     })
-    $(".menu-wrap .burger").on("click", function() {
+    $(".menu-wrap .burger").on("click", function () {
         $("#header .menu").toggleClass("act")
     })
 
     function eventLink() {
-        $(".open-link").on("click", function() {
+        $(".open-link").on("click", function () {
             let url = $(this).data("link");
             window.open(url)
         })
@@ -249,7 +252,7 @@ $(document).ready(function() {
     };
 
     function eventLinkToTr() {
-        $(".table-calendar td.date-picker.can-zakaz").on("click", function() {
+        $(".table-calendar td.date-picker.can-zakaz").on("click", function () {
             let data = $(this).data("all");
             let newKey = data.replace("-", ".");
             newKey = newKey.replace("-", ".");
@@ -284,7 +287,7 @@ $(document).ready(function() {
         xhrOne.open('GET', 'https://experience.tripster.ru/api/experiences/' + idExcursion + '/schedule/', true);
         xhrOne.send();
 
-        xhrOne.onreadystatechange = function() {
+        xhrOne.onreadystatechange = function () {
             if (xhrOne.readyState == 4) {
                 if (xhrOne.status == 200) {
                     data = jQuery.parseJSON(xhrOne.responseText);
@@ -319,12 +322,12 @@ $(document).ready(function() {
         }
 
     }
-    document.addEventListener("click", function(e) {
+    document.addEventListener("click", function (e) {
         clickInWindow(e);
     })
 
     let simplebarItems = document.querySelectorAll('.scroll-init');
-    simplebarItems.forEach(function(item) {
+    simplebarItems.forEach(function (item) {
         new SimpleBar(item, {
             autoHide: false
         })
@@ -359,7 +362,7 @@ $(document).ready(function() {
         } else {
             $('.description-content-text .guide.des .guide-right .btn-guid').removeClass("show");
         }
-        $('.description-content-text .guide.des .guide-right .btn-guid').on("click", function() {
+        $('.description-content-text .guide.des .guide-right .btn-guid').on("click", function () {
             $(".description-content-text .guide.des .guide-right").addClass("act");
         })
     }
@@ -370,7 +373,7 @@ $(document).ready(function() {
         } else {
             $('.description-content-text .guide.mob .guide-right .btn-guid').removeClass("show");
         }
-        $('.description-content-text .guide.mob .guide-right .btn-guid').on("click", function() {
+        $('.description-content-text .guide.mob .guide-right .btn-guid').on("click", function () {
             $(".description-content-text .guide.mob .guide-right").addClass("act");
         })
     }
@@ -416,21 +419,21 @@ $(document).ready(function() {
 
         monthAndYear = document.getElementById("monthAndYear");
         showCalendar(currentMonth, currentYear);
-        $("#next").on("click", function() {
+        $("#next").on("click", function () {
             next()
         });
-        $("#previous").on("click", function() {
+        $("#previous").on("click", function () {
             previous()
         });
-        $(".order-panel-wrap .more-btn").on("click", function() {
+        $(".order-panel-wrap .more-btn").on("click", function () {
             $("body").addClass("act-cal");
         });
-        $(".container-calendar .close-icon").on("click", function() {
+        $(".container-calendar .close-icon").on("click", function () {
             $("body").removeClass("act-cal");
         });
 
 
-        document.addEventListener("click", function(e) {
+        document.addEventListener("click", function (e) {
             clickInWindow(e);
         })
 
