@@ -462,7 +462,9 @@ if ($listTour->count > 1) {
         </div>
     </section>
 <?php } ?>
-<div class="link-all-ex"> <a href="/<?php echo ($current_country) ?>/<?php echo ($current_city) ?>/">Посмотреть все экскурсии <?php echo ($list->city->in_obj_phrase); ?></a> </div>
+<div class="link-all-ex">
+    <a href="/<?php echo ($current_country) ?>/<?php echo ($current_city) ?>/">Посмотреть все экскурсии <?php echo ($list->city->in_obj_phrase); ?></a>
+</div>
 <!--  -->
 <script>
     function parametrEdit() {
