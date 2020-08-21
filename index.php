@@ -22,7 +22,6 @@ $page = isset($_GET['page']) ?  $_GET['page'] : null;
 
 $list = [];
 $tag_list = [];
-$list1 = [];
 $reviews = [];
 
 
