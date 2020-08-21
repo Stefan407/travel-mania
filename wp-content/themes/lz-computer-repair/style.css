@@ -4857,6 +4857,34 @@ h6 {
     transition: 0.5s;
 }
 
+.btn-order-wrap {
+    text-align: center;
+}
+.btn-order-wrap .text{
+    color: #0785b0;
+}
+
+.btn-order-wrap .btn-click.act{
+    background: #51bce6;
+    border-radius: 5px;
+    color: #fff;
+    border: 2px solid #51bce6;
+    height: 40px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.btn-order-wrap .btn-click:hover{
+    background: #fff;
+    color: #51bce6;
+    border: 2px solid #51bce6;
+}
+
+
 /* CONTACT FORM */
 .contact-form-travel-mania {
     width: 100%;

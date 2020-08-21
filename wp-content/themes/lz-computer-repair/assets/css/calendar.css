@@ -90,6 +90,13 @@ body.act-cal .bg-cal {
     background: #52d0a1;
 }
 
+.table-calendar td.date-picker.can-zakaz.br {
+    background: #1f5f48;
+}
+.table-calendar td.date-picker.can-zakaz.br:hover {
+    background: #1f5f48;
+    opacity: 1;
+}
 
 /* .date-picker.selected {
 border: 2px solid #828282;

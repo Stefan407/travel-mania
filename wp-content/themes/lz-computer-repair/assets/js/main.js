@@ -249,7 +249,15 @@ $(document).ready(function() {
             let newData = newKey.split('.');
             newData = newData.reverse();
             newKey = newData.join(".");
-            window.open("https://experience.tripster.ru/experience/booking/" + idExcursion + "?date=" + newKey + "&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link")
+            $(".btn-order-wrap .text").text("Вы выбрали дату: " + data);
+            $(".btn-order-wrap .btn-click").addClass('act');
+            $(".btn-order-wrap .btn-click").attr('data-url', "https://experience.tripster.ru/experience/booking/" + idExcursion + "?date=" + newKey + "&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link");
+            $(".btn-order-wrap .btn-click").text("Забронировать");
+            $(".table-calendar td.date-picker").removeClass('br');
+            $(this).addClass("br");
+            $(".btn-order-wrap .btn-click").on("click", (e)=>{
+                window.open($(e.target).data("url"));
+            });
         })
     }
 
