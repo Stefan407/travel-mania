@@ -5,8 +5,6 @@ AddDefaultCharset UTF-8
 RewriteEngine On
 
 RewriteBase /
-RewriteRule ^wp-admin/$ /wp-admin/index.php [L]
-
 
 RewriteRule ^index\.php$ - [L]
 RewriteRule ^go/?$ index.php?page=go$1 [QSA,L]
@@ -14,7 +12,6 @@ RewriteRule ^(about|blog|feedback|all-cities|all-countries)/?$ index.php?page=$1
 RewriteRule ^post/(\d+)/$ index.php?p=$1 [L]
 RewriteRule ^([A-Za-z\+\-\_]+)/([A-Za-z\+\-\_]+)/excursion[-+_]([0-9]+)/?$ index.php?id=$3&city=$2&country__name_en=$1 [QSA]
 RewriteRule ^([A-Za-z\+\-\_]+)/([A-Za-z\+\-\_]+)/tag_([A-Za-z\+\-\_]+)_([0-9]+)-([0-9]+)/?$ index.php?tagName=$3&cityId=$4&tagId=$5&city=$2&country__name_en=$1 [QSA]
-# RewriteRule ^([A-Za-z\+\-\_]+)/([A-Za-z\+\-\_]+)/([0-9]+)/?$ index.php?id=$3&city=$2&country__name_en=$1 [QSA]
 RewriteRule ^([A-Za-z\+\-\_]+)/([A-Za-z\+\-\_]+)/?$ index.php?city__name_en=$2&country__name_en=$1 [QSA]
 RewriteRule ^([A-Za-z\+\-\_]+)/?$ index.php?country__name_en=$1 [L]
 
