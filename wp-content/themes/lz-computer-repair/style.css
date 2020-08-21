@@ -4218,7 +4218,13 @@ h2 {
     font-size: 20px;
 }
 .link-all-ex a{
-    color: #e04f67;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 8px;
+    background: #0785b0;
+    transition: .3s;
 }
 .link-all-ex a:hover{
     color: #841b1b;
@@ -4477,7 +4483,7 @@ h2 {
 .order-panel-wrap {
     position: sticky;
     top: 60px;
-    border-radius: 3px;
+    border-radius: 8px;
     padding: 30px;
     color: #fff;
     background: rgba(179, 36, 36, 1);
@@ -4751,7 +4757,7 @@ h6 {
     width: 100px;
     height: 100px;
     border-radius: 8%;
-    margin-bottom: 20px;
+    margin-top: 36px;
 }
 .order-panel-wrap .span-price {
     text-transform: uppercase;
@@ -4800,33 +4806,33 @@ h6 {
 }
 .order-panel-wrap .order-btn {
     color: #fff;
-    background: #51bce6;
-    border: 2px solid #51bce6;
+    background: #0785b0;
+    border: 2px solid #0785b0;
 }
 .order-panel-wrap .order-btn:hover {
     background: #fff;
-    color: #51bce6;
-    border: 2px solid #51bce6;
+    color: #0785b0;
+    border: 2px solid #0785b0;
 }
 .order-panel-wrap .more-btn {
     color: #fff;
-    background: #85c99d;
-    border: 2px solid #85c99d;
+    background: #00be8b;
+    border: 2px solid #00be8b;
 }
 .order-panel-wrap .more-btn:hover {
-    color: #85c99d;
+    color: #00be8b;
     background: #fff;
-    border: 2px solid #85c99d;
+    border: 2px solid #00be8b;
 }
 .order-panel-wrap .order-ask {
-    background: #e04f67;
-    border: 2px solid #e04f67;
+    background: #e66363;
+    border: 2px solid #e66363;
     color: #fff;
 }
 .order-panel-wrap .order-ask:hover {
     background: #fff;
-    border: 2px solid #e04f67;
-    color: #e04f67;
+    border: 2px solid #e66363;
+    color: #e66363;
 }
 .order-panel-wrap .panel-info {
     color: #333;
@@ -4861,14 +4867,14 @@ h6 {
     text-align: center;
 }
 .btn-order-wrap .text{
-    color: #0785b0;
+    color: #00be8b;
 }
 
 .btn-order-wrap .btn-click.act{
-    background: #51bce6;
+    background: #1f5f48;
     border-radius: 5px;
     color: #fff;
-    border: 2px solid #51bce6;
+    border: 2px solid #1f5f48;
     height: 40px;
     width: 180px;
     display: flex;
@@ -4880,8 +4886,8 @@ h6 {
 }
 .btn-order-wrap .btn-click:hover{
     background: #fff;
-    color: #51bce6;
-    border: 2px solid #51bce6;
+    color: #1f5f48;
+    border: 2px solid #1f5f48;
 }
 
 

@@ -1,7 +1,10 @@
 .container-calendar {
-    background: #ffffff;
-    max-width: 475px;
-    margin: 50px auto;
+	background: #fff;
+	max-width: 100%;
+	margin-top: 30px;
+	border-radius: 6px;
+	box-shadow: 0 0 4px #9c9c9d;
+	padding: 20px;
 }
 
 .container-calendar-item {
