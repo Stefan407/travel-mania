@@ -6,18 +6,36 @@ $(document).ready(function () {
     let dataCalendar;
     let xhrOne = null;
 
-    if ($(".img-load")) {
-        $.each($(".img-load"), function (index, elem) {
-            console.log($(elem));
-            $(elem).src = $(elem).data("path");
-            $(elem).attr("src", $(elem).data("path"));
-        });
-    }
-
     $('.burger-btn').click(function () {
         $(".menu-mobile").toggleClass('menu-mobile-active');
     });
-
+    $('.image').slick({
+        arrows: false,
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 3000
+    });
+    
+    $('.slick-tours').slick({
+        prevArrow: '<button type="button" class="slick-prev slick-btn" ><img src="/assets/images/arrow-icon.png" alt=""></button>',
+        nextArrow: '<button type="button" class="slick-next slick-btn" ><img src="/assets/images/arrow-icon.png" alt=""></button>',
+        dots: false,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [{
+                breakpoint: 1000,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
+        ]
+    });
 
     function request(url) {
         $(".windows8").show();

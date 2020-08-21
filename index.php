@@ -27,7 +27,6 @@ if (!is_null($page)) {
     $page = 'Tour';
     $list = getData("https://experience.tripster.ru/api/experiences/{$experiences_id}/");
     if (!$list) {
-        /* dd('Нет результатов!!'); */
         include_once('404.php');
         exit;
     }
@@ -90,7 +89,6 @@ if (!is_null($page)) {
         exit;
     }
     $page = 'Main';
-    get_template_part('contry.php');
     getAllResultsNoNext('https://experience.tripster.ru/api/experiences/', $list);
     getAllResultsNoNext('https://experience.tripster.ru/api/cities/', $list1);
 }
