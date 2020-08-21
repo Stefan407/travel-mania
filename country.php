@@ -13,12 +13,13 @@
     <link rel="icon" href="https://travel-mania.org/wp-content/uploads/2019/05/cropped-Logo-192x192.png" sizes="192x192" />
     <link rel="apple-touch-icon" href="https://travel-mania.org/wp-content/uploads/2019/05/cropped-Logo-180x180.png" />
     <meta name="msapplication-TileImage" content="https://travel-mania.org/wp-content/uploads/2019/05/cropped-Logo-270x270.png" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
 
     <link rel="preload" as="style" type="text/css" href="/assets/css/slick.min.css?v=0.6" onload="this.rel='stylesheet'">
     <link rel="preload" as="style" type="text/css" href="/assets/css/simplebar.min.css?v=0.6" onload="this.rel='stylesheet'">
     <link rel='stylesheet' href='/style.css?v=0.6' type='text/css' media='all' />
 
-    <script type='text/javascript' src='/assets/js/jquery.min.js?v=0.6' ></script>
+    <script type='text/javascript' src='/assets/js/jquery.min.js?v=0.6'></script>
     <script type="text/javascript" src="/assets/js/jquery.fancybox.min.js?v=0.6" defer></script>
     <script type="text/javascript" src="/assets/js/simplebar.min.js?v=0.6" defer></script>
     <script type="text/javascript" src="/assets/js/lazysizes.min.js?v=0.6" defer></script>
@@ -28,7 +29,7 @@
 </head>
 
 <?php
-$des_countries_path = $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/lz-computer-repair/description/des-country.json';
+$des_countries_path = $_SERVER['DOCUMENT_ROOT'] . '/description/des-country.json';
 $des_countries = file_get_contents($des_countries_path);
 $des_countries = json_decode($des_countries);
 
@@ -38,24 +39,24 @@ $current_country = str_replace(" ", "-", $current_country);
 $current_des_countries = array_filter($des_countries, function ($country) use ($current_country) {
     return $country->name == $current_country;
 });
-$current_des_country = reset($current_des_countries); ?>
-
+$current_des_country = reset($current_des_countries);
+?>
 
 <body class="home blog custom-background hfeed has-header-image has-sidebar">
-    <div id="header">
+    <header id="header">
         <div class="bc-search"></div>
         <div class="menu-wrapper">
             <div class="container">
                 <div class="menu-wrap">
                     <div class="menu-logo"><a href="https://travel-mania.org/">
-                </a></div>
+                        </a></div>
                     <div class="search-wrap">
                         <div class="search-block">
                             <div class="search-item">
                                 <div class="input-search_wrap"> <input placeholder="Куда вы едете?" type="text" id="searchInput" class="search-input">
-                                    <div class="windows8" style="display: none;"> 
-                                </div>
-                                    <div class="search-icon-des"> 
+                                    <div class="windows8" style="display: none;">
+                                    </div>
+                                    <div class="search-icon-des">
                                     </div>
                                 </div>
                                 <div class="search-list_wrap block-scrollbar scroll-init">
@@ -78,24 +79,10 @@ $current_des_country = reset($current_des_countries); ?>
                 </div>
             </div>
         </div>
-    </div>
-    <script>
-        $('.burger-btn').click(function() {
-            $(".menu-mobile").toggleClass('menu-mobile-active');
-        });
-    </script> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH5TPRC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    </header>
     <section class="top">
-        <div class="top__slider">
-            <div id="top-images" class="image-top_slider">
-                <img data-src="/France-1-min.webp" class="lazyload">
-            </div>
-            <div class="top__slider-text">
-                <div class="container">
-                    <div class="top__content-text">
-                        <h1>Авторские экскурсии во Франции</h1>
-                    </div>
-                </div>
-            </div>
+        <div id="top-images" class="image-top_slider">
+            <img data-src="<?php echo ($current_des_country->images[0]) ?>" class="lazyload">
         </div>
         <div class="container">
             <div style="display:none;" id="country">France</div>
@@ -120,43 +107,64 @@ $current_des_country = reset($current_des_countries); ?>
                     </div>
                 </div>
             </div>
-            <div style="display:none;" id="type-page">country</div>
         </div>
     </section>
     <section class="popular-cityes">
         <div class="container">
             <div class="country-btn-wrap">
                 <div class="country-btn">
-                    <div class="btn-title"><span>По популярности</span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                    <div class="btn-title">
+                        <span>По популярности</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
                             <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                                 <path d="M0,172v-172h172v172z" fill="none"></path>
                                 <g fill="#2ecc71">
                                     <path d="M150.5,79.6145v0c0,-9.5245 -10.61383,-15.20767 -18.54017,-9.92583l-45.95983,30.64467l-45.95983,-30.6375c-7.92633,-5.28183 -18.54017,0.39417 -18.54017,9.91867v0c0,3.98467 1.99233,7.71133 5.3105,9.92583l51.24167,34.15633c4.816,3.21067 11.08683,3.21067 15.90283,0l51.24167,-34.15633c3.311,-2.2145 5.30333,-5.934 5.30333,-9.92583z"></path>
                                 </g>
                             </g>
-                        </svg></div>
-                    <div class="btn-block"> <button id="btn-al"><span>По алфавиту</span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26" viewBox="0 0 226 226" style=" fill:#000000;">
+                        </svg>
+                    </div>
+                    <div class="btn-block">
+                        <button id="btn-al">
+                            <span>По алфавиту</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26" viewBox="0 0 226 226" style=" fill:#000000;">
                                 <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                                     <path d="M0,226v-226h226v226z" fill="none"></path>
                                     <g fill="#2ecc71">
                                         <path d="M196.15414,41.11869l-15.58503,-10.59375c-4.3122,-2.92008 -10.22026,-1.79958 -13.10637,2.47866l-76.39723,112.66046l-35.10878,-35.10878c-3.66707,-3.66707 -9.64303,-3.66707 -13.3101,0l-13.34405,13.34405c-3.66707,3.66707 -3.66707,9.64303 0,13.34406l53.98738,53.98738c3.02194,3.02193 7.77555,5.33083 12.05379,5.33083c4.27825,0 8.59044,-2.68239 11.3747,-6.72295l91.94832,-135.64754c2.92007,-4.27824 1.79958,-10.15235 -2.51262,-13.07241z"></path>
                                     </g>
                                 </g>
-                            </svg></button> <button id="btn-rat"><span>По популярности</span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26" viewBox="0 0 226 226" style=" fill:#000000;">
+                            </svg>
+                        </button>
+                        <button id="btn-rat">
+                            <span>По популярности</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26" viewBox="0 0 226 226" style=" fill:#000000;">
                                 <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                                     <path d="M0,226v-226h226v226z" fill="none"></path>
                                     <g fill="#2ecc71">
                                         <path d="M196.15414,41.11869l-15.58503,-10.59375c-4.3122,-2.92008 -10.22026,-1.79958 -13.10637,2.47866l-76.39723,112.66046l-35.10878,-35.10878c-3.66707,-3.66707 -9.64303,-3.66707 -13.3101,0l-13.34405,13.34405c-3.66707,3.66707 -3.66707,9.64303 0,13.34406l53.98738,53.98738c3.02194,3.02193 7.77555,5.33083 12.05379,5.33083c4.27825,0 8.59044,-2.68239 11.3747,-6.72295l91.94832,-135.64754c2.92007,-4.27824 1.79958,-10.15235 -2.51262,-13.07241z"></path>
                                     </g>
                                 </g>
-                            </svg></button></div>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div id="cityes" class="popular-cityes__wrap 111">
                 <?php $count = 1 ?>
                 <?php foreach ($list as $country) { ?>
                     <div id="item-element" class="item-element w-33">
-                        <a href="">
+                        <?php
+                        $city_name = str_replace('é', 'e', $country->name_en);
+                        $city_name = str_replace('ё', 'e', $city_name);
+                        $city_name = str_replace("'", '', $city_name);
+                        $city_name = str_replace("'", '', $city_name);
+                        $city_name = str_replace("ó", 'o', $city_name);
+                        if ($city__name_en == 'Villefranche-sur-Saône') {
+                            $city__name_en = "Villefranche-sur-Saone";
+                        }
+                        ?>
+                        <a href="/<?php echo str_replace('+', '-', $country__name_en) ?>/<?php echo str_replace('+', '-', urlencode($city_name)) ?>/">
                             <img data-src="<?php echo ($country->image->thumbnail) ?>" class="lazyload">
                             <div class="item-title-wrap">
                                 <div class="item-title"><span class="name-title"><?php echo $country->name_ru ?></span></div>
@@ -193,7 +201,7 @@ $current_des_country = reset($current_des_countries); ?>
                 </div>
     </section>
     <footer class="footer-site">
-        <div class="container"> 
+        <div class="container">
             <nav class="f-menu">
                 <div class="f-copyright"> © 2020 <span>Travel Mania</span></div>
                 <ul class="f-menu-item">
