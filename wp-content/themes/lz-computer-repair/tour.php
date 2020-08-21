@@ -461,7 +461,7 @@ if ($listTour->count > 1) {
     </section>
 <?php } ?>
 <div class="link-all-ex">
-    <a href="/<?php echo ($current_country) ?>/<?php echo ($current_city) ?>/">Все экскурсии <?php echo ($list->city->in_obj_phrase); ?></a>
+    <a href="/<?php echo ($current_country) ?>/<?php echo ($current_city) ?>/">Посмотреть все экскурсии <?php echo ($list->city->in_obj_phrase); ?></a>
 </div>
 <!--  -->
 <script>
