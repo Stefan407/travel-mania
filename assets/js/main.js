@@ -80,7 +80,6 @@ $(document).ready(function () {
         xhr.open('GET', 'https://experience.tripster.ru/api/experiences/' + id + '', false);
         xhr.send();
         if (xhr.status != 200) {
-            // alert(xhr.status + ': ' + xhr.statusText);https://travel-mania.org/
         } else {
             data = jQuery.parseJSON(xhr.responseText);
         }
@@ -97,7 +96,6 @@ $(document).ready(function () {
         xhr.open('GET', 'https://experience.tripster.ru/api/countries/?name_ru=' + id + '', false);
         xhr.send();
         if (xhr.status != 200) {
-            // alert(xhr.status + ': ' + xhr.statusText);
         } else {
             data = jQuery.parseJSON(xhr.responseText);
         }
@@ -113,7 +111,6 @@ $(document).ready(function () {
         xhr.open('GET', 'https://experience.tripster.ru/api/cities/?name_ru=' + id + '', false);
         xhr.send();
         if (xhr.status != 200) {
-            // alert(xhr.status + ': ' + xhr.statusText);
         } else {
             data = jQuery.parseJSON(xhr.responseText);
         }
@@ -159,11 +156,11 @@ $(document).ready(function () {
                 switch (type) {
                     case "country":
                         let newNameCountry = replaceName("noEm", this.title)
-                        searchListCountries.append("<div data-type='" + type + "' data-id='" + newNameCountry + "' class='result-item " + type + "'><img class='loc' src='/wp-content/themes/lz-computer-repair/assets/images/icon-location.svg'><div class='inner'><div class='title1'>" + this.title + "</div><div class='title2'></div></div><div class='left-block'>" + this.experience_count + " " + declOfNum(this.experience_count, ['экскурсия', 'экскурсии', 'экскурсий']) + "</div></div>");
+                        searchListCountries.append("<div data-type='" + type + "' data-id='" + newNameCountry + "' class='result-item " + type + "'><img class='loc' src='/assets/images/icon-location.svg'><div class='inner'><div class='title1'>" + this.title + "</div><div class='title2'></div></div><div class='left-block'>" + this.experience_count + " " + declOfNum(this.experience_count, ['экскурсия', 'экскурсии', 'экскурсий']) + "</div></div>");
                         break;
                     case "city":
                         let newNameCity = replaceName("noEm", this.title)
-                        searchListCountries.append("<div data-type='" + type + "' data-id='" + newNameCity + "' class='result-item " + type + "'><img class='loc' src='/wp-content/themes/lz-computer-repair/assets/images/icon-location.svg'><div class='inner'><div class='title1'>" + this.title + "</div><div class='title2'>" + this.country.name_ru + "</div></div><div class='left-block'>" + this.experience_count + " " + declOfNum(this.experience_count, ['экскурсия', 'экскурсии', 'экскурсий']) + "</div></div>");
+                        searchListCountries.append("<div data-type='" + type + "' data-id='" + newNameCity + "' class='result-item " + type + "'><img class='loc' src='/assets/images/icon-location.svg'><div class='inner'><div class='title1'>" + this.title + "</div><div class='title2'>" + this.country.name_ru + "</div></div><div class='left-block'>" + this.experience_count + " " + declOfNum(this.experience_count, ['экскурсия', 'экскурсии', 'экскурсий']) + "</div></div>");
                         break;
                     case "experience":
                         searchListHeader.show();
