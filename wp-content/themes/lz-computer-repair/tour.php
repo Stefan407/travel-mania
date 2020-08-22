@@ -174,7 +174,7 @@ $current_city = str_replace(" ", "-", $current_city);
                                             </div>
                                             <div class="btn-order-wrap">
                                                 <div class="text"></div>
-                                                <div class="btn-click" data-url=""></div>
+                                                <div class="btn-click" data-url="" onclick="ym(56569540,'reachGoal','bron-data');"></div>
                                             </div>
                                         </div>
                                         <div class="guide des">
