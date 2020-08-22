@@ -51,7 +51,7 @@ $listTagsNew = $listTags->results;
     <section class="top">
         <div class="top__slider">
             <div id="top-images-city" class="image-top_slider ">
-                <img data-src="<?php echo ($current_des_city->images[0]) ?>" class="lazyload">
+                <img class="lazyload" data-src="<?php echo ($current_des_city->images[0]) ?>" >
             </div>
             <div class="top__slider-text">
                 <div class="container">
@@ -280,136 +280,92 @@ $listTagsNew = $listTags->results;
     </section>
 
     <script>
-        function slideFunc() {
-            $("#top-images-city img").css({
-                "opacity": "1",
-                "display": "block"
+        document.addEventListener("DOMContentLoaded", function() {
+
+            function slideFunc() {
+                $("#top-images-city img").css({
+                    "opacity": "1",
+                    "display": "block"
+                });
+            }
+            setTimeout(slideFunc, 1000);
+
+            $(document).ready(function() {
+                initslidertour();
             });
-        }
-        setTimeout(slideFunc, 1000);
 
-        $(document).ready(function() {
-            initslidertour();
-        });
+            var timeout = false;
+            let coordinatesYT = window.pageYOffset;
+            let coordinatesYB = coordinatesYT + window.innerHeight;
+            let elements = document.querySelectorAll(".slick-tours__item-img ");
+            let elementsArray = [];
+            let currentElement;
 
-        var timeout = false;
-        let coordinatesYT = window.pageYOffset;
-        let coordinatesYB = coordinatesYT + window.innerHeight;
-        let elements = document.querySelectorAll(".slick-tours__item-img ");
-        let elementsArray = [];
-        let currentElement;
+            function editElemsTour() {
+                elements.forEach(function(elem) {
+                    if (!elem.classList.contains("hide")) {
+                        elementsArray.push({
+                            element: elem,
+                            top: elem.getBoundingClientRect().top,
+                            bottom: coordinatesYB - elem.getBoundingClientRect().bottom,
+                            rate: 0
+                        })
+                    }
+                })
 
-        function editElemsTour() {
-            elements.forEach(function(elem) {
-                if (!elem.classList.contains("hide")) {
-                    elementsArray.push({
-                        element: elem,
-                        top: elem.getBoundingClientRect().top,
-                        bottom: coordinatesYB - elem.getBoundingClientRect().bottom,
-                        rate: 0
+                window.onscroll = function() {
+                    if (timeout !== false) {
+                        clearTimeout(timeout);
+                    }
+                    timeout = setTimeout(function() {
+                        editCoordinates();
+                    }, 100);
+                };
+                editCoordinates();
+
+                function editCoordinates() {
+                    coordinatesYT = window.pageYOffset;
+                    coordinatesYB = coordinatesYT + window.innerHeight;
+
+                    elementsArray.forEach(function(elem) {
+                        elem.top = elem.element.getBoundingClientRect().top;
+                        elem.bottom = coordinatesYB - elem.element.getBoundingClientRect().bottom;
+                        elem.rate = calculateRate(elem.element.getBoundingClientRect(), elem.element);
                     })
                 }
-            })
 
-            window.onscroll = function() {
-                if (timeout !== false) {
-                    clearTimeout(timeout);
-                }
-                timeout = setTimeout(function() {
-                    editCoordinates();
-                }, 100);
-            };
-            editCoordinates();
-
-            function editCoordinates() {
-                coordinatesYT = window.pageYOffset;
-                coordinatesYB = coordinatesYT + window.innerHeight;
-
-                elementsArray.forEach(function(elem) {
-                    elem.top = elem.element.getBoundingClientRect().top;
-                    elem.bottom = coordinatesYB - elem.element.getBoundingClientRect().bottom;
-                    elem.rate = calculateRate(elem.element.getBoundingClientRect(), elem.element);
-                })
-            }
-
-            function calculateRate(rect, item) {
-                let rateTop = rect.top + pageYOffset;
-                if (rateTop >= pageYOffset && rect.bottom + pageYOffset <= coordinatesYB) {
-                    if (currentElement != item) {
-                        edidVisual(item, true);
-                        currentElement = item;
-                    }
-                } else {
-                    edidVisual(item, false);
-                }
-            }
-
-            function edidVisual(item, pause) {
-                if (pause) {
-                    let urls = $(item).find(".link").data("images");
-                    if (!$(item).find(".new-img").length) {
-                        for (i = 0; i < urls.length; i++) {
-                            $(item).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
+                function calculateRate(rect, item) {
+                    let rateTop = rect.top + pageYOffset;
+                    if (rateTop >= pageYOffset && rect.bottom + pageYOffset <= coordinatesYB) {
+                        if (currentElement != item) {
+                            edidVisual(item, true);
+                            currentElement = item;
                         }
-                    }
-                    if ($(item).find(".slick-track").length == 0) {
-                        $(item).find(".link").on('init', function(event, slick) {
-                            var initSlide = slick.slickCurrentSlide();
-                            var slickDots = slick.$dots[0];
-                            slickDots.childNodes[initSlide].classList.add("slick-current");
-                        });
-                        $(item).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-                            var slickDots = slick.$dots[0];
-                            slickDots.childNodes[currentSlide].classList.remove("slick-current");
-                            slickDots.childNodes[nextSlide].classList.add("slick-current");
-                        });
-                        $(item).find(".link").slick({
-                            arrows: false,
-                            dots: true,
-                            autoplay: true,
-                            autoplaySpeed: 2000,
-                            pauseOnHover: false,
-                            pauseOnFocus: false,
-                            fade: true,
-                            cssEase: 'linear'
-                        });
                     } else {
-                        $(item).find(".link .slick-active").addClass("slick-current");
-                        $(item).find(".link .slick-dots").css("opacity", "1");
-                        $(item).find(".link").slick('slickPlay');
-                    }
-                } else {
-                    if ($(item).find(".slick-track").length) {
-                        $(item).find(".link .slick-dots").css("opacity", "0");
-                        $(item).find(".link .slick-active").removeClass("slick-current");
-                        $(item).find(".link").slick('slickPause');
+                        edidVisual(item, false);
                     }
                 }
-            }
-        }
 
-        function initslidertour() {
-            if (window.innerWidth > 500) {
-                $(".slick-tours__item").hover(function(e) {
-                        e = this;
-                        let urls = $(this).find(".link").data("images");
-                        if (!$(this).find(".new-img").length) {
+                function edidVisual(item, pause) {
+                    if (pause) {
+                        let urls = $(item).find(".link").data("images");
+                        if (!$(item).find(".new-img").length) {
                             for (i = 0; i < urls.length; i++) {
-                                $(this).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
+                                $(item).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
                             }
                         }
-                        if ($(this).find(".slick-track").length == 0) {
-                            $(this).find(".link").on('init', function(event, slick) {
+                        if ($(item).find(".slick-track").length == 0) {
+                            $(item).find(".link").on('init', function(event, slick) {
                                 var initSlide = slick.slickCurrentSlide();
                                 var slickDots = slick.$dots[0];
                                 slickDots.childNodes[initSlide].classList.add("slick-current");
                             });
-                            $(this).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+                            $(item).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
                                 var slickDots = slick.$dots[0];
                                 slickDots.childNodes[currentSlide].classList.remove("slick-current");
                                 slickDots.childNodes[nextSlide].classList.add("slick-current");
                             });
-                            $(this).find(".link").slick({
+                            $(item).find(".link").slick({
                                 arrows: false,
                                 dots: true,
                                 autoplay: true,
@@ -420,56 +376,103 @@ $listTagsNew = $listTags->results;
                                 cssEase: 'linear'
                             });
                         } else {
-                            $(this).find(".link .slick-active").addClass("slick-current");
-                            $(this).find(".link").slick('slickPlay');
-                            $(this).find(".link .slick-dots").css("opacity", "1");
+                            $(item).find(".link .slick-active").addClass("slick-current");
+                            $(item).find(".link .slick-dots").css("opacity", "1");
+                            $(item).find(".link").slick('slickPlay');
                         }
-                    },
-                    function(e) {
-                        e = this;
-                        $(this).find(".link .slick-active").removeClass("slick-current");
-                        $(this).find(".link").slick('slickPause');
-                        $(this).find(".link .slick-dots").css("opacity", "0");
-                    });
-            } else {
-                editElemsTour();
-            }
-        }
-
-
-        if ($(".slick-tours__item").length > 24) {
-            $(".popular-tours .btn-more").css("display", "block");
-
-        } else {
-            $(".popular-tours .btn-more").css("display", "none");
-        }
-        let showElensVisual = 48;
-        $(".popular-tours .btn-more").on("click", function() {
-            let elems = $(".slick-tours__item");
-            let length = $(".slick-tours__item").length;
-            if (showElensVisual > length) {
-                showElem(showElensVisual, true)
-                initslidertour();
-            } else {
-                showElem(showElensVisual, false)
-                initslidertour();
-            }
-            showElensVisual = showElensVisual + 24;
-        })
-
-        function showElem(count, btn) {
-            let elems = $(".slick-tours__item");
-            if (count) {
-                for (i = 1; i < count; i++) {
-                    if ($(elems[i]).length) {
-                        elems[i].classList.remove("hide");
+                    } else {
+                        if ($(item).find(".slick-track").length) {
+                            $(item).find(".link .slick-dots").css("opacity", "0");
+                            $(item).find(".link .slick-active").removeClass("slick-current");
+                            $(item).find(".link").slick('slickPause');
+                        }
                     }
                 }
             }
-            if (btn) {
+
+            function initslidertour() {
+                if (window.innerWidth > 500) {
+                    $(".slick-tours__item").hover(function(e) {
+                            e = this;
+                            let urls = $(this).find(".link").data("images");
+                            if (!$(this).find(".new-img").length) {
+                                for (i = 0; i < urls.length; i++) {
+                                    $(this).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
+                                }
+                            }
+                            if ($(this).find(".slick-track").length == 0) {
+                                $(this).find(".link").on('init', function(event, slick) {
+                                    var initSlide = slick.slickCurrentSlide();
+                                    var slickDots = slick.$dots[0];
+                                    slickDots.childNodes[initSlide].classList.add("slick-current");
+                                });
+                                $(this).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+                                    var slickDots = slick.$dots[0];
+                                    slickDots.childNodes[currentSlide].classList.remove("slick-current");
+                                    slickDots.childNodes[nextSlide].classList.add("slick-current");
+                                });
+                                $(this).find(".link").slick({
+                                    arrows: false,
+                                    dots: true,
+                                    autoplay: true,
+                                    autoplaySpeed: 2000,
+                                    pauseOnHover: false,
+                                    pauseOnFocus: false,
+                                    fade: true,
+                                    cssEase: 'linear'
+                                });
+                            } else {
+                                $(this).find(".link .slick-active").addClass("slick-current");
+                                $(this).find(".link").slick('slickPlay');
+                                $(this).find(".link .slick-dots").css("opacity", "1");
+                            }
+                        },
+                        function(e) {
+                            e = this;
+                            $(this).find(".link .slick-active").removeClass("slick-current");
+                            $(this).find(".link").slick('slickPause');
+                            $(this).find(".link .slick-dots").css("opacity", "0");
+                        });
+                } else {
+                    editElemsTour();
+                }
+            }
+
+
+            if ($(".slick-tours__item").length > 24) {
+                $(".popular-tours .btn-more").css("display", "block");
+
+            } else {
                 $(".popular-tours .btn-more").css("display", "none");
             }
-        }
+            let showElensVisual = 48;
+            $(".popular-tours .btn-more").on("click", function() {
+                let elems = $(".slick-tours__item");
+                let length = $(".slick-tours__item").length;
+                if (showElensVisual > length) {
+                    showElem(showElensVisual, true)
+                    initslidertour();
+                } else {
+                    showElem(showElensVisual, false)
+                    initslidertour();
+                }
+                showElensVisual = showElensVisual + 24;
+            })
+
+            function showElem(count, btn) {
+                let elems = $(".slick-tours__item");
+                if (count) {
+                    for (i = 1; i < count; i++) {
+                        if ($(elems[i]).length) {
+                            elems[i].classList.remove("hide");
+                        }
+                    }
+                }
+                if (btn) {
+                    $(".popular-tours .btn-more").css("display", "none");
+                }
+            }
+        });
     </script>
     <?php
     include 'inc/footer.php';

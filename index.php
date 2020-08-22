@@ -1,13 +1,4 @@
 <?php
-/*
-Template Name: Router-page
-* @package WordPress
- * @subpackage lz-computer-repair
- * @since 1.0
- * @version 0.1
-*/
-?>
-<?php
 require_once 'sys/inc.php';
 //Ловим все параметры с главной в $_GET
 $city__name_en = isset($_GET['city__name_en']) ? str_replace('-', '+', urlencode($_GET['city__name_en'])) : null;

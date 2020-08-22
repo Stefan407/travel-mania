@@ -46,7 +46,7 @@ $page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены,
 
         <div class="top__slider">
             <div id="top-images" class="image-top_slider">
-                <img class="lazyload" data-src="<?php echo ($current_des_country->images[0]) ?>" >
+                <img class="lazyload" data-src="<?php echo ($current_des_country->images[0]) ?>">
             </div>
             <div class="top__slider-text">
                 <div class="container">
@@ -81,7 +81,6 @@ $page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены,
         </div>
         <div class="container">
             <div style="display:none;" id="country"><?php echo ($list[0]->country->name_en); ?></div>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <div class="border-box">
                 <h2>Экскурсии <?php echo ($list[0]->country->in_obj_phrase);
                                 echo (" ");
@@ -210,77 +209,80 @@ $page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены,
         </div>
     </section>
     <script>
-        $(".country-btn-wrap .btn-title").on("click", function() {
-            $(".country-btn-wrap .btn-block").toggleClass("active");
-        })
+        document.addEventListener("DOMContentLoaded", function() {
 
-        if ($(".popular-cityes__wrap .item-element").length > 24) {
-            $(".popular-cityes .btn-more").css("display", "block");
+            $(".country-btn-wrap .btn-title").on("click", function() {
+                $(".country-btn-wrap .btn-block").toggleClass("active");
+            })
 
-        } else {
-            $(".popular-cityes .btn-more").css("display", "none");
-        }
-        let showElensVisual = 48;
-        $(".popular-cityes .btn-more").on("click", function() {
-            let elems = $(".popular-cityes__wrap .item-element");
-            let length = $(".popular-cityes__wrap .item-element").length;
-            if (showElensVisual > length) {
-                showElem(showElensVisual, true)
+            if ($(".popular-cityes__wrap .item-element").length > 24) {
+                $(".popular-cityes .btn-more").css("display", "block");
+
             } else {
-                showElem(showElensVisual, false)
-            }
-            showElensVisual = showElensVisual + 24;
-        })
-
-        function showElem(count, btn) {
-            let elems = $(".popular-cityes__wrap .item-element");
-            if (count) {
-                for (i = 1; i < count; i++) {
-                    if ($(elems[i]).length) {
-                        elems[i].classList.remove("hide");
-                    }
-                }
-            }
-            if (btn) {
                 $(".popular-cityes .btn-more").css("display", "none");
             }
-        }
-        var search = document.querySelector("#cityes");
-        var searchChild = document.querySelector("#cityes").innerHTML;
-
-        document.getElementById("btn-rat").onclick = function() {
-            $(".country-btn-wrap .btn-title span").html(document.querySelector("#btn-rat span").innerHTML);
-            $(".country-btn-wrap .btn-block").removeClass("active");
-            document.getElementById("btn-al").classList.remove("active");
-            document.getElementById("btn-rat").classList.add("active");
-            document.querySelector("#cityes").innerHTML = searchChild;
-
-        }
-        document.getElementById("btn-al").onclick = function() {
-            $(".country-btn-wrap .btn-title span").html(document.querySelector("#btn-al span").innerHTML);
-            $(".country-btn-wrap .btn-block").removeClass("active");
-            document.getElementById("btn-al").classList.add("active");
-            document.getElementById("btn-rat").classList.remove("active");
-            var items = document.querySelectorAll('.item-element');
-            Array.from(items).sort(function(a, b) {
-                a = a.querySelector('span.name-title').innerText.toLowerCase()
-                b = b.querySelector('span.name-title').innerText.toLowerCase()
-                return (a > b) - (a < b)
-            }).forEach(function(n, i) {
-                n.style.order = i
+            let showElensVisual = 48;
+            $(".popular-cityes .btn-more").on("click", function() {
+                let elems = $(".popular-cityes__wrap .item-element");
+                let length = $(".popular-cityes__wrap .item-element").length;
+                if (showElensVisual > length) {
+                    showElem(showElensVisual, true)
+                } else {
+                    showElem(showElensVisual, false)
+                }
+                showElensVisual = showElensVisual + 24;
             })
-        }
-        $("#btn-rat").trigger("click");
+
+            function showElem(count, btn) {
+                let elems = $(".popular-cityes__wrap .item-element");
+                if (count) {
+                    for (i = 1; i < count; i++) {
+                        if ($(elems[i]).length) {
+                            elems[i].classList.remove("hide");
+                        }
+                    }
+                }
+                if (btn) {
+                    $(".popular-cityes .btn-more").css("display", "none");
+                }
+            }
+            var search = document.querySelector("#cityes");
+            var searchChild = document.querySelector("#cityes").innerHTML;
+
+            document.getElementById("btn-rat").onclick = function() {
+                $(".country-btn-wrap .btn-title span").html(document.querySelector("#btn-rat span").innerHTML);
+                $(".country-btn-wrap .btn-block").removeClass("active");
+                document.getElementById("btn-al").classList.remove("active");
+                document.getElementById("btn-rat").classList.add("active");
+                document.querySelector("#cityes").innerHTML = searchChild;
+
+            }
+            document.getElementById("btn-al").onclick = function() {
+                $(".country-btn-wrap .btn-title span").html(document.querySelector("#btn-al span").innerHTML);
+                $(".country-btn-wrap .btn-block").removeClass("active");
+                document.getElementById("btn-al").classList.add("active");
+                document.getElementById("btn-rat").classList.remove("active");
+                var items = document.querySelectorAll('.item-element');
+                Array.from(items).sort(function(a, b) {
+                    a = a.querySelector('span.name-title').innerText.toLowerCase()
+                    b = b.querySelector('span.name-title').innerText.toLowerCase()
+                    return (a > b) - (a < b)
+                }).forEach(function(n, i) {
+                    n.style.order = i
+                })
+            }
+            $("#btn-rat").trigger("click");
 
 
-        function slideFunc() {
-            $("#top-images img").css({
-                "opacity": "1",
-                "display": "block"
-            });
-        }
+            function slideFunc() {
+                $("#top-images img").css({
+                    "opacity": "1",
+                    "display": "block"
+                });
+            }
 
-        setTimeout(slideFunc, 500);
+            setTimeout(slideFunc, 500);
+        });
     </script>
     <?php
     include 'inc/footer.php';

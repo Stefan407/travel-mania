@@ -306,9 +306,11 @@ $(document).ready(function () {
         }
     };
     parametrEdit();
-    $('[data-fancybox]').fancybox({
-        protect: true
-    });
+    if ($('[data-fancybox]').length) {
+        $('[data-fancybox]').fancybox({
+            protect: true
+        });
+    }
 
     function more() {
         document.getElementById("description-item-reviews").style.maxHeight = "100%";
