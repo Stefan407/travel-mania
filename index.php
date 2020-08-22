@@ -69,7 +69,7 @@ if (!is_null($page)) {
     } else if ($city__name_en == "Giardini+Naxos") {
         getAllResults("https://experience.tripster.ru/api/experiences/?city__name_en=Giardini-Naxos&detailed=true", $list);
     } else {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?city__name_en={$city__name_en}&detailed=true", $list);
+        getAllResults("https://experience.tripster.ru/api/experiences/?city__name_en={$city__name_en}&detailed=true", $list);
     }
 } else if ($country__name_en) {
     $page = 'Country';

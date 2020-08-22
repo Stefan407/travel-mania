@@ -51,7 +51,7 @@ $listTagsNew = $listTags->results;
     <section class="top">
         <div class="top__slider">
             <div id="top-images-city" class="image-top_slider ">
-                <img class="lazyload" data-src="<?php echo ($current_des_city->images[0]) ?>" >
+                <img class="lazyload" data-src="<?php echo ($current_des_city->images[0]) ?>">
             </div>
             <div class="top__slider-text">
                 <div class="container">

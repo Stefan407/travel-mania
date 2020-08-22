@@ -129,11 +129,11 @@ $(document).ready(function () {
                 switch (type) {
                     case "country":
                         let newNameCountry = replaceName("noEm", this.title)
-                        searchListCountries.append("<div data-type='" + type + "' data-id='" + newNameCountry + "' class='result-item " + type + "'><img class='loc' src='/wp-content/themes/lz-computer-repair/assets/images/icon-location.svg'><div class='inner'><div class='title1'>" + this.title + "</div><div class='title2'></div></div><div class='left-block'>" + this.experience_count + " " + declOfNum(this.experience_count, ['экскурсия', 'экскурсии', 'экскурсий']) + "</div></div>");
+                        searchListCountries.append("<div data-type='" + type + "' data-id='" + newNameCountry + "' class='result-item " + type + "'><img class='loc' src='/assets/images/icon-location.svg'><div class='inner'><div class='title1'>" + this.title + "</div><div class='title2'></div></div><div class='left-block'>" + this.experience_count + " " + declOfNum(this.experience_count, ['экскурсия', 'экскурсии', 'экскурсий']) + "</div></div>");
                         break;
                     case "city":
                         let newNameCity = replaceName("noEm", this.title)
-                        searchListCountries.append("<div data-type='" + type + "' data-id='" + newNameCity + "' class='result-item " + type + "'><img class='loc' src='/wp-content/themes/lz-computer-repair/assets/images/icon-location.svg'><div class='inner'><div class='title1'>" + this.title + "</div><div class='title2'>" + this.country.name_ru + "</div></div><div class='left-block'>" + this.experience_count + " " + declOfNum(this.experience_count, ['экскурсия', 'экскурсии', 'экскурсий']) + "</div></div>");
+                        searchListCountries.append("<div data-type='" + type + "' data-id='" + newNameCity + "' class='result-item " + type + "'><img class='loc' src='/assets/images/icon-location.svg'><div class='inner'><div class='title1'>" + this.title + "</div><div class='title2'>" + this.country.name_ru + "</div></div><div class='left-block'>" + this.experience_count + " " + declOfNum(this.experience_count, ['экскурсия', 'экскурсии', 'экскурсий']) + "</div></div>");
                         break;
                     case "experience":
                         searchListHeader.show();
@@ -370,18 +370,18 @@ $(document).ready(function () {
         })
     })
 
-    if ($('.image-top_slider')) {
-        $('.image-top_slider').slick({
-            arrows: false,
-            autoplay: true,
-            autoplaySpeed: 3000,
-            dots: false,
-            infinite: true,
-            speed: 1000,
-            fade: true,
-            cssEase: 'linear'
-        });
-    }
+    // if ($('.image-top_slider')) {
+    //     $('.image-top_slider').slick({
+    //         arrows: false,
+    //         autoplay: true,
+    //         autoplaySpeed: 3000,
+    //         dots: false,
+    //         infinite: true,
+    //         speed: 1000,
+    //         fade: true,
+    //         cssEase: 'linear'
+    //     });
+    // }
     if ($('.slider-tours-photo')) {
         $('.slider-tours-photo').slick({
             arrows: false,

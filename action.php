@@ -30,7 +30,7 @@ echo json_encode(array(
 function send_mail($message)
 {
     // почта, на которую придет письмо
-    $mails_to = array("excurs.mania@gmail.com", "dev_1@studiosdl.com");
+    $mails_to = array("excurs.mania@gmail.com");
     // тема письма
     $subject = "Письмо с сайта Travel-mania";
 

@@ -3544,6 +3544,7 @@ section.main {
     width: 100%;
     width: 100%;
     transition: .5s;
+    z-index: 100;
 }
 
 #header.down {
