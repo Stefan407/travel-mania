@@ -6,36 +6,6 @@ $(document).ready(function () {
     let dataCalendar;
     let xhrOne = null;
 
-    $('.burger-btn').click(function () {
-        $(".menu-mobile").toggleClass('menu-mobile-active');
-    });
-    $('.image').slick({
-        arrows: false,
-        dots: true,
-        autoplay: true,
-        autoplaySpeed: 3000
-    });
-
-    $('.slick-tours').slick({
-        prevArrow: '<button type="button" class="slick-prev slick-btn" ><img src="/assets/images/arrow-icon.png" alt=""></button>',
-        nextArrow: '<button type="button" class="slick-next slick-btn" ><img src="/assets/images/arrow-icon.png" alt=""></button>',
-        dots: false,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        responsive: [{
-                breakpoint: 1000,
-                settings: {
-                    slidesToShow: 2,
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                }
-            }
-        ]
-    });
 
     function request(url) {
         $(".windows8").show();
@@ -80,6 +50,7 @@ $(document).ready(function () {
         xhr.open('GET', 'https://experience.tripster.ru/api/experiences/' + id + '', false);
         xhr.send();
         if (xhr.status != 200) {
+            // alert(xhr.status + ': ' + xhr.statusText);https://travel-mania.org/
         } else {
             data = jQuery.parseJSON(xhr.responseText);
         }
@@ -96,6 +67,7 @@ $(document).ready(function () {
         xhr.open('GET', 'https://experience.tripster.ru/api/countries/?name_ru=' + id + '', false);
         xhr.send();
         if (xhr.status != 200) {
+            // alert(xhr.status + ': ' + xhr.statusText);
         } else {
             data = jQuery.parseJSON(xhr.responseText);
         }
@@ -111,6 +83,7 @@ $(document).ready(function () {
         xhr.open('GET', 'https://experience.tripster.ru/api/cities/?name_ru=' + id + '', false);
         xhr.send();
         if (xhr.status != 200) {
+            // alert(xhr.status + ': ' + xhr.statusText);
         } else {
             data = jQuery.parseJSON(xhr.responseText);
         }
@@ -156,11 +129,11 @@ $(document).ready(function () {
                 switch (type) {
                     case "country":
                         let newNameCountry = replaceName("noEm", this.title)
-                        searchListCountries.append("<div data-type='" + type + "' data-id='" + newNameCountry + "' class='result-item " + type + "'><img class='loc' src='/assets/images/icon-location.svg'><div class='inner'><div class='title1'>" + this.title + "</div><div class='title2'></div></div><div class='left-block'>" + this.experience_count + " " + declOfNum(this.experience_count, ['экскурсия', 'экскурсии', 'экскурсий']) + "</div></div>");
+                        searchListCountries.append("<div data-type='" + type + "' data-id='" + newNameCountry + "' class='result-item " + type + "'><img class='loc' src='/wp-content/themes/lz-computer-repair/assets/images/icon-location.svg'><div class='inner'><div class='title1'>" + this.title + "</div><div class='title2'></div></div><div class='left-block'>" + this.experience_count + " " + declOfNum(this.experience_count, ['экскурсия', 'экскурсии', 'экскурсий']) + "</div></div>");
                         break;
                     case "city":
                         let newNameCity = replaceName("noEm", this.title)
-                        searchListCountries.append("<div data-type='" + type + "' data-id='" + newNameCity + "' class='result-item " + type + "'><img class='loc' src='/assets/images/icon-location.svg'><div class='inner'><div class='title1'>" + this.title + "</div><div class='title2'>" + this.country.name_ru + "</div></div><div class='left-block'>" + this.experience_count + " " + declOfNum(this.experience_count, ['экскурсия', 'экскурсии', 'экскурсий']) + "</div></div>");
+                        searchListCountries.append("<div data-type='" + type + "' data-id='" + newNameCity + "' class='result-item " + type + "'><img class='loc' src='/wp-content/themes/lz-computer-repair/assets/images/icon-location.svg'><div class='inner'><div class='title1'>" + this.title + "</div><div class='title2'>" + this.country.name_ru + "</div></div><div class='left-block'>" + this.experience_count + " " + declOfNum(this.experience_count, ['экскурсия', 'экскурсии', 'экскурсий']) + "</div></div>");
                         break;
                     case "experience":
                         searchListHeader.show();
@@ -276,7 +249,15 @@ $(document).ready(function () {
             let newData = newKey.split('.');
             newData = newData.reverse();
             newKey = newData.join(".");
-            window.open("https://experience.tripster.ru/experience/booking/" + idExcursion + "?date=" + newKey + "&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link")
+            $(".btn-order-wrap .text").text("Вы выбрали дату: " + data);
+            $(".btn-order-wrap .btn-click").addClass('act');
+            $(".btn-order-wrap .btn-click").attr('data-url', "https://experience.tripster.ru/experience/booking/" + idExcursion + "?date=" + newKey + "&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link");
+            $(".btn-order-wrap .btn-click").text("Забронировать");
+            $(".table-calendar td.date-picker").removeClass('br');
+            $(this).addClass("br");
+            $(".btn-order-wrap .btn-click").on("click", (e) => {
+                window.open($(e.target).data("url"));
+            });
         })
     }
 
@@ -317,6 +298,43 @@ $(document).ready(function () {
             }
         };
     }
+
+    function parametrEdit() {
+        let reviewsDate = document.getElementsByClassName("reviews-date");
+        for (i = 0; i < reviewsDate.length; i++) {
+            reviewsDate[i].innerHTML = reviewsDate[i].innerHTML.split("-").reverse().join(".");
+        }
+    };
+    parametrEdit();
+    $('[data-fancybox]').fancybox({
+        protect: true
+    });
+
+    function more() {
+        document.getElementById("description-item-reviews").style.maxHeight = "100%";
+        document.querySelector(".reviews-btn").style.display = "none";
+    }
+
+    $('.slick-tours.slider').slick({
+        prevArrow: '<button type="button" class="slick-prev slick-btn" ><img src="/assets/images/arrow-icon.png" alt=""></button>',
+        nextArrow: '<button type="button" class="slick-next slick-btn" ><img src="/assets/images/arrow-icon.png" alt=""></button>',
+        dots: false,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [{
+                breakpoint: 1000,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
+        ]
+    });
 
 
     function clickInWindow(e) {

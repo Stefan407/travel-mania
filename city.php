@@ -1,3 +1,33 @@
+<?php
+// CODE REQUEST DESCRIPTION
+$des_cities_path = $_SERVER['DOCUMENT_ROOT'] . '/description/des-city.json';
+$des_cities = file_get_contents($des_cities_path);
+$des_cities = json_decode($des_cities);
+$current_city = $list[0]->city->name_en;
+$current_city = str_replace(" ", "-", $current_city);
+$current_des_cities = array_filter($des_cities, function ($city) use ($current_city) {
+    return $city->name == $current_city;
+});
+$current_des_city = reset($current_des_cities);
+
+// IF RU LANGUAGE
+$my_var = $list[0]->city->in_obj_phrase;
+$textRu = " на русском языке ";
+if ($list[0]->city->country->name_en == "Russia" or $list[0]->city->country->name_en == "Ukraine" or $list[0]->city->country->name_en == "Crimea") {
+    $textRu = " ";
+};
+$page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены, отзывы, описание - Travel Mania 🥇 ";
+
+// DATA SEO
+$priceAll = [];
+$reviewsAll = 0;
+$reviewsAllCount = 0;
+$listTags = getData('https://experience.tripster.ru/api/citytags/?city=' . $list[0]->city->id);
+$listTagsNew = $listTags->results;
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="ru-RU" class="no-js no-svg">
 <meta charset="UTF-8">
@@ -6,55 +36,22 @@
 <head>
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    <title>Экскурсии во Франции на русском языке 2020 🥇 цены и описание - Travel Mania 🥇</title>
-    <meta name="keywords" content="экскурсии, Франция , русский, на русском, гиды, 2020 авторские, эксклюзивные, исторические, обзорные, пешеходные, на автобусе, купить, заказать, забронировать, цена, недорого, дешево, скидка, описание, список, прайс, травэл, мания, travel, mania" />
-    <meta name="description" content="✅ Групповые и индивидуальные экскурсии во Франции с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны лучшие экскурсии во Франции, которые тщательно продуманы и составлены гидами." />
-    <link rel="icon" href="https://travel-mania.org/wp-content/uploads/2019/05/cropped-Logo-32x32.png" sizes="32x32" />
-    <link rel="apple-touch-icon" href="https://travel-mania.org/wp-content/uploads/2019/05/cropped-Logo-180x180.png" />
-    <meta name="msapplication-TileImage" content="https://travel-mania.org/wp-content/uploads/2019/05/cropped-Logo-270x270.png" />
-
-    <link rel="preload" as="style" type="text/css" href="/assets/css/slick.min.css?v=0.6" onload="this.rel='stylesheet'">
-    <link rel="preload" as="style" type="text/css" href="/assets/css/simplebar.min.css?v=0.6" onload="this.rel='stylesheet'">
-    <link rel='stylesheet' href='/style.css?v=0.6' type='text/css' media='all' />
-
-    <script type='text/javascript' src='/assets/js/jquery.min.js?v=0.6'></script>
-    <script type="text/javascript" src="/assets/js/jquery.fancybox.min.js?v=0.6" defer></script>
-    <script type="text/javascript" src="/assets/js/simplebar.min.js?v=0.6" defer></script>
-    <script type="text/javascript" src="/assets/js/lazysizes.min.js?v=0.6" defer></script>
-    <script type="text/javascript" src="/assets/js/slick.min.js?v=0.6" defer></script>
-    <script type="text/javascript" src="/assets/js/main.js?v=0.6" defer></script>
-
+    <title><?php echo ($page_title); ?></title>
+    <meta name="keywords" content="экскурсии, <?php echo ($list[0]->city->name_ru); ?>, русский, на русском, гиды, авторские, эксклюзивные, исторические, обзорные, пешеходные, на автобусе, купить, заказать, забронировать, цена, недорого, дешево, скидка, описание, список, прайс, травэл, мания, travel, mania" />
+    <meta name="description" content="✅ Групповые и индивидуальные экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны лучшие экскурсии  <?php echo ($list[0]->city->in_obj_phrase); ?>', которые тщательно продуманы и составлены гидами." />
+    <?php
+    include 'inc/head-static.php';
+    ?>
 </head>
 
-<?php
-$des_countries_path = $_SERVER['DOCUMENT_ROOT'] . '/description/des-country.json';
-$des_countries = file_get_contents($des_countries_path);
-$des_countries = json_decode($des_countries);
-
-$current_country = $list[0]->country->name_en;
-$current_country = str_replace(" ", "-", $current_country);
-
-$current_des_countries = array_filter($des_countries, function ($country) use ($current_country) {
-    return $country->name == $current_country;
-});
-$current_des_country = reset($current_des_countries); ?>
-
 <body>
+    <?php
+    include 'inc/header.php';
+    ?>
     <section class="top">
         <div class="top__slider">
-            <div id="top-images-city" class="image-top_slider <?php echo ($current_des_city->images) ?>">
-                <?php if ($current_des_city->images != "") : ?>
-                    <?php $indexImg = 0; ?>
-                    <?php foreach ($current_des_city->images as $imgUrls) {
-                        if ($indexImg == 0) { ?>
-                            <img src="<?php echo ($imgUrls) ?>" alt="">
-                        <?php }
-                        $indexImg++; ?>
-                    <?php }  ?>
-                <?php else : ?>
-                    <img style="opacity:0" src="/wp-content/uploads/Main/Zaglushka-1-min.jpg" alt="">
-                    <img style="opacity:0" src="/wp-content/uploads/Main/Zaglushka-2-min.jpg" alt="">
-                <?php endif; ?>
+            <div id="top-images-city" class="image-top_slider ">
+                <img data-src="<?php echo ($current_des_city->images[0]) ?>" class="lazyload">
             </div>
             <div class="top__slider-text">
                 <div class="container">
@@ -74,7 +71,7 @@ $current_des_country = reset($current_des_countries); ?>
                         </a>
                     </div>
                     <div class="breadcrumbs__arrow">
-                        <img src="/assets/images/arrow-bread.png" alt="">
+                        <img class="lazyload" data-src="/assets/images/arrow-bread.png" alt="">
                     </div>
                 </div>
                 <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
@@ -85,7 +82,7 @@ $current_des_country = reset($current_des_countries); ?>
                         </a>
                     </div>
                     <div class="breadcrumbs__arrow">
-                        <img src="/assets/images/arrow-bread.png" alt="">
+                        <img class="lazyload" data-src="/assets/images/arrow-bread.png" alt="">
                     </div>
                 </div>
                 <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
@@ -125,8 +122,6 @@ $current_des_country = reset($current_des_countries); ?>
                     </div>
                 </div>
             </div>
-            <div style="display:none;" id="type-page">city</div>
-            <div style="opacity:0" id="city-name"><?php echo ($list[0]->city->name_en); ?> </div>
         </div>
     </section>
 
@@ -150,7 +145,7 @@ $current_des_country = reset($current_des_countries); ?>
                                 }
                                 ?>
                                 <a class="link" href="/<?= str_replace('+', '-', $country__name_en) ?>/<?= str_replace('+', '-', $city__name_en) ?>/excursion-<?= $item->id; ?>/" data-images="<?php echo htmlspecialchars(json_encode($arrayImg)) ?>">
-                                    <img class="static" src="<?php echo $item->photos['0']->thumbnail ?>" alt="">
+                                    <img class="static lazyload" data-src="<?php echo $item->photos['0']->thumbnail ?>" alt="">
                                 </a>
                                 <?php if ($item->price->discount->value) { ?>
                                     <div class="slick-tours__item-img-box">
@@ -164,25 +159,25 @@ $current_des_country = reset($current_des_countries); ?>
                             </div>
                             <div class="item-time-rating">
                                 <span class="item-time">
-                                    <img src="/assets/images/icon-time.png" alt=""> <span><?php echo $item->duration ?> </span>
+                                    <img class="lazyload" data-src="/assets/images/icon-time.png" alt=""> <span><?php echo $item->duration ?> </span>
                                 </span>
                                 <?php if ($item->rating) { ?>
                                     <span class="item-rating">
                                         <span style="display:none;" class="reviews-rating"><?php echo $item->rating ?> </span>
                                         <div class="star-rating-item">
                                             <span class="reviews-rating-img" style="width: <?php echo ($item->rating * 20) ?>%">
-                                                <img class="icon-star" src="/assets/images/icon-star-1.png" alt="">
-                                                <img class="icon-star" src="/assets/images/icon-star-1.png" alt="">
-                                                <img class="icon-star" src="/assets/images/icon-star-1.png" alt="">
-                                                <img class="icon-star" src="/assets/images/icon-star-1.png" alt="">
-                                                <img class="icon-star" src="/assets/images/icon-star-1.png" alt="">
+                                                <img class="icon-star lazyload" data-src="/assets/images/icon-star-1.png" alt="">
+                                                <img class="icon-star lazyload" data-src="/assets/images/icon-star-1.png" alt="">
+                                                <img class="icon-star lazyload" data-src="/assets/images/icon-star-1.png" alt="">
+                                                <img class="icon-star lazyload" data-src="/assets/images/icon-star-1.png" alt="">
+                                                <img class="icon-star lazyload" data-src="/assets/images/icon-star-1.png" alt="">
                                             </span>
                                             <span class="reviews-rating-img bac">
-                                                <img class="icon-star" src="/assets/images/icon-star-1.png" alt="">
-                                                <img class="icon-star" src="/assets/images/icon-star-1.png" alt="">
-                                                <img class="icon-star" src="/assets/images/icon-star-1.png" alt="">
-                                                <img class="icon-star" src="/assets/images/icon-star-1.png" alt="">
-                                                <img class="icon-star" src="/assets/images/icon-star-1.png" alt="">
+                                                <img class="icon-star lazyload" data-src="/assets/images/icon-star-1.png" alt="">
+                                                <img class="icon-star lazyload" data-src="/assets/images/icon-star-1.png" alt="">
+                                                <img class="icon-star lazyload" data-src="/assets/images/icon-star-1.png" alt="">
+                                                <img class="icon-star lazyload" data-src="/assets/images/icon-star-1.png" alt="">
+                                                <img class="icon-star lazyload" data-src="/assets/images/icon-star-1.png" alt="">
                                             </span>
                                         </div>
                                     </span>
@@ -204,7 +199,7 @@ $current_des_country = reset($current_des_countries); ?>
                                 </div>
                                 <div class="item-price-guide">
                                     <div class="item-guide">
-                                        <div class="item-guide-photo"> <img src="<?php echo $item->guide->avatar->medium  ?>" alt=""> </div>
+                                        <div class="item-guide-photo"> <img class="lazyload" data-src="<?php echo $item->guide->avatar->medium  ?>" alt=""> </div>
                                         <div class="item-guide-name"><?php echo $item->guide->first_name ?> <br>
                                             <?php
                                             $city_name = str_replace('é', 'e', $item->name_en);
@@ -269,8 +264,8 @@ $current_des_country = reset($current_des_countries); ?>
                     <div>
                         <p>Забронировать экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> поможет наш видиопример. Перед тем, как Вы определитесь с тематикой экскурсии и выбирите удобную дату, можно задать любой вопрос гиду. Посмотрите видео и узнайте все наши приемущества.</p>
                         <video controls="controls" playsinline poster="/assets/images/TRAVEL-MANIA-EXMP.png">
-                            <source src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/webm">
-                            <source src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/mp4">
+                            <source class="lazyload" data-src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/webm">
+                            <source class="lazyload" data-src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/mp4">
                         </video>
                         <p class="autor">
                             Видео: © Travel Mania
@@ -281,7 +276,7 @@ $current_des_country = reset($current_des_countries); ?>
                     </div>
                 </div>
             </div>
-
+        </div>
     </section>
 
     <script>
@@ -476,6 +471,6 @@ $current_des_country = reset($current_des_countries); ?>
             }
         }
     </script>
-</body>
-
-</html>
+    <?php
+    include 'inc/footer.php';
+    ?>

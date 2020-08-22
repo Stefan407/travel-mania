@@ -1,3 +1,6 @@
+
+
+
 @-webkit-keyframes tilt-in-bl {
     0% {
         -webkit-transform: rotateY(35deg) rotateX(-20deg) translate(-250px, 250px) skew(-12deg, -15deg);
@@ -27,15 +30,14 @@
 }
 
 html {
-    line-height: 1.15;
+    line-height: 1.5;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
 
 * {
     outline: none;
-    font-family: "Roboto",'Open Sans',sans-serif !important;
-
+    font-family: "Roboto", 'Open Sans', sans-serif !important;
 }
 
 body {
@@ -53,11 +55,19 @@ section {
     display: block;
 }
 
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
 
 figcaption,
 figure,
 main {
     display: block;
+}
+
+figure {
+    margin: 1em 0;
 }
 
 hr {
@@ -68,16 +78,36 @@ hr {
     overflow: visible;
 }
 
+p {
+    color: #000;
+    font-size: 18px;
+}
 
 pre {
     font-size: 1em;
 }
 
+a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    text-decoration: none;
+}
+
+a:active,
+a:hover {
+    outline-width: 0;
+}
 
 abbr[title] {
     border-bottom: 1px #767676 dotted;
     text-decoration: none;
 }
+
+b,
+strong {
+    font-weight: inherit;
+}
+
 b,
 strong {
     font-weight: 700;
@@ -1916,7 +1946,7 @@ body:not(.title-tagline-hidden) .site-branding-text {
 
 .description-content-text-reviews .reviews-text {
     font-size: 16px;
-    font-style: italic;
+    font-style: normal;
 }
 
 .page .panel-content .recent-posts .entry-title {
@@ -3717,6 +3747,9 @@ h2 {
     width: 100%;
     top: 0;
     text-align: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .top__slider .top__slider-footer {
@@ -3786,6 +3819,7 @@ h2 {
 
 .breadcrumbs-item:last-child p {
     color: #222 !important;
+    margin-top: 0;
 }
 
 .slick-dots li {
@@ -4382,7 +4416,7 @@ h2 {
     position: absolute;
     top: 10px;
     left: auto;
-    right: 470px;
+    right: 530px;
     width: 100%;
     max-width: 300px;
     z-index: 35;
@@ -4605,6 +4639,31 @@ h2 {
     background: #cdf2ff42;
 }
 
+.link-all-ex {
+    text-align: center;
+    margin: 20px auto;
+    font-size: 20px;
+}
+
+.link-all-ex a {
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 8px;
+    background: #0785b0;
+    transition: .3s;
+    display: inline-block;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.link-all-ex a:hover {
+    color: #841b1b;
+}
+
 .country-btn-wrap .btn-title {
     display: flex;
     justify-content: space-between;
@@ -4789,7 +4848,7 @@ h2 {
 
 /* VIEW */
 .star-rating-item {
-    /* background-image: url("http://test-tm.ru/wp-content/themes/lz-computer-repair/assets/images/icon-stars.png"); */
+    /* background-image: url("/wp-content/themes/lz-computer-repair/assets/images/icon-stars.png"); */
 
     position: relative;
     background-size: cover;
@@ -4902,7 +4961,7 @@ h2 {
 .order-panel-wrap {
     position: sticky;
     top: 60px;
-    border-radius: 3px;
+    border-radius: 8px;
     padding: 30px;
     color: #fff;
     background: rgba(179, 36, 36, 1);
@@ -5117,6 +5176,7 @@ h2 {
 .breadcrumbs__block,
 .breadcrumbs__arrow {
     margin-right: 10px;
+    display: flex;
 }
 
 .gallery-img .first-block {
@@ -5235,7 +5295,7 @@ h6 {
     width: 100px;
     height: 100px;
     border-radius: 8%;
-    margin-bottom: 20px;
+    margin-top: 36px;
 }
 
 .order-panel-wrap .span-price {
@@ -5293,38 +5353,38 @@ h6 {
 
 .order-panel-wrap .order-btn {
     color: #fff;
-    background: #51bce6;
-    border: 2px solid #51bce6;
+    background: #0785b0;
+    border: 2px solid #0785b0;
 }
 
 .order-panel-wrap .order-btn:hover {
     background: #fff;
-    color: #51bce6;
-    border: 2px solid #51bce6;
+    color: #0785b0;
+    border: 2px solid #0785b0;
 }
 
 .order-panel-wrap .more-btn {
     color: #fff;
-    background: #85c99d;
-    border: 2px solid #85c99d;
+    background: #00be8b;
+    border: 2px solid #00be8b;
 }
 
 .order-panel-wrap .more-btn:hover {
-    color: #85c99d;
+    color: #00be8b;
     background: #fff;
-    border: 2px solid #85c99d;
+    border: 2px solid #00be8b;
 }
 
 .order-panel-wrap .order-ask {
-    background: #e04f67;
-    border: 2px solid #e04f67;
+    background: #e66363;
+    border: 2px solid #e66363;
     color: #fff;
 }
 
 .order-panel-wrap .order-ask:hover {
     background: #fff;
-    border: 2px solid #e04f67;
-    color: #e04f67;
+    border: 2px solid #e66363;
+    color: #e66363;
 }
 
 .order-panel-wrap .panel-info {
@@ -5359,6 +5419,36 @@ h6 {
     padding: 10px 20px;
     transition: 0.5s;
 }
+
+.btn-order-wrap {
+    text-align: center;
+}
+
+.btn-order-wrap .text {
+    color: #00be8b;
+}
+
+.btn-order-wrap .btn-click.act {
+    background: #1f5f48;
+    border-radius: 5px;
+    color: #fff;
+    border: 2px solid #1f5f48;
+    height: 40px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-order-wrap .btn-click:hover {
+    background: #fff;
+    color: #1f5f48;
+    border: 2px solid #1f5f48;
+}
+
 
 /* CONTACT FORM */
 .contact-form-travel-mania {
@@ -6310,7 +6400,7 @@ html {
 .yandex-link {
     width: 30px;
     height: 30px;
-    background-image: url("http://test-tm.ru/wp-content/themes/lz-computer-repair/assets/images/icon-dzen.png");
+    background-image: url("/wp-content/themes/lz-computer-repair/assets/images/icon-dzen.png");
     background-size: contain;
 }
 
