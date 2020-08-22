@@ -27,7 +27,7 @@
 </head>
 
 <?php
-$des_countries_path = $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/lz-computer-repair/description/des-country.json';
+$des_countries_path = $_SERVER['DOCUMENT_ROOT'] . '/description/des-country.json';
 $des_countries = file_get_contents($des_countries_path);
 $des_countries = json_decode($des_countries);
 

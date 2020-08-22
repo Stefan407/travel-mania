@@ -34,7 +34,8 @@ html {
 
 * {
     outline: none;
-    font-family: "Roboto", 'Open Sans', sans-serif !important;
+    font-family: "Roboto",'Open Sans',sans-serif !important;
+
 }
 
 body {
@@ -52,19 +53,11 @@ section {
     display: block;
 }
 
-h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
-}
 
 figcaption,
 figure,
 main {
     display: block;
-}
-
-figure {
-    margin: 1em 0;
 }
 
 hr {
@@ -75,36 +68,16 @@ hr {
     overflow: visible;
 }
 
-p {
-    color: #000;
-    font-size: 18px;
-}
 
 pre {
     font-size: 1em;
 }
 
-a {
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-    text-decoration: none;
-}
-
-a:active,
-a:hover {
-    outline-width: 0;
-}
 
 abbr[title] {
     border-bottom: 1px #767676 dotted;
     text-decoration: none;
 }
-
-b,
-strong {
-    font-weight: inherit;
-}
-
 b,
 strong {
     font-weight: 700;

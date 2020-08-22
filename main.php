@@ -11,17 +11,19 @@
     <link rel="icon" href="https://travel-mania.org/wp-content/uploads/2019/05/cropped-Logo-32x32.png" sizes="32x32" />
     <link rel="apple-touch-icon" href="https://travel-mania.org/wp-content/uploads/2019/05/cropped-Logo-180x180.png" />
     <meta name="msapplication-TileImage" content="https://travel-mania.org/wp-content/uploads/2019/05/cropped-Logo-270x270.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
-    <link rel="preload" as="style" type="text/css" href="/assets/css/slick.min.css?v=0.6" onload="this.rel='stylesheet'">
-    <link rel="preload" as="style" type="text/css" href="/assets/css/simplebar.min.css?v=0.6" onload="this.rel='stylesheet'">
-    <link rel='stylesheet' href='/style.css?v=0.6' type='text/css' media='all' />
+    <link rel="preload" as="style" type="text/css" href="/assets/css/slick.min.css?v=1.2 " onload="this.rel='stylesheet'">
+    <link rel="preload" as="style" type="text/css" href="/assets/css/simplebar.min.css?v=1.2 " onload="this.rel='stylesheet'">
+    <link rel="stylesheet" as="style" type="text/css" href="/assets/css/normalize.css?v=1.2 " >
+    <link rel='stylesheet' as="style" type="text/css" href='/assets/css/style.css?v=1.2 ' media='all' />
 
-    <script type='text/javascript' src='/assets/js/jquery.min.js?v=0.6'></script>
-    <script type="text/javascript" src="/assets/js/jquery.fancybox.min.js?v=0.6" defer></script>
-    <script type="text/javascript" src="/assets/js/simplebar.min.js?v=0.6" defer></script>
-    <script type="text/javascript" src="/assets/js/lazysizes.min.js?v=0.6" defer></script>
-    <script type="text/javascript" src="/assets/js/slick.min.js?v=0.6" defer></script>
-    <script type="text/javascript" src="/assets/js/main.js?v=0.6" defer></script>
+    <script type='text/javascript' src='/assets/js/jquery.min.js?v=1.2 '></script>
+    <script type="text/javascript" src="/assets/js/jquery.fancybox.min.js?v=1.2 " defer></script>
+    <script type="text/javascript" src="/assets/js/simplebar.min.js?v=1.2 " defer></script>
+    <script type="text/javascript" src="/assets/js/lazysizes.min.js?v=1.2 " defer></script>
+    <script type="text/javascript" src="/assets/js/slick.min.js?v=1.2 " defer></script>
+    <script type="text/javascript" src="/assets/js/main.js?v=1.2 " defer></script>
 
 </head>
 <body>
@@ -31,7 +33,7 @@ include 'inc/header.php';
 <section class="top">
     <div class="top__slider">
         <div class="image-top_slider">
-            <img class="lazyload" data-src="/uploads/Main/Main-11.jpg" alt="">
+            <img src="/uploads/Main/Main-12.jpg" alt="">
         </div>
         <div class="top__slider-text">
             <div class="container">
@@ -144,7 +146,7 @@ include 'inc/header.php';
                                 </div>
                                 <div class="item-price-guide">
                                     <div class="item-guide">
-                                        <div class="item-guide-photo"> <img data-src="<?php echo $tour->guide->avatar->medium  ?>" alt=""> </div>
+                                        <div class="item-guide-photo"> <img class="lazyload" data-src="<?php echo $tour->guide->avatar->medium  ?>" alt=""> </div>
                                         <div class="item-guide-name">
                                             <span>
                                                 <?php echo $tour->guide->first_name ?>
@@ -168,7 +170,7 @@ include 'inc/header.php';
                 <div class="video-box">
                     <h2>Мир за одну минуту</h2>
                     <div class="video__text">
-                        <video controls="controls" playsinline poster="/assets/images/move-img.png">
+                        <video controls="controls" playsinline poster="/assets/images/move-img.webp">
                             <source class="lazyload" data-src="/assets/video/MOVE.mp4" type="video/webm">
                             <source class="lazyload" data-src="/assets/video/MOVE.mp4" type="video/mp4">
                         </video>

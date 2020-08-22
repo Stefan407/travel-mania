@@ -216,8 +216,6 @@ $current_des_country = reset($current_des_countries);
         </div>
 
         <body>
-            <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-
 </html>
 <script>
     $(".country-btn-wrap .btn-title").on("click", function() {

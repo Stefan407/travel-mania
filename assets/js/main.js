@@ -15,7 +15,7 @@ $(document).ready(function () {
         autoplay: true,
         autoplaySpeed: 3000
     });
-    
+
     $('.slick-tours').slick({
         prevArrow: '<button type="button" class="slick-prev slick-btn" ><img src="/assets/images/arrow-icon.png" alt=""></button>',
         nextArrow: '<button type="button" class="slick-next slick-btn" ><img src="/assets/images/arrow-icon.png" alt=""></button>',
