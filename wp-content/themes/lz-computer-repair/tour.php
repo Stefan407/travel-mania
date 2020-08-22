@@ -180,20 +180,18 @@ $current_city = str_replace(" ", "-", $current_city);
                                         <div class="guide des">
                                             <div class="guide-left">
                                                 <img src="<?php echo $list->guide->avatar->medium ?>" alt="">
-                                                <h3 style="text-align: center; ">гид<br><?php echo $list->guide->first_name ?></h3>
                                             </div>
                                             <div class="guide-right">
-                                                <div class="text-guid"> <?php echo $list->guide->description ?> </div>
+                                                <div class="text-guid"><h3 style="text-align: center; ">Гид <?php echo $list->guide->first_name ?></h3><?php echo $list->guide->description ?> </div>
                                                 <div class="btn-guid">Подробнее...</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="expage-dates-list"></div>
-
                                 </div>
                             </div>
                             <div class="order-panel-wrap">
-                                <div class="panel-title"> - Забронировать -</div>
+                                <div class="panel-title">Забронировать</div>
                                 <div class="description-item">
                                     <div class="description-string"> <span>Длительность</span> <span><?php echo $list->duration ?> часа(ов)</span> </div>
                                     <div class="description-string " id="child-string"> <span>Дети</span> <span id="child-span"><?php if ($list->child_friendly == 1) { ?> Можно с детьми <?php } else { ?>Без детей <?php } ?></span> </div>
@@ -308,8 +306,52 @@ $current_city = str_replace(" ", "-", $current_city);
                                 </div>
                             </div>
                             <div class="reviews-btn">
-                                <span onclick="more()">Показать еще...</span>
+                                <span onclick="ym(56569540,'reachGoal','vse-otzivi'); more()">⇓ показать все отзывы ⇓</span>
                             </div>
+                                        <div class="container-calendar" style="display: none;">
+                                        <h2 class="tit_cal" style="text-align: center; margin-bottom:40px;display: none;">ЗАКАЗАТЬ НА СВОБОДНУЮ ДАТУ</h2>
+                                            <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M4.293,18.293,10.586,12,4.293,5.707A1,1,0,0,1,5.707,4.293L12,10.586l6.293-6.293a1,1,0,1,1,1.414,1.414L13.414,12l6.293,6.293a1,1,0,1,1-1.414,1.414L12,13.414,5.707,19.707a1,1,0,0,1-1.414-1.414Z" /></svg>
+                                            <div class="container-calendar-item">
+                                                <h3 id="monthAndYear"></h3>
+                                                <div class="button-container-calendar">
+                                                    <button id="previous" style="display:none;">&#8249;</button>
+                                                    <button id="next">&#8250;</button>
+                                                </div>
+
+                                                <table class="table-calendar" id="calendar" data-lang="en">
+                                                    <thead id="thead-month"></thead>
+                                                    <tbody id="calendar-body"></tbody>
+                                                </table>
+                                                <div class="legend">
+                                                    <div class="legend-item busy">День занят</div>
+                                                    <div class="legend-item available">День свободен</div>
+                                                </div>
+
+                                                <div class="footer-container-calendar">
+                                                    <label for="month">Jump To: </label>
+                                                    <select id="month" onchange="jump()">
+                                                        <option value=0>Jan</option>
+                                                        <option value=1>Feb</option>
+                                                        <option value=2>Mar</option>
+                                                        <option value=3>Apr</option>
+                                                        <option value=4>May</option>
+                                                        <option value=5>Jun</option>
+                                                        <option value=6>Jul</option>
+                                                        <option value=7>Aug</option>
+                                                        <option value=8>Sep</option>
+                                                        <option value=9>Oct</option>
+                                                        <option value=10>Nov</option>
+                                                        <option value=11>Dec</option>
+                                                    </select>
+                                                    <select id="year" onchange="jump()"></select>
+                                                </div>
+                                            </div>
+                                            <div class="btn-order-wrap">
+                                                <div class="text"></div>
+                                                <div class="btn-click" data-url="" onclick="ym(56569540,'reachGoal','bron-data');"></div>
+                                            </div>
+                                        </div>
                         <?php } ?>
                     </div>
                 </div>
