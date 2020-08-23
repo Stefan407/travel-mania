@@ -4804,12 +4804,12 @@ h6 {
     transition: 0.3s;
     cursor: pointer;
 }
-.order-panel-wrap .order-btn {
+.order-panel-wrap .more-btn.one {
     color: #fff;
     background: #0785b0;
     border: 2px solid #0785b0;
 }
-.order-panel-wrap .order-btn:hover {
+.order-panel-wrap .more-btn.one:hover {
     background: #fff;
     color: #0785b0;
     border: 2px solid #0785b0;
@@ -5257,6 +5257,20 @@ img.f-logos {
     .order-panel {
         display: none;
     }
+.description-content-text .guide.des {
+        display: none;
+    }
+    
+    .description-content-text .guide.mob {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+    }
+.description-content-text .guide .guide-left {
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
     
     .description-content .order-panel-wrap {
         display: block;
@@ -5631,21 +5645,9 @@ img.f-logos {
         display: block;
     }
     
-    .description-content-text .guide.des {
-        display: none;
-    }
     
-    .description-content-text .guide.mob {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 10px;
-    }
     
-    .description-content-text .guide .guide-left {
-        margin: 0 auto;
-        margin-bottom: 20px;
-    }
+    
     
     .all-cauntries #search {
         display: flex;
