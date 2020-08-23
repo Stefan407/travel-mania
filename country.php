@@ -151,7 +151,6 @@ $page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены,
                 </div>
             </div>
             <div id="cityes" class="popular-cityes__wrap 111">
-                <?php $count = 1 ?>
                 <?php foreach ($list as $country) { ?>
                     <div id="item-element" class="item-element w-33">
                         <?php
@@ -172,10 +171,11 @@ $page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены,
                             </div>
                         </a>
                     </div>
-                    <?php $count++ ?>
                 <?php } ?>
             </div>
-            <button id="btn-more" class="btn-more">Показать ещё... <span id="span-col">всего 28</span></button>
+            <?php if ($urlNext) { ?>
+                <button id="btn-more" class="btn-more" data-url-next="<?php echo ($urlNext) ?>">Показать ещё...</button>
+            <?php } ?>
         </div>
     </section>
     <section class="video">
@@ -215,37 +215,6 @@ $page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены,
                 $(".country-btn-wrap .btn-block").toggleClass("active");
             })
 
-            if ($(".popular-cityes__wrap .item-element").length > 24) {
-                $(".popular-cityes .btn-more").css("display", "block");
-
-            } else {
-                $(".popular-cityes .btn-more").css("display", "none");
-            }
-            let showElensVisual = 48;
-            $(".popular-cityes .btn-more").on("click", function() {
-                let elems = $(".popular-cityes__wrap .item-element");
-                let length = $(".popular-cityes__wrap .item-element").length;
-                if (showElensVisual > length) {
-                    showElem(showElensVisual, true)
-                } else {
-                    showElem(showElensVisual, false)
-                }
-                showElensVisual = showElensVisual + 24;
-            })
-
-            function showElem(count, btn) {
-                let elems = $(".popular-cityes__wrap .item-element");
-                if (count) {
-                    for (i = 1; i < count; i++) {
-                        if ($(elems[i]).length) {
-                            elems[i].classList.remove("hide");
-                        }
-                    }
-                }
-                if (btn) {
-                    $(".popular-cityes .btn-more").css("display", "none");
-                }
-            }
             var search = document.querySelector("#cityes");
             var searchChild = document.querySelector("#cityes").innerHTML;
 

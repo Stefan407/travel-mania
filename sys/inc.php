@@ -27,7 +27,7 @@ function getAllResults($url, &$list)
 
     if (isset($countries->results)) {
         $list = array_merge($list, $countries->results);
-    } 
+    }
     // else {
     //     echo "Error results ({$url})";
     // }
@@ -38,13 +38,14 @@ function getAllResults($url, &$list)
 }
 
 
-function getAllResultsNoNext($url, &$list)
+function getAllResultsNoNext($url, &$list, &$urlNext)
 {
     $countries = getData($url);
     if (isset($countries->results)) {
         $list = array_merge($list, $countries->results);
-    } else {
-        echo "Error results ({$url})";
+    }
+    if (isset($countries->next)) {
+        $urlNext = $countries->next;
     }
 }
 

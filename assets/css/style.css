@@ -3564,7 +3564,6 @@ body {
 }
 
 #cityes {
-    overflow: hidden;
     transition: 0.5s;
 }
 
@@ -3855,6 +3854,10 @@ h2 {
 
 .image-top_slider {
     position: relative;
+}
+
+.image-top_slider img {
+    width: 100%;
 }
 
 .breadcrumbs img {
@@ -4323,7 +4326,6 @@ h2 {
     background-color: #0785b0;
     border-radius: 8px;
     color: #fff;
-    display: none;
     transition: 0.3s;
     border: 2px solid transparent;
 }
@@ -4332,7 +4334,6 @@ h2 {
     background-color: #fff;
     color: #0785b0;
     border: 2px solid #0785b0;
-    display: none;
 }
 
 .slick-tours .slick-prev {

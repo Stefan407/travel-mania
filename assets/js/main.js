@@ -5,6 +5,7 @@ $(document).ready(function () {
     let valueLength;
     let dataCalendar;
     let xhrOne = null;
+    let urlNextListCity = $(".popular-cityes .btn-more").data("url-next");
 
 
     function request(url) {
@@ -369,6 +370,42 @@ $(document).ready(function () {
             autoHide: false
         })
     })
+
+    function addCities(result, nextUrl) {
+        console.log(result)
+        result.map((item) => {
+            $("#cityes").innerHTML += "sdfsdfsfd";
+        })
+
+        if (nextUrl) {
+            urlNextListCity = nextUrl;
+            $(".popular-cityes .btn-more").show();
+        }
+    }
+
+    if ($(".popular-cityes .btn-more").length) {
+        $(".popular-cityes .btn-more").on("click", function () {
+            $(this).hide();
+            if (xhrOne !== null) {
+                xhrOne.abort();
+            };
+            xhrOne = null;
+            xhrOne = new XMLHttpRequest();
+            let data = null;
+            xhrOne.open('GET', urlNextListCity + "&format=json", true);
+            xhrOne.send();
+
+            xhrOne.onreadystatechange = function () {
+                if (xhrOne.readyState == 4) {
+                    if (xhrOne.status == 200) {
+                        data = jQuery.parseJSON(xhrOne.responseText);
+                        addCities(data.results, data.next)
+                    }
+                }
+            };
+        })
+    }
+
 
     // if ($('.image-top_slider')) {
     //     $('.image-top_slider').slick({

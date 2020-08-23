@@ -73,15 +73,15 @@ if (!is_null($page)) {
     }
 } else if ($country__name_en) {
     $page = 'Country';
-    getAllResults("https://experience.tripster.ru/api/cities/?country__name_en={$country__name_en}", $list);
+    getAllResultsNoNext("https://experience.tripster.ru/api/cities/?page_size=12&format=json&country__name_en={$country__name_en}", $list, $urlNext);
 } else {
     if ($_SERVER['REQUEST_URI'] != '/') {
         include_once('404.php');
         exit;
     }
     $page = 'Main';
-    getAllResultsNoNext('https://experience.tripster.ru/api/experiences/', $list);
-    getAllResultsNoNext('https://experience.tripster.ru/api/cities/', $list1);
+    getAllResultsNoNext('https://experience.tripster.ru/api/experiences/', $list, $urlNext);
+    getAllResultsNoNext('https://experience.tripster.ru/api/cities/', $list1, $urlNext);
 }
 
 
@@ -99,5 +99,3 @@ switch ($page) {
         include_once 'tour.php';
         break;
 }
-
-?>
