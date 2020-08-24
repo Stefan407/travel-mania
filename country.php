@@ -173,6 +173,7 @@ $page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены,
                     </div>
                 <?php } ?>
             </div>
+            <div class="load-tour" style="display: none;margin: 20px 0;text-align: center;"> <img style="width:35px;" src="/assets/images/2.gif" alt=""></div>
             <?php if ($urlNext) { ?>
                 <button id="btn-more" class="btn-more" data-url-next="<?php echo ($urlNext) ?>">Показать ещё...</button>
             <?php } ?>
@@ -210,13 +211,13 @@ $page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены,
     </section>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // OPEN MENU SORT
+            var search = document.querySelector("#cityes");
+            var searchChild = document.querySelector("#cityes").innerHTML;
 
             $(".country-btn-wrap .btn-title").on("click", function() {
                 $(".country-btn-wrap .btn-block").toggleClass("active");
             })
-
-            var search = document.querySelector("#cityes");
-            var searchChild = document.querySelector("#cityes").innerHTML;
 
             document.getElementById("btn-rat").onclick = function() {
                 $(".country-btn-wrap .btn-title span").html(document.querySelector("#btn-rat span").innerHTML);
@@ -224,8 +225,8 @@ $page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены,
                 document.getElementById("btn-al").classList.remove("active");
                 document.getElementById("btn-rat").classList.add("active");
                 document.querySelector("#cityes").innerHTML = searchChild;
-
             }
+
             document.getElementById("btn-al").onclick = function() {
                 $(".country-btn-wrap .btn-title span").html(document.querySelector("#btn-al span").innerHTML);
                 $(".country-btn-wrap .btn-block").removeClass("active");
@@ -241,16 +242,6 @@ $page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены,
                 })
             }
             $("#btn-rat").trigger("click");
-
-
-            function slideFunc() {
-                $("#top-images img").css({
-                    "opacity": "1",
-                    "display": "block"
-                });
-            }
-
-            setTimeout(slideFunc, 500);
         });
     </script>
     <?php

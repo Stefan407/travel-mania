@@ -3849,7 +3849,7 @@ h2 {
     font-weight: 700;
     color: #fff;
     font-size: 40px;
-    line-height: 40px;
+    line-height: 1.3;
 }
 
 .image-top_slider {
@@ -4032,7 +4032,7 @@ h2 {
 
 .popular-cityes__wrap .item-element a img {
     width: 100%;
-    height: 90%;
+    height: 100%;
     border-radius: 8px;
     object-fit: cover;
     transition: .3s;
@@ -4166,7 +4166,7 @@ h2 {
 }
 
 .tours .slick-tours__item {
-    padding: 10px;
+    padding:0 10px;
     width: 33.3%;
     min-height: 1px;
     margin-bottom: 20px;
@@ -6380,6 +6380,7 @@ img.f-logos {
 @media (max-width: 420px) {
     .popular-cityes__wrap .item-element.w-33 {
         width: 100%;
+        padding:10px 0; 
     }
 
     .reviews-photo {

@@ -29,6 +29,7 @@ $(document).ready(function () {
 
     }
 
+
     function replaceName(type, value) {
         switch (type) {
             case "noEm":
@@ -39,10 +40,13 @@ $(document).ready(function () {
                 let newStr2 = value.replace("_", "-").replace("_", "-").replace("+", "-").replace("+", "-").replace(" ", "-").replace(" ", "-");
                 return newStr2;
                 break;
+            case "cityCountry":
+                let newStr3 = value.replace('`', '').replace("'", "");
+                return newStr3;
+                break;
             default:
                 break;
         }
-
     }
 
     function initUrlExperience(id) {
@@ -313,11 +317,6 @@ $(document).ready(function () {
         });
     }
 
-    function more() {
-        document.getElementById("description-item-reviews").style.maxHeight = "100%";
-        document.querySelector(".reviews-btn").style.display = "none";
-    }
-
     $('.slick-tours.slider').slick({
         prevArrow: '<button type="button" class="slick-prev slick-btn" ><img src="/assets/images/arrow-icon.png" alt=""></button>',
         nextArrow: '<button type="button" class="slick-next slick-btn" ><img src="/assets/images/arrow-icon.png" alt=""></button>',
@@ -372,9 +371,12 @@ $(document).ready(function () {
     })
 
     function addCities(result, nextUrl) {
-        console.log(result)
         result.map((item) => {
-            $("#cityes").innerHTML += "sdfsdfsfd";
+            let country = replaceName("cityCountry", item.country.name_en);
+            let newCountry = replaceName("noSpace", country);
+            let city = replaceName("cityCountry", item.name_en);
+            let newCity = replaceName("noSpace", city);
+            $("#cityes").append(`<div id="item-element" class="item-element w-33"><a href="/${newCountry}/${newCity}/"><img src="${item.image.thumbnail}"><div class="item-title-wrap"><div class="item-title"><span class="name-title"> ${item.name_ru} </span></div><span class="item-span">Экскурсий: ${item.experience_count}</span></div></a></div>`);
         })
 
         if (nextUrl) {
@@ -385,6 +387,7 @@ $(document).ready(function () {
 
     if ($(".popular-cityes .btn-more").length) {
         $(".popular-cityes .btn-more").on("click", function () {
+            $(".load-tour").show();
             $(this).hide();
             if (xhrOne !== null) {
                 xhrOne.abort();
@@ -400,25 +403,12 @@ $(document).ready(function () {
                     if (xhrOne.status == 200) {
                         data = jQuery.parseJSON(xhrOne.responseText);
                         addCities(data.results, data.next)
+                        $(".load-tour").hide();
                     }
                 }
             };
         })
     }
-
-
-    // if ($('.image-top_slider')) {
-    //     $('.image-top_slider').slick({
-    //         arrows: false,
-    //         autoplay: true,
-    //         autoplaySpeed: 3000,
-    //         dots: false,
-    //         infinite: true,
-    //         speed: 1000,
-    //         fade: true,
-    //         cssEase: 'linear'
-    //     });
-    // }
     if ($('.slider-tours-photo')) {
         $('.slider-tours-photo').slick({
             arrows: false,
