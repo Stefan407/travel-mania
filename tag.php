@@ -37,9 +37,11 @@ $current_country = str_replace(" ", "-", $current_country);
 $current_des_countries = array_filter($des_countries, function ($country) use ($current_country) {
     return $country->name == $current_country;
 });
-$current_des_country = reset($current_des_countries);
-$listTags = getData('https://experience.tripster.ru/api/citytags/?city=' . $list[0]->city->id);
-$listTagsNew = $listTags->results; ?>
+$current_des_country = reset($current_des_countries); 
+
+$tag_listTags = getData('https://experience.tripster.ru/api/citytags/?city=' . $tag_list[0]->city->id);
+$tag_listTagsNew = $tag_listTags->results;
+?>
 
 <body>
     <section class="top">
@@ -132,8 +134,8 @@ $listTagsNew = $listTags->results; ?>
         </div>
     </section>
     <section class="list-tags">
-    <?php foreach ($listTagsNew as $item) { ?>
-        <div class="list-item"><a href="<?= home_url() ?>/<?= str_replace('+', '-', $country__name_en) ?>/<?= str_replace('+', '-', $city__name_en) ?>/excursion-type-<?php echo $list[0]->city->id; ?>-<?php echo($item->id); ?>:<?php echo($item->slug); ?>/"><?php echo($item->name); ?></a></div>
+    <?php foreach ($tag_listTagsNew as $item) { ?>
+        <div class="list-item"><a href="<?= home_url() ?>/<?= str_replace('+', '-', $country__name_en) ?>/<?= str_replace('+', '-', $city__name_en) ?>/tag-<?php echo $tag_list[0]->city->id; ?>:<?php echo($item->slug); ?>/"><?php echo($item->name); ?></a></div>
     <? }?>
     </section>
 

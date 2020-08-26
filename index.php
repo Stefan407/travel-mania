@@ -13,10 +13,13 @@ require_once 'sys/inc.php';
 $city__name_en = isset($_GET['city__name_en']) ? str_replace('-', '+', urlencode($_GET['city__name_en'])) : null;
 $country__name_en = isset($_GET['country__name_en']) ? str_replace('-', '+', urlencode($_GET['country__name_en'])) : null;
 $experiences_id = isset($_GET['id']) ?  $_GET['id'] : null;
+$excursion_type = isset($_GET['excursion_type']) ?  $_GET['excursion_type'] : null;
+$city_id = isset($_GET['city_id']) ?  $_GET['city_id'] : null;
 $page = isset($_GET['page']) ?  $_GET['page'] : null;
 
 $list = [];
 $list1 = [];
+$tag_list = [];
 
 $reviews = [];
 
@@ -31,6 +34,14 @@ if (!is_null($page)) {
         exit;
     }
     $reviews = getData($list->links->reviews);
+} else if ($excursion_type && $city_id) {
+    $page = 'Tag';
+    getAllResults("https://experience.tripster.ru/api/search/experiences/?city=" . $city_id . "&citytag=" . $excursion_type, $tag_list);
+
+    if (!$tag_list) {
+        include_once('404.php');
+        exit;
+    }
 } else if ($country__name_en && $city__name_en) {
     $page = 'City';
     if ($city__name_en == 'Lviv') {
