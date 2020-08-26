@@ -442,7 +442,7 @@ $listTagsNew = $listTags->results;
                     $(this).find(".link .slick-dots").css("opacity", "0");
                 });
         } else {
-            editElemsTour();
+            // editElemsTour();
         }
     }
 
