@@ -5,37 +5,8 @@ $(document).ready(function () {
     let valueLength;
     let dataCalendar;
     let xhrOne = null;
+    let urlNextListCity = $(".popular-cityes .btn-more").data("url-next");
 
-    $('.burger-btn').click(function () {
-        $(".menu-mobile").toggleClass('menu-mobile-active');
-    });
-    $('.image').slick({
-        arrows: false,
-        dots: true,
-        autoplay: true,
-        autoplaySpeed: 3000
-    });
-
-    $('.slick-tours').slick({
-        prevArrow: '<button type="button" class="slick-prev slick-btn" ><img src="/assets/images/arrow-icon.png" alt=""></button>',
-        nextArrow: '<button type="button" class="slick-next slick-btn" ><img src="/assets/images/arrow-icon.png" alt=""></button>',
-        dots: false,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        responsive: [{
-                breakpoint: 1000,
-                settings: {
-                    slidesToShow: 2,
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                }
-            }
-        ]
-    });
 
     function request(url) {
         $(".windows8").show();
@@ -58,6 +29,7 @@ $(document).ready(function () {
 
     }
 
+
     function replaceName(type, value) {
         switch (type) {
             case "noEm":
@@ -68,10 +40,13 @@ $(document).ready(function () {
                 let newStr2 = value.replace("_", "-").replace("_", "-").replace("+", "-").replace("+", "-").replace(" ", "-").replace(" ", "-");
                 return newStr2;
                 break;
+            case "cityCountry":
+                let newStr3 = value.replace('`', '').replace("'", "");
+                return newStr3;
+                break;
             default:
                 break;
         }
-
     }
 
     function initUrlExperience(id) {
@@ -80,6 +55,7 @@ $(document).ready(function () {
         xhr.open('GET', 'https://experience.tripster.ru/api/experiences/' + id + '', false);
         xhr.send();
         if (xhr.status != 200) {
+            // alert(xhr.status + ': ' + xhr.statusText);https://travel-mania.org/
         } else {
             data = jQuery.parseJSON(xhr.responseText);
         }
@@ -96,6 +72,7 @@ $(document).ready(function () {
         xhr.open('GET', 'https://experience.tripster.ru/api/countries/?name_ru=' + id + '', false);
         xhr.send();
         if (xhr.status != 200) {
+            // alert(xhr.status + ': ' + xhr.statusText);
         } else {
             data = jQuery.parseJSON(xhr.responseText);
         }
@@ -111,6 +88,7 @@ $(document).ready(function () {
         xhr.open('GET', 'https://experience.tripster.ru/api/cities/?name_ru=' + id + '', false);
         xhr.send();
         if (xhr.status != 200) {
+            // alert(xhr.status + ': ' + xhr.statusText);
         } else {
             data = jQuery.parseJSON(xhr.responseText);
         }
@@ -276,7 +254,15 @@ $(document).ready(function () {
             let newData = newKey.split('.');
             newData = newData.reverse();
             newKey = newData.join(".");
-            window.open("https://experience.tripster.ru/experience/booking/" + idExcursion + "?date=" + newKey + "&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link")
+            $(".btn-order-wrap .text").text("Вы выбрали дату: " + data);
+            $(".btn-order-wrap .btn-click").addClass('act');
+            $(".btn-order-wrap .btn-click").attr('data-url', "https://experience.tripster.ru/experience/booking/" + idExcursion + "?date=" + newKey + "&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link");
+            $(".btn-order-wrap .btn-click").text("Забронировать");
+            $(".table-calendar td.date-picker").removeClass('br');
+            $(this).addClass("br");
+            $(".btn-order-wrap .btn-click").on("click", (e) => {
+                window.open($(e.target).data("url"));
+            });
         })
     }
 
@@ -318,6 +304,40 @@ $(document).ready(function () {
         };
     }
 
+    function parametrEdit() {
+        let reviewsDate = document.getElementsByClassName("reviews-date");
+        for (i = 0; i < reviewsDate.length; i++) {
+            reviewsDate[i].innerHTML = reviewsDate[i].innerHTML.split("-").reverse().join(".");
+        }
+    };
+    parametrEdit();
+    if ($('[data-fancybox]').length) {
+        $('[data-fancybox]').fancybox({
+            protect: true
+        });
+    }
+
+    $('.slick-tours.slider').slick({
+        prevArrow: '<button type="button" class="slick-prev slick-btn" ><img src="/assets/images/arrow-icon.png" alt=""></button>',
+        nextArrow: '<button type="button" class="slick-next slick-btn" ><img src="/assets/images/arrow-icon.png" alt=""></button>',
+        dots: false,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [{
+                breakpoint: 1000,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
+        ]
+    });
+
 
     function clickInWindow(e) {
         let click = e.target;
@@ -350,17 +370,44 @@ $(document).ready(function () {
         })
     })
 
-    if ($('.image-top_slider')) {
-        $('.image-top_slider').slick({
-            arrows: false,
-            autoplay: true,
-            autoplaySpeed: 3000,
-            dots: false,
-            infinite: true,
-            speed: 1000,
-            fade: true,
-            cssEase: 'linear'
-        });
+    function addCities(result, nextUrl) {
+        result.map((item) => {
+            let country = replaceName("cityCountry", item.country.name_en);
+            let newCountry = replaceName("noSpace", country);
+            let city = replaceName("cityCountry", item.name_en);
+            let newCity = replaceName("noSpace", city);
+            $("#cityes").append(`<div id="item-element" class="item-element w-33"><a href="/${newCountry}/${newCity}/"><img src="${item.image.thumbnail}"><div class="item-title-wrap"><div class="item-title"><span class="name-title"> ${item.name_ru} </span></div><span class="item-span">Экскурсий: ${item.experience_count}</span></div></a></div>`);
+        })
+
+        if (nextUrl) {
+            urlNextListCity = nextUrl;
+            $(".popular-cityes .btn-more").show();
+        }
+    }
+
+    if ($(".popular-cityes .btn-more").length) {
+        $(".popular-cityes .btn-more").on("click", function () {
+            $(".load-tour").show();
+            $(this).hide();
+            if (xhrOne !== null) {
+                xhrOne.abort();
+            };
+            xhrOne = null;
+            xhrOne = new XMLHttpRequest();
+            let data = null;
+            xhrOne.open('GET', urlNextListCity + "&format=json", true);
+            xhrOne.send();
+
+            xhrOne.onreadystatechange = function () {
+                if (xhrOne.readyState == 4) {
+                    if (xhrOne.status == 200) {
+                        data = jQuery.parseJSON(xhrOne.responseText);
+                        addCities(data.results, data.next)
+                        $(".load-tour").hide();
+                    }
+                }
+            };
+        })
     }
     if ($('.slider-tours-photo')) {
         $('.slider-tours-photo').slick({

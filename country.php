@@ -1,3 +1,27 @@
+<?php
+// CODE REQUEST DESCRIPTION
+$des_countries_path = $_SERVER['DOCUMENT_ROOT'] . '/description/des-country.json';
+$des_countries = file_get_contents($des_countries_path);
+$des_countries = json_decode($des_countries);
+$current_country = $list[0]->country->name_en;
+$current_country = str_replace(" ", "-", $current_country);
+$current_des_countries = array_filter($des_countries, function ($country) use ($current_country) {
+    return $country->name == $current_country;
+});
+$current_des_country = reset($current_des_countries);
+
+// IF RU LANGUAGE
+$my_var = $list[0]->country->in_obj_phrase;
+$textRu = " на русском языке ";
+if ($list[0]->country->name_en == "Russia" or $list[0]->country->name_en == "Ukraine" or $list[0]->country->name_en == "Crimea") {
+    $textRu = "";
+};
+$page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены, отзывы, описание - Travel Mania 🥇";
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="ru-RU" class="no-js no-svg">
 <meta charset="UTF-8">
@@ -6,91 +30,67 @@
 <head>
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    <title>Экскурсии во Франции на русском языке 2020 🥇 цены и описание - Travel Mania 🥇</title>
-    <meta name="keywords" content="экскурсии, Франция , русский, на русском, гиды, 2020 авторские, эксклюзивные, исторические, обзорные, пешеходные, на автобусе, купить, заказать, забронировать, цена, недорого, дешево, скидка, описание, список, прайс, травэл, мания, travel, mania" />
-    <meta name="description" content="✅ Групповые и индивидуальные экскурсии во Франции с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны лучшие экскурсии во Франции, которые тщательно продуманы и составлены гидами." />
-    <link rel="icon" href="https://travel-mania.org/wp-content/uploads/2019/05/cropped-Logo-32x32.png" sizes="32x32" />
-    <link rel="icon" href="https://travel-mania.org/wp-content/uploads/2019/05/cropped-Logo-192x192.png" sizes="192x192" />
-    <link rel="apple-touch-icon" href="https://travel-mania.org/wp-content/uploads/2019/05/cropped-Logo-180x180.png" />
-    <meta name="msapplication-TileImage" content="https://travel-mania.org/wp-content/uploads/2019/05/cropped-Logo-270x270.png" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
-
-    <link rel="preload" as="style" type="text/css" href="/assets/css/slick.min.css?v=0.6" onload="this.rel='stylesheet'">
-    <link rel="preload" as="style" type="text/css" href="/assets/css/simplebar.min.css?v=0.6" onload="this.rel='stylesheet'">
-    <link rel='stylesheet' href='/style.css?v=0.6' type='text/css' media='all' />
-
-    <script type='text/javascript' src='/assets/js/jquery.min.js?v=0.6'></script>
-    <script type="text/javascript" src="/assets/js/jquery.fancybox.min.js?v=0.6" defer></script>
-    <script type="text/javascript" src="/assets/js/simplebar.min.js?v=0.6" defer></script>
-    <script type="text/javascript" src="/assets/js/lazysizes.min.js?v=0.6" defer></script>
-    <script type="text/javascript" src="/assets/js/slick.min.js?v=0.6" defer></script>
-    <script type="text/javascript" src="/assets/js/main.js?v=0.6" defer></script>
-
+    <title><?php echo ($page_title); ?></title>
+    <meta name="keywords" content="экскурсии, <?php echo ($list[0]->country->name_ru); ?>, русский, на русском, гиды, 2020 авторские, эксклюзивные, исторические, обзорные, пешеходные, на автобусе, купить, заказать, забронировать, цена, недорого, дешево, скидка, описание, список, прайс, травэл, мания, travel, mania" />
+    <meta name="description" content="🟢 Групповые и индивидуальные экскурсии <?php echo ($list[0]->country->in_obj_phrase) ?> с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны лучшие экскурсии <?php echo ($list[0]->country->in_obj_phrase); ?>, которые тщательно продуманы и составлены гидами." />
+    <?php
+    include 'inc/head-static.php';
+    ?>
 </head>
 
-<?php
-$des_countries_path = $_SERVER['DOCUMENT_ROOT'] . '/description/des-country.json';
-$des_countries = file_get_contents($des_countries_path);
-$des_countries = json_decode($des_countries);
+<body class="home">
+    <?php
+    include 'inc/header.php';
+    ?>
+    <section class="top">
 
-$current_country = $list[0]->country->name_en;
-$current_country = str_replace(" ", "-", $current_country);
-
-$current_des_countries = array_filter($des_countries, function ($country) use ($current_country) {
-    return $country->name == $current_country;
-});
-$current_des_country = reset($current_des_countries);
-?>
-
-<body class="home blog custom-background hfeed has-header-image has-sidebar">
-    <header id="header">
-        <div class="bc-search"></div>
-        <div class="menu-wrapper">
-            <div class="container">
-                <div class="menu-wrap">
-                    <div class="menu-logo"><a href="https://travel-mania.org/">
-                        </a></div>
-                    <div class="search-wrap">
-                        <div class="search-block">
-                            <div class="search-item">
-                                <div class="input-search_wrap"> <input placeholder="Куда вы едете?" type="text" id="searchInput" class="search-input">
-                                    <div class="windows8" style="display: none;">
-                                    </div>
-                                    <div class="search-icon-des">
-                                    </div>
-                                </div>
-                                <div class="search-list_wrap block-scrollbar scroll-init">
-                                    <div class="list-country"></div>
-                                    <div class="exp-header" style="display:none;">ПОПУЛЯРНЫЕ ЭКСКУРСИИ</div>
-                                    <div class="list-tours"></div>
-                                    <div class="not-found" style="display: none;">По Вашему запросу ничего не найдено (</div>
-                                </div>
-                            </div>
-                        </div>
+        <div class="top__slider">
+            <div id="top-images" class="image-top_slider">
+                <img class="lazyload" data-src="<?php echo ($current_des_country->images[0]) ?>">
+            </div>
+            <div class="top__slider-text">
+                <div class="container">
+                    <div class="top__content-text">
+                        <h1>Авторские экскурсии <?php echo ($list[0]->country->in_obj_phrase); ?></h1>
                     </div>
-                    <nav class="menu">
-                        <ul>
-                            <li><a href="https://travel-mania.org/all-countries/" class="open-contry green">СТРАНЫ</a></li>
-                            <li><a class="green" href=" https://travel-mania.org/blog/ ">БЛОГ</a></li>
-                            <li><a class="green" href="https://travel-mania.org/about/">О НАС</a></li>
-                            <li><a class="link-ask" href="https://travel-mania.org/feedback/">ЗАДАТЬ ВОПРОС</a></li>
-                        </ul>
-                    </nav>
                 </div>
             </div>
         </div>
-    </header>
-    <section class="top">
-        <div id="top-images" class="image-top_slider">
-            <img data-src="<?php echo ($current_des_country->images[0]) ?>" class="lazyload">
+        <div class="breadcrumbs" itemscope="itemscope" itemtype="http://schema.org/BreadcrumbList">
+            <div class="container breadcrumbs-wrap">
+                <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
+                    <div class="breadcrumbs__block">
+                        <a class="breadcrumbs__link" href="/" itemprop="item">
+                            <span itemprop="name">Главная</span>
+                            <meta itemprop="position" content="1">
+                        </a>
+                    </div>
+                    <div class="breadcrumbs__arrow">
+                        <img src="/assets/images/arrow-bread.png" alt="">
+                    </div>
+                </div>
+                <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
+                    <div class="breadcrumbs__block">
+                        <p class="breadcrumbs__text">
+                            <span itemprop="name"><?php echo ($list[0]->country->name_ru) ?></span>
+                            <meta itemprop="position" content="2">
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="container">
-            <div style="display:none;" id="country">France</div>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <div style="display:none;" id="country"><?php echo ($list[0]->country->name_en); ?></div>
             <div class="border-box">
-                <h2>Экскурсии во Франции на русском языке</h2>
+                <h2>Экскурсии <?php echo ($list[0]->country->in_obj_phrase);
+                                echo (" ");
+                                echo ($textRu); ?></h2>
                 <div id="top-text" class="border-box__text">
-                    <p>Франция - интересная европейская страна, которая привлекает туристов со всего мира. Умеренный климат, развитая инфраструктура, множество достопримечательностей - вот что делает эту страну интересной для посещения. Каждый путешественник обязательно должен прикоснуться к истории государства. Мы предоставляем разнообразные экскурсии во Франции на русском языке, которые позволят узнать больше об этой стране.</p>
+                    <?php if ($current_des_country->textTop != "") : ?>
+                        <?php echo $current_des_country->textTop; ?>
+                    <?php else : ?>
+                        Организация экскурсий <?php echo ($list[0]->country->in_obj_phrase); ?> на русском языке от Travel Mania.
+                    <?php endif; ?>
                 </div>
                 <div class="advantages-wrap">
                     <div class="advantages-item">
@@ -151,7 +151,6 @@ $current_des_country = reset($current_des_countries);
                 </div>
             </div>
             <div id="cityes" class="popular-cityes__wrap 111">
-                <?php $count = 1 ?>
                 <?php foreach ($list as $country) { ?>
                     <div id="item-element" class="item-element w-33">
                         <?php
@@ -172,121 +171,79 @@ $current_des_country = reset($current_des_countries);
                             </div>
                         </a>
                     </div>
-                    <?php $count++ ?>
                 <?php } ?>
             </div>
-            <button id="btn-more" class="btn-more">Показать ещё... <span id="span-col">всего 28</span></button>
+            <div class="load-tour" style="display: none;margin: 20px 0;text-align: center;"> <img style="width:35px;" src="/assets/images/2.gif" alt=""></div>
+            <?php if ($urlNext) { ?>
+                <button id="btn-more" class="btn-more" data-url-next="<?php echo ($urlNext) ?>">Показать ещё...</button>
+            <?php } ?>
         </div>
     </section>
     <section class="video">
         <div class="container">
             <div class="border-box">
-                <h2>Главные экскурсионные места во Франции</h2>
+                <h2>Главные экскурсионные места <?php echo ($list[0]->country->in_obj_phrase); ?></h2>
                 <div class="video-box">
                     <div id="video-text-country" class="video__text">
-                        <p>Столица Франции - Париж. Город, в котором сосредоточено немало достопримечательностей. От легендарной Эйфелевой башни, которую хочет увидеть каждый, до Собора Парижской Богоматери, сложного архитектурного сооружения, представляющего огромную культурную ценность.</p>
-                        <p>Второй по населению город - Марсель. Он находится на берегу Лионского залива. Это место богато красивыми пейзажами, которые можно наблюдать, сидя на берегу залива. Марсель - большой город, население которого около 900 000 человек. Поэтому здесь развита транспортная инфраструктура и отрасль гостиничного бизнеса очень нравится туристам.</p>
-                        <p>Во Франции есть десятки интересных городов и достопримечательностей в них, которые гораздо интереснее посещать с экскурсией на русском языке и квалифицированными гидами.</p>
+                        <?php if ($current_des_country->textButton != "") : ?>
+                            <?php echo $current_des_country->textButton; ?>
+                        <?php else : ?>
+                            В ближайшие время мы подготовим детальное описание главных экскурсионных маршрутов <?php echo ($list[0]->country->in_obj_phrase); ?>.
+                        <?php endif; ?>
                     </div>
                     <div>
                         <h2>Как забронировать экскурсию</h2>
-                        <p>Забронировать экскурсии во Франции поможет наш видиопример. Перед тем, как Вы определитесь с тематикой экскурсии и выбирите удобную дату, можно задать любой вопрос гиду. Посмотрите видео и узнайте все наши приемущества.</p><video controls="controls" playsinline poster="https://travel-mania.org/wp-content/themes/lz-computer-repair/assets/images/TRAVEL-MANIA-EXMP.png">
-                            <source src="https://travel-mania.org/wp-content/themes/lz-computer-repair/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/webm">
-                            <source src="https://travel-mania.org/wp-content/themes/lz-computer-repair/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/mp4"></video>
-                        <p class="autor"> Видео: Travel Mania ©</p>
+                        <p>Забронировать экскурсии <?php echo ($list[0]->country->in_obj_phrase); ?> поможет наш видиопример. Перед тем, как Вы определитесь с тематикой экскурсии и выбирите удобную дату, можно задать любой вопрос гиду. Посмотрите видео и узнайте все наши приемущества.</p>
+                        <video controls="controls" playsinline poster="/assets/images/TRAVEL-MANIA-EXMP.png">
+                            <source src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/webm">
+                            <source src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/mp4">
+                        </video>
+                        <p class="autor">
+                            Видео: Travel Mania ©
+                        </p>
                     </div>
                     <div class="video__text">
                         <p>Бронирование происходит через сайт, при этом Вы общаетесь напрямую с гидом и можете задать ему любые вопросы. Вам не нужно ничего оплачивать, пока вы не проясните важные для себя детали.</p>
                     </div>
                 </div>
-    </section>
-    <footer class="footer-site">
-        <div class="container">
-            <nav class="f-menu">
-                <div class="f-copyright"> © 2020 <span>Travel Mania</span></div>
-                <ul class="f-menu-item">
-                    <li class="f-menu-list"><a class="f-menu-link" href="https://travel-mania.org/">Главная</a></li>
-                    <li class="f-menu-list"><a class="f-menu-link" href="https://travel-mania.org/all-countries/">Страны</a></li>
-                    <li class="f-menu-list"><a class="f-menu-link" href="https://travel-mania.org/all-cities/">Города</a></li>
-                    <li class="f-menu-list"><a class="f-menu-link" href="https://travel-mania.org/blog/">Блог</a></li>
-                    <li class="f-menu-list"><a class="f-menu-link" href="https://travel-mania.org/about/">О нас</a></li>
-                    <li class="f-menu-list"><a class="f-menu-link" href="https://travel-mania.org/feedback/">Задать вопрос</a></li>
-                </ul>
-            </nav>
+            </div>
         </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // OPEN MENU SORT
+            var search = document.querySelector("#cityes");
+            var searchChild = document.querySelector("#cityes").innerHTML;
 
-        <body>
-</html>
-<script>
-    $(".country-btn-wrap .btn-title").on("click", function() {
-        $(".country-btn-wrap .btn-block").toggleClass("active");
-    })
+            $(".country-btn-wrap .btn-title").on("click", function() {
+                $(".country-btn-wrap .btn-block").toggleClass("active");
+            })
 
-    if ($(".popular-cityes__wrap .item-element").length > 24) {
-        $(".popular-cityes .btn-more").css("display", "block");
-
-    } else {
-        $(".popular-cityes .btn-more").css("display", "none");
-    }
-    let showElensVisual = 48;
-    $(".popular-cityes .btn-more").on("click", function() {
-        let elems = $(".popular-cityes__wrap .item-element");
-        let length = $(".popular-cityes__wrap .item-element").length;
-        if (showElensVisual > length) {
-            showElem(showElensVisual, true)
-        } else {
-            showElem(showElensVisual, false)
-        }
-        showElensVisual = showElensVisual + 24;
-    })
-
-    function showElem(count, btn) {
-        let elems = $(".popular-cityes__wrap .item-element");
-        if (count) {
-            for (i = 1; i < count; i++) {
-                if ($(elems[i]).length) {
-                    elems[i].classList.remove("hide");
-                }
+            document.getElementById("btn-rat").onclick = function() {
+                $(".country-btn-wrap .btn-title span").html(document.querySelector("#btn-rat span").innerHTML);
+                $(".country-btn-wrap .btn-block").removeClass("active");
+                document.getElementById("btn-al").classList.remove("active");
+                document.getElementById("btn-rat").classList.add("active");
+                document.querySelector("#cityes").innerHTML = searchChild;
             }
-        }
-        if (btn) {
-            $(".popular-cityes .btn-more").css("display", "none");
-        }
-    }
-    var search = document.querySelector("#cityes");
-    var searchChild = document.querySelector("#cityes").innerHTML;
 
-    document.getElementById("btn-rat").onclick = function() {
-        $(".country-btn-wrap .btn-title span").html(document.querySelector("#btn-rat span").innerHTML);
-        $(".country-btn-wrap .btn-block").removeClass("active");
-        document.getElementById("btn-al").classList.remove("active");
-        document.getElementById("btn-rat").classList.add("active");
-        document.querySelector("#cityes").innerHTML = searchChild;
-
-    }
-    document.getElementById("btn-al").onclick = function() {
-        $(".country-btn-wrap .btn-title span").html(document.querySelector("#btn-al span").innerHTML);
-        $(".country-btn-wrap .btn-block").removeClass("active");
-        document.getElementById("btn-al").classList.add("active");
-        document.getElementById("btn-rat").classList.remove("active");
-        var items = document.querySelectorAll('.item-element');
-        Array.from(items).sort(function(a, b) {
-            a = a.querySelector('span.name-title').innerText.toLowerCase()
-            b = b.querySelector('span.name-title').innerText.toLowerCase()
-            return (a > b) - (a < b)
-        }).forEach(function(n, i) {
-            n.style.order = i
-        })
-    }
-    $("#btn-rat").trigger("click");
-
-
-    function slideFunc() {
-        $("#top-images img").css({
-            "opacity": "1",
-            "display": "block"
+            document.getElementById("btn-al").onclick = function() {
+                $(".country-btn-wrap .btn-title span").html(document.querySelector("#btn-al span").innerHTML);
+                $(".country-btn-wrap .btn-block").removeClass("active");
+                document.getElementById("btn-al").classList.add("active");
+                document.getElementById("btn-rat").classList.remove("active");
+                var items = document.querySelectorAll('.item-element');
+                Array.from(items).sort(function(a, b) {
+                    a = a.querySelector('span.name-title').innerText.toLowerCase()
+                    b = b.querySelector('span.name-title').innerText.toLowerCase()
+                    return (a > b) - (a < b)
+                }).forEach(function(n, i) {
+                    n.style.order = i
+                })
+            }
+            $("#btn-rat").trigger("click");
         });
-    }
-
-    setTimeout(slideFunc, 500);
-</script>
+    </script>
+    <?php
+    include 'inc/footer.php';
+    ?>

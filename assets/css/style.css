@@ -27,15 +27,19 @@
 }
 
 html {
-    line-height: 1.15;
+    line-height: 1.5;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
 
+body {
+    line-height: 1.5;
+}
+
+
 * {
     outline: none;
-    font-family: "Roboto",'Open Sans',sans-serif !important;
-
+    font-family: "Roboto", 'Open Sans', sans-serif !important;
 }
 
 body {
@@ -53,11 +57,19 @@ section {
     display: block;
 }
 
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
 
 figcaption,
 figure,
 main {
     display: block;
+}
+
+figure {
+    margin: 1em 0;
 }
 
 hr {
@@ -68,16 +80,36 @@ hr {
     overflow: visible;
 }
 
+p {
+    color: #000;
+    font-size: 18px;
+}
 
 pre {
     font-size: 1em;
 }
 
+a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    text-decoration: none;
+}
+
+a:active,
+a:hover {
+    outline-width: 0;
+}
 
 abbr[title] {
     border-bottom: 1px #767676 dotted;
     text-decoration: none;
 }
+
+b,
+strong {
+    font-weight: inherit;
+}
+
 b,
 strong {
     font-weight: 700;
@@ -1729,6 +1761,68 @@ nav.woocommerce-MyAccount-navigation ul li a {
     display: block;
 }
 
+.contact-form textarea,
+.contact-form input {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    color: #0785b0;
+    display: none;
+    font-weight: 800;
+    margin-bottom: 0.5em;
+}
+
+.contact-form.send label {
+    display: block;
+}
+
+.contact-form button {
+    width: auto;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+    font-size: 14px;
+    height: auto;
+    line-height: normal;
+    text-align: center;
+    background: #fff;
+    border-width: 1px;
+    border-color: #ccc;
+    border-style: solid;
+    color: #444;
+    cursor: pointer;
+    font-weight: 400;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    text-shadow: none;
+    padding: 6px 11px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-shadow: 0 1px 1px #eee;
+    -webkit-box-shadow: 0 1px 1px #eee;
+    box-shadow: 0 1px 1px #eee;
+    margin: 10px;
+    margin-left: 0;
+    margin-right: 0;
+    vertical-align: middle;
+}
+
+.contact-form.send button,
+.contact-form.send textarea,
+.contact-form.send input {
+    display: none;
+}
+
+.contact-form input {
+    border-color: #ccc;
+    border-radius: 5px
+}
+
+.contact-form input.false {
+    border: 1px solid #e04f67;
+}
+
 header.woocommerce-products-header {
     margin-top: 20px;
 }
@@ -1769,13 +1863,6 @@ header.woocommerce-products-header {
 .site-title a {
     color: #222;
     opacity: 1;
-}
-
-body.has-header-image .site-title,
-body.has-header-video .site-title,
-body.has-header-image .site-title a,
-body.has-header-video .site-title a {
-    color: #fff;
 }
 
 .custom-logo-link {
@@ -1916,7 +2003,7 @@ body:not(.title-tagline-hidden) .site-branding-text {
 
 .description-content-text-reviews .reviews-text {
     font-size: 16px;
-    font-style: italic;
+    font-style: normal;
 }
 
 .page .panel-content .recent-posts .entry-title {
@@ -3457,6 +3544,7 @@ section.main {
     width: 100%;
     width: 100%;
     transition: .5s;
+    z-index: 100;
 }
 
 #header.down {
@@ -3476,7 +3564,6 @@ body {
 }
 
 #cityes {
-    overflow: hidden;
     transition: 0.5s;
 }
 
@@ -3717,6 +3804,9 @@ h2 {
     width: 100%;
     top: 0;
     text-align: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .top__slider .top__slider-footer {
@@ -3759,11 +3849,15 @@ h2 {
     font-weight: 700;
     color: #fff;
     font-size: 40px;
-    line-height: 40px;
+    line-height: 1.3;
 }
 
 .image-top_slider {
     position: relative;
+}
+
+.image-top_slider img {
+    width: 100%;
 }
 
 .breadcrumbs img {
@@ -3786,6 +3880,7 @@ h2 {
 
 .breadcrumbs-item:last-child p {
     color: #222 !important;
+    margin-top: 0;
 }
 
 .slick-dots li {
@@ -3937,7 +4032,7 @@ h2 {
 
 .popular-cityes__wrap .item-element a img {
     width: 100%;
-    height: 90%;
+    height: 100%;
     border-radius: 8px;
     object-fit: cover;
     transition: .3s;
@@ -4071,7 +4166,7 @@ h2 {
 }
 
 .tours .slick-tours__item {
-    padding: 10px;
+    padding:0 10px;
     width: 33.3%;
     min-height: 1px;
     margin-bottom: 20px;
@@ -4231,7 +4326,6 @@ h2 {
     background-color: #0785b0;
     border-radius: 8px;
     color: #fff;
-    display: none;
     transition: 0.3s;
     border: 2px solid transparent;
 }
@@ -4240,7 +4334,6 @@ h2 {
     background-color: #fff;
     color: #0785b0;
     border: 2px solid #0785b0;
-    display: none;
 }
 
 .slick-tours .slick-prev {
@@ -4382,7 +4475,7 @@ h2 {
     position: absolute;
     top: 10px;
     left: auto;
-    right: 470px;
+    right: 530px;
     width: 100%;
     max-width: 300px;
     z-index: 35;
@@ -4605,6 +4698,31 @@ h2 {
     background: #cdf2ff42;
 }
 
+.link-all-ex {
+    text-align: center;
+    margin: 20px auto;
+    font-size: 20px;
+}
+
+.link-all-ex a {
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 8px;
+    background: #0785b0;
+    transition: .3s;
+    display: inline-block;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.link-all-ex a:hover {
+    color: #841b1b;
+}
+
 .country-btn-wrap .btn-title {
     display: flex;
     justify-content: space-between;
@@ -4789,7 +4907,7 @@ h2 {
 
 /* VIEW */
 .star-rating-item {
-    /* background-image: url("http://test-tm.ru/wp-content/themes/lz-computer-repair/assets/images/icon-stars.png"); */
+    /* background-image: url("/wp-content/themes/lz-computer-repair/assets/images/icon-stars.png"); */
 
     position: relative;
     background-size: cover;
@@ -4902,7 +5020,7 @@ h2 {
 .order-panel-wrap {
     position: sticky;
     top: 60px;
-    border-radius: 3px;
+    border-radius: 8px;
     padding: 30px;
     color: #fff;
     background: rgba(179, 36, 36, 1);
@@ -5117,6 +5235,7 @@ h2 {
 .breadcrumbs__block,
 .breadcrumbs__arrow {
     margin-right: 10px;
+    display: flex;
 }
 
 .gallery-img .first-block {
@@ -5235,7 +5354,7 @@ h6 {
     width: 100px;
     height: 100px;
     border-radius: 8%;
-    margin-bottom: 20px;
+    margin-top: 36px;
 }
 
 .order-panel-wrap .span-price {
@@ -5293,38 +5412,38 @@ h6 {
 
 .order-panel-wrap .order-btn {
     color: #fff;
-    background: #51bce6;
-    border: 2px solid #51bce6;
+    background: #0785b0;
+    border: 2px solid #0785b0;
 }
 
 .order-panel-wrap .order-btn:hover {
     background: #fff;
-    color: #51bce6;
-    border: 2px solid #51bce6;
+    color: #0785b0;
+    border: 2px solid #0785b0;
 }
 
 .order-panel-wrap .more-btn {
     color: #fff;
-    background: #85c99d;
-    border: 2px solid #85c99d;
+    background: #00be8b;
+    border: 2px solid #00be8b;
 }
 
 .order-panel-wrap .more-btn:hover {
-    color: #85c99d;
+    color: #00be8b;
     background: #fff;
-    border: 2px solid #85c99d;
+    border: 2px solid #00be8b;
 }
 
 .order-panel-wrap .order-ask {
-    background: #e04f67;
-    border: 2px solid #e04f67;
+    background: #e66363;
+    border: 2px solid #e66363;
     color: #fff;
 }
 
 .order-panel-wrap .order-ask:hover {
     background: #fff;
-    border: 2px solid #e04f67;
-    color: #e04f67;
+    border: 2px solid #e66363;
+    color: #e66363;
 }
 
 .order-panel-wrap .panel-info {
@@ -5359,6 +5478,36 @@ h6 {
     padding: 10px 20px;
     transition: 0.5s;
 }
+
+.btn-order-wrap {
+    text-align: center;
+}
+
+.btn-order-wrap .text {
+    color: #00be8b;
+}
+
+.btn-order-wrap .btn-click.act {
+    background: #1f5f48;
+    border-radius: 5px;
+    color: #fff;
+    border: 2px solid #1f5f48;
+    height: 40px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-order-wrap .btn-click:hover {
+    background: #fff;
+    color: #1f5f48;
+    border: 2px solid #1f5f48;
+}
+
 
 /* CONTACT FORM */
 .contact-form-travel-mania {
@@ -6231,6 +6380,7 @@ img.f-logos {
 @media (max-width: 420px) {
     .popular-cityes__wrap .item-element.w-33 {
         width: 100%;
+        padding:10px 0; 
     }
 
     .reviews-photo {
@@ -6310,7 +6460,7 @@ html {
 .yandex-link {
     width: 30px;
     height: 30px;
-    background-image: url("http://test-tm.ru/wp-content/themes/lz-computer-repair/assets/images/icon-dzen.png");
+    background-image: url("/wp-content/themes/lz-computer-repair/assets/images/icon-dzen.png");
     background-size: contain;
 }
 
