@@ -126,7 +126,9 @@ $listTagsNew = $listTags->results;
     </section>
     <section class="list-tags">
     <?php foreach ($listTagsNew as $item) { ?>
-        <div class="list-item"><a href="<?= home_url() ?>/<?= str_replace('+', '-', $country__name_en) ?>/<?= str_replace('+', '-', $city__name_en) ?>/excursion-type-<?php echo $list[0]->city->id; ?>-<?php echo($item->id); ?>:<?php echo($item->slug); ?>/"><?php echo($item->name); ?></a></div>
+        <?php if($item->is_hidden == false){ ?>
+            <div class="list-item"><a href="/<?= str_replace('+', '-', $country__name_en) ?>/<?= str_replace('+', '-', $city__name_en) ?>/excursion-type-<?php echo $list[0]->city->id; ?>-<?php echo($item->id); ?>:<?php echo($item->slug); ?>/"><?php echo($item->name); ?></a></div>
+        <? }?>
     <? }?>
     </section>
 
