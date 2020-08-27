@@ -105,7 +105,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                 </div>
                 <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <div class="breadcrumbs__block">
-                        <a class="breadcrumbs__link" href="/<?php echo($country_new_en); ?>/" itemprop="item">
+                        <a class="breadcrumbs__link" href="/<?php echo ($country_new_en); ?>/" itemprop="item">
                             <span itemprop="name"><?php echo ($list[0]->city->country->name_ru) ?></span>
                             <meta itemprop="position" content="2">
                         </a>
@@ -116,7 +116,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                 </div>
                 <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <div class="breadcrumbs__block">
-                        <meta itemprop="item" content="/<?php echo($country_new_en); ?>/<?php echo ($city_name); ?>/">
+                        <meta itemprop="item" content="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/">
                         <p class="breadcrumbs__text">
                             <span itemprop="name"><?php echo ($list[0]->city->name_ru) ?></span>
                         </p>
@@ -158,9 +158,13 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
             <div class="list-tags-wrap">
                 <?php foreach ($listTagsNew as $item) : ?>
                     <?php if ($item->is_hidden == false and $item->experience_count > 0) : ?>
-                        <a href="/<?php echo($country_new_en); ?>/<?php echo ($city_name); ?>/excursion-type-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>:<?php echo ($item->slug); ?>/">
-                            <?php echo ($item->name); ?>
-                        </a>
+                        <?php if ($item->slug == "all") { ?>
+                            <a href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>">Все</a>
+                        <?php } else { ?>
+                            <a href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>">
+                                <?php echo ($item->name); ?>
+                            </a>
+                        <?php } ?>
                     <?php endif; ?>
                 <?php endforeach; ?>
             </div>
@@ -185,7 +189,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                                     $countImg++;
                                 }
                                 ?>
-                                <a class="link" href="/<?php echo($country_new_en); ?>/<?php echo($city_name); ?>/excursion-<?php echo($item->id); ?>/" data-images="<?php echo htmlspecialchars(json_encode($arrayImg)) ?>">
+                                <a class="link" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursion-<?php echo ($item->id); ?>/" data-images="<?php echo htmlspecialchars(json_encode($arrayImg)) ?>">
                                     <img class="static lazyload" data-src="<?php echo $item->photos['0']->thumbnail ?>" alt="">
                                 </a>
                                 <?php if ($item->price->discount->value) { ?>
@@ -227,7 +231,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                             </div>
                             <div class="tours__item-content ">
                                 <div class="item-title ">
-                                    <a href="/<?php echo($country_new_en); ?>/<?php echo ($city_name); ?>/excursion-<?php echo($item->id); ?>/"><?php echo $item->title ?> </a>
+                                    <a href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursion-<?php echo ($item->id); ?>/"><?php echo $item->title ?> </a>
                                 </div>
                                 <div class="item-price-guide">
                                     <div class="item-guide">

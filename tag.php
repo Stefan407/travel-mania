@@ -16,12 +16,17 @@ $textRu = " на русском языке ";
 if ($tag_list[0]->city->country->name_en == "Russia" or $tag_list[0]->city->country->name_en == "Ukraine" or $tag_list[0]->city->country->name_en == "Crimea") {
     $textRu = " ";
 };
-$page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены, отзывы, описание - Travel Mania 🥇 ";
+
+$page_title =  $tag_list[0]->tags[0]->header . $textRu . " 2020 🥇 цены, отзывы, описание - Travel Mania 🥇 ";
+
+
 
 // DATA SEO
 $priceAll = [];
 $reviewsAll = 0;
 $reviewsAllCount = 0;
+
+// REQUEST TAG
 $listTags = getData('https://experience.tripster.ru/api/citytags/?city=' . $tag_list[0]->city->id);
 $listTagsNew = $listTags->results;
 
@@ -52,6 +57,8 @@ $country_new_en = str_replace(" ", '-', $country_new_en);
 $country_new_en = str_replace("ó", 'o', $country_new_en);
 
 
+
+
 ?>
 
 
@@ -66,7 +73,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <title><?php echo ($page_title); ?></title>
     <meta name="keywords" content="экскурсии, <?php echo ($tag_list[0]->city->name_ru); ?>, русский, на русском, гиды, авторские, эксклюзивные, исторические, обзорные, пешеходные, на автобусе, купить, заказать, забронировать, цена, недорого, дешево, скидка, описание, список, прайс, травэл, мания, travel, mania" />
-    <meta name="description" content="✅ Групповые и индивидуальные экскурсии <?php echo ($tag_list[0]->city->in_obj_phrase); ?> с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны лучшие экскурсии  <?php echo ($tag_list[0]->city->in_obj_phrase); ?>', которые тщательно продуманы и составлены гидами." />
+    <meta name="description" content="🟢 Групповые и <?php echo ($tag_list[0]->tags[0]->header); ?> с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны <?php echo ($tag_list[0]->tags[0]->header); ?>, которые тщательно продуманы и составлены гидами." />
     <?php
     include 'inc/head-static.php';
     ?>
@@ -84,7 +91,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
             <div class="top__slider-text">
                 <div class="container">
                     <div class="top__content-text">
-                        <h1>Авторские экскурсии <?php echo ($tag_list[0]->city->in_obj_phrase); ?></h1>
+                        <h1><?php echo ($tag_list[0]->tags[0]->header); ?></h1>
                     </div>
                 </div>
             </div>
@@ -157,9 +164,13 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
             <div class="list-tags-wrap">
                 <?php foreach ($listTagsNew as $item) : ?>
                     <?php if ($item->is_hidden == false AND $item->experience_count > 0) : ?>
-                        <a href="/<?php echo($country_new_en); ?>/<?php echo($city_name); ?>/excursion-type-<?php echo $tag_list[0]->city->id; ?>-<?php echo ($item->id); ?>:<?php echo ($item->slug); ?>/">
+                    <?php if($item->slug == "all"){ ?>
+                        <a href="/<?php echo($country_new_en); ?>/<?php echo($city_name); ?>">Все</a>
+                    <?php }else{ ?>
+                        <a href="/<?php echo($country_new_en); ?>/<?php echo($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $tag_list[0]->city->id; ?>-<?php echo ($item->id); ?>">
                             <?php echo ($item->name); ?>
                         </a>
+                    <?php } ?>
                     <?php endif; ?>
                 <?php endforeach; ?>
             </div>
