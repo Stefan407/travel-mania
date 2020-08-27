@@ -24,6 +24,35 @@ $reviewsAll = 0;
 $reviewsAllCount = 0;
 $listTags = getData('https://experience.tripster.ru/api/citytags/?city=' . $list[0]->city->id);
 $listTagsNew = $listTags->results;
+
+
+// REPLACE CITY
+$city_name = str_replace('é', 'e', $city__name_en);
+$city_name = str_replace('ё', 'e', $city_name);
+$city_name = str_replace("'", '', $city_name);
+$city_name = str_replace("'", '', $city_name);
+$city_name = str_replace("+", '-', $city_name);
+$city_name = str_replace("+", '-', $city_name);
+$city_name = str_replace(" ", '-', $city_name);
+$city_name = str_replace(" ", '-', $city_name);
+$city_name = str_replace("ó", 'o', $city_name);
+if ($city_name == 'Villefranche-sur-Saône') {
+    $city_name = "Villefranche-sur-Saone";
+}
+
+
+// REPLACE COUNTRY
+$country_new_en = str_replace('é', 'e', $country__name_en);
+$country_new_en = str_replace('ё', 'e', $country_new_en);
+$country_new_en = str_replace("'", '', $country_new_en);
+$country_new_en = str_replace("'", '', $country_new_en);
+$country_new_en = str_replace("+", '-', $country_new_en);
+$country_new_en = str_replace("+", '-', $country_new_en);
+$country_new_en = str_replace(" ", '-', $country_new_en);
+$country_new_en = str_replace(" ", '-', $country_new_en);
+$country_new_en = str_replace("ó", 'o', $country_new_en);
+
+
 ?>
 
 
@@ -76,7 +105,7 @@ $listTagsNew = $listTags->results;
                 </div>
                 <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <div class="breadcrumbs__block">
-                        <a class="breadcrumbs__link" href="/<?= str_replace('+', '-', $country__name_en) ?>/" itemprop="item">
+                        <a class="breadcrumbs__link" href="/<?php echo($country_new_en); ?>/" itemprop="item">
                             <span itemprop="name"><?php echo ($list[0]->city->country->name_ru) ?></span>
                             <meta itemprop="position" content="2">
                         </a>
@@ -87,7 +116,7 @@ $listTagsNew = $listTags->results;
                 </div>
                 <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <div class="breadcrumbs__block">
-                        <meta itemprop="item" content="/<?= str_replace('+', '-', $country__name_en) ?>/<?= str_replace('+', '-', $city__name_en) ?>/">
+                        <meta itemprop="item" content="/<?php echo($country_new_en); ?>/<?php echo ($city_name); ?>/">
                         <p class="breadcrumbs__text">
                             <span itemprop="name"><?php echo ($list[0]->city->name_ru) ?></span>
                         </p>
@@ -125,13 +154,18 @@ $listTagsNew = $listTags->results;
         </div>
     </section>
     <section class="list-tags">
-    <?php foreach ($listTagsNew as $item) { ?>
-        <?php if($item->is_hidden == false){ ?>
-            <div class="list-item"><a href="/<?= str_replace('+', '-', $country__name_en) ?>/<?= str_replace('+', '-', $city__name_en) ?>/excursion-type-<?php echo $list[0]->city->id; ?>-<?php echo($item->id); ?>:<?php echo($item->slug); ?>/"><?php echo($item->name); ?></a></div>
-        <? }?>
-    <? }?>
+        <div class="container">
+            <div class="list-tags-wrap">
+                <?php foreach ($listTagsNew as $item) : ?>
+                    <?php if ($item->is_hidden == false and $item->experience_count > 0) : ?>
+                        <a href="/<?php echo($country_new_en); ?>/<?php echo ($city_name); ?>/excursion-type-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>:<?php echo ($item->slug); ?>/">
+                            <?php echo ($item->name); ?>
+                        </a>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+        </div>
     </section>
-
     <section class="popular-tours tours">
         <div class="container">
             <div id="slick-tours" class="slick-tours row">
@@ -151,7 +185,7 @@ $listTagsNew = $listTags->results;
                                     $countImg++;
                                 }
                                 ?>
-                                <a class="link" href="/<?= str_replace('+', '-', $country__name_en) ?>/<?= str_replace('+', '-', $city__name_en) ?>/excursion-<?= $item->id; ?>/" data-images="<?php echo htmlspecialchars(json_encode($arrayImg)) ?>">
+                                <a class="link" href="/<?php echo($country_new_en); ?>/<?php echo($city_name); ?>/excursion-<?php echo($item->id); ?>/" data-images="<?php echo htmlspecialchars(json_encode($arrayImg)) ?>">
                                     <img class="static lazyload" data-src="<?php echo $item->photos['0']->thumbnail ?>" alt="">
                                 </a>
                                 <?php if ($item->price->discount->value) { ?>
@@ -193,25 +227,12 @@ $listTagsNew = $listTags->results;
                             </div>
                             <div class="tours__item-content ">
                                 <div class="item-title ">
-                                    <?php
-                                    $city_name = str_replace('é', 'e', $town->name_en);
-                                    $city_name = str_replace('ё', 'e', $town->name_en);
-                                    $city_name = str_replace("'", '', $city_name);
-                                    $city_name = str_replace("ó", 'o', $city_name);
-                                    if ($city__name_en == 'Villefranche-sur-Saône') {
-                                        $city__name_en = "Villefranche-sur-Saone";
-                                    }
-                                    ?>
-                                    <a href="/<?= str_replace('+', '-', $country__name_en) ?>/<?= str_replace('+', '-', $city__name_en) ?>/excursion-<?= $item->id; ?>/"><?php echo $item->title ?> </a>
+                                    <a href="/<?php echo($country_new_en); ?>/<?php echo ($city_name); ?>/excursion-<?php echo($item->id); ?>/"><?php echo $item->title ?> </a>
                                 </div>
                                 <div class="item-price-guide">
                                     <div class="item-guide">
                                         <div class="item-guide-photo"> <img class="lazyload" data-src="<?php echo $item->guide->avatar->medium  ?>" alt=""> </div>
                                         <div class="item-guide-name"><?php echo $item->guide->first_name ?> <br>
-                                            <?php
-                                            $city_name = str_replace('é', 'e', $item->name_en);
-                                            $city_name = str_replace("'", '', $city_name);
-                                            ?>
                                         </div>
                                     </div>
                                     <?php array_push($priceAll, $item->price->value); ?>

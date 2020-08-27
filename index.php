@@ -4,11 +4,11 @@ require_once 'sys/inc.php';
 $city__name_en = isset($_GET['city__name_en']) ? str_replace('-', '+', urlencode($_GET['city__name_en'])) : null;
 $country__name_en = isset($_GET['country__name_en']) ? str_replace('-', '+', urlencode($_GET['country__name_en'])) : null;
 $experiences_id = isset($_GET['id']) ?  $_GET['id'] : null;
-$excursion_type = isset($_GET['excursion_type']) ?  $_GET['excursion_type'] : null;
+$excursion_type = isset($_GET['tag_slug']) ?  $_GET['tag_slug'] : null;
 $city_id = isset($_GET['city_id']) ?  $_GET['city_id'] : null;
+$tag_id = isset($_GET['tag_id']) ?  $_GET['tag_id'] : null;
 $page = isset($_GET['page']) ?  $_GET['page'] : null;
 
-var_dump($_GET);
 $list = [];
 $list1 = [];
 $tag_list = [];
@@ -27,7 +27,7 @@ if (!is_null($page)) {
     $reviews = getData($list->links->reviews);
 } else if ($excursion_type && $city_id) {
     $page = 'Tag';
-    getAllResults("https://experience.tripster.ru/api/search/experiences/?city=" . $city_id . "&citytag=" . $excursion_type, $tag_list);
+    getAllResultsNoNext("https://experience.tripster.ru/api/search/experiences/?city=" . $city_id . "&detailed=true&citytag=" . $tag_id, $tag_list, $urlNext);
 
     if (!$tag_list) {
         include_once('404.php');

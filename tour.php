@@ -11,15 +11,26 @@ for ($i = 0; $i <= count($arr); $i++) {
 }
 $new_str = implode(", ", $arr);
 $page_title =  $my_var . " 2020 🥇 цена, отзывы, описание - Travel Mania 🥇";
-$current_country = $list->city->country->name_en;
-// CURRENT COUNTRY
-$current_country = str_replace(" ", "-", $current_country);
-$current_city = $list->city->name_en;
-$current_city = str_replace(" ", "-", $current_city);
 
 // LIST TOURS
 $listTour = getData('https://experience.tripster.ru/api/experiences/?city=' . $list->city->id);
 $listTourNew = $listTour->results;
+
+// REPLACE CITY
+$city_name = str_replace('é', 'e', $city__name_en);
+$city_name = str_replace('ё', 'e', $city_name);
+$city_name = str_replace("'", '', $city_name);
+$city_name = str_replace("'", '', $city_name);
+$city_name = str_replace(" ", '-', $city_name);
+$city_name = str_replace(" ", '-', $city_name);
+$city_name = str_replace("+", '-', $city_name);
+$city_name = str_replace("+", '-', $city_name);
+$city_name = str_replace("_", '-', $city_name);
+$city_name = str_replace("_", '-', $city_name);
+$city_name = str_replace("ó", 'o', $city_name);
+if ($city_name == 'Villefranche-sur-Saône') {
+    $city_name = "Villefranche-sur-Saone";
+}
 ?>
 
 
@@ -57,7 +68,7 @@ $listTourNew = $listTour->results;
                             <div class="breadcrumbs-wrap">
                                 <div class="breadcrumbs-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                                     <div class="breadcrumbs__block">
-                                        <a class="breadcrumbs__link" href="/<?php echo ($current_country) ?>/" itemprop="item">
+                                        <a class="breadcrumbs__link" href="/<?php echo ($country__name_en) ?>/" itemprop="item">
                                             <span itemprop="name"><?php echo ($list->city->country->name_ru) ?></span>
                                         </a>
                                     </div>
@@ -68,17 +79,7 @@ $listTourNew = $listTour->results;
                                 </div>
                                 <div class="breadcrumbs-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                                     <div class="breadcrumbs__block">
-                                        <?php
-                                        $city_name = str_replace('é', 'e', $list->city->name_en);
-                                        $city_name = str_replace('ё', 'e', $city_name);
-                                        $city_name = str_replace("'", '', $city_name);
-                                        $city_name = str_replace("'", '', $city_name);
-                                        $city_name = str_replace("ó", 'o', $city_name);
-                                        if ($city__name_en == 'Villefranche-sur-Saône') {
-                                            $city__name_en = "Villefranche-sur-Saone";
-                                        }
-                                        ?>
-                                        <a class="breadcrumbs__link" href="/<?php echo ($current_country) ?>/<?php echo ($current_city) ?>/" itemprop="item">
+                                        <a class="breadcrumbs__link" href="/<?php echo ($country__name_en) ?>/<?php echo ($city_name) ?>/" itemprop="item">
                                             <span itemprop="name">Экскурсии <?php echo ($list->city->in_obj_phrase) ?></span>
                                         </a>
                                     </div>
@@ -398,7 +399,7 @@ $listTourNew = $listTour->results;
                                 <div class="slick-tours__item" style="background-color:#fff;">
                                     <div class="slick-tours__wrap">
                                         <div class="slick-tours__item-img">
-                                            <a class="link" href="/<?php echo str_replace('+', '-', $tour->city->country->name_en) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/excursion-<?= $tour->id ?>/" data-images="<?php echo htmlspecialchars(json_encode($arrayImg)) ?>">
+                                            <a class="link" href="/<?php echo str_replace('+', '-', $country__name_en) ?>/<?php echo($city_name); ?>/excursion-<?= $tour->id ?>/" data-images="<?php echo htmlspecialchars(json_encode($arrayImg)) ?>">
                                                 <img class="static lazyload" data-src="<?php echo $tour->photos['0']->thumbnail ?>" alt="">
                                             </a>
                                             <?php if ($tour->price->discount->value) { ?>
@@ -440,7 +441,7 @@ $listTourNew = $listTour->results;
                                         </div>
                                         <div class="tours__item-content ">
                                             <div class="item-title ">
-                                                <a href="/<?php echo str_replace('+', '-', str_replace(' ', '-', $tour->city->country->name_en)) ?>/<?php echo str_replace('+', '-', urlencode($tour->city->name_en)) ?>/excursion-<?= $tour->id ?>/">
+                                                <a href="/<?php echo str_replace('+', '-', str_replace(' ', '-', $country__name_en)) ?>/<?php echo($city_name); ?>/excursion-<?= $tour->id ?>/">
                                                     <?= $tour->title ?>
                                                 </a>
                                             </div>
@@ -466,7 +467,7 @@ $listTourNew = $listTour->results;
         </section>
     <?php } ?>
     <div class="link-all-ex">
-        <a href="/<?php echo ($current_country) ?>/<?php echo ($current_city) ?>/">Посмотреть все экскурсии <?php echo ($list->city->in_obj_phrase); ?></a>
+        <a href="/<?php echo ($country__name_en) ?>/<?php echo ($city_name) ?>/">Посмотреть все экскурсии <?php echo ($list->city->in_obj_phrase); ?></a>
     </div>
     <script>
 

@@ -4165,8 +4165,29 @@ h2 {
     display: none;
 }
 
+.list-tags-wrap a {
+    user-select: none;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 15px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 2px solid hsla(0, 0%, 100%, .5);
+    border-radius: 20px;
+    color: #fff;
+    padding: 4px 15px 5px;
+    background-color: rgba(0, 0, 0, .35);
+    text-decoration: none;
+    transition: color, background-color .3s;
+}
+
+.list-tags-wrap a:hover {
+    color: #222;
+    background-color: #fff;
+}
+
 .tours .slick-tours__item {
-    padding:0 10px;
+    padding: 0 10px;
     width: 33.3%;
     min-height: 1px;
     margin-bottom: 20px;
@@ -6380,7 +6401,7 @@ img.f-logos {
 @media (max-width: 420px) {
     .popular-cityes__wrap .item-element.w-33 {
         width: 100%;
-        padding:10px 0; 
+        padding: 10px 0;
     }
 
     .reviews-photo {
