@@ -12,7 +12,6 @@ RewriteRule ^(about|blog|feedback|all-cities|all-countries)/?$ index.php?page=$1
 RewriteRule ^post/(\d+)/$ index.php?p=$1 [L]
 RewriteRule ^([A-Za-z\+\-\_]+)/([A-Za-z\+\-\_]+)/excursion-type\-([0-9]+)\-([A-Za-z0-9]+)/?$ index.php?excursion_type=$4&city_id=$3&city=$2&country__name_en=$1 [QSA]
 RewriteRule ^([A-Za-z\+\-\_]+)/([A-Za-z\+\-\_]+)/excursion[-+_]([0-9]+)/?$ index.php?id=$3&city=$2&country__name_en=$1 [QSA]
-RewriteRule ^([A-Za-z\+\-\_]+)/([A-Za-z\+\-\_]+)/tag_([A-Za-z\+\-\_]+)_([0-9]+)-([0-9]+)/?$ index.php?tagName=$3&cityId=$4&tagId=$5&city=$2&country__name_en=$1 [QSA]
 RewriteRule ^([A-Za-z\+\-\_]+)/([A-Za-z\+\-\_]+)/?$ index.php?city__name_en=$2&country__name_en=$1 [QSA]
 RewriteRule ^([A-Za-z\+\-\_]+)/?$ index.php?country__name_en=$1 [L]
 
@@ -22,14 +21,3 @@ RewriteRule . /index.php [L]
 
 
 </IfModule>
-
-
-
-
-
-# BEGIN WordPress
-# Директивы (строки) между `BEGIN WordPress` и `END WordPress`
-# созданы автоматически и подлежат изменению только через фильтры WordPress.
-# Сделанные вручную изменения между этими маркерами будут перезаписаны.
-
-# END WordPress

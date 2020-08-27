@@ -8,10 +8,10 @@ $excursion_type = isset($_GET['excursion_type']) ?  $_GET['excursion_type'] : nu
 $city_id = isset($_GET['city_id']) ?  $_GET['city_id'] : null;
 $page = isset($_GET['page']) ?  $_GET['page'] : null;
 
+var_dump($_GET);
 $list = [];
 $list1 = [];
 $tag_list = [];
-
 $reviews = [];
 
 if (!is_null($page)) {
@@ -108,5 +108,8 @@ switch ($page) {
         break;
     case 'Tour':
         include_once 'tour.php';
+        break;
+    case 'Tag':
+        include_once 'tag.php';
         break;
 }
