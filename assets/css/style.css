@@ -4164,6 +4164,14 @@ h2 {
 .tours .slick-tours__item.hide {
     display: none;
 }
+.list-tags{
+    margin: 20px 0;
+}
+.list-tags .list-tags-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 .list-tags-wrap a {
     user-select: none;
@@ -4179,6 +4187,12 @@ h2 {
     background-color: rgba(0, 0, 0, .35);
     text-decoration: none;
     transition: color, background-color .3s;
+    display: inline-flex;
+    align-items: center;
+}
+.list-tags-wrap a.active {
+    color: #000;
+    background-color: #E7E7E7;
 }
 
 .list-tags-wrap a:hover {

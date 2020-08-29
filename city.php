@@ -159,10 +159,16 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                 <?php foreach ($listTagsNew as $item) : ?>
                     <?php if ($item->is_hidden == false and $item->experience_count > 0) : ?>
                         <?php if ($item->slug == "all") { ?>
-                            <a href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>">Все</a>
+                            <a class="active" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>">
+                                <span>Все</span><span style="margin-left: 5px;margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
+                            </a>
+                        <?php } else if ($tag_id == $item->id) { ?>
+                            <a class="active" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>">
+                                <span><?php echo ($item->name); ?></span><span style="margin-left: 5px;    margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
+                            </a>
                         <?php } else { ?>
                             <a href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>">
-                                <?php echo ($item->name); ?>
+                                <span><?php echo ($item->name); ?></span><span style="margin-left: 5px;    margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
                             </a>
                         <?php } ?>
                     <?php endif; ?>
@@ -198,8 +204,11 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                                         <span class="slick-tours__item-img-span "><?php echo ($item->price->discount->value * 100) ?>%</span>
                                     </div>
                                 <?php } ?>
-                                <?php if ($item->tags[0]->name) { ?>
-                                    <div class="slick-tours__tag"><?php echo ($item->tags[0]->name) ?></div>
+                                <?php if ($item->type == "group") { ?>
+                                    <div class="slick-tours__tag">Групповая</div>
+                                <?php } else if ($item->type == "private") { ?>
+                                    <div class="slick-tours__tag">Индивидуальная</div>
+                                <?php } else { ?>
                                 <?php } ?>
                             </div>
                             <div class="item-time-rating">
@@ -401,9 +410,11 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                     if (item.price.discount && item.price.discount.value) {
                         discount = `<div class="slick-tours__item-img-box"><span>Скидка</span> <br><span class="slick-tours__item-img-span ">${item.price.discount.value * 100}%</span>  </div>`;
                     }
-                    if (item.tags[0].name) {
-                        tagName = `<div class="slick-tours__tag">${item.tags[0].name}</div>`;
-                    }
+                    if (item.type == "group") {
+                        tagName = `<div class="slick-tours__tag">Групповая</div>`;
+                    } else if (item.type == "private") {
+                        tagName = `<div class="slick-tours__tag">Индивидуальная</div>`;
+                    } else {}
                     if (item.rating) {
                         ratingCount = `<span class="item-rating"><span style="display:none;" class="reviews-rating">${item.rating}</span><div class="star-rating-item"><span class="reviews-rating-img" style="width: ${item.rating * 20}%"><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""></span><span class="reviews-rating-img bac"><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""></span></div></span>`;
                     }
