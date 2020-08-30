@@ -5961,6 +5961,16 @@ img.f-logos {
         display: none;
     }
 
+    .slick-tours button.slick-prev {
+        width: 30px;
+        height: 30px;
+    }
+
+    .slick-tours button.slick-next {
+        width: 30px;
+        height: 30px;
+    }
+
     .description-content .order-panel-wrap {
         display: block;
     }
@@ -6029,6 +6039,15 @@ img.f-logos {
         font-size: 14px;
     }
 
+    .slick-tours button.slick-prev {
+        width: 30px;
+        height: 30px;
+    }
+
+    .slick-tours button.slick-next {
+        width: 30px;
+        height: 30px;
+    }
 }
 
 @media only screen and (max-width: 767px) {
