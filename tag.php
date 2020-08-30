@@ -159,7 +159,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                 }
                 ?>
                 <div style="margin-top: 40px;" id="top-text-city" class="border-box__text">
-                    <span style="font-weight: 500;"><?php echo ($currentTag->header); ?> <?php echo ($textRu); ?></span> – прекрасная возможность увидеть много нового и интересного. Вы можете купить <span style="font-weight: 500;"> <?php echo ($currentTag->experience_count); ?> экскурсии <?php echo ($tag_list[0]->city->in_obj_phrase); ?> со скидкой по цене от <?php echo (min($priceAll)) ?> до <?php echo (max($priceAll)) ?> <?php echo ($currency); ?>.</span>  На страницах полного описания экскурсий есть форма связи с гидом. Можно писать любые вопросы для уточнения всех деталей, если вы не нашли этого в полном описании.
+                    <span style="font-weight: 500;color:#841b1b;"><?php echo ($currentTag->header); ?> <?php echo ($textRu); ?></span> – прекрасная возможность увидеть много нового и интересного. Вы можете купить <span style="font-weight: 500;color:#841b1b;"> <?php echo ($currentTag->experience_count); ?> экскурсии <?php echo ($tag_list[0]->city->in_obj_phrase); ?> со скидкой по цене от <?php echo (min($priceAll)) ?> до <?php echo (max($priceAll)) ?> <?php echo ($currency); ?>.</span>  На страницах полного описания экскурсий есть форма связи с гидом. Можно писать любые вопросы для уточнения всех деталей, если вы не нашли этого в полном описании.
                 </div>
                 <div class="advantages-wrap">
                     <div class="advantages-item">

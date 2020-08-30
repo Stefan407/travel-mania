@@ -82,9 +82,17 @@ if (!is_null($page)) {
     } else {
         getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en={$city__name_en}&detailed=true", $list, $urlNext);
     }
+    if (!$list) {
+        include_once('404.php');
+        exit;
+    }
 } else if ($country__name_en) {
     $page = 'Country';
     getAllResultsNoNext("https://experience.tripster.ru/api/cities/?page_size=12&format=json&country__name_en={$country__name_en}", $list, $urlNext);
+    if (!$list) {
+        include_once('404.php');
+        exit;
+    }
 } else {
     if ($_SERVER['REQUEST_URI'] != '/') {
         include_once('404.php');

@@ -4206,7 +4206,7 @@ h2 {
     border-radius: 20px;
     color: #fff;
     padding: 4px 15px 5px;
-    background-color: rgba(0, 0, 0, .35);
+    background-color: #841b1b87;
     text-decoration: none;
     transition: color, background-color .3s;
     display: inline-flex;
@@ -4227,7 +4227,7 @@ h2 {
     padding: 0 10px;
     width: 33.3%;
     min-height: 1px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .slick-tours__item-img {
@@ -5873,6 +5873,27 @@ img.f-logos {
 }
 
 @media (max-width: 768px) {
+    .description-content-text .guide.des {
+        display: none;
+    }
+
+    .description-content-text .guide.mob {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .description-content-text .guide .guide-left {
+        margin: 0 auto;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    .description-content-text .guide img{
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
     body.act-cal .container-calendar {
         width: 100%;
         max-width: calc(100% - 30px);
@@ -6076,7 +6097,6 @@ img.f-logos {
     h3 {
         font-size: 18px;
         font-weight: 600;
-        color: #e66363;
     }
 
     h4 {
@@ -6347,21 +6367,9 @@ img.f-logos {
         display: block;
     }
 
-    .description-content-text .guide.des {
-        display: none;
-    }
 
-    .description-content-text .guide.mob {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 10px;
-    }
 
-    .description-content-text .guide .guide-left {
-        margin: 0 auto;
-        margin-bottom: 20px;
-    }
+
 
     .all-cauntries #search {
         display: flex;

@@ -62,7 +62,7 @@ $(document).ready(function () {
         }
         let cityName = replaceName("noSpace", data.city.name_en);
         let countryName = replaceName("noSpace", data.city.country.name_en);
-        let url = "https://travel-mania.org/" + countryName + "/" + cityName + "/excursion-" + id;
+        let url = "https://travel-mania.org/" + countryName + "/" + cityName + "/excursion-" + id + "/";
         location.href = url;
 
     }
@@ -78,7 +78,7 @@ $(document).ready(function () {
             data = jQuery.parseJSON(xhr.responseText);
         }
         let countryName = replaceName("noSpace", data.results[0].name_en);
-        let url = "https://travel-mania.org/" + countryName;
+        let url = "https://travel-mania.org/" + countryName + "/";
         location.href = url;
 
     }
@@ -95,7 +95,7 @@ $(document).ready(function () {
         }
         let cityName = replaceName("noSpace", data.results[0].name_en);
         let countryName = replaceName("noSpace", data.results[0].country.name_en);
-        let url = "https://travel-mania.org/" + countryName + "/" + cityName;
+        let url = "https://travel-mania.org/" + countryName + "/" + cityName + "/";
         location.href = url;
 
     }
@@ -284,6 +284,30 @@ $(document).ready(function () {
         }
         eventLinkToTr();
     }
+
+    if ($(".home .slick-tours.slider").length) {
+        $('.slick-tours.slider').slick({
+            prevArrow: '<button type="button" class="slick-prev slick-btn" ><img src="/assets/images/arrow-icon.png" alt=""></button>',
+            nextArrow: '<button type="button" class="slick-next slick-btn" ><img src="/assets/images/arrow-icon.png" alt=""></button>',
+            dots: false,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            responsive: [{
+                    breakpoint: 1000,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                    }
+                }
+            ]
+        });
+    }
+
     if ($(".excursion-page").length) {
         if (xhrOne !== null) {
             xhrOne.abort();
@@ -319,27 +343,6 @@ $(document).ready(function () {
             protect: true
         });
     }
-
-    $('.slick-tours.slider').slick({
-        prevArrow: '<button type="button" class="slick-prev slick-btn" ><img src="/assets/images/arrow-icon.png" alt=""></button>',
-        nextArrow: '<button type="button" class="slick-next slick-btn" ><img src="/assets/images/arrow-icon.png" alt=""></button>',
-        dots: false,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        responsive: [{
-                breakpoint: 1000,
-                settings: {
-                    slidesToShow: 2,
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                }
-            }
-        ]
-    });
 
 
     function clickInWindow(e) {
@@ -415,7 +418,7 @@ $(document).ready(function () {
             };
         })
     }
-    if ($('.slider-tours-photo')) {
+    if ($('.slider-tours-photo').length) {
         $('.slider-tours-photo').slick({
             arrows: false,
             dots: true,
