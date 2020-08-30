@@ -18,6 +18,7 @@ getAllResults('https://experience.tripster.ru/api/countries/?format=json', $list
     <?php
     include 'inc/head-static.php';
     ?>
+
 </head>
 
 <body>
@@ -27,7 +28,7 @@ getAllResults('https://experience.tripster.ru/api/countries/?format=json', $list
     <section class="top">
         <div class="top__slider">
             <div id="top-images-city" class="image-top_slider ">
-                <img data-src="/uploads/Main/Main-11.jpg" class="lazyload">
+                <img class="lazyload" data-src="/uploads/Main/Main-12.jpg" alt="">
             </div>
             <div class="top__slider-text">
                 <div class="container">
@@ -123,9 +124,9 @@ getAllResults('https://experience.tripster.ru/api/countries/?format=json', $list
                 <p>Travel Mania — лучшие экскурсионные предложения в 93 странах мира. Все экскурсии авторские: обзорные, исторические, гастрономические и шоппинг туры, экскурсии с детьми, а также спортивные и развлекательные поездки. Мы предлагаем тысячи эксклюзивных экскурсий, которые можно забронировать онлайн. Только тщательно продуманные маршруты и выгодные цены, о чем свидетельствуют более 140 000 отзывов.</p>
                 <div class="video-box">
                     <h2>Весь мир за одну минуту</h2>
-                    <video controls="controls" playsinline poster="/assets/images/TRAVEL-MANIA-EXMP.png">
-                        <source src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/webm">
-                        <source src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/mp4">
+                    <video controls="controls" playsinline poster="/assets/images/move-img.png">
+                        <source src="/assets/video/MOVE.mp4" type="video/webm">
+                        <source src="/assets/video/MOVE.mp4" type="video/mp4">
                     </video>
                     <p class="autor">
                         Видео: <a href="/go/?url=https://vimeo.com/27246366" target="_blank">Rick Mereki</a>

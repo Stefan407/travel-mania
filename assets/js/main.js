@@ -10,6 +10,7 @@ $(document).ready(function () {
 
     function request(url) {
         $(".windows8").show();
+        $(".close-search").hide();
         if (xhrOne !== null) {
             xhrOne.abort();
         }
@@ -152,10 +153,12 @@ $(document).ready(function () {
             });
             createEvens();
             $(".windows8").hide();
+            $(".close-search").show();
             $(".not-found").hide();
         } else {
             $(".not-found").show();
             $(".windows8").hide();
+            $(".close-search").show();
         }
     }
     $("#searchInput").on("keyup", function () {
@@ -361,6 +364,9 @@ $(document).ready(function () {
     }
     document.addEventListener("click", function (e) {
         clickInWindow(e);
+    })
+    $(".close-search").on("click", function (e) {
+        $("body").removeClass("act-search");
     })
 
     let simplebarItems = document.querySelectorAll('.scroll-init');

@@ -36,6 +36,7 @@ $page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены,
     <?php
     include 'inc/head-static.php';
     ?>
+
 </head>
 
 <body class="home">
@@ -175,7 +176,7 @@ $page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены,
             </div>
             <div class="load-tour" style="display: none;margin: 20px 0;text-align: center;"> <img style="width:35px;" src="/assets/images/2.gif" alt=""></div>
             <?php if ($urlNext) { ?>
-                <button id="btn-more" class="btn-more" data-url-next="<?php echo ($urlNext) ?>">Показать ещё...</button>
+                <button id="btn-more" class="btn-more" data-url-next="<?php echo ($urlNext) ?>">Показать ещё... </button>
             <?php } ?>
         </div>
     </section>
@@ -194,9 +195,9 @@ $page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены,
                     <div>
                         <h2>Как забронировать экскурсию</h2>
                         <p>Забронировать экскурсии <?php echo ($list[0]->country->in_obj_phrase); ?> поможет наш видиопример. Перед тем, как Вы определитесь с тематикой экскурсии и выбирите удобную дату, можно задать любой вопрос гиду. Посмотрите видео и узнайте все наши приемущества.</p>
-                        <video controls="controls" playsinline poster="/assets/images/TRAVEL-MANIA-EXMP.png">
-                            <source src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/webm">
-                            <source src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/mp4">
+                        <video controls="controls" playsinline poster="/assets/images/move-img.png">
+                            <source src="/assets/video/MOVE.mp4" type="video/webm">
+                            <source src="/assets/video/MOVE.mp4" type="video/mp4">
                         </video>
                         <p class="autor">
                             Видео: Travel Mania ©

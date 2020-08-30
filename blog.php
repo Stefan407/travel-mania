@@ -12,6 +12,7 @@
     <?php
     include 'inc/head-static.php';
     ?>
+
 </head>
 
 <body>
@@ -21,7 +22,7 @@
     <section class="top">
         <div class="top__slider">
             <div id="top-images-city" class="image-top_slider ">
-                <img data-src="/uploads/Main/Main-11.jpg" class="lazyload">
+                <img class="lazyload" data-src="/uploads/Main/Main-12.jpg" alt="">
             </div>
             <div class="top__slider-text">
                 <div class="container">

@@ -12,6 +12,7 @@
     <?php
     include 'inc/head-static.php';
     ?>
+
     <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 

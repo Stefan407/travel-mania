@@ -71,6 +71,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
     <?php
     include 'inc/head-static.php';
     ?>
+
 </head>
 
 <body>
@@ -150,32 +151,33 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                         <div class="advantages-text">При бронировании оплачивается только 20% картой, остальную сумму платите гиду при встрече</div>
                     </div>
                 </div>
+                <section class="list-tags">
+                    <div class="container">
+                        <div class="list-tags-wrap">
+                            <?php foreach ($listTagsNew as $item) : ?>
+                                <?php if ($item->is_hidden == false and $item->experience_count > 0) : ?>
+                                    <?php if ($item->slug == "all") { ?>
+                                        <a class="active" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/">
+                                            <span>Все</span><span style="margin-left: 5px;margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
+                                        </a>
+                                    <?php } else if ($tag_id == $item->id) { ?>
+                                        <a class="active" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
+                                            <span><?php echo ($item->name); ?></span><span style="margin-left: 5px;    margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
+                                        </a>
+                                    <?php } else { ?>
+                                        <a href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
+                                            <span><?php echo ($item->name); ?></span><span style="margin-left: 5px;    margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
+                                        </a>
+                                    <?php } ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </section>
-    <section class="list-tags">
-        <div class="container">
-            <div class="list-tags-wrap">
-                <?php foreach ($listTagsNew as $item) : ?>
-                    <?php if ($item->is_hidden == false and $item->experience_count > 0) : ?>
-                        <?php if ($item->slug == "all") { ?>
-                            <a class="active" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>">
-                                <span>Все</span><span style="margin-left: 5px;margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
-                            </a>
-                        <?php } else if ($tag_id == $item->id) { ?>
-                            <a class="active" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>">
-                                <span><?php echo ($item->name); ?></span><span style="margin-left: 5px;    margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
-                            </a>
-                        <?php } else { ?>
-                            <a href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>">
-                                <span><?php echo ($item->name); ?></span><span style="margin-left: 5px;    margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
-                            </a>
-                        <?php } ?>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
+
     <section class="popular-tours tours">
         <div class="container">
             <div id="slick-tours" class="slick-tours row">
@@ -269,7 +271,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
             </div>
             <div class="load-tour" style="display: none;margin: 20px 0;text-align: center;"> <img style="width:35px;" src="/assets/images/2.gif" alt=""></div>
             <?php if ($urlNext) { ?>
-                <button id="btn-more" class="btn-more" data-url-next="<?php echo ($urlNext) ?>">Показать ещё...</button>
+                <button id="btn-more" class="btn-more" data-url-next="<?php echo ($urlNext) ?>">Показать ещё... </button>
             <?php } ?>
         </div>
     </section>
@@ -307,9 +309,9 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                 <div class="video-box">
                     <div>
                         <p>Забронировать экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> поможет наш видиопример. Перед тем, как Вы определитесь с тематикой экскурсии и выбирите удобную дату, можно задать любой вопрос гиду. Посмотрите видео и узнайте все наши приемущества.</p>
-                        <video controls="controls" playsinline poster="/assets/images/TRAVEL-MANIA-EXMP.png">
-                            <source class="lazyload" data-src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/webm">
-                            <source class="lazyload" data-src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/mp4">
+                        <video controls="controls" playsinline poster="/assets/images/move-img.png">
+                            <source src="/assets/video/MOVE.mp4" type="video/webm">
+                            <source src="/assets/video/MOVE.mp4" type="video/mp4">
                         </video>
                         <p class="autor">
                             Видео: © Travel Mania

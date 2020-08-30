@@ -1,6 +1,6 @@
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH5TPRC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+<!-- End Google Tag Manager (noscript) -->
 
 <header id="header">
     <div class="bc-search"></div>
@@ -13,6 +13,10 @@
                         <div class="search-item">
                             <div class="input-search_wrap"> <input placeholder="Куда вы едете?" type="text" id="searchInput" class="search-input">
                                 <div class="windows8" style="display: none;"> <img src="/assets/images/2.gif" alt=""></div>
+                                <div class="close-search" style="display: none;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M4.293,18.293,10.586,12,4.293,5.707A1,1,0,0,1,5.707,4.293L12,10.586l6.293-6.293a1,1,0,1,1,1.414,1.414L13.414,12l6.293,6.293a1,1,0,1,1-1.414,1.414L12,13.414,5.707,19.707a1,1,0,0,1-1.414-1.414Z"></path>
+                                    </svg></div>
                                 <div class="search-icon-des"> <img src="/assets/images/search-icon-white.svg" alt=""></div>
                             </div>
                             <div class="search-list_wrap block-scrollbar scroll-init" data-simplebar="init">

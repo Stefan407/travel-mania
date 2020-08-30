@@ -12,6 +12,7 @@
     <?php
     include 'inc/head-static.php';
     ?>
+
 </head>
 
 <body>

@@ -11,6 +11,7 @@
     <?php
     include 'inc/head-static.php';
     ?>
+
 </head>
 
 <body class="home">
@@ -157,10 +158,10 @@
                     <div class="video-box">
                         <h2>Мир за одну минуту</h2>
                         <div class="video__text">
-                            <video controls="controls" playsinline poster="/assets/images/move-img.webp">
-                                <source class="lazyload" data-src="/assets/video/MOVE.mp4" type="video/webm">
-                                <source class="lazyload" data-src="/assets/video/MOVE.mp4" type="video/mp4">
-                            </video>
+                        <video controls="controls" playsinline poster="/assets/images/move-img.png">
+                            <source src="/assets/video/MOVE.mp4" type="video/webm">
+                            <source src="/assets/video/MOVE.mp4" type="video/mp4">
+                        </video>
                             <p class="autor">
                                 Видео: <a href="/go/?url=https://vimeo.com/27246366" target="_blank">Rick Mereki</a>
                             </p>

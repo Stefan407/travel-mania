@@ -50,6 +50,7 @@ if ($city_name == 'Villefranche-sur-Saône') {
     <?php
     include 'inc/head-static.php';
     ?>
+
     <script type="text/javascript" src="/assets/js/jquery.fancybox.min.js" defer></script>
 
 </head>
@@ -399,7 +400,7 @@ if ($city_name == 'Villefranche-sur-Saône') {
                                 <div class="slick-tours__item" style="background-color:#fff;">
                                     <div class="slick-tours__wrap">
                                         <div class="slick-tours__item-img">
-                                            <a class="link" href="/<?php echo str_replace('+', '-', $country__name_en) ?>/<?php echo($city_name); ?>/excursion-<?= $tour->id ?>/" data-images="<?php echo htmlspecialchars(json_encode($arrayImg)) ?>">
+                                            <a class="link" href="/<?php echo str_replace('+', '-', $country__name_en) ?>/<?php echo ($city_name); ?>/excursion-<?= $tour->id ?>/" data-images="<?php echo htmlspecialchars(json_encode($arrayImg)) ?>">
                                                 <img class="static lazyload" data-src="<?php echo $tour->photos['0']->thumbnail ?>" alt="">
                                             </a>
                                             <?php if ($tour->price->discount->value) { ?>
@@ -441,7 +442,7 @@ if ($city_name == 'Villefranche-sur-Saône') {
                                         </div>
                                         <div class="tours__item-content ">
                                             <div class="item-title ">
-                                                <a href="/<?php echo str_replace('+', '-', str_replace(' ', '-', $country__name_en)) ?>/<?php echo($city_name); ?>/excursion-<?= $tour->id ?>/">
+                                                <a href="/<?php echo str_replace('+', '-', str_replace(' ', '-', $country__name_en)) ?>/<?php echo ($city_name); ?>/excursion-<?= $tour->id ?>/">
                                                     <?= $tour->title ?>
                                                 </a>
                                             </div>
@@ -467,10 +468,13 @@ if ($city_name == 'Villefranche-sur-Saône') {
         </section>
     <?php } ?>
     <div class="link-all-ex">
-        <a href="/<?php echo ($country__name_en) ?>/<?php echo ($city_name) ?>/">Посмотреть все экскурсии <?php echo ($list->city->in_obj_phrase); ?></a>
+        <a href="/<?php echo ($country__name_en) ?>/<?php echo ($city_name) ?>/">Все экскурсии <?php echo ($list->city->in_obj_phrase); ?></a>
     </div>
     <script>
-
+        function more() {
+            document.getElementById("description-item-reviews").style.maxHeight = "100%";
+            document.querySelector(".reviews-btn").style.display = "none";
+        }
     </script>
     <?php
     include 'inc/footer.php';

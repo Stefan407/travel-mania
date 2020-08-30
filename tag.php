@@ -85,10 +85,12 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <title><?php echo ($page_title); ?></title>
     <meta name="keywords" content="экскурсии, <?php echo ($tag_list[0]->city->in_obj_phrase); ?>, <?php echo ($currentTag->name); ?>, русский, на русском, гиды, авторские, эксклюзивные, исторические, обзорные, пешеходные, на автобусе, купить, заказать, забронировать, цена, недорого, дешево, скидка, описание, список, прайс, травэл, мания, travel, mania" />
-    <meta name="description" content="🟢 Групповые и <?php echo ($currentTag->header); ?> с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны <?php echo ($currentTag->header); ?>, которые тщательно продуманы и составлены гидами." />
+    <meta name="description" content="🟢 <?php echo ($currentTag->header); ?> с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. Все экскурсии тщательно продуманы и составлены гидами." />
     <?php
     include 'inc/head-static.php';
     ?>
+
+
 </head>
 
 <body>
@@ -157,7 +159,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                 }
                 ?>
                 <div style="margin-top: 40px;" id="top-text-city" class="border-box__text">
-                    Экскурсии <span style="    text-transform: lowercase;"><?php echo ($currentTag->name); ?></span> <?php echo ($textRu); ?> – прекрасная возможность увидеть много нового и интересного. Вы можете купить <?php echo ($currentTag->experience_count); ?> экскурсии <?php echo ($tag_list[0]->city->in_obj_phrase); ?> со скидкой по цене от <?php echo (min($priceAll)) ?> до <?php echo (max($priceAll)) ?> <?php echo ($currency); ?>. На страницах полного описания экскурсий есть форма связи с гидом. Можно писать любые вопросы для уточнения всех деталей, если вы не нашли этого в полном описании.
+                    <span style="font-weight: 500;"><?php echo ($currentTag->header); ?> <?php echo ($textRu); ?></span> – прекрасная возможность увидеть много нового и интересного. Вы можете купить <span style="font-weight: 500;"> <?php echo ($currentTag->experience_count); ?> экскурсии <?php echo ($tag_list[0]->city->in_obj_phrase); ?> со скидкой по цене от <?php echo (min($priceAll)) ?> до <?php echo (max($priceAll)) ?> <?php echo ($currency); ?>.</span>  На страницах полного описания экскурсий есть форма связи с гидом. Можно писать любые вопросы для уточнения всех деталей, если вы не нашли этого в полном описании.
                 </div>
                 <div class="advantages-wrap">
                     <div class="advantages-item">
@@ -179,15 +181,15 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                             <?php foreach ($listTagsNew as $item) : ?>
                                 <?php if ($item->is_hidden == false and $item->experience_count > 0) : ?>
                                     <?php if ($item->slug == "all") { ?>
-                                        <a href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>">
+                                        <a href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/">
                                             <span>Все</span><span style="margin-left: 5px;margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
                                         </a>
                                     <?php } else if ($tag_id == $item->id) { ?>
-                                        <a class="active" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $tag_list[0]->city->id; ?>-<?php echo ($item->id); ?>">
+                                        <a class="active" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $tag_list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
                                             <span><?php echo ($item->name); ?></span><span style="margin-left: 5px;    margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
                                         </a>
                                     <?php } else { ?>
-                                        <a href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $tag_list[0]->city->id; ?>-<?php echo ($item->id); ?>">
+                                        <a href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $tag_list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
                                             <span><?php echo ($item->name); ?></span><span style="margin-left: 5px;    margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
                                         </a>
                                     <?php } ?>
@@ -293,7 +295,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
             </div>
             <div class="load-tour" style="display: none;margin: 20px 0;text-align: center;"> <img style="width:35px;" src="/assets/images/2.gif" alt=""></div>
             <?php if ($urlNext) { ?>
-                <button id="btn-more" class="btn-more" data-url-next="<?php echo ($urlNext) ?>">Показать ещё...</button>
+                <button id="btn-more" class="btn-more" data-url-next="<?php echo ($urlNext) ?>">Показать ещё... всего <?php echo ($currentTag->experience_count); ?></button>
             <?php } ?>
         </div>
     </section>
@@ -321,9 +323,9 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                 <div class="video-box">
                     <div>
                         <p>Забронировать <?php echo ($currentTag->header); ?> поможет наш видиопример. Перед тем, как Вы определитесь с тематикой экскурсии и выбирите удобную дату, можно задать любой вопрос гиду. Посмотрите видео и узнайте все наши приемущества.</p>
-                        <video controls="controls" playsinline poster="/assets/images/TRAVEL-MANIA-EXMP.png">
-                            <source class="lazyload" data-src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/webm">
-                            <source class="lazyload" data-src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/mp4">
+                        <video controls="controls" playsinline poster="/assets/images/move-img.png">
+                            <source src="/assets/video/MOVE.mp4" type="video/webm">
+                            <source src="/assets/video/MOVE.mp4" type="video/mp4">
                         </video>
                         <p class="autor">
                             Видео: © Travel Mania
