@@ -209,9 +209,9 @@ if ($city_name == 'Villefranche-sur-Saône') {
                                         <div class="order-item-string"><img class="lazyload" data-src="/assets/images/warranty-icon.svg"> Гарантия лучшей цены </div>
                                         <div>
                                             <div class="panel-btns">
-                                                <div> <a class="order-btn" target="_blank" onclick="ym(56569540,'reachGoal','bron')" href="/go/?url=https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Забронировать </a> </div>
+                                                <div> <a class="order-btn more-btn" target="_blank" onclick="ym(56569540,'reachGoal','bron')">Забронировать </a> </div>
                                                 <div> <a class="more-btn" style="display: none;" target="_blank" onclick="ym(56569540,'reachGoal','data')">Выбрать дату </a> </div>
-                                                <div> <a class="order-ask" target="_blank" onclick="ym(56569540,'reachGoal','vopros')" href="/go/?url=https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/message/&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Задать вопрос гиду</a> </div>
+                                                <div> <a class="order-ask" target="_blank" onclick="ym(56569540,'reachGoal','vopros')" href="/go/?url=https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/message/?exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link&utm_term=guide">Задать вопрос гиду</a> </div>
                                             </div>
                                     </span>
                                 </div>
@@ -377,9 +377,9 @@ if ($city_name == 'Villefranche-sur-Saône') {
                             <div class="order-item-string"><img class="lazyload" data-src="/assets/images/warranty-icon.svg"> Гарантия лучшей цены </div>
                             <div>
                                 <div class="panel-btns">
-                                    <div> <a class="order-btn" target="_blank" onclick="ym(56569540,'reachGoal','bron')" href="/go/?url=https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Забронировать </a> </div>
+                                    <div> <a class="more-btn order-btn" target="_blank" onclick="ym(56569540,'reachGoal','bron')">Забронировать </a> </div>
                                     <div> <a class="more-btn" style="display: none;" target="_blank" onclick="ym(56569540,'reachGoal','data')">Выбрать дату </a> </div>
-                                    <div> <a class="order-ask" target="_blank" onclick="ym(56569540,'reachGoal','vopros')" href="/go/?url=https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/message/&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link">Задать вопрос гиду</a> </div>
+                                    <div> <a class="order-ask" target="_blank" onclick="ym(56569540,'reachGoal','vopros')" href="/go/?url=https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/message/?exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link&utm_term=guide">Задать вопрос гиду</a> </div>
                                 </div>
                         </span>
                     </div>

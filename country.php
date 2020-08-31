@@ -47,7 +47,7 @@ $page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены,
 
         <div class="top__slider">
             <div id="top-images" class="image-top_slider">
-                <img class="lazyload" data-src="<?php echo ($current_des_country->images[0]) ?>">
+                <img class="lazyload" data-src="<?php if($current_des_country->images[0]){ echo($current_des_country->images[0]);}else{ echo("/uploads/Main/default-img-top.jpeg");}?>">
             </div>
             <div class="top__slider-text">
                 <div class="container">

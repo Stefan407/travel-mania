@@ -242,7 +242,7 @@ $(document).ready(function () {
                         break;
                 }
                 $(".expage-dates-list").addClass("vis");
-                $(".expage-dates-list").append("<div data-link='https://experience.tripster.ru/experience/booking/" + idExcursion + "?date=" + newKey + "&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link' class='expage-dates__item open-link'><span>" + day + ", " + now.format('D MMMM') + " в " + dataCalendar.schedule[key][0].time + "</span></div>");
+                $(".expage-dates-list").append("<div data-link='https://experience.tripster.ru/experience/booking/" + idExcursion + "?date=" + newKey + "&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link&utm_term=data' class='expage-dates__item open-link'><span>" + day + ", " + now.format('D MMMM') + " в " + dataCalendar.schedule[key][0].time + "</span></div>");
             }
             counter++
         }
@@ -259,7 +259,7 @@ $(document).ready(function () {
             newKey = newData.join(".");
             $(".btn-order-wrap .text").text("Вы выбрали дату: " + data);
             $(".btn-order-wrap .btn-click").addClass('act');
-            $(".btn-order-wrap .btn-click").attr('data-url', "https://experience.tripster.ru/experience/booking/" + idExcursion + "?date=" + newKey + "&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link");
+            $(".btn-order-wrap .btn-click").attr('data-url', "https://experience.tripster.ru/experience/booking/" + idExcursion + "?date=" + newKey + "&exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link&utm_term=data");
             $(".btn-order-wrap .btn-click").text("Забронировать");
             $(".table-calendar td.date-picker").removeClass('br');
             $(this).addClass("br");

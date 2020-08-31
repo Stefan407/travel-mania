@@ -2,7 +2,7 @@
 
 $list = [];
 $listCountry = [];
-getAllResults('https://experience.tripster.ru/api/cities/', $list);
+getAllResultsNoNext('https://experience.tripster.ru/api/cities/', $list, $urlNext);
 getAllResults('https://experience.tripster.ru/api/countries/?format=json', $listCountry);
 ?>
 
@@ -14,7 +14,7 @@ getAllResults('https://experience.tripster.ru/api/countries/?format=json', $list
 <head>
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    <title>Авторские экскурсии в 600+ городах 2020 ⭐ цены и описание ⭐</title>
+    <title>Авторские экскурсии в 600+ городах 2020 🥇 цены и описание 🥇</title>
     <meta name="keywords" content="экскурсии, все, города, направления, в городах, на русском, язык, выбрать, заказать, купить, забронировать, трэвэл, мания, travel, mania" />
     <meta name="description" content="🟢 Групповые и индивидуальные экскурсии в 600+ городах с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны лучшие экскурсии в 600+ городах, которые тщательно продуманы и составлены гидами." />
     <?php
@@ -134,7 +134,7 @@ getAllResults('https://experience.tripster.ru/api/countries/?format=json', $list
                     <div id="cityes" class="popular-cityes__wrap">
                         <?php $count = 1 ?>
                         <?php foreach ($list as $town) { ?>
-                            <div id="item-element <?php echo str_replace('+', '-', urlencode($city_name)) ?>" class="item-element w-33 <?php if ($count > 24) { ?>hide<?php } ?>">
+                            <div id="item-element <?php echo str_replace('+', '-', urlencode($city_name)) ?>" class="item-element w-33">
                                 <?php
                                 $city_name = str_replace('é', 'e', $town->name_en);
                                 $city_name = str_replace('ё', 'e', $town->name_en);
@@ -154,7 +154,10 @@ getAllResults('https://experience.tripster.ru/api/countries/?format=json', $list
                             <?php $count++ ?>
                         <?php } ?>
                     </div>
-                    <button id="btn-more" class="btn-more">Показать ещё... <span id="span-col">всего <?php echo (count($list)) ?></span></button>
+                    <div class="load-tour" style="display: none;margin: 20px 0;text-align: center;"> <img style="width:35px;" src="/assets/images/2.gif" alt=""></div>
+                    <?php if ($urlNext) { ?>
+                        <button id="btn-more" class="btn-more" data-url-next="<?php echo ($urlNext) ?>">Показать ещё... </button>
+                    <?php } ?>
                     <div class="country-all-block-wrap">
                         <h2>Выберите страну для путешествия</h2>
                         <div class="country-all-block">
@@ -264,40 +267,11 @@ getAllResults('https://experience.tripster.ru/api/countries/?format=json', $list
 
             $("#btn-rat").trigger("click");
 
-            if ($(".popular-cityes__wrap .item-element").length > 24) {
-                $(".popular-cityes .btn-more").css("display", "block");
 
-            } else {
-                $(".popular-cityes .btn-more").css("display", "none");
-            }
-            let showElensVisual = 48;
-            $(".popular-cityes .btn-more").on("click", function() {
-                let elems = $(".popular-cityes__wrap .item-element");
-                let length = $(".popular-cityes__wrap .item-element").length;
-                if (showElensVisual > length) {
-                    showElem(showElensVisual, true)
-                } else {
-                    showElem(showElensVisual, false)
-                }
-                showElensVisual = showElensVisual + 24;
-            })
             $(".country-all-block .search-element a").click(function(e) {
                 location.href = $(this).data("url-country");
             })
 
-            function showElem(count, btn) {
-                let elems = $(".popular-cityes__wrap .item-element");
-                if (count) {
-                    for (i = 1; i < count; i++) {
-                        if ($(elems[i]).length) {
-                            elems[i].classList.remove("hide");
-                        }
-                    }
-                }
-                if (btn) {
-                    $(".popular-cityes .btn-more").css("display", "none");
-                }
-            }
         })
     </script>
     <?php

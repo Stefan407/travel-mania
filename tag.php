@@ -100,7 +100,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
     <section class="top">
         <div class="top__slider">
             <div id="top-images-city" class="image-top_slider ">
-                <img class="lazyload" data-src="<?php echo ($current_des_city->images[0]) ?>">
+                <img class="lazyload" data-src="<?php if($current_des_city->images[0]){ echo($current_des_city->images[0]);}else{ echo("/uploads/Main/default-img-top.jpeg");}?>">
             </div>
             <div class="top__slider-text">
                 <div class="container">
@@ -151,15 +151,24 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                 <?php
                 $currency = "";
                 if ($tag_list[0]->price->currency == "RUB") {
-                    $currency = "рублей";
+                    $currency = "руб";
                 } else if ($tag_list[0]->price->currency == "EUR") {
-                    $currency = "евро";
+                    $currency = "€";
+                } else if ($tag_list[0]->price->currency == "USD") {
+                    $currency = "$";
+                } else if ($tag_list[0]->price->currency == "GBP") {
+                    $currency = "£";
                 } else {
-                    $currency = "денежных едениц этой страны";
+                    $currency = $tag_list[0]->price->currency;
+                }
+                if (count($priceAll) > 1) {
+                    $textPrice = "экскурсии по цене от " . min($priceAll) . " до " . max($priceAll) . " " . $currency;
+                } else {
+                    $textPrice = "экскурсию по цене " . $priceAll[0] . " " . $currency;
                 }
                 ?>
                 <div style="margin-top: 40px;" id="top-text-city" class="border-box__text">
-                    <span style="font-weight: 500;color:#841b1b;"><?php echo ($currentTag->header); ?> <?php echo ($textRu); ?></span> – прекрасная возможность увидеть много нового и интересного. Вы можете купить <span style="font-weight: 500;color:#841b1b;"> <?php echo ($currentTag->experience_count); ?> экскурсии по цене от <?php echo (min($priceAll)) ?> до <?php echo (max($priceAll)) ?> <?php echo ($currency); ?>.</span>  На страницах полного описания экскурсий есть форма связи с гидом. Можно задать любые вопросы для уточнения всех деталей, если Вы не нашли этого в полном описании экскурсии.
+                    <span style="font-weight: 500;color:#841b1b;"><?php echo ($currentTag->header); ?> <?php echo ($textRu); ?></span> – прекрасная возможность увидеть много нового и интересного. Вы можете купить <span style="font-weight: 500;color:#841b1b;"> <?php echo ($currentTag->experience_count); ?> <?php echo ($textPrice); ?>.</span> На страницах полного описания экскурсий есть форма связи с гидом. Можно задать любые вопросы для уточнения всех деталей, если Вы не нашли этого в полном описании экскурсии.
                 </div>
                 <div class="advantages-wrap">
                     <div class="advantages-item">
@@ -181,7 +190,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                             <?php foreach ($listTagsNew as $item) : ?>
                                 <?php if ($item->is_hidden == false and $item->experience_count > 0) : ?>
                                     <?php if ($item->slug == "all") { ?>
-                                        <a href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/">
+                                        <a class="all" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/">
                                             <span>Все</span><span style="margin-left: 5px;margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
                                         </a>
                                     <?php } else if ($tag_id == $item->id) { ?>
