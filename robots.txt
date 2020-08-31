@@ -1,0 +1,5 @@
+Disallow: /go
+Allow: /
+
+
+Sitemap: https://travel-mania.org/sitemap.xml
