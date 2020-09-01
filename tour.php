@@ -504,7 +504,7 @@ if ($city_name == 'Villefranche-sur-Saône') {
                 });
             } else {
                 $(".slick-tours .slick-tours__item").css({
-                    "margin": "10px"
+                    "margin": "10px 0"
                 })
             }
         });
