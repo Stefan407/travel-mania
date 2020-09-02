@@ -1,5 +1,7 @@
 User-agent: *
 
+Disallow: /*?*
+
 Allow: /
 
 Sitemap: https://travel-mania.org/sitemap.xml
