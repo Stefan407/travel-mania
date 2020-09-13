@@ -1,5 +1,7 @@
-Disallow: /go
-Allow: /
+User-agent: *
 
+Disallow: /*?*
+
+Allow: /
 
 Sitemap: https://travel-mania.org/sitemap.xml
