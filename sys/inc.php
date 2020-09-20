@@ -5,19 +5,7 @@
 
 function getData($url)
 {
-    $cache = __DIR__ . '/cache/' . md5($url);
-
-    if (file_exists($cache)) {
-        $countries = file_get_contents($cache);
-        return json_decode($countries);
-    }
-
     $countries = file_get_contents($url);
-
-    if ($countries) {
-        file_put_contents($cache, $countries);
-    }
-
     return json_decode($countries);
 }
 

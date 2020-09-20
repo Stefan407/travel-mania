@@ -16,7 +16,7 @@ $textRu = " на русском языке ";
 if ($list[0]->city->country->name_en == "Russia" or $list[0]->city->country->name_en == "Ukraine" or $list[0]->city->country->name_en == "Crimea") {
     $textRu = " ";
 };
-$page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены, отзывы, описание - Travel Mania 🥇 ";
+$page_title =  "🥇 Экскурсии " . $my_var . $textRu . " 2020 - цены, отзывы и описание!";
 
 // DATA SEO
 $priceAll = [];
@@ -168,14 +168,6 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
 
         <div class="container">
             <div class="border-box">
-                <h2>Экскурсии <?php echo ($list[0]->city->in_obj_phrase);
-                                echo ($textRu); ?></h2>
-                <div id="top-text-city" class="border-box__text">
-                    <?php if ($current_des_city->textTop != "") : ?>
-                        <?php echo $current_des_city->textTop; ?>
-                        <?php else : ?>Travel Mania предлагает авторские экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> на русском языке. Каждый желающий может подобрать подходящую экскурсию, как групповую, так и индивидуальную и забронировать на удобную дату.
-                    <?php endif; ?>
-                </div>
                 <div class="advantages-wrap">
                     <div class="advantages-item">
                         <h3>Онлайн бронирование</h3>
@@ -330,10 +322,17 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
             <?php } ?>
         </span>
     </div>
-
     <section class="video">
         <div class="container">
             <div class="border-box">
+                <h2>Экскурсии <?php echo ($list[0]->city->in_obj_phrase);
+                                echo ($textRu); ?></h2>
+                <div id="top-text-city" class="border-box__text">
+                    <?php if ($current_des_city->textTop != "") : ?>
+                        <?php echo $current_des_city->textTop; ?>
+                        <?php else : ?>Travel Mania предлагает авторские экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> на русском языке. Каждый желающий может подобрать подходящую экскурсию, как групповую, так и индивидуальную и забронировать на удобную дату.
+                    <?php endif; ?>
+                </div>                
                 <h2>Главные экскурсионные места <?php echo ($list[0]->city->in_obj_phrase); ?></h2>
                 <div class="video-box">
                     <div id="video-text-city" class="video__text">

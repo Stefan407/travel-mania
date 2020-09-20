@@ -39,7 +39,7 @@ if ($tag_list[0]->city->country->name_en == "Russia" or $tag_list[0]->city->coun
     $textRu = " ";
 };
 
-$page_title =  $currentTag->header . $textRu . " 2020 🥇 цены, отзывы, описание - Travel Mania 🥇 ";
+$page_title =  "🥇 " . $currentTag->header . $textRu . " 2020 - цены, отзывы и описание!";
 
 
 // REPLACE CITY
@@ -363,7 +363,6 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
             <?php } ?>
         </span>
     </div>
-
     <section class="video">
         <div class="container">
             <div class="border-box">

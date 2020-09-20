@@ -10,7 +10,7 @@ for ($i = 0; $i <= count($arr); $i++) {
     }
 }
 $new_str = implode(", ", $arr);
-$page_title =  $my_var . " 2020 🥇 цена, отзывы, описание - Travel Mania 🥇";
+$page_title =  $my_var . " 2020 🥇 цена, отзывы, описание - Travel Mania";
 
 // LIST TOURS
 $listTour = getData('https://experience.tripster.ru/api/experiences/?city=' . $list->city->id);
@@ -85,7 +85,7 @@ if ($city_name == 'Villefranche-sur-Saône') {
     <meta name="keywords" content="<?php echo ($new_str); ?>, <?php echo ($list->city->country->name_ru); ?>, травел, мания, travel, mania" />
     <meta name="description" content="<?php echo ($list->tagline); ?>" />
 
-    <link rel="preload" as="style" type="text/css" href="/assets/css/jquery.fancybox.min.css" onload="this.rel='stylesheet'">
+<link rel='stylesheet' type='text/css' href='/assets/css/jquery.fancybox.min.css?v=5.6' />
     <?php
     include 'inc/head-static.php';
     ?>
@@ -248,9 +248,9 @@ if ($city_name == 'Villefranche-sur-Saône') {
                                         <div class="order-item-string"><img class="lazyload" data-src="/assets/images/warranty-icon.svg"> Гарантия лучшей цены </div>
                                         <div>
                                             <div class="panel-btns">
-                                                <div> <a class="order-btn more-btn" target="_blank" onclick="ym(56569540,'reachGoal','bron')">Забронировать </a> </div>
-                                                <div> <a class="more-btn" style="display: none;" target="_blank" onclick="ym(56569540,'reachGoal','data')">Выбрать дату </a> </div>
-                                                <div> <a class="order-ask open-link" target="_blank" onclick="ym(56569540,'reachGoal','vopros')" data-link="https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/message/?exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link&utm_term=guide">Задать вопрос гиду</a> </div>
+                                                <div> <a class="order-btn more-btn" target="_blank" onclick="yaCounter56569540.reachGoal('bron');">Забронировать </a> </div>
+                                                <div> <a class="more-btn" style="display: none;" target="_blank" onclick="yaCounter56569540.reachGoal('data');">Выбрать дату </a> </div>
+                                                <div> <a class="order-ask open-link" target="_blank" onclick="yaCounter56569540.reachGoal('vopros');" data-link="https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/?exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link&utm_term=guide">Задать вопрос гиду</a> </div>
                                             </div>
                                     </span>
                                 </div>
@@ -311,7 +311,7 @@ if ($city_name == 'Villefranche-sur-Saône') {
                                     </div>
                                 </div>
                                 <div class="reviews-btn">
-                                    <span onclick="ym(56569540,'reachGoal','vse-otzivi')">⇓ показать все отзывы ⇓</span>
+                                    <span onclick="yaCounter56569540.reachGoal('vse-otzivi');">⇓ показать все отзывы ⇓</span>
                                 </div>
 
                             <?php } ?>
@@ -356,7 +356,7 @@ if ($city_name == 'Villefranche-sur-Saône') {
                                 </div>
                                 <div class="btn-order-wrap">
                                     <div class="text"></div>
-                                    <div class="btn-click open-link" data-link="" onclick="ym(56569540,'reachGoal','bron-data');"></div>
+                                    <div class="btn-click open-link" data-link="" onclick="yaCounter56569540.reachGoal('bron-data');"></div>
                                 </div>
                             </div>
                         </div>
@@ -416,9 +416,9 @@ if ($city_name == 'Villefranche-sur-Saône') {
                             <div class="order-item-string"><img class="lazyload" data-src="/assets/images/warranty-icon.svg"> Гарантия лучшей цены </div>
                             <div>
                                 <div class="panel-btns">
-                                    <div> <a class="more-btn order-btn" target="_blank" onclick="ym(56569540,'reachGoal','bron')">Забронировать </a> </div>
-                                    <div> <a class="more-btn" style="display: none;" target="_blank" onclick="ym(56569540,'reachGoal','data')">Выбрать дату </a> </div>
-                                    <div> <a class="order-ask open-link" target="_blank" onclick="ym(56569540,'reachGoal','vopros')" data-link="https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/message/?exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link&utm_term=guide">Задать вопрос гиду</a> </div>
+                                    <div> <a class="more-btn order-btn" target="_blank" onclick="yaCounter56569540.reachGoal('broni');">Забронировать </a> </div>
+                                    <div> <a class="more-btn" style="display: none;" target="_blank" onclick="yaCounter56569540.reachGoal('data');">Выбрать дату </a> </div>
+                                    <div> <a class="order-ask open-link" target="_blank" onclick="yaCounter56569540.reachGoal('vopros');" data-link="https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/?exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link&utm_term=guide">Задать вопрос гиду</a> </div>
                                 </div>
                         </span>
                     </div>
@@ -429,7 +429,7 @@ if ($city_name == 'Villefranche-sur-Saône') {
     <?php
     if ($listTour->count > 1) { ?>
         <section class="popular-tours slider-tour">
-            <div class="container">
+            <div class="container">                
                 <div class="popular-tours-text">
                     <div>
                         <h2>Популярные экскурсии <?php echo ($list->city->in_obj_phrase); ?></h2>
@@ -498,7 +498,7 @@ if ($city_name == 'Villefranche-sur-Saône') {
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>                                                
                                 </div>
                         <?php }
                         } ?>
