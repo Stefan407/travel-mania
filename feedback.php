@@ -45,7 +45,7 @@
 
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    <title>Форма обратной связи 🆘</title>
+    <title>Форма обратной связи 🆘 Travel Mania</title>
     <meta name="keywords" content="обратная связь, задать вопрос, узнать, уточнить, вопросы, ответы, связаться, написать, администрация, трэвэл, мания, travel, mania" />
     <meta name="description" content="🟢 Задайте нам любой вопрос и мы с удовольствием на него ответим. Служба поддержки клиентов Travel Mania!" />
     <?php

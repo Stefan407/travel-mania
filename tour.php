@@ -10,7 +10,7 @@ for ($i = 0; $i <= count($arr); $i++) {
     }
 }
 $new_str = implode(", ", $arr);
-$page_title =  $my_var . " 2020 🥇 цена, отзывы, описание - Travel Mania";
+$page_title =  $my_var . " 2020 🥇 цена, отзывы, описание • Travel Mania";
 
 // LIST TOURS
 $listTour = getData('https://experience.tripster.ru/api/experiences/?city=' . $list->city->id);

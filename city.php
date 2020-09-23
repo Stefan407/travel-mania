@@ -16,7 +16,7 @@ $textRu = " на русском языке ";
 if ($list[0]->city->country->name_en == "Russia" or $list[0]->city->country->name_en == "Ukraine" or $list[0]->city->country->name_en == "Crimea") {
     $textRu = " ";
 };
-$page_title =  "🥇 Экскурсии " . $my_var . $textRu . " 2020 - цены, отзывы и описание!";
+$page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены, отзывы, описание • Travel Mania";
 
 // DATA SEO
 $priceAll = [];

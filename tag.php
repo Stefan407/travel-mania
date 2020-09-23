@@ -39,7 +39,7 @@ if ($tag_list[0]->city->country->name_en == "Russia" or $tag_list[0]->city->coun
     $textRu = " ";
 };
 
-$page_title =  "🥇 " . $currentTag->header . $textRu . " 2020 - цены, отзывы и описание!";
+$page_title =  "" . $currentTag->header . $textRu . " 2020 🥇 цены, отзывы, описание • Travel Mania";
 
 
 // REPLACE CITY

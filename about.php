@@ -45,7 +45,7 @@
 
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    <title>Информация о нас ⭐</title>
+    <title>Информация о нас 🥇 Travel Mania</title>
     <meta name="keywords" content="о нас, о компании, о проекте, информация, травэл, мания, travel, mania," />
     <meta name="description" content="🟢 Информация о проекте Travel Mania" />
     <?php
