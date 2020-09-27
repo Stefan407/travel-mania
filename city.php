@@ -16,7 +16,7 @@ $textRu = " на русском языке ";
 if ($list[0]->city->country->name_en == "Russia" or $list[0]->city->country->name_en == "Ukraine" or $list[0]->city->country->name_en == "Crimea") {
     $textRu = " ";
 };
-$page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены, отзывы, описание - Travel Mania 🥇 ";
+$page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены, отзывы, описание • Travel Mania";
 
 // DATA SEO
 $priceAll = [];
@@ -308,12 +308,14 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
     </section>
     <div itemscope="itemscope" itemtype="http://schema.org/Product">
         <meta itemprop="name" content="<?php echo ("Авторские экскурсии" . $list[0]->city->in_obj_phrase); ?>">
+        <noindex>
         <meta itemprop="description" content="🟢 Групповые и индивидуальные экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны лучшие экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?>, которые тщательно продуманы и составлены гидами.">
-        <span itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/aggregateoffer">
-            <meta itemprop="lowprice" content="<?php echo (min($priceAll)) ?>">
-            <meta itemprop="highprice" content="<?php echo (max($priceAll)) ?>">
-            <meta itemprop="pricecurrency" content="<?php echo ($list[0]->price->currency); ?>"></span>
-        <span itemprop="aggregaterating" itemscope="itemscope" itemtype="http://schema.org/aggregaterating">
+        <span itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/AggregateOffer">
+            <meta itemprop="lowPrice" content="<?php echo (min($priceAll)) ?>">
+            <meta itemprop="highPrice" content="<?php echo (max($priceAll)) ?>">
+            <meta itemprop="priceCurrency" content="<?php echo ($list[0]->price->currency); ?>"></span>
+        </noindex>
+        <span itemprop="aggregateRating" itemscope="itemscope" itemtype="http://schema.org/AggregateRating">
             <?php if (($reviewsAll / $countReviews) > 0) { ?>
                 <meta itemprop="ratingValue" content="<?php echo ($reviewsAll / $countReviews); ?>">
             <?php } ?>
@@ -322,11 +324,10 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
             <?php } ?>
         </span>
     </div>
-    <section class="video">
+    <section class="video">    
         <div class="container">
             <div class="border-box">
-                <h2>Экскурсии <?php echo ($list[0]->city->in_obj_phrase);
-                                echo ($textRu); ?></h2>
+                <h2>Экскурсии <?php echo ($list[0]->city->in_obj_phrase); echo ($textRu); ?></h2>
                 <div id="top-text-city" class="border-box__text">
                     <?php if ($current_des_city->textTop != "") : ?>
                         <?php echo $current_des_city->textTop; ?>

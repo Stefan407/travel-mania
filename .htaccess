@@ -8,7 +8,7 @@ RewriteBase /
 
 RewriteRule ^index\.php$ - [L]
 RewriteRule ^go/?$ index.php?page=go$1 [QSA,L]
-RewriteRule ^(about|blog|feedback|all-cities|all-countries)/?$ index.php?page=$1 [L]
+RewriteRule ^(about|privacy|terms|blog|feedback|all-cities|all-countries)/?$ index.php?page=$1 [L]
 RewriteRule ^post/(\d+)/$ index.php?p=$1 [L]
 RewriteRule ^([A-Za-z\+\-\_]+)/([A-Za-z\+\-\_]+)/excursions[-+_]([A-Za-z0-9\-\_]+)\-(\d+)\-(\d+)\/?$ index.php?country__name_en=$1&city__name_en=$2&tag_slug=$3&city_id=$4&tag_id=$5 [QSA]
 RewriteRule ^([A-Za-z\+\-\_]+)/([A-Za-z\+\-\_]+)/excursion[-+_]([0-9]+)/?$ index.php?id=$3&city__name_en=$2&country__name_en=$1 [QSA]

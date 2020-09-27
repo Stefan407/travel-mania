@@ -10,7 +10,7 @@ for ($i = 0; $i <= count($arr); $i++) {
     }
 }
 $new_str = implode(", ", $arr);
-$page_title =  $my_var . " 2020 🥇 цена, отзывы, описание - Travel Mania 🥇";
+$page_title =  $my_var . " 2020 🥇 цена, отзывы, описание • Travel Mania";
 
 // LIST TOURS
 $listTour = getData('https://experience.tripster.ru/api/experiences/?city=' . $list->city->id);
@@ -85,7 +85,7 @@ if ($city_name == 'Villefranche-sur-Saône') {
     <meta name="keywords" content="<?php echo ($new_str); ?>, <?php echo ($list->city->country->name_ru); ?>, травел, мания, travel, mania" />
     <meta name="description" content="<?php echo ($list->tagline); ?>" />
 
-    <link rel="preload" as="style" type="text/css" href="/assets/css/jquery.fancybox.min.css" onload="this.rel='stylesheet'">
+<link rel='stylesheet' type='text/css' href='/assets/css/jquery.fancybox.min.css?v=5.6' />
     <?php
     include 'inc/head-static.php';
     ?>

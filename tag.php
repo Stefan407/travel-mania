@@ -39,7 +39,7 @@ if ($tag_list[0]->city->country->name_en == "Russia" or $tag_list[0]->city->coun
     $textRu = " ";
 };
 
-$page_title =  $currentTag->header . $textRu . " 2020 🥇 цены, отзывы, описание - Travel Mania 🥇 ";
+$page_title =  "" . $currentTag->header . $textRu . " 2020 🥇 цены, отзывы, описание • Travel Mania";
 
 
 // REPLACE CITY
@@ -349,12 +349,14 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
     </section>
     <div itemscope="itemscope" itemtype="http://schema.org/Product">
         <meta itemprop="name" content="<?php echo ("Авторские экскурсии " . $tag_list[0]->city->in_obj_phrase); ?>">
+        <noindex>
         <meta itemprop="description" content="🟢 <?php echo ($currentTag->header); ?> с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. Все экскурсии тщательно продуманы и составлены гидами." />
-        <span itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/aggregateoffer">
-            <meta itemprop="lowprice" content="<?php echo (min($priceAll)) ?>">
-            <meta itemprop="highprice" content="<?php echo (max($priceAll)) ?>">
-            <meta itemprop="pricecurrency" content="<?php echo ($tag_list[0]->price->currency); ?>"></span>
-        <span itemprop="aggregaterating" itemscope="itemscope" itemtype="http://schema.org/aggregaterating">
+        <span itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/AggregateOffer">
+            <meta itemprop="lowPrice" content="<?php echo (min($priceAll)) ?>">
+            <meta itemprop="highPrice" content="<?php echo (max($priceAll)) ?>">
+            <meta itemprop="priceCurrency" content="<?php echo ($tag_list[0]->price->currency); ?>"></span>
+        </noindex>            
+        <span itemprop="aggregateRating" itemscope="itemscope" itemtype="http://schema.org/AggregateRating">
             <?php if (($reviewsAll / $countReviews) > 0) { ?>
                 <meta itemprop="ratingValue" content="<?php echo ($reviewsAll / $countReviews); ?>">
             <?php } ?>
