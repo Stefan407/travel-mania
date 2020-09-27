@@ -215,7 +215,7 @@ $page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены,
             </div>
             <div class="load-tour" style="display: none;margin: 20px 0;text-align: center;"> <img style="width:35px;" src="/assets/images/2.gif" alt=""></div>
             <?php if ($urlNext) { ?>
-                <button id="btn-more" class="btn-more" data-url-next="<?php echo ($urlNext) ?>">Показать ещё... </button>
+                <button id="btn-more" class="btn-more more-text" data-url-next="<?php echo ($urlNext) ?>">Показать ещё... (<span class="text-span"></span> из <?php echo ($countCity); ?>)</button>
             <?php } ?>
         </div>
     </section>

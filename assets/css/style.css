@@ -5882,6 +5882,46 @@ img.f-logos {
 }
 
 @media (max-width: 768px) {
+    /* .list-tags .list-tags-wrap {
+        flex-direction: column;
+        max-height: 30px;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        justify-content: flex-start;
+        border: 1px solid #828282;
+        border-radius: 5px;
+    }
+
+    .list-tags-wrap a {
+        margin-right: 0;
+        background-color: transparent;
+        margin-bottom: 5px;
+    }
+
+    .list-tags-wrap a.active {
+        pointer-events: none;
+        cursor: pointer;
+        background-color: transparent;
+    } */
+    .fixed-section a{
+        padding: 5px 10px;
+        border-radius: 15px;
+        margin: 0 10px;
+    }
+    .fixed-section{
+        position: fixed;
+        bottom: 0;
+        z-index: 10;
+        width: 100%;
+        height: 50px;
+        display: flex !important;
+        background: #fff;
+        justify-content: center;
+        top: auto;
+        align-items: center;
+        padding: 0;
+    }
+
     .description-content-text .guide.des {
         display: none;
     }

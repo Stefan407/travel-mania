@@ -290,17 +290,17 @@ $(document).ready(function () {
             slidesToShow: 3,
             slidesToScroll: 1,
             responsive: [{
-                    breakpoint: 1000,
-                    settings: {
-                        slidesToShow: 2,
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 1,
-                    }
+                breakpoint: 1000,
+                settings: {
+                    slidesToShow: 2,
                 }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
             ]
         });
     }
@@ -389,8 +389,17 @@ $(document).ready(function () {
             urlNextListCity = nextUrl;
             $(".popular-cityes .btn-more").show();
         }
+        if ($(".popular-cityes .more-text.btn-more").length) {
+            $(".popular-cityes .more-text.btn-more .text-span").text($(".popular-cityes__wrap .item-element").length)
+        }
     }
 
+    if ($(".more-text.btn-more").length) {
+        $(".more-text.btn-more .text-span").text($(".tours .slick-tours__item").length)
+    }
+    if ($(".popular-cityes .more-text.btn-more").length) {
+        $(".popular-cityes .more-text.btn-more .text-span").text($(".popular-cityes__wrap .item-element").length)
+    }
     if ($(".popular-cityes .btn-more").length) {
         $(".popular-cityes .btn-more").on("click", function () {
             $(".load-tour").show();
@@ -413,6 +422,7 @@ $(document).ready(function () {
                     }
                 }
             };
+            
         })
     }
     if ($('.slider-tours-photo').length) {

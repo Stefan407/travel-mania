@@ -81,44 +81,53 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <head>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter56569540 = new Ya.Metrika({
-                    id:56569540,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true,
-                    webvisor:true
-                });
-            } catch(e) { }
-        });
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter56569540 = new Ya.Metrika({
+                        id: 56569540,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true,
+                        webvisor: true
+                    });
+                } catch (e) {}
+            });
 
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function() {
+                    n.parentNode.insertBefore(s, n);
+                };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
 
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks");
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/56569540" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter --> 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-165860897-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else {
+                f();
+            }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/56569540" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165860897-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'UA-165860897-1');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-165860897-1');
+    </script>
 
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
     <link rel="profile" href="https://gmpg.org/xfn/11">
@@ -139,7 +148,11 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
     <section class="top">
         <div class="top__slider">
             <div id="top-images-city" class="image-top_slider ">
-                <img class="lazyload" data-src="<?php if($current_des_city->images[0]){ echo($current_des_city->images[0]);}else{ echo("/uploads/Main/default-img-top.jpeg");}?>">
+                <img class="lazyload" data-src="<?php if ($current_des_city->images[0]) {
+                                                    echo ($current_des_city->images[0]);
+                                                } else {
+                                                    echo ("/uploads/Main/default-img-top.jpeg");
+                                                } ?>">
             </div>
             <div class="top__slider-text">
                 <div class="container">
@@ -343,19 +356,19 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
             </div>
             <div class="load-tour" style="display: none;margin: 20px 0;text-align: center;"> <img style="width:35px;" src="/assets/images/2.gif" alt=""></div>
             <?php if ($urlNext) { ?>
-                <button id="btn-more" class="btn-more" data-url-next="<?php echo ($urlNext) ?>">Показать ещё... всего <?php echo ($currentTag->experience_count); ?></button>
+                <button id="btn-more" class="btn-more more-text" data-url-next="<?php echo ($urlNext) ?>">Показать ещё... (<span class="text-span"></span> из <?php echo ($currentTag->experience_count); ?>)</button>
             <?php } ?>
         </div>
     </section>
     <div itemscope="itemscope" itemtype="http://schema.org/Product">
         <meta itemprop="name" content="<?php echo ("Авторские экскурсии " . $tag_list[0]->city->in_obj_phrase); ?>">
         <noindex>
-        <meta itemprop="description" content="🟢 <?php echo ($currentTag->header); ?> с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. Все экскурсии тщательно продуманы и составлены гидами." />
-        <span itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/AggregateOffer">
-            <meta itemprop="lowPrice" content="<?php echo (min($priceAll)) ?>">
-            <meta itemprop="highPrice" content="<?php echo (max($priceAll)) ?>">
-            <meta itemprop="priceCurrency" content="<?php echo ($tag_list[0]->price->currency); ?>"></span>
-        </noindex>            
+            <meta itemprop="description" content="🟢 <?php echo ($currentTag->header); ?> с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. Все экскурсии тщательно продуманы и составлены гидами." />
+            <span itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/AggregateOffer">
+                <meta itemprop="lowPrice" content="<?php echo (min($priceAll)) ?>">
+                <meta itemprop="highPrice" content="<?php echo (max($priceAll)) ?>">
+                <meta itemprop="priceCurrency" content="<?php echo ($tag_list[0]->price->currency); ?>"></span>
+        </noindex>
         <span itemprop="aggregateRating" itemscope="itemscope" itemtype="http://schema.org/AggregateRating">
             <?php if (($reviewsAll / $countReviews) > 0) { ?>
                 <meta itemprop="ratingValue" content="<?php echo ($reviewsAll / $countReviews); ?>">
@@ -489,6 +502,9 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                 if (nextUrl) {
                     urlNextListCity = nextUrl;
                     $(".popular-tours .btn-more").show();
+                }
+                if ($(".more-text.btn-more").length) {
+                    $(".more-text.btn-more .text-span").text($(".tours .slick-tours__item").length)
                 }
                 // initslidertour();
             }
