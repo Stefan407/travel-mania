@@ -2,7 +2,7 @@
 
 $list = [];
 $listCountry = [];
-getAllResultsNoNext('https://experience.tripster.ru/api/cities/', $list, $urlNext);
+getAllResultsNoNext('https://experience.tripster.ru/api/cities/', $list, $urlNext, $countCity);
 getAllResults('https://experience.tripster.ru/api/countries/?format=json', $listCountry);
 ?>
 
@@ -195,7 +195,7 @@ getAllResults('https://experience.tripster.ru/api/countries/?format=json', $list
                     </div>
                     <div class="load-tour" style="display: none;margin: 20px 0;text-align: center;"> <img style="width:35px;" src="/assets/images/2.gif" alt=""></div>
                     <?php if ($urlNext) { ?>
-                        <button id="btn-more" class="btn-more" data-url-next="<?php echo ($urlNext) ?>">Показать ещё... </button>
+                        <button id="btn-more" class="btn-more more-text" data-url-next="<?php echo ($urlNext) ?>">Показать ещё... (<span style="margin-right: 5px;" class="text-span"></span> из <?php echo ($countCity); ?>)</button>
                     <?php } ?>
                     <div class="country-all-block-wrap">
                         <h2>Выберите страну для путешествия</h2>

@@ -422,7 +422,7 @@ $(document).ready(function () {
                     }
                 }
             };
-            
+
         })
     }
     if ($('.slider-tours-photo').length) {
