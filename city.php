@@ -346,6 +346,13 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
             <?php } ?>
         </div>
     </section>
+    <section class="popular-tours slider-tour">
+        <div class="container">
+            <div class="popular-tours-text">
+                <script src="//tp.media/content?promo_id=4480&shmarker=295933&campaign_id=10&locale=ru&powered_by=false&border_radius=2&plain=false&show_logo=true&color_background=%23F3BF0C&color_button=%2334B104" charset="utf-8"></script>
+            </div>
+        </div>
+    </section>
     <div itemscope="itemscope" itemtype="http://schema.org/Product">
         <meta itemprop="name" content="<?php echo ("Авторские экскурсии" . $list[0]->city->in_obj_phrase); ?>">
         <noindex>

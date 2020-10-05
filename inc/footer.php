@@ -1,14 +1,15 @@
 <footer class="footer-site">
     <div class="container">
-        <img src="/assets/images/logo.png" alt="" class="f-logos">
+
         <nav class="f-menu">
-            <div class="f-copyright"> © 2020 <span>Travel Mania</span></div>
             <ul class="f-menu-item">
                 <li class="f-menu-list"><a class="f-menu-link" href="/">Главная</a></li>
                 <li class="f-menu-list"><a class="f-menu-link" href="/all-countries/">Страны</a></li>
                 <li class="f-menu-list"><a class="f-menu-link" href="/all-cities/">Города</a></li>
                 <li class="f-menu-list"><a class="f-menu-link" href="/blog/">Блог</a></li>
                 <li class="f-menu-list"><a class="f-menu-link" href="/about/">О нас</a></li>
+                <li class="f-menu-list"><a class="f-menu-link" href="/privacy/">Политика конфидециальности</a></li>                
+                <li class="f-menu-list"><a class="f-menu-link" href="/terms/">Условия использования</a></li>
                 <li class="f-menu-list"><a class="f-menu-link" href="/feedback/">Задать вопрос</a></li>
             </ul>
         </nav>
@@ -41,6 +42,7 @@
                     </a>
                 </div>
             </div>
+            <div class="f-copyright" style="display: flex;align-items: center;width: 100%;flex-direction: column-reverse;"> © Travel Mania</div>
         </div>
     </div>
 </footer>

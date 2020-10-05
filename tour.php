@@ -87,6 +87,22 @@ if ($city_name == 'Villefranche-sur-Saône') {
 
         gtag('config', 'UA-165860897-1');
     </script>
+<!-- Event snippet for Вопрос гиду conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-629196382/6wcKCKLx3OABEN6Mg6wC',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
     <link rel="profile" href="https://gmpg.org/xfn/11">
@@ -108,7 +124,7 @@ if ($city_name == 'Villefranche-sur-Saône') {
     include 'inc/header.php';
     ?>
     <div class="bg-cal"></div>
-    <section class="main excursion-page" style="padding-top:56px" data-id-excursion="<?php echo ($list->id) ?>" data-url-tripster="<?php echo $list->url ?>">
+    <section class="main excursion-page" style="padding-top:0px" data-id-excursion="<?php echo ($list->id) ?>" data-url-tripster="<?php echo $list->url ?>">
         <div class="container">
             <div class="main_wrap">
                 <div class="row">
@@ -257,7 +273,7 @@ if ($city_name == 'Villefranche-sur-Saône') {
                                         <div class="order-item-string"><img class="lazyload" data-src="/assets/images/warranty-icon.svg"> Гарантия лучшей цены </div>
                                         <div>
                                             <div class="panel-btns">
-                                                <div> <a class="order-btn more-btn" target="_blank" onclick="yaCounter56569540.reachGoal('bron');">Забронировать </a> </div>
+                                                <div> <a class="order-btn more-btn" target="_blank" onclick="yaCounter56569540.reachGoal('broni')">Забронировать </a> </div>
                                                 <div> <a class="more-btn" style="display: none;" target="_blank" onclick="yaCounter56569540.reachGoal('data');">Выбрать дату </a> </div>
                                                 <div> <a class="order-ask open-link" target="_blank" onclick="yaCounter56569540.reachGoal('vopros');" data-link="https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/?exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link&utm_term=guide">Задать вопрос гиду</a> </div>
                                             </div>
@@ -436,7 +452,8 @@ if ($city_name == 'Villefranche-sur-Saône') {
         </div>
     </section>
     <div class="fixed-section order-panel-wrap" style="display: none;">
-        <div> <a class="order-btn more-btn" target="_blank" onclick="yaCounter56569540.reachGoal('bron');">Забронировать </a> </div>
+        <div> <a class="more-btn order-btn" target="_blank" onclick="yaCounter56569540.reachGoal('broni');">Заказать </a> </div>
+        <div> <a class="order-ask open-link" target="_blank" onclick="yaCounter56569540.reachGoal('vopros');" data-link="https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/?exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link&utm_term=guide">Вопрос гиду</a> </div>
         <div> <a class="more-btn" target="_blank" onclick="yaCounter56569540.reachGoal('data');">Выбрать дату </a> </div>
     </div>
     <?php
@@ -520,6 +537,13 @@ if ($city_name == 'Villefranche-sur-Saône') {
             </div>
         </section>
     <?php } ?>
+        <section class="popular-tours slider-tour">
+            <div class="container">
+                <div class="popular-tours-text">
+                   <script src="//tp.media/content?promo_id=4480&shmarker=295933&campaign_id=10&locale=ru&powered_by=false&border_radius=2&plain=false&show_logo=true&color_background=%23F3BF0C&color_button=%2334B104" charset="utf-8"></script>
+                </div>
+            </div>
+        </section>    
     <div class="link-all-ex">
         <a href="/<?php echo ($country__name_en) ?>/<?php echo ($city_name) ?>/">Все экскурсии <?php echo ($list->city->in_obj_phrase); ?></a>
     </div>
