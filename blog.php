@@ -106,7 +106,7 @@
         <div class="blog-page">
             <ul class="blog-list">
                 <li class="blog-item_block chto-posmotret-v-sevastopole">
-                    <a href="/chto-posmotret-v-sevastopole">
+                    <a href="/post/chto-posmotret-v-sevastopole">
                         <img data-src="/uploads/2020/08/sevastopol-2-300x202.jpg" class="alignleft wp-post-image lazyload">
                         <div class="post-item" style="background-color: rgb(237, 194, 144); color: rgb(255, 255, 255); box-shadow: rgb(237, 194, 144) 0px 12px 20px 36px;">
                             <div class="title">Что посмотреть в Севастополе?</div>

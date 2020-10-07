@@ -5083,6 +5083,8 @@ h2 {
 }
 
 .order-panel-wrap {
+    margin-top: 20px;
+    margin-bottom: 25px;
     position: sticky;
     top: 60px;
     border-radius: 8px;
@@ -5749,6 +5751,7 @@ img.f-logos {
         background-color: #d6f2ff;
         padding: 5px 0;
         display: none;
+        z-index: 5;
     }
 
     .act-search .search-wrap {

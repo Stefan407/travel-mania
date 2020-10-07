@@ -68,9 +68,13 @@ if (!is_null($page)) {
     } else if ($city__name_en == "Yokohama+shi") {
         getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Yokohama-shi&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Perm") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Yokohama-shi&detailed=true", $list, $urlNext, $countCity);
-    } else if ($city__name_en == "Aix+en+Provence") {
         getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Perm`&detailed=true", $list, $urlNext, $countCity);
+    } else if ($city__name_en == "Perm`") {
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Perm`&detailed=true", $list, $urlNext, $countCity);
+    } else if ($city__name_en == "Baykal'sk") {
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Baykalsk`&detailed=true", $list, $urlNext, $countCity);
+    } else if ($city__name_en == "Aix+en+Provence") {
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Aix-en-Provence`&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Gorno+Altaysk") {
         getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Gorno-Altaysk&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Khanty+Mansiysk") {
