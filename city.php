@@ -216,27 +216,33 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
-                        <!-- <div class="tag-list-mobile js-list-tag">
+                        <div class="country-btn-wrap tag-list-mobile">
                             <div class="country-btn">
+                                <div class="btn-title">
+                                    <span>Все</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                            <path d="M0,172v-172h172v172z" fill="none"></path>
+                                            <g fill="#2ecc71">
+                                                <path d="M150.5,79.6145v0c0,-9.5245 -10.61383,-15.20767 -18.54017,-9.92583l-45.95983,30.64467l-45.95983,-30.6375c-7.92633,-5.28183 -18.54017,0.39417 -18.54017,9.91867v0c0,3.98467 1.99233,7.71133 5.3105,9.92583l51.24167,34.15633c4.816,3.21067 11.08683,3.21067 15.90283,0l51.24167,-34.15633c3.311,-2.2145 5.30333,-5.934 5.30333,-9.92583z"></path>
+                                            </g>
+                                        </g>
+                                    </svg></div>
                                 <div class="btn-block">
                                     <?php foreach ($listTagsNew as $item) : ?>
                                         <?php if ($item->is_hidden == false and $item->experience_count > 0) : ?>
-                                            <?php if ($tag_id == $item->id) { ?>
-                                                <a class="open-link active" data-link="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
-                                                    <span><?php echo ($item->name); ?></span>
-                                                    <span><?php echo ($item->experience_count); ?></span>
-                                                </a>
-                                            <?php } else { ?>
-                                                <a class="open-link" data-link="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
-                                                    <span><?php echo ($item->name); ?></span>
-                                                    <span><?php echo ($item->experience_count); ?></span>
-                                                </a>
+                                            <?php if ($item->slug !== "all") { ?>
+                                                <button>
+                                                    <a href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
+                                                        <span><?php echo ($item->name); ?></span><span><?php echo ($item->experience_count); ?></span>
+                                                    </a>
+                                                </button>
                                             <?php } ?>
                                         <?php endif; ?>
                                     <?php endforeach; ?>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </section>
             </div>
@@ -410,7 +416,17 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
         document.addEventListener("DOMContentLoaded", function() {
 
             $(document).ready(function() {
-                initslidertour();
+
+                $(".country-btn-wrap .btn-title").on("click", function() {
+                    $(".country-btn-wrap .btn-block").toggleClass("active");
+                })
+
+
+                if (window.innerWidth > 560) {
+                    initslidertour();
+                } else {
+                    editElemsTour();
+                }
             });
 
 
@@ -515,94 +531,94 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
             }
 
 
-            // function editElemsTour() {
-            //     // elements.forEach(function(elem) {
-            //     //     if (!elem.classList.contains("hide")) {
-            //     //         elementsArray.push({
-            //     //             element: elem,
-            //     //             top: elem.getBoundingClientRect().top,
-            //     //             bottom: coordinatesYB - elem.getBoundingClientRect().bottom,
-            //     //             rate: 0
-            //     //         })
-            //     //     }
-            //     // })
+            function editElemsTour() {
+                elements.forEach(function(elem) {
+                    if (!elem.classList.contains("hide")) {
+                        elementsArray.push({
+                            element: elem,
+                            top: elem.getBoundingClientRect().top,
+                            bottom: coordinatesYB - elem.getBoundingClientRect().bottom,
+                            rate: 0
+                        })
+                    }
+                })
 
-            //     // window.onscroll = function() {
-            //     //     if (timeout !== false) {
-            //     //         clearTimeout(timeout);
-            //     //     }
-            //     //     timeout = setTimeout(function() {
-            //     //         editCoordinates();
-            //     //     }, 100);
-            //     // };
-            //     // editCoordinates();
+                window.onscroll = function() {
+                    if (timeout !== false) {
+                        clearTimeout(timeout);
+                    }
+                    timeout = setTimeout(function() {
+                        editCoordinates();
+                    }, 100);
+                };
+                editCoordinates();
 
-            //     // function editCoordinates() {
-            //     //     coordinatesYT = window.pageYOffset;
-            //     //     coordinatesYB = coordinatesYT + window.innerHeight;
+                function editCoordinates() {
+                    coordinatesYT = window.pageYOffset;
+                    coordinatesYB = coordinatesYT + window.innerHeight;
 
-            //     //     elementsArray.forEach(function(elem) {
-            //     //         elem.top = elem.element.getBoundingClientRect().top;
-            //     //         elem.bottom = coordinatesYB - elem.element.getBoundingClientRect().bottom;
-            //     //         elem.rate = calculateRate(elem.element.getBoundingClientRect(), elem.element);
-            //     //     })
-            //     // }
+                    elementsArray.forEach(function(elem) {
+                        elem.top = elem.element.getBoundingClientRect().top;
+                        elem.bottom = coordinatesYB - elem.element.getBoundingClientRect().bottom;
+                        elem.rate = calculateRate(elem.element.getBoundingClientRect(), elem.element);
+                    })
+                }
 
-            //     // function calculateRate(rect, item) {
-            //     //     let rateTop = rect.top + pageYOffset;
-            //     //     if (rateTop >= pageYOffset && rect.bottom + pageYOffset <= coordinatesYB) {
-            //     //         if (currentElement != item) {
-            //     //             edidVisual(item, true);
-            //     //             currentElement = item;
-            //     //         }
-            //     //     } else {
-            //     //         edidVisual(item, false);
-            //     //     }
-            //     // }
+                function calculateRate(rect, item) {
+                    let rateTop = rect.top + pageYOffset;
+                    if (rateTop >= pageYOffset && rect.bottom + pageYOffset <= coordinatesYB) {
+                        if (currentElement != item) {
+                            edidVisual(item, true);
+                            currentElement = item;
+                        }
+                    } else {
+                        edidVisual(item, false);
+                    }
+                }
 
-            //     // function edidVisual(item, pause) {
-            //     //     if (pause) {
-            //     //         let urls = $(item).find(".link").data("images");
-            //     //         if (!$(item).find(".new-img").length) {
-            //     //             for (i = 0; i < urls.length; i++) {
-            //     //                 $(item).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
-            //     //             }
-            //     //         }
-            //     //         if ($(item).find(".slick-track").length == 0) {
-            //     //             $(item).find(".link").on('init', function(event, slick) {
-            //     //                 var initSlide = slick.slickCurrentSlide();
-            //     //                 var slickDots = slick.$dots[0];
-            //     //                 slickDots.childNodes[initSlide].classList.add("slick-current");
-            //     //             });
-            //     //             $(item).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-            //     //                 var slickDots = slick.$dots[0];
-            //     //                 slickDots.childNodes[currentSlide].classList.remove("slick-current");
-            //     //                 slickDots.childNodes[nextSlide].classList.add("slick-current");
-            //     //             });
-            //     //             $(item).find(".link").slick({
-            //     //                 arrows: false,
-            //     //                 dots: true,
-            //     //                 autoplay: true,
-            //     //                 autoplaySpeed: 2000,
-            //     //                 pauseOnHover: false,
-            //     //                 pauseOnFocus: false,
-            //     //                 fade: true,
-            //     //                 cssEase: 'linear'
-            //     //             });
-            //     //         } else {
-            //     //             $(item).find(".link .slick-active").addClass("slick-current");
-            //     //             $(item).find(".link .slick-dots").css("opacity", "1");
-            //     //             $(item).find(".link").slick('slickPlay');
-            //     //         }
-            //     //     } else {
-            //     //         if ($(item).find(".slick-track").length) {
-            //     //             $(item).find(".link .slick-dots").css("opacity", "0");
-            //     //             $(item).find(".link .slick-active").removeClass("slick-current");
-            //     //             $(item).find(".link").slick('slickPause');
-            //     //         }
-            //     //     }
-            //     // }
-            // }
+                function edidVisual(item, pause) {
+                    if (pause) {
+                        let urls = $(item).find(".link").data("images");
+                        if (!$(item).find(".new-img").length) {
+                            for (i = 0; i < urls.length; i++) {
+                                $(item).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
+                            }
+                        }
+                        if ($(item).find(".slick-track").length == 0) {
+                            $(item).find(".link").on('init', function(event, slick) {
+                                var initSlide = slick.slickCurrentSlide();
+                                var slickDots = slick.$dots[0];
+                                slickDots.childNodes[initSlide].classList.add("slick-current");
+                            });
+                            $(item).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+                                var slickDots = slick.$dots[0];
+                                slickDots.childNodes[currentSlide].classList.remove("slick-current");
+                                slickDots.childNodes[nextSlide].classList.add("slick-current");
+                            });
+                            $(item).find(".link").slick({
+                                arrows: false,
+                                dots: true,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                pauseOnHover: false,
+                                pauseOnFocus: false,
+                                fade: true,
+                                cssEase: 'linear'
+                            });
+                        } else {
+                            $(item).find(".link .slick-active").addClass("slick-current");
+                            $(item).find(".link .slick-dots").css("opacity", "1");
+                            $(item).find(".link").slick('slickPlay');
+                        }
+                    } else {
+                        if ($(item).find(".slick-track").length) {
+                            $(item).find(".link .slick-dots").css("opacity", "0");
+                            $(item).find(".link .slick-active").removeClass("slick-current");
+                            $(item).find(".link").slick('slickPause');
+                        }
+                    }
+                }
+            }
 
             function initslidertour() {
                 if (window.innerWidth > 768) {

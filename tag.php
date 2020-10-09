@@ -257,6 +257,39 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
+                        <div class="country-btn-wrap tag-list-mobile">
+                            <div class="country-btn">
+                                <div class="btn-title">
+                                    <span><?php echo ($currentTag->name) ?></span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                            <path d="M0,172v-172h172v172z" fill="none"></path>
+                                            <g fill="#2ecc71">
+                                                <path d="M150.5,79.6145v0c0,-9.5245 -10.61383,-15.20767 -18.54017,-9.92583l-45.95983,30.64467l-45.95983,-30.6375c-7.92633,-5.28183 -18.54017,0.39417 -18.54017,9.91867v0c0,3.98467 1.99233,7.71133 5.3105,9.92583l51.24167,34.15633c4.816,3.21067 11.08683,3.21067 15.90283,0l51.24167,-34.15633c3.311,-2.2145 5.30333,-5.934 5.30333,-9.92583z"></path>
+                                            </g>
+                                        </g>
+                                    </svg></div>
+                                <div class="btn-block">
+                                    <?php foreach ($listTagsNew as $item) : ?>
+                                        <?php if ($item->is_hidden == false and $item->experience_count > 0) : ?>
+                                            <?php if ($item->slug == "all") { ?>
+                                                <button>
+                                                    <a class="all" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/">
+                                                        <span>Все</span><span><?php echo ($item->experience_count); ?></span>
+                                                    </a>
+                                                </button>
+                                            <?php } else if ($tag_id !== $item->id) { ?>
+                                                <button>
+                                                    <a href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $tag_list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
+                                                        <span><?php echo ($item->name); ?></span><span><?php echo ($item->experience_count); ?></span>
+                                                    </a>
+                                                </button>
+                                            <?php } ?>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -378,13 +411,13 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
             <?php } ?>
         </span>
     </div>
-        <section class="popular-tours slider-tour">
-            <div class="container">
-                <div class="popular-tours-text">
-                   <script src="//tp.media/content?promo_id=4480&shmarker=295933&campaign_id=10&locale=ru&powered_by=false&border_radius=2&plain=false&show_logo=true&color_background=%23F3BF0C&color_button=%2334B104" charset="utf-8"></script>
-                </div>
+    <section class="popular-tours slider-tour">
+        <div class="container">
+            <div class="popular-tours-text">
+                <script src="//tp.media/content?promo_id=4480&shmarker=295933&campaign_id=10&locale=ru&powered_by=false&border_radius=2&plain=false&show_logo=true&color_background=%23F3BF0C&color_button=%2334B104" charset="utf-8"></script>
             </div>
-        </section>    
+        </div>
+    </section>
     <section class="video">
         <div class="container">
             <div class="border-box">
@@ -412,6 +445,10 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
         document.addEventListener("DOMContentLoaded", function() {
 
             $(document).ready(function() {
+                $(".country-btn-wrap .btn-title").on("click", function() {
+                    $(".country-btn-wrap .btn-block").toggleClass("active");
+                })
+
                 // initslidertour();
             });
 

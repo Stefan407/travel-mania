@@ -8,7 +8,7 @@ $excursion_type = isset($_GET['tag_slug']) ?  $_GET['tag_slug'] : null;
 $city_id = isset($_GET['city_id']) ?  $_GET['city_id'] : null;
 $tag_id = isset($_GET['tag_id']) ?  $_GET['tag_id'] : null;
 $page = isset($_GET['page']) ?  $_GET['page'] : null;
-
+$postName = isset($_GET['post_name']) ?  $_GET['post_name'] : null;
 $list = [];
 $list1 = [];
 $tag_list = [];
@@ -17,6 +17,8 @@ $reviews = [];
 if (!is_null($page)) {
     include_once($page . '.php');
     exit;
+} else if ($postName) {
+    $page = 'Post';
 } else if ($experiences_id) {
     $page = 'Tour';
     $list = getData("https://experience.tripster.ru/api/experiences/{$experiences_id}/");
@@ -117,6 +119,9 @@ switch ($page) {
         break;
     case 'City':
         include_once 'city.php';
+        break;
+    case 'Post':
+        include_once 'post.php';
         break;
     case 'Tour':
         include_once 'tour.php';

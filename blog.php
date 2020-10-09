@@ -4,44 +4,53 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <head>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter56569540 = new Ya.Metrika({
-                    id:56569540,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true,
-                    webvisor:true
-                });
-            } catch(e) { }
-        });
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter56569540 = new Ya.Metrika({
+                        id: 56569540,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true,
+                        webvisor: true
+                    });
+                } catch (e) {}
+            });
 
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function() {
+                    n.parentNode.insertBefore(s, n);
+                };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
 
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks");
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/56569540" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->  
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-165860897-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else {
+                f();
+            }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/56569540" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165860897-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'UA-165860897-1');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-165860897-1');
+    </script>
 
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
     <link rel="profile" href="https://gmpg.org/xfn/11">
@@ -106,13 +115,14 @@
         <div class="blog-page">
             <ul class="blog-list">
                 <li class="blog-item_block chto-posmotret-v-sevastopole">
-                    <a href="/post/chto-posmotret-v-sevastopole">
+                    <a href="/blog/post-chto-posmotret-v-sevastopole/">
                         <img data-src="/uploads/2020/08/sevastopol-2-300x202.jpg" class="alignleft wp-post-image lazyload">
                         <div class="post-item" style="background-color: rgb(237, 194, 144); color: rgb(255, 255, 255); box-shadow: rgb(237, 194, 144) 0px 12px 20px 36px;">
                             <div class="title">Что посмотреть в Севастополе?</div>
                             <div class="text">Севастополь - это город славы, доблести моряков, которые защищали его и отдавали свои жизни за Россию. Он всегда притягивал к себе туристов из разных стран и это не удивительно, ведь в городе огромное количество исторических достопримечательностей. <span class="color-bac" data-bac-color="#edc290" data-color="#fff"></span></div>
                         </div>
-                    </a></li>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
