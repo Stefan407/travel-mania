@@ -38,55 +38,55 @@ if (!is_null($page)) {
 } else if ($country__name_en && $city__name_en) {
     $page = 'City';
     if ($city__name_en == 'Lviv') {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_ru=Львов&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_ru=Львов&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Donetsk") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_ru=Донецк&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_ru=Донецк&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Totma") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_ru=тотьма&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_ru=тотьма&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Baykalsk") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_ru=Байкальск&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_ru=Байкальск&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Ivano+Frankivsk") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Ivano-Frankivsk&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Ivano-Frankivsk&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Yuzhno+Kurilsk") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Ivano-Frankivsk&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Ivano-Frankivsk&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Rostov+na+Donu") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Rostov-na-Donu&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Rostov-na-Donu&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Villefranche+sur+Saone") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Villefranche-sur-Saone&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Villefranche-sur-Saone&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Ust+Koksa") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Ust-Koksa&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Ust-Koksa&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Abrau+Dyurso") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Abrau-Dyurso&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Abrau-Dyurso&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Yoshkar+Ola") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Yoshkar-Ola&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Yoshkar-Ola&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Pereslavl+Zalessky") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Pereslavl-Zalessky&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Pereslavl-Zalessky&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Baden+Baden") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Baden-Baden&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Baden-Baden&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Yuryev+Polsky") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Yuryev-Polsky&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Yuryev-Polsky&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Ulan+Ude") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Ulan-Ude&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Ulan-Ude&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Yokohama+shi") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Yokohama-shi&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Yokohama-shi&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Perm") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Perm`&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Perm`&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Perm`") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Perm`&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Perm`&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Baykal'sk") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Baykalsk`&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Baykalsk`&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Aix+en+Provence") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Aix-en-Provence`&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Aix-en-Provence`&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Gorno+Altaysk") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Gorno-Altaysk&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Gorno-Altaysk&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Khanty+Mansiysk") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Khanty-Mansiysk&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Khanty-Mansiysk&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Pha+ngan") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Pha-ngan&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Pha-ngan&detailed=true", $list, $urlNext, $countCity);
     } else if ($city__name_en == "Giardini+Naxos") {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en=Giardini-Naxos&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en=Giardini-Naxos&detailed=true", $list, $urlNext, $countCity);
     } else {
-        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=12&city__name_en={$city__name_en}&detailed=true", $list, $urlNext, $countCity);
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?page_size=24&city__name_en={$city__name_en}&detailed=true", $list, $urlNext, $countCity);
     }
     if (!$list) {
         include_once('404.php');

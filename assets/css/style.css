@@ -5909,7 +5909,7 @@ img.f-logos {
 
 @media (max-width: 768px) {
 
-    .list-tags .list-tags-wrap {
+    /* .list-tags .list-tags-wrap {
         display: none;
     }
 
@@ -5928,7 +5928,7 @@ img.f-logos {
     .list-tags {
         width: 100%;
         max-width: 360px;
-    }
+    } */
 
     .fixed-section a {
         padding: 5px 7px 5px 7px;

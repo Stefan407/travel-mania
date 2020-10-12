@@ -242,22 +242,22 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                             <?php foreach ($listTagsNew as $item) : ?>
                                 <?php if ($item->is_hidden == false and $item->experience_count > 0) : ?>
                                     <?php if ($item->slug == "all") { ?>
-                                        <a class="all" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/">
+                                        <a class="all <?php echo($item->slug); ?>" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/">
                                             <span>Все</span><span style="margin-left: 5px;margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
                                         </a>
                                     <?php } else if ($tag_id == $item->id) { ?>
-                                        <a class="active" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $tag_list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
+                                        <a class="active <?php echo($item->slug); ?>" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $tag_list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
                                             <span><?php echo ($item->name); ?></span><span style="margin-left: 5px;    margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
                                         </a>
                                     <?php } else { ?>
-                                        <a href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $tag_list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
+                                        <a class="<?php echo($item->slug); ?>" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $tag_list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
                                             <span><?php echo ($item->name); ?></span><span style="margin-left: 5px;    margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
                                         </a>
                                     <?php } ?>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
-                        <div class="country-btn-wrap tag-list-mobile">
+                        <!-- <div class="country-btn-wrap tag-list-mobile">
                             <div class="country-btn">
                                 <div class="btn-title">
                                     <span><?php echo ($currentTag->name) ?></span>
@@ -289,7 +289,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                                     <?php endforeach; ?>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </section>
             </div>
@@ -411,13 +411,6 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
             <?php } ?>
         </span>
     </div>
-    <section class="popular-tours slider-tour">
-        <div class="container">
-            <div class="popular-tours-text">
-                <script src="//tp.media/content?promo_id=4480&shmarker=295933&campaign_id=10&locale=ru&powered_by=false&border_radius=2&plain=false&show_logo=true&color_background=%23F3BF0C&color_button=%2334B104" charset="utf-8"></script>
-            </div>
-        </div>
-    </section>
     <section class="video">
         <div class="container">
             <div class="border-box">

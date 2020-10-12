@@ -201,7 +201,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                             <?php foreach ($listTagsNew as $item) : ?>
                                 <?php if ($item->is_hidden == false and $item->experience_count > 0) : ?>
                                     <?php if ($item->slug == "all") { ?>
-                                        <a class="active" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/">
+                                        <a class="active all" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/">
                                             <span>Все</span><span style="margin-left: 5px;margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
                                         </a>
                                     <?php } else if ($tag_id == $item->id) { ?>
@@ -216,7 +216,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
-                        <div class="country-btn-wrap tag-list-mobile">
+                        <!-- <div class="country-btn-wrap tag-list-mobile">
                             <div class="country-btn">
                                 <div class="btn-title">
                                     <span>Все</span>
@@ -242,7 +242,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                                     <?php endforeach; ?>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </section>
             </div>
@@ -344,13 +344,6 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
             <?php if ($urlNext) { ?>
                 <button id="btn-more" class="btn-more more-text" data-url-next="<?php echo ($urlNext) ?>">Показать ещё... (<span class="text-span"></span> из <?php echo ($countCity); ?>)</button>
             <?php } ?>
-        </div>
-    </section>
-    <section class="popular-tours slider-tour">
-        <div class="container">
-            <div class="popular-tours-text">
-                <script src="//tp.media/content?promo_id=4480&shmarker=295933&campaign_id=10&locale=ru&powered_by=false&border_radius=2&plain=false&show_logo=true&color_background=%23F3BF0C&color_button=%2334B104" charset="utf-8"></script>
-            </div>
         </div>
     </section>
     <div itemscope="itemscope" itemtype="http://schema.org/Product">

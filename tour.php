@@ -537,13 +537,6 @@ function gtag_report_conversion(url) {
             </div>
         </section>
     <?php } ?>
-        <section class="popular-tours slider-tour">
-            <div class="container">
-                <div class="popular-tours-text">
-                   <script src="//tp.media/content?promo_id=4480&shmarker=295933&campaign_id=10&locale=ru&powered_by=false&border_radius=2&plain=false&show_logo=true&color_background=%23F3BF0C&color_button=%2334B104" charset="utf-8"></script>
-                </div>
-            </div>
-        </section>    
     <div class="link-all-ex">
         <a href="/<?php echo ($country__name_en) ?>/<?php echo ($city_name) ?>/">Все экскурсии <?php echo ($list->city->in_obj_phrase); ?></a>
     </div>
