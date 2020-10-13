@@ -5108,7 +5108,7 @@ h2 {
 
 .order-panel-wrap {
     margin-top: 20px;
-    margin-bottom: 25px;
+    margin-bottom: 0px;
     position: sticky;
     top: 60px;
     border-radius: 8px;

@@ -94,7 +94,7 @@ if (!is_null($page)) {
     }
 } else if ($country__name_en) {
     $page = 'Country';
-    getAllResultsNoNext("https://experience.tripster.ru/api/cities/?page_size=12&format=json&country__name_en={$country__name_en}", $list, $urlNext, $countCity);
+    getAllResultsNoNext("https://experience.tripster.ru/api/cities/?page_size=24&format=json&country__name_en={$country__name_en}", $list, $urlNext, $countCity);
     if (!$list) {
         include_once('404.php');
         exit;
