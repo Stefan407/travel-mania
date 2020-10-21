@@ -1777,6 +1777,10 @@ nav.woocommerce-MyAccount-navigation ul li a {
     display: block;
 }
 
+.contact-form.send .g-recaptcha {
+    display: none;
+}
+
 .contact-form button {
     width: auto;
     font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
@@ -3903,6 +3907,7 @@ h2 {
 .breadcrumbs-item:last-child p {
     color: #222 !important;
     margin-top: 0;
+    font-size: 12px;
 }
 
 .slick-dots li {
@@ -5579,6 +5584,21 @@ h6 {
     color: #00be8b;
 }
 
+.btn-order-wrap .btn-click {
+    background: #b7b9b8;
+    border-radius: 5px;
+    color: #fff;
+    border: 2px solid #969998;
+    height: 40px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    cursor: default;
+    margin-top: 10px;
+}
+
 .btn-order-wrap .btn-click.act {
     background: #1f5f48;
     border-radius: 5px;
@@ -5594,7 +5614,7 @@ h6 {
     margin-top: 10px;
 }
 
-.btn-order-wrap .btn-click:hover {
+.btn-order-wrap .btn-click.act:hover {
     background: #fff;
     color: #1f5f48;
     border: 2px solid #1f5f48;

@@ -273,8 +273,8 @@ function gtag_report_conversion(url) {
                                         <div class="order-item-string"><img class="lazyload" data-src="/assets/images/warranty-icon.svg"> Гарантия лучшей цены </div>
                                         <div>
                                             <div class="panel-btns">
-                                                <div> <a class="order-btn more-btn" target="_blank" onclick="yaCounter56569540.reachGoal('broni')">Забронировать </a> </div>
-                                                <div> <a class="more-btn" style="display: none;" target="_blank" onclick="yaCounter56569540.reachGoal('data');">Выбрать дату </a> </div>
+                                                <div> <a class="order-btn more-btn" target="_blank" onclick="yaCounter56569540.reachGoal('data1')">Забронировать </a> </div>
+                                                <div> <a class="more-btn" style="display: none;" target="_blank" onclick="yaCounter56569540.reachGoal('data2');">Выбрать дату </a> </div>
                                                 <div> <a class="order-ask open-link" target="_blank" onclick="yaCounter56569540.reachGoal('vopros');" data-link="https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/?exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link&utm_term=guide">Задать вопрос гиду</a> </div>
                                             </div>
                                     </span>
@@ -380,8 +380,8 @@ function gtag_report_conversion(url) {
                                     </div>
                                 </div>
                                 <div class="btn-order-wrap">
-                                    <div class="text"></div>
-                                    <div class="btn-click open-link" data-link="" onclick="yaCounter56569540.reachGoal('bron-data');"></div>
+                                    <div class="btn-click" data-link="" onclick="yaCounter56569540.reachGoal('bron-data');">Забронировать</div>
+                                    <div class="text">Для заказа выберите дату</div>
                                 </div>
                             </div>
                         </div>
@@ -441,8 +441,8 @@ function gtag_report_conversion(url) {
                             <div class="order-item-string"><img class="lazyload" data-src="/assets/images/warranty-icon.svg"> Гарантия лучшей цены </div>
                             <div>
                                 <div class="panel-btns">
-                                    <div> <a class="more-btn order-btn" target="_blank" onclick="yaCounter56569540.reachGoal('broni');">Забронировать </a> </div>
-                                    <div> <a class="more-btn" style="display: none;" target="_blank" onclick="yaCounter56569540.reachGoal('data');">Выбрать дату </a> </div>
+                                    <div> <a class="more-btn order-btn" target="_blank" onclick="yaCounter56569540.reachGoal('data1');">Забронировать </a> </div>
+                                    <div> <a class="more-btn" style="display: none;" target="_blank" onclick="yaCounter56569540.reachGoal('data2');">Выбрать дату </a> </div>
                                     <div> <a class="order-ask open-link" target="_blank" onclick="yaCounter56569540.reachGoal('vopros');" data-link="https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/?exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link&utm_term=guide">Задать вопрос гиду</a> </div>
                                 </div>
                         </span>
@@ -452,9 +452,9 @@ function gtag_report_conversion(url) {
         </div>
     </section>
     <div class="fixed-section order-panel-wrap" style="display: none;">
-        <div> <a class="more-btn order-btn" target="_blank" onclick="yaCounter56569540.reachGoal('broni');">Заказать </a> </div>
+        <div> <a class="more-btn order-btn" target="_blank" onclick="yaCounter56569540.reachGoal('data1');">Заказать </a> </div>
         <div> <a class="order-ask open-link" target="_blank" onclick="yaCounter56569540.reachGoal('vopros');" data-link="https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/?exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link&utm_term=guide">Вопрос гиду</a> </div>
-        <div> <a class="more-btn" target="_blank" onclick="yaCounter56569540.reachGoal('data');">Выбрать дату </a> </div>
+        <div> <a class="more-btn" target="_blank" onclick="yaCounter56569540.reachGoal('data2');">Выбрать дату </a> </div>
     </div>
     <?php
     if ($listTour->count > 1) { ?>

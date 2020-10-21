@@ -4,44 +4,56 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <head>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter56569540 = new Ya.Metrika({
-                    id:56569540,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true,
-                    webvisor:true
-                });
-            } catch(e) { }
-        });
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter56569540 = new Ya.Metrika({
+                        id: 56569540,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true,
+                        webvisor: true
+                    });
+                } catch (e) {}
+            });
 
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function() {
+                    n.parentNode.insertBefore(s, n);
+                };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
 
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks");
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/56569540" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->    
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-165860897-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else {
+                f();
+            }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/56569540" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165860897-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'UA-165860897-1');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-165860897-1');
+    </script>
+
+    <!-- js-скрипт гугл капчи -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
     <link rel="profile" href="https://gmpg.org/xfn/11">
@@ -172,6 +184,10 @@
                                     <input id="form-name" type="text" value="" placeholder="Ваше имя">
                                     <input id="form-email" type="email" value="" placeholder="Ваш email">
                                     <textarea id="form-text" placeholder="Ваше сообщение"></textarea>
+                                    <!-- добавление элемента div -->
+                                    <div class="g-recaptcha" data-sitekey="6Lf7CdkZAAAAAImYR9AquAh6eLe2Sx7gq2N3-H01"></div>
+                                    <!-- элемент для вывода ошибок -->
+                                    <div class="text-danger" id="recaptchaError"></div>
                                     <button class="send-form" type="submit">Отправить</button>
                                     <div class="frm_verify">
                                         <label for="frm_verify_1"> Спасибо, письмо отправлено! </label>
@@ -186,34 +202,57 @@
     </section>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-
             $('.send-form').click(function(e) {
                 e.preventDefault();
-                // собираем данные с формы
                 var user_name = $(this).closest("form").find("#form-name").val();
                 var email = $(this).closest("form").find("#form-email").val();
                 var text = $(this).closest("form").find("#form-text").val();
                 let btn = $(this);
+
                 if (user_name.trim() != "") {
                     $(this).closest("form").find("#form-name").removeClass('false');
                     if (email.trim() != "") {
                         $(this).closest("form").find("#form-email").removeClass('false');
+
+                        // Работа с виджетом recaptcha
+                        // 1. Получить ответ гугл капчи
+                        var captcha = grecaptcha.getResponse();
+
+                        // 2. Если ответ пустой, то выводим сообщение о том, что пользователь не прошёл тест.
+                        // Такую форму не будем отправлять на сервер.
+                        if (!captcha.length) {
+                            // Выводим сообщение об ошибке
+                            $('#recaptchaError').text('* Вы не прошли проверку "Я не робот"');
+                        } else {
+                            // получаем элемент, содержащий капчу
+                            $('#recaptchaError').text('');
+                        }
+
+                        // 3. Если форма валидна и длина капчи не равно пустой строке, то отправляем форму на сервер (AJAX)
+                        if (captcha.length) {
+                            // добавить в formData значение 'g-recaptcha-response'=значение_recaptcha
+                            $.ajax({
+                                url: "/action.php", // куда отправляем
+                                type: "post", // метод передачи
+                                dataType: "json", // тип передачи данных
+                                data: { // что отправляем
+                                    "user_name": user_name,
+                                    "email": email,
+                                    "text": text,
+                                },
+                                // после получения ответа сервера
+                                success: function(data) {
+                                    $("form.contact-form").addClass("send")
+                                }
+                            });
+                        }
+
+
+                        // 4. Если сервер вернул ответ error, то делаем следующее...
+                        // Сбрасываем виджет reCaptcha
+                        grecaptcha.reset();
+
                         // отправляем данные
-                        $.ajax({
-                            url: "/action.php", // куда отправляем
-                            type: "post", // метод передачи
-                            dataType: "json", // тип передачи данных
-                            data: { // что отправляем
-                                "user_name": user_name,
-                                "email": email,
-                                "text": text,
-                            },
-                            // после получения ответа сервера
-                            success: function(data) {
-                                console.log($(this))
-                                $("form.contact-form").addClass("send")
-                            }
-                        });
                     } else {
                         $(this).closest("form").find("#form-email").addClass('false');
                     }

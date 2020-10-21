@@ -389,9 +389,9 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                 <div class="video-box">
                     <div>
                         <p>Забронировать экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> поможет наш видиопример. Перед тем, как Вы определитесь с тематикой экскурсии и выбирете удобную дату, можно задать любой вопрос гиду. Посмотрите видео и узнайте все наши приемущества.</p>
-                        <video controls="controls" playsinline poster="/assets/images/move-img.png">
-                            <source src="/assets/video/MOVE.mp4" type="video/webm">
-                            <source src="/assets/video/MOVE.mp4" type="video/mp4">
+                        <video controls="controls" playsinline poster="/assets/images/TRAVEL-MANIA-EXMP.png">
+                            <source src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/webm">
+                            <source src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/mp4">
                         </video>
                         <p class="autor">
                             Видео: © Travel Mania

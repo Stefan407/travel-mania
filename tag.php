@@ -188,11 +188,19 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                 </div>
                 <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <div class="breadcrumbs__block">
-                        <meta itemprop="item" content="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/">
-                        <p class="breadcrumbs__text">
+                        <a class="breadcrumbs__link" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/" itemprop="item">
                             <span itemprop="name"><?php echo ($tag_list[0]->city->name_ru) ?></span>
+                            <meta itemprop="position" content="3">
+                        </a>
+                    </div>
+                </div>
+                <div class="breadcrumbs-item" style="display: none;" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
+                    <div class="breadcrumbs__block">
+                        <meta itemprop="item" content="https://travel-mania.org//<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $tag_list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
+                        <p class="breadcrumbs__text">
+                            <span itemprop="name"><?php echo ($currentTag->header); ?></span>
                         </p>
-                        <meta itemprop="position" content="3">
+                        <meta itemprop="position" content="4">
                     </div>
                 </div>
             </div>
@@ -242,15 +250,15 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                             <?php foreach ($listTagsNew as $item) : ?>
                                 <?php if ($item->is_hidden == false and $item->experience_count > 0) : ?>
                                     <?php if ($item->slug == "all") { ?>
-                                        <a class="all <?php echo($item->slug); ?>" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/">
+                                        <a class="all <?php echo ($item->slug); ?>" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/">
                                             <span>Все</span><span style="margin-left: 5px;margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
                                         </a>
                                     <?php } else if ($tag_id == $item->id) { ?>
-                                        <a class="active <?php echo($item->slug); ?>" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $tag_list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
+                                        <a class="active <?php echo ($item->slug); ?>" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $tag_list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
                                             <span><?php echo ($item->name); ?></span><span style="margin-left: 5px;    margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
                                         </a>
                                     <?php } else { ?>
-                                        <a class="<?php echo($item->slug); ?>" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $tag_list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
+                                        <a class="<?php echo ($item->slug); ?>" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $tag_list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
                                             <span><?php echo ($item->name); ?></span><span style="margin-left: 5px;    margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
                                         </a>
                                     <?php } ?>
@@ -418,9 +426,9 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                 <div class="video-box">
                     <div>
                         <p><?php echo ($currentTag->header); ?> можно забронировать посмотрев наш видиопример. Перед тем, как Вы определитесь с экскурсией и выбирете удобную дату, можно задать любой вопрос гиду. Посмотрите видео и узнайте все приемущества.</p>
-                        <video controls="controls" playsinline poster="/assets/images/move-img.png">
-                            <source src="/assets/video/MOVE.mp4" type="video/webm">
-                            <source src="/assets/video/MOVE.mp4" type="video/mp4">
+                        <video controls="controls" playsinline poster="/assets/images/TRAVEL-MANIA-EXMP.png">
+                            <source src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/webm">
+                            <source src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/mp4">
                         </video>
                         <p class="autor">
                             Видео: © Travel Mania

@@ -114,12 +114,21 @@
     <div class="container">
         <div class="blog-page">
             <ul class="blog-list">
-                <li class="blog-item_block chto-posmotret-v-sevastopole">
+                <li class="blog-item_block">
                     <a href="/blog/post-chto-posmotret-v-sevastopole/">
                         <img data-src="/uploads/2020/08/sevastopol-2-300x202.jpg" class="alignleft wp-post-image lazyload">
                         <div class="post-item" style="background-color: rgb(237, 194, 144); color: rgb(255, 255, 255); box-shadow: rgb(237, 194, 144) 0px 12px 20px 36px;">
                             <div class="title">Что посмотреть в Севастополе?</div>
-                            <div class="text">Севастополь - это город славы, доблести моряков, которые защищали его и отдавали свои жизни за Россию. Он всегда притягивал к себе туристов из разных стран и это не удивительно, ведь в городе огромное количество исторических достопримечательностей. <span class="color-bac" data-bac-color="#edc290" data-color="#fff"></span></div>
+                            <div class="text">Севастополь - это город славы, доблести моряков, которые защищали его и отдавали свои жизни за Россию. Он всегда притягивал к себе туристов из разных стран и это не удивительно, ведь в городе огромное количество исторических достопримечательностей.</div>
+                        </div>
+                    </a>
+                </li>
+                <li class="blog-item_block">
+                    <a href="/blog/post-top-25-dostoprimechatelnostei-vyborga/">
+                        <img data-src="/uploads/Blog/Viborg/Viborg-1-min.jpg" class="alignleft wp-post-image lazyload">
+                        <div class="post-item" style="background-color: #66A3D2; color: rgb(255, 255, 255); box-shadow: #66A3D2 0px 12px 20px 36px;">
+                            <div class="title">Топ-25 достопримечательностей Выборга</div>
+                            <div class="text">Выборг — это прекрасный город России, отличающийся многовековой историей. Сюда стекаются гости с различных уголков мира в связи с тем, что город потерпел влияние европейской культуры, что наложило отпечаток на внешний облик и архитектуру города. Именно здесь можно собственными глазами лицезреть не только острова, средневековые замки, крепости, башни, но и атмосферу прошлых столетий.</div>
                         </div>
                     </a>
                 </li>
