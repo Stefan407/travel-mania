@@ -81,7 +81,7 @@
             </div>
         </div>
         <div class="breadcrumbs" itemscope="itemscope" itemtype="http://schema.org/BreadcrumbList">
-            <div class="container breadcrumbs-wrap">
+            <div class="container breadcrumbs-wrap container-post">
                 <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <div class="breadcrumbs__block">
                         <a class="breadcrumbs__link" href="/" itemprop="item">
@@ -100,11 +100,8 @@
                             <meta itemprop="position" content="2">
                         </a>
                     </div>
-                    <div class="breadcrumbs__arrow">
-                        <img class="lazyload" data-src="/assets/images/arrow-bread.png" alt="">
-                    </div>
                 </div>
-                <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
+                <div class="breadcrumbs-item"  style="display: none;" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <div class="breadcrumbs__block">
                         <meta itemprop="item" content="/blog/post-top-25-dostoprimechatelnostei-vyborga/">
                         <p class="breadcrumbs__text">
@@ -116,7 +113,7 @@
             </div>
         </div>
     </section>
-    <div class="container">
+    <div class="container container-post">
         <h2>Что посмотреть в Выборг?</h2>
         
         <p>Выборг — это прекрасный город России, отличающийся многовековой историей. Сюда стекаются гости с различных уголков мира в связи с тем, что город потерпел влияние европейской культуры, что наложило отпечаток на внешний облик и архитектуру города. Именно здесь можно собственными глазами лицезреть не только острова, средневековые замки, крепости, башни, но и атмосферу прошлых столетий.</p>

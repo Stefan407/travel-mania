@@ -180,7 +180,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
         </div>
 
         <div class="container">
-            <div class="border-box">
+            <div class="border-box js-container-tags">
                 <div class="advantages-wrap">
                     <div class="advantages-item">
                         <h3>Онлайн бронирование</h3>
@@ -201,48 +201,54 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                             <?php foreach ($listTagsNew as $item) : ?>
                                 <?php if ($item->is_hidden == false and $item->experience_count > 0) : ?>
                                     <?php if ($item->slug == "all") { ?>
-                                        <a class="active all" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/">
+                                        <a class="active all link" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/">
                                             <span>Все</span><span style="margin-left: 5px;margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
                                         </a>
                                     <?php } else if ($tag_id == $item->id) { ?>
-                                        <a class="active" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
+                                        <a class="active link" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
                                             <span><?php echo ($item->name); ?></span><span style="margin-left: 5px;    margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
                                         </a>
                                     <?php } else { ?>
-                                        <a href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
+                                        <a class="link" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
                                             <span><?php echo ($item->name); ?></span><span style="margin-left: 5px;    margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
                                         </a>
                                     <?php } ?>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
-                        <!-- <div class="country-btn-wrap tag-list-mobile">
-                            <div class="country-btn">
-                                <div class="btn-title">
-                                    <span>Все</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
-                                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
-                                            <path d="M0,172v-172h172v172z" fill="none"></path>
-                                            <g fill="#2ecc71">
-                                                <path d="M150.5,79.6145v0c0,-9.5245 -10.61383,-15.20767 -18.54017,-9.92583l-45.95983,30.64467l-45.95983,-30.6375c-7.92633,-5.28183 -18.54017,0.39417 -18.54017,9.91867v0c0,3.98467 1.99233,7.71133 5.3105,9.92583l51.24167,34.15633c4.816,3.21067 11.08683,3.21067 15.90283,0l51.24167,-34.15633c3.311,-2.2145 5.30333,-5.934 5.30333,-9.92583z"></path>
-                                            </g>
+                    </div>
+                </section>
+                <section class="list-tags js-list-tags">
+                    <div class="container">
+                        <div class="list-tags-wrap">
+                            <?php foreach ($listTagsNew as $item) : ?>
+                                <?php if ($item->is_hidden == false and $item->experience_count > 0) : ?>
+                                    <?php if ($item->slug == "all") { ?>
+                                        <div class="link active all open-link-def" data-link="https://travel-mania.org/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/">
+                                            <span>Все</span><span style="margin-left: 5px;margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
+                                        </div>
+                                    <?php } else if ($tag_id == $item->id) { ?>
+                                        <div class="active link">
+                                            <span><?php echo ($item->name); ?></span><span style="margin-left: 5px;    margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
+                                        </div>
+                                    <?php } else { ?>
+                                        <div class="open-link-def link" data-link="https://travel-mania.org/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
+                                            <span><?php echo ($item->name); ?></span><span style="margin-left: 5px;    margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
+                                        </div>
+                                    <?php } ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                            <div class="icon-open-list-tag">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                                        <g fill="#2ecc71">
+                                            <path d="M150.5,79.6145v0c0,-9.5245 -10.61383,-15.20767 -18.54017,-9.92583l-45.95983,30.64467l-45.95983,-30.6375c-7.92633,-5.28183 -18.54017,0.39417 -18.54017,9.91867v0c0,3.98467 1.99233,7.71133 5.3105,9.92583l51.24167,34.15633c4.816,3.21067 11.08683,3.21067 15.90283,0l51.24167,-34.15633c3.311,-2.2145 5.30333,-5.934 5.30333,-9.92583z"></path>
                                         </g>
-                                    </svg></div>
-                                <div class="btn-block">
-                                    <?php foreach ($listTagsNew as $item) : ?>
-                                        <?php if ($item->is_hidden == false and $item->experience_count > 0) : ?>
-                                            <?php if ($item->slug !== "all") { ?>
-                                                <button>
-                                                    <a href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
-                                                        <span><?php echo ($item->name); ?></span><span><?php echo ($item->experience_count); ?></span>
-                                                    </a>
-                                                </button>
-                                            <?php } ?>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                </div>
+                                    </g>
+                                </svg>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </section>
             </div>

@@ -5,9 +5,27 @@ $(document).ready(function () {
     let valueLength;
     let dataCalendar;
     let xhrOne = null;
+    var scrollTimer;
     let urlNextListCity = $(".popular-cityes .btn-more").data("url-next");
 
 
+    if ($(".js-container-tags").length) {
+        window.addEventListener('scroll', function () {
+            if (window.innerWidth < 768) {
+                if ($(window).scrollTop() > $(".js-container-tags").offset().top + $(".js-container-tags").height()) {
+                    $(".js-container-tags .js-list-tags").addClass("fixed");
+                } else {
+                    $(".js-container-tags .js-list-tags").removeClass("fixed");
+                    $(".js-container-tags .js-list-tags .list-tags-wrap").removeClass("open");
+
+                }
+            }
+        });
+    }
+
+    $(".js-container-tags .js-list-tags .icon-open-list-tag").on("click", () => {
+        $(".js-container-tags .js-list-tags .list-tags-wrap").toggleClass("open");
+    })
     function request(url) {
         $(".windows8").show();
         $(".close-search").hide();
@@ -196,6 +214,11 @@ $(document).ready(function () {
         $(".open-link").on("click", function () {
             let url = $(this).data("link");
             window.open(url)
+        })
+        $(".open-link-def").on("click", function () {
+            let url = $(this).data("link");
+            window.location = url;
+
         })
     }
 

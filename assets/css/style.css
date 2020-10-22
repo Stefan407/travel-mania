@@ -3537,7 +3537,9 @@ section.main {
     margin: 0 auto;
     padding: 0px 15px;
 }
-
+.container.container-post{
+    max-width: 800px;
+}
 .copyright {
     display: none;
 }
@@ -3910,6 +3912,80 @@ h2 {
     font-size: 12px;
 }
 
+.js-container-tags .js-list-tags .list-tags-wrap {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 10;
+    left: 0;
+    background: #fff;
+    margin: 0;
+    padding: 10px 40px 10px 10px;
+    max-height: 50px;
+    height: 50px;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: none;
+    justify-content: flex-start;
+    border-top: 2px solid #828282;
+    background: #f7f7f7;
+}
+
+.js-container-tags .js-list-tags.fixed .list-tags-wrap {
+    display: flex;
+}
+
+.js-container-tags .js-list-tags {
+    margin: 0;
+}
+
+.js-container-tags .js-list-tags.fixed {
+    display: block;
+}
+
+.icon-open-list-tag {
+    display: none;
+}
+
+.js-container-tags .js-list-tags .list-tags-wrap .link {
+    display: none;
+}
+
+.js-container-tags .js-list-tags .list-tags-wrap .link.active {
+    display: flex;
+    margin: 0;
+}
+
+.js-container-tags .js-list-tags .icon-open-list-tag {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    transform: rotate(180deg);
+
+}
+
+.js-container-tags .js-list-tags .open .icon-open-list-tag {
+    transform: rotate(0deg);
+
+}
+
+.js-container-tags .js-list-tags .list-tags-wrap.open {
+    height: auto;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.js-container-tags .js-list-tags .list-tags-wrap.open .link {
+    display: flex;
+}
+
+.js-container-tags .js-list-tags .list-tags-wrap.open .link.active {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
 .slick-dots li {
     display: block;
     float: left;
@@ -4202,7 +4278,7 @@ h2 {
     justify-content: center;
 }
 
-.list-tags-wrap a {
+.list-tags-wrap .link {
     user-select: none;
     display: inline-block;
     font-size: 14px;
@@ -4221,16 +4297,16 @@ h2 {
     order: 1;
 }
 
-.list-tags-wrap a.active {
+.list-tags-wrap .link.active {
     color: #000;
     background-color: #F0C1C1;
 }
 
-.list-tags .list-tags-wrap a.all {
+.list-tags .list-tags-wrap .link.all {
     order: 0;
 }
 
-.list-tags-wrap a:hover {
+.list-tags-wrap .link:hover {
     color: #222;
     background-color: #fff;
 }
@@ -6682,4 +6758,10 @@ html {
 
 .expage-dates__item:hover {
     color: #e66363;
+}
+
+@media (min-width: 768px) {
+    .js-container-tags .js-list-tags {
+        display: none !important;
+    }
 }

@@ -95,7 +95,7 @@ function gtag_report_conversion(url) {
             </div>
         </div>
         <div class="breadcrumbs" itemscope="itemscope" itemtype="http://schema.org/BreadcrumbList">
-            <div class="container breadcrumbs-wrap">
+            <div class="container breadcrumbs-wrap container-post">
                 <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <div class="breadcrumbs__block">
                         <a class="breadcrumbs__link" href="/" itemprop="item">
@@ -114,11 +114,8 @@ function gtag_report_conversion(url) {
                             <meta itemprop="position" content="2">
                         </a>
                     </div>
-                    <div class="breadcrumbs__arrow">
-                        <img class="lazyload" data-src="/assets/images/arrow-bread.png" alt="">
-                    </div>
                 </div>
-                <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
+                <div class="breadcrumbs-item"  style="display: none;" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <div class="breadcrumbs__block">
                         <meta itemprop="item" content="/blog/post-chto-posmotret-v-sevastopole/">
                         <p class="breadcrumbs__text">
@@ -130,7 +127,7 @@ function gtag_report_conversion(url) {
             </div>
         </div>
     </section>
-    <div class="container">
+    <div class="container container-post">
         <h2>Севастополь - жемчужина Крыма</h2>
         
         <p>Севастополь - это город славы, доблести моряков, которые защищали его и отдавали свои жизни за Россию. Он всегда притягивал к себе туристов из разных стран и это не удивительно, ведь в городе огромное количество исторических достопримечательностей</p>
