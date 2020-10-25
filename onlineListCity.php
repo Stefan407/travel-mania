@@ -79,7 +79,7 @@ $current_des_city = reset($current_des_cities);
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <title>Онлайн-экскурсии <?php echo ($list[0]->city->in_obj_phrase) ?> • Travel Mania</title>
     <meta name="keywords" content="онлайн, виртуальные, экскурсии, вебинары, мастер-классы, <?php echo ($list[0]->city->name_ru) ?>, русский, на русском, с гидом, по музеям, по городу, галереи, картины, видео, смотреть, лучшие, травэл, мания, travel, mania" />
-    <meta name="description" content="🟢  Регулярные онлайн-экскурсии с гидом <?php echo ($list[0]->city->in_obj_phrase) ?>. Новый формат проведения экскурсий с живой онлайн-трансляцией. Заказывай и смотри онлайн в удобной обстановке." />
+    <meta name="description" content="🟢 Регулярные онлайн-экскурсии с гидом <?php echo ($list[0]->city->in_obj_phrase) ?>. Новый формат проведения экскурсий с живой онлайн-трансляцией. Заказывай и смотри онлайн в удобной обстановке." />
     <?php
     include 'inc/head-static.php';
     ?>
@@ -144,7 +144,7 @@ $current_des_city = reset($current_des_cities);
             <div class="border-box js-container-tags">
                 <h2>Онлайн-экскурсии и вебинары <?php echo ($list[0]->city->in_obj_phrase) ?></h2>
                 <div class="border-box__text">
-                    <p>Онлайн-экскурсии <?php echo ($list[0]->city->in_obj_phrase) ?> проходят в виде «живой» трансляции, которую проводит гид гуляя по достопримечательностям и улицам города. Вебинары – это прогулки по городу в Google Street View с презентациями и комментариями гида.</p>
+                    <p>Онлайн-экскурсии <?php echo ($list[0]->city->in_obj_phrase) ?> проходят в формате «живой» трансляции, которую проводит гид гуляя по достопримечательностям и улицам города. Вебинары – это прогулки по городу в Google Street View с презентациями и комментариями гида.</p>
                 </div>
                 <section class="list-tags">
                     <div class="container">
@@ -351,9 +351,9 @@ $current_des_city = reset($current_des_cities);
         </div>
     </section>
     <div itemscope="itemscope" itemtype="http://schema.org/Product">
-        <meta itemprop="name" content="<?php echo ("Авторские экскурсии" . $list[0]->city->in_obj_phrase); ?>">
+        <meta itemprop="name" content="Онлайн-экскурсии <?php echo ($list[0]->city->in_obj_phrase) ?> • Travel Mania">
         <noindex>
-            <meta itemprop="description" content="🟢  Регулярные онлайн-экскурсии с гидом <?php echo ($list[0]->city->in_obj_phrase) ?>. Новый формат проведения экскурсий с живой онлайн-трансляцией. Заказывай и смотри онлайн в удобной обстановке.">
+            <meta itemprop="description" content="🟢 Регулярные онлайн-экскурсии с гидом <?php echo ($list[0]->city->in_obj_phrase) ?>. Новый формат проведения экскурсий с живой онлайн-трансляцией. Заказывай и смотри онлайн в удобной обстановке.">
             <span itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/AggregateOffer">
                 <meta itemprop="lowPrice" content="<?php echo (min($priceAll)) ?>">
                 <meta itemprop="highPrice" content="<?php echo (max($priceAll)) ?>">
@@ -375,7 +375,7 @@ $current_des_city = reset($current_des_cities);
                     <div class="advantages-item">
                         <h3>Живые экскурсии с гидом</h3>
                         <div class="advantages-text">
-                            Это живая экскурсии - не видео запись! Гид проводит экскурсию в формате вебинара или транслируя с улицы.
+                            Это живие экскурсии - не видео запись! Гид проводит экскурсию в формате вебинара или транслируя с улицы.
                         </div>
                     </div>
                     <div class="advantages-item">
@@ -505,7 +505,11 @@ $current_des_city = reset($current_des_cities);
                     urlNextListCity = nextUrl;
                     $(".popular-tours .btn-more").show();
                 }
-                initslidertour();
+                if (window.innerWidth > 560) {
+                    initslidertour();
+                } else {
+                    editElemsTour();
+                }
                 if ($(".more-text.btn-more").length) {
                     $(".more-text.btn-more .text-span").text($(".tours .slick-tours__item").length)
                 }
@@ -601,49 +605,47 @@ $current_des_city = reset($current_des_cities);
             }
 
             function initslidertour() {
-                if (window.innerWidth > 768) {
-                    $(".slick-tours__item").hover(
-                        function() {
-                            let urls = $(this).find(".link").data("images");
-                            if (!$(this).find(".new-img").length) {
-                                for (i = 0; i < urls.length; i++) {
-                                    $(this).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
-                                }
+                $(".slick-tours__item").hover(
+                    function() {
+                        let urls = $(this).find(".link").data("images");
+                        if (!$(this).find(".new-img").length) {
+                            for (i = 0; i < urls.length; i++) {
+                                $(this).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
                             }
-                            if ($(this).find(".slick-track").length == 0) {
-                                $(this).find(".link").on('init', function(event, slick) {
-                                    var initSlide = slick.slickCurrentSlide();
-                                    var slickDots = slick.$dots[0];
-                                    slickDots.childNodes[initSlide].classList.add("slick-current");
-                                });
-                                $(this).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-                                    var slickDots = slick.$dots[0];
-                                    slickDots.childNodes[currentSlide].classList.remove("slick-current");
-                                    slickDots.childNodes[nextSlide].classList.add("slick-current");
-                                });
-                                $(this).find(".link").slick({
-                                    arrows: false,
-                                    dots: true,
-                                    autoplay: true,
-                                    autoplaySpeed: 2000,
-                                    pauseOnHover: false,
-                                    pauseOnFocus: false,
-                                    fade: true,
-                                    cssEase: 'linear'
-                                });
-                            } else {
-                                $(this).find(".link .slick-active").addClass("slick-current");
-                                $(this).find(".link").slick('slickPlay');
-                                $(this).find(".link .slick-dots").css("opacity", "1");
-                            }
-                        },
-                        function() {
-                            $(this).find(".link .slick-active").removeClass("slick-current");
-                            $(this).find(".link").slick('slickPause');
-                            $(this).find(".link .slick-dots").css("opacity", "0");
                         }
-                    );
-                }
+                        if ($(this).find(".slick-track").length == 0) {
+                            $(this).find(".link").on('init', function(event, slick) {
+                                var initSlide = slick.slickCurrentSlide();
+                                var slickDots = slick.$dots[0];
+                                slickDots.childNodes[initSlide].classList.add("slick-current");
+                            });
+                            $(this).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+                                var slickDots = slick.$dots[0];
+                                slickDots.childNodes[currentSlide].classList.remove("slick-current");
+                                slickDots.childNodes[nextSlide].classList.add("slick-current");
+                            });
+                            $(this).find(".link").slick({
+                                arrows: false,
+                                dots: true,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                pauseOnHover: false,
+                                pauseOnFocus: false,
+                                fade: true,
+                                cssEase: 'linear'
+                            });
+                        } else {
+                            $(this).find(".link .slick-active").addClass("slick-current");
+                            $(this).find(".link").slick('slickPlay');
+                            $(this).find(".link .slick-dots").css("opacity", "1");
+                        }
+                    },
+                    function() {
+                        $(this).find(".link .slick-active").removeClass("slick-current");
+                        $(this).find(".link").slick('slickPause');
+                        $(this).find(".link .slick-dots").css("opacity", "0");
+                    }
+                );
             }
         });
     </script>

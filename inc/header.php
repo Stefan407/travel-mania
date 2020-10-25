@@ -51,10 +51,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <nav class="menu">
                     <ul>
-                        <li><a href="/all-countries/" class="open-contry green">СТРАНЫ</a></li>
-                        <li><a class="green" href=" /blog/ ">БЛОГ</a></li>
-                        <li><a class="green" href="/about/">О НАС</a></li>
-                        <li><a class="link-ask" href="/feedback/">ЗАДАТЬ ВОПРОС</a></li>
+                        <li><a href="/all-countries/" class="open-contry green">Страны</a></li>
+                        <li><a class="green" href=" /online-excursions/ ">Онлайн</a></li>
+                        <li><a class="green" href=" /blog/ ">Блог</a></li>
+                        <li><a class="green" href="/about/">О нас</a></li>
+                        <li><a class="link-ask" href="/feedback/">Есть вопрос?</a></li>
                     </ul>
                 </nav>
                 <div class="burger"><img class="burger-btn" src="/assets/images/burger-icon.png" alt=""></div>

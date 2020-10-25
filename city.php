@@ -409,23 +409,6 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-
-            $(document).ready(function() {
-
-                $(".country-btn-wrap .btn-title").on("click", function() {
-                    $(".country-btn-wrap .btn-block").toggleClass("active");
-                })
-
-
-                if (window.innerWidth > 560) {
-                    initslidertour();
-                } else {
-                    editElemsTour();
-                }
-            });
-
-
-
             var timeout = false;
             let coordinatesYT = window.pageYOffset;
             let coordinatesYB = coordinatesYT + window.innerHeight;
@@ -435,8 +418,16 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
             let urlNextListCity = $(".popular-tours .btn-more").data("url-next");
             let sliderTour;
             let xhrOne = null;
-
-
+            $(document).ready(function() {
+                $(".country-btn-wrap .btn-title").on("click", function() {
+                    $(".country-btn-wrap .btn-block").toggleClass("active");
+                })
+                if (window.innerWidth > 560) {
+                    initslidertour();
+                } else {
+                    editElemsTour();
+                }
+            });
 
             if ($(".popular-tours .btn-more").length) {
                 $(".popular-tours .btn-more").on("click", function() {
@@ -519,7 +510,11 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                     urlNextListCity = nextUrl;
                     $(".popular-tours .btn-more").show();
                 }
-                initslidertour();
+                if (window.innerWidth > 560) {
+                    initslidertour();
+                } else {
+                    editElemsTour();
+                }
                 if ($(".more-text.btn-more").length) {
                     $(".more-text.btn-more .text-span").text($(".tours .slick-tours__item").length)
                 }
@@ -527,6 +522,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
 
 
             function editElemsTour() {
+                elementsArray = [];
                 elements.forEach(function(elem) {
                     if (!elem.classList.contains("hide")) {
                         elementsArray.push({
@@ -616,49 +612,47 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
             }
 
             function initslidertour() {
-                if (window.innerWidth > 768) {
-                    $(".slick-tours__item").hover(
-                        function() {
-                            let urls = $(this).find(".link").data("images");
-                            if (!$(this).find(".new-img").length) {
-                                for (i = 0; i < urls.length; i++) {
-                                    $(this).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
-                                }
+                $(".slick-tours__item").hover(
+                    function() {
+                        let urls = $(this).find(".link").data("images");
+                        if (!$(this).find(".new-img").length) {
+                            for (i = 0; i < urls.length; i++) {
+                                $(this).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
                             }
-                            if ($(this).find(".slick-track").length == 0) {
-                                $(this).find(".link").on('init', function(event, slick) {
-                                    var initSlide = slick.slickCurrentSlide();
-                                    var slickDots = slick.$dots[0];
-                                    slickDots.childNodes[initSlide].classList.add("slick-current");
-                                });
-                                $(this).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-                                    var slickDots = slick.$dots[0];
-                                    slickDots.childNodes[currentSlide].classList.remove("slick-current");
-                                    slickDots.childNodes[nextSlide].classList.add("slick-current");
-                                });
-                                $(this).find(".link").slick({
-                                    arrows: false,
-                                    dots: true,
-                                    autoplay: true,
-                                    autoplaySpeed: 2000,
-                                    pauseOnHover: false,
-                                    pauseOnFocus: false,
-                                    fade: true,
-                                    cssEase: 'linear'
-                                });
-                            } else {
-                                $(this).find(".link .slick-active").addClass("slick-current");
-                                $(this).find(".link").slick('slickPlay');
-                                $(this).find(".link .slick-dots").css("opacity", "1");
-                            }
-                        },
-                        function() {
-                            $(this).find(".link .slick-active").removeClass("slick-current");
-                            $(this).find(".link").slick('slickPause');
-                            $(this).find(".link .slick-dots").css("opacity", "0");
                         }
-                    );
-                }
+                        if ($(this).find(".slick-track").length == 0) {
+                            $(this).find(".link").on('init', function(event, slick) {
+                                var initSlide = slick.slickCurrentSlide();
+                                var slickDots = slick.$dots[0];
+                                slickDots.childNodes[initSlide].classList.add("slick-current");
+                            });
+                            $(this).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+                                var slickDots = slick.$dots[0];
+                                slickDots.childNodes[currentSlide].classList.remove("slick-current");
+                                slickDots.childNodes[nextSlide].classList.add("slick-current");
+                            });
+                            $(this).find(".link").slick({
+                                arrows: false,
+                                dots: true,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                pauseOnHover: false,
+                                pauseOnFocus: false,
+                                fade: true,
+                                cssEase: 'linear'
+                            });
+                        } else {
+                            $(this).find(".link .slick-active").addClass("slick-current");
+                            $(this).find(".link").slick('slickPlay');
+                            $(this).find(".link .slick-dots").css("opacity", "1");
+                        }
+                    },
+                    function() {
+                        $(this).find(".link .slick-active").removeClass("slick-current");
+                        $(this).find(".link").slick('slickPause');
+                        $(this).find(".link .slick-dots").css("opacity", "0");
+                    }
+                );
             }
         });
     </script>

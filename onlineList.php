@@ -70,7 +70,7 @@ $reviewsAllCount = 0;
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <title>Онлайн-экскурсии по всему миру • Travel Mania</title>
     <meta name="keywords" content="онлайн, виртуальные, экскурсии, вебинары, мастер-классы, по миру, русский, на русском, с гидом, по музеям, по городу, галереи, картины, видео, смотреть, лучшие, травэл, мания, travel, mania" />
-    <meta name="description" content="🟢  Регулярные онлайн-экскурсии по всему миру с гидами. Новый формат проведения экскурсий с живой онлайн-трансляцией. Заказывай и смотри онлайн в удобной обстановке." />
+    <meta name="description" content="🟢 Регулярные онлайн-экскурсии по всему миру с гидами. Новый формат проведения экскурсий с живой онлайн-трансляцией. Заказывай и смотри онлайн в удобной обстановке." />
     <?php
     include 'inc/head-static.php';
     ?>
@@ -123,7 +123,7 @@ $reviewsAllCount = 0;
             <div class="border-box js-container-tags">
                 <h2>Онлайн-экскурсии и вебинары </h2>
                 <div class="border-box__text">
-                    <p>Онлайн-экскурсии проходят в виде «живой» трансляции, которую проводит гид гуляя по достопримечательностям и улицам города. Вебинары – это прогулки по городу в Google Street View с презентациями и комментариями гида.</p>
+                    <p>Онлайн-экскурсии проходят в формате «живой» трансляции, которую проводит гид гуляя по достопримечательностям и улицам города. Вебинары – это прогулки по городу в Google Street View с презентациями и комментариями гида.</p>
                 </div>
                 <section class="list-tags">
                     <div class="container">
@@ -293,7 +293,7 @@ $reviewsAllCount = 0;
                                         <div class="item-guide-photo"> <img class="lazyload" data-src="<?php echo $item->guide->avatar->medium  ?>" alt=""> </div>
                                         <div class="item-guide-name">
                                             <span><?php echo $item->guide->first_name ?></span>
-                                            <a class="red" href="/<?php echo ($countryBefore); ?>/<?php echo ($cityBefore); ?>/">Рим</a>
+                                            <a class="red" href="/<?php echo ($countryBefore); ?>/<?php echo ($cityBefore); ?>/"><?php echo ($item->city->name_ru); ?></a>
                                         </div>
                                     </div>
 
@@ -323,9 +323,9 @@ $reviewsAllCount = 0;
         </div>
     </section>
     <div itemscope="itemscope" itemtype="http://schema.org/Product">
-        <meta itemprop="name" content="<?php echo ("Авторские экскурсии" . $list[0]->city->in_obj_phrase); ?>">
+        <meta itemprop="name" content="Онлайн-экскурсии по всему миру • Travel Mania">
         <noindex>
-            <meta itemprop="description" content="🟢  Регулярные онлайн-экскурсии по всему миру с гидами. Новый формат проведения экскурсий с живой онлайн-трансляцией. Заказывай и смотри онлайн в удобной обстановке.">
+            <meta itemprop="description" content="🟢 Регулярные онлайн-экскурсии по всему миру с гидами. Новый формат проведения экскурсий с живой онлайн-трансляцией. Заказывай и смотри онлайн в удобной обстановке.">
             <span itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/AggregateOffer">
                 <meta itemprop="lowPrice" content="<?php echo (min($priceAll)) ?>">
                 <meta itemprop="highPrice" content="<?php echo (max($priceAll)) ?>">
@@ -347,7 +347,7 @@ $reviewsAllCount = 0;
                     <div class="advantages-item">
                         <h3>Живые экскурсии с гидом</h3>
                         <div class="advantages-text">
-                            Это живая экскурсии - не видео запись! Гид проводит экскурсию в формате вебинара или транслируя с улицы.
+                            Это живие экскурсии - не видео запись! Гид проводит экскурсию в формате вебинара или транслируя с улицы.
                         </div>
                     </div>
                     <div class="advantages-item">
@@ -470,14 +470,18 @@ $reviewsAllCount = 0;
                     if (item.rating) {
                         ratingCount = `<span class="item-rating"><span style="display:none;" class="reviews-rating">${item.rating}</span><div class="star-rating-item"><span class="reviews-rating-img" style="width: ${item.rating * 20}%"><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""></span><span class="reviews-rating-img bac"><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""><img class="icon-star " src="/assets/images/icon-star-1.png" alt=""></span></div></span>`;
                     }
-                    $("#slick-tours").append(`<div style="display: none;" class="slick-tours__item"><div class="slick-tours__wrap"><div class="slick-tours__item-img "> <a class="link" href="/${newCountry}/${newCity}/excursion-${item.id}/" data-images='${arrImages}'><img class="static " src="${item.photos['0'].thumbnail}" alt=""></a>${discount} ${tagName}</div><div class="item-time-rating"><span class="item-time">  <img class="" src="/assets/images/icon-time.png" alt=""> <span>${item.duration}</span></span>${ratingCount}</div><div class="tours__item-content "><div class="item-title "><a href="/${newCountry}/${newCity}/excursion-${item.id}/">${item.title}</a></div><div class="item-price-guide"><div class="item-guide"><div class="item-guide-photo"> <img class="" src="${item.guide.avatar.medium}" alt=""> </div><div class="item-guide-name">${item.guide.first_name}<br></div></div><div class="item-price"><div class="item-price-value">${item.price.value} ${item.price.currency}</div><div class="item-price-people">${item.price.unit_string}</div></div></div></div></div></div>`);
+                    $("#slick-tours").append(`<div style="display: none;" class="slick-tours__item"><div class="slick-tours__wrap"><div class="slick-tours__item-img "> <a class="link" href="/${newCountry}/${newCity}/excursion-${item.id}/" data-images='${arrImages}'><img class="static " src="${item.photos['0'].thumbnail}" alt=""></a>${discount} ${tagName}</div><div class="item-time-rating"><span class="item-time">  <img class="" src="/assets/images/icon-time.png" alt=""> <span>${item.duration}</span></span>${ratingCount}</div><div class="tours__item-content "><div class="item-title "><a href="/${newCountry}/${newCity}/excursion-${item.id}/">${item.title}</a></div><div class="item-price-guide"><div class="item-guide"><div class="item-guide-photo"> <img class="" src="${item.guide.avatar.medium}" alt=""> </div><div class="item-guide-name">${item.guide.first_name}<br><a class="red" href="/${newCountry}/${newCity}/">${item.city.name_ru}</a></div></div><div class="item-price"><div class="item-price-value">${item.price.value} ${item.price.currency}</div><div class="item-price-people">${item.price.unit_string}</div></div></div></div></div></div>`);
                 })
 
                 if (nextUrl) {
                     urlNextListCity = nextUrl;
                     $(".popular-tours .btn-more").show();
                 }
-                initslidertour();
+                if (window.innerWidth > 560) {
+                    initslidertour();
+                } else {
+                    editElemsTour();
+                }
                 if ($(".more-text.btn-more").length) {
                     $(".more-text.btn-more .text-span").text($(".tours .slick-tours__item").length)
                 }
@@ -573,49 +577,47 @@ $reviewsAllCount = 0;
             }
 
             function initslidertour() {
-                if (window.innerWidth > 768) {
-                    $(".slick-tours__item").hover(
-                        function() {
-                            let urls = $(this).find(".link").data("images");
-                            if (!$(this).find(".new-img").length) {
-                                for (i = 0; i < urls.length; i++) {
-                                    $(this).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
-                                }
+                $(".slick-tours__item").hover(
+                    function() {
+                        let urls = $(this).find(".link").data("images");
+                        if (!$(this).find(".new-img").length) {
+                            for (i = 0; i < urls.length; i++) {
+                                $(this).find(".link").append('<img class="new-img" src="' + urls[i] + '" />');
                             }
-                            if ($(this).find(".slick-track").length == 0) {
-                                $(this).find(".link").on('init', function(event, slick) {
-                                    var initSlide = slick.slickCurrentSlide();
-                                    var slickDots = slick.$dots[0];
-                                    slickDots.childNodes[initSlide].classList.add("slick-current");
-                                });
-                                $(this).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-                                    var slickDots = slick.$dots[0];
-                                    slickDots.childNodes[currentSlide].classList.remove("slick-current");
-                                    slickDots.childNodes[nextSlide].classList.add("slick-current");
-                                });
-                                $(this).find(".link").slick({
-                                    arrows: false,
-                                    dots: true,
-                                    autoplay: true,
-                                    autoplaySpeed: 2000,
-                                    pauseOnHover: false,
-                                    pauseOnFocus: false,
-                                    fade: true,
-                                    cssEase: 'linear'
-                                });
-                            } else {
-                                $(this).find(".link .slick-active").addClass("slick-current");
-                                $(this).find(".link").slick('slickPlay');
-                                $(this).find(".link .slick-dots").css("opacity", "1");
-                            }
-                        },
-                        function() {
-                            $(this).find(".link .slick-active").removeClass("slick-current");
-                            $(this).find(".link").slick('slickPause');
-                            $(this).find(".link .slick-dots").css("opacity", "0");
                         }
-                    );
-                }
+                        if ($(this).find(".slick-track").length == 0) {
+                            $(this).find(".link").on('init', function(event, slick) {
+                                var initSlide = slick.slickCurrentSlide();
+                                var slickDots = slick.$dots[0];
+                                slickDots.childNodes[initSlide].classList.add("slick-current");
+                            });
+                            $(this).find(".link").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+                                var slickDots = slick.$dots[0];
+                                slickDots.childNodes[currentSlide].classList.remove("slick-current");
+                                slickDots.childNodes[nextSlide].classList.add("slick-current");
+                            });
+                            $(this).find(".link").slick({
+                                arrows: false,
+                                dots: true,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                pauseOnHover: false,
+                                pauseOnFocus: false,
+                                fade: true,
+                                cssEase: 'linear'
+                            });
+                        } else {
+                            $(this).find(".link .slick-active").addClass("slick-current");
+                            $(this).find(".link").slick('slickPlay');
+                            $(this).find(".link .slick-dots").css("opacity", "1");
+                        }
+                    },
+                    function() {
+                        $(this).find(".link .slick-active").removeClass("slick-current");
+                        $(this).find(".link").slick('slickPause');
+                        $(this).find(".link .slick-dots").css("opacity", "0");
+                    }
+                );
             }
         });
     </script>
