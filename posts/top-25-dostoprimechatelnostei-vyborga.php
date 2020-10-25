@@ -103,7 +103,7 @@
                 </div>
                 <div class="breadcrumbs-item"  style="display: none;" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <div class="breadcrumbs__block">
-                        <meta itemprop="item" content="/blog/post-top-25-dostoprimechatelnostei-vyborga/">
+                        <meta itemprop="item" content="https://travel-mania.org/blog/post-top-25-dostoprimechatelnostei-vyborga/">
                         <p class="breadcrumbs__text">
                             <span itemprop="name">Топ-25 достопримечательностей Выборга</span>
                         </p>

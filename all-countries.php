@@ -92,7 +92,7 @@ getAllResults('https://experience.tripster.ru/api/countries/?format=json', $list
                     <div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                         <p class="breadcrumbs__text">
                             <span itemprop="name">Все страны</span>
-                            <meta itemprop="item" content="/all-countries">
+                            <meta itemprop="item" content="https://travel-mania.org/all-countries/">
                             <meta itemprop="position" content="2">
                         </p>
                     </div>

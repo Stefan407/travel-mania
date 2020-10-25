@@ -196,7 +196,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                 </div>
                 <div class="breadcrumbs-item" style="display: none;" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <div class="breadcrumbs__block">
-                        <meta itemprop="item" content="https://travel-mania.org//<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $tag_list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
+                        <meta itemprop="item" content="https://travel-mania.org/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $tag_list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
                         <p class="breadcrumbs__text">
                             <span itemprop="name"><?php echo ($currentTag->header); ?></span>
                         </p>

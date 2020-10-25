@@ -111,6 +111,7 @@ $page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены,
                 </div>
                 <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <div class="breadcrumbs__block">
+                    <meta itemprop="item" content="https://travel-mania.org/<?php echo ($list[0]->country->name_en) ?>/">
                         <p class="breadcrumbs__text">
                             <span itemprop="name"><?php echo ($list[0]->country->name_ru) ?></span>
                             <meta itemprop="position" content="2">

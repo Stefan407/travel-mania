@@ -1,56 +1,11 @@
 <?php
-// CODE REQUEST DESCRIPTION
-$des_cities_path = $_SERVER['DOCUMENT_ROOT'] . '/description/des-city.json';
-$des_cities = file_get_contents($des_cities_path);
-$des_cities = json_decode($des_cities);
-$current_city = $list[0]->city->name_en;
-$current_city = str_replace(" ", "-", $current_city);
-$current_des_cities = array_filter($des_cities, function ($city) use ($current_city) {
-    return $city->name == $current_city;
-});
-$current_des_city = reset($current_des_cities);
-
-// IF RU LANGUAGE
-$my_var = $list[0]->city->in_obj_phrase;
-$textRu = " на русском языке ";
-if ($list[0]->city->country->name_en == "Russia" or $list[0]->city->country->name_en == "Ukraine" or $list[0]->city->country->name_en == "Crimea") {
-    $textRu = " ";
-};
-$page_title =  "Экскурсии " . $my_var . $textRu . " 2020 🥇 цены, отзывы, описание • Travel Mania";
 
 // DATA SEO
 $priceAll = [];
 $reviewsAll = 0;
 $reviewsAllCount = 0;
-$listTags = getData('https://experience.tripster.ru/api/citytags/?city=' . $list[0]->city->id);
-$listTagsNew = $listTags->results;
-
-
-// REPLACE CITY
-$city_name = str_replace('é', 'e', $city__name_en);
-$city_name = str_replace('ё', 'e', $city_name);
-$city_name = str_replace("'", '', $city_name);
-$city_name = str_replace("'", '', $city_name);
-$city_name = str_replace("+", '-', $city_name);
-$city_name = str_replace("+", '-', $city_name);
-$city_name = str_replace(" ", '-', $city_name);
-$city_name = str_replace(" ", '-', $city_name);
-$city_name = str_replace("ó", 'o', $city_name);
-if ($city_name == 'Villefranche-sur-Saône') {
-    $city_name = "Villefranche-sur-Saone";
-}
-
-
-// REPLACE COUNTRY
-$country_new_en = str_replace('é', 'e', $country__name_en);
-$country_new_en = str_replace('ё', 'e', $country_new_en);
-$country_new_en = str_replace("'", '', $country_new_en);
-$country_new_en = str_replace("'", '', $country_new_en);
-$country_new_en = str_replace("+", '-', $country_new_en);
-$country_new_en = str_replace("+", '-', $country_new_en);
-$country_new_en = str_replace(" ", '-', $country_new_en);
-$country_new_en = str_replace(" ", '-', $country_new_en);
-$country_new_en = str_replace("ó", 'o', $country_new_en);
+// $listTags = getData('https://experience.tripster.ru/api/citytags/?city=' . $list[0]->city->id);
+// $listTagsNew = $listTags->results;
 
 
 ?>
@@ -113,9 +68,9 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
 
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    <title><?php echo ($page_title); ?></title>
-    <meta name="keywords" content="экскурсии, <?php echo ($list[0]->city->name_ru); ?>, русский, на русском, гиды, авторские, эксклюзивные, исторические, обзорные, пешеходные, на автобусе, купить, заказать, забронировать, цена, недорого, дешево, скидка, описание, список, прайс, травэл, мания, travel, mania" />
-    <meta name="description" content="🟢 Групповые и индивидуальные экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны лучшие экскурсии  <?php echo ($list[0]->city->in_obj_phrase); ?>', которые тщательно продуманы и составлены гидами." />
+    <title>Онлайн-экскурсии по всему миру • Travel Mania</title>
+    <meta name="keywords" content="онлайн, виртуальные, экскурсии, вебинары, мастер-классы, по миру, русский, на русском, с гидом, по музеям, по городу, галереи, картины, видео, смотреть, лучшие, травэл, мания, travel, mania" />
+    <meta name="description" content="🟢  Регулярные онлайн-экскурсии по всему миру с гидами. Новый формат проведения экскурсий с живой онлайн-трансляцией. Заказывай и смотри онлайн в удобной обстановке." />
     <?php
     include 'inc/head-static.php';
     ?>
@@ -129,16 +84,12 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
     <section class="top">
         <div class="top__slider">
             <div id="top-images-city" class="image-top_slider ">
-                <img class="lazyload" data-src="<?php if ($current_des_city->images[0]) {
-                                                    echo ($current_des_city->images[0]);
-                                                } else {
-                                                    echo ("/uploads/Main/default-img-top.jpeg");
-                                                } ?>">
+                <img class="lazyload" data-src="/uploads/Main/Main-12.jpg" alt="">
             </div>
             <div class="top__slider-text">
                 <div class="container">
                     <div class="top__content-text">
-                        <h1>Авторские экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?></h1>
+                        <h1>Онлайн-экскурсии по всему миру</h1>
                     </div>
                 </div>
             </div>
@@ -158,22 +109,11 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                 </div>
                 <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <div class="breadcrumbs__block">
-                        <a class="breadcrumbs__link" href="/<?php echo ($country_new_en); ?>/" itemprop="item">
-                            <span itemprop="name"><?php echo ($list[0]->city->country->name_ru) ?></span>
-                            <meta itemprop="position" content="2">
-                        </a>
-                    </div>
-                    <div class="breadcrumbs__arrow">
-                        <img class="lazyload" data-src="/assets/images/arrow-bread.png" alt="">
-                    </div>
-                </div>
-                <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
-                    <div class="breadcrumbs__block">
-                        <meta itemprop="item" content="https://travel-mania.org/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/">
+                        <meta itemprop="item" content="https://travel-mania.org/online-excursions/">
                         <p class="breadcrumbs__text">
-                            <span itemprop="name"><?php echo ($list[0]->city->name_ru) ?></span>
+                            <span itemprop="name">Онлайн экскурсии по всему миру</span>
                         </p>
-                        <meta itemprop="position" content="3">
+                        <meta itemprop="position" content="2">
                     </div>
                 </div>
             </div>
@@ -181,59 +121,65 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
 
         <div class="container">
             <div class="border-box js-container-tags">
-                <div class="advantages-wrap">
-                    <div class="advantages-item">
-                        <h3>Онлайн бронирование</h3>
-                        <div class="advantages-text">Выберете город, подберите экскурсию и сделайте бронь на удобную дату</div>
-                    </div>
-                    <div class="advantages-item">
-                        <h3>Консультация с гидом</h3>
-                        <div class="advantages-text">До оплаты экскурсии обсудите с гидом подробности и задайте любые вопросы</div>
-                    </div>
-                    <div class="advantages-item">
-                        <h3>Оплачивайте только 20%</h3>
-                        <div class="advantages-text">При бронировании оплачивается только 20% картой, остальную сумму платите гиду при встрече</div>
-                    </div>
+                <h2>Онлайн-экскурсии и вебинары </h2>
+                <div class="border-box__text">
+                    <p>Онлайн-экскурсии проходят в виде «живой» трансляции, которую проводит гид гуляя по достопримечательностям и улицам города. Вебинары – это прогулки по городу в Google Street View с презентациями и комментариями гида.</p>
                 </div>
                 <section class="list-tags">
                     <div class="container">
                         <div class="list-tags-wrap">
-                            <?php foreach ($listTagsNew as $item) : ?>
-                                <?php if ($item->is_hidden == false and $item->experience_count > 0) : ?>
-                                    <?php if ($item->slug == "all") { ?>
-                                        <a class="active all link" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/">
-                                            <span>Все</span><span style="margin-left: 5px;margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
-                                        </a>
-                                    <?php } else { ?>
-                                        <a class="link" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
-                                            <span><?php echo ($item->name); ?></span><span style="margin-left: 5px;    margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
-                                        </a>
-                                    <?php } ?>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
+                            <a class="active all link" href="/online-excursions/">
+                                <span>Все</span>
+                            </a>
+                            <?php foreach ($list as $item) {
+
+                                // REPLACE CITY
+                                $cityBefore = str_replace('é', 'e', $item->city->name_en);
+                                $cityBefore = str_replace('ё', 'e', $cityBefore);
+                                $cityBefore = str_replace("'", '', $cityBefore);
+                                $cityBefore = str_replace("'", '', $cityBefore);
+                                $cityBefore = str_replace("+", '-', $cityBefore);
+                                $cityBefore = str_replace("+", '-', $cityBefore);
+                                $cityBefore = str_replace(" ", '-', $cityBefore);
+                                $cityBefore = str_replace(" ", '-', $cityBefore);
+                                $cityBefore = str_replace("ó", 'o', $cityBefore);
+                                if ($cityBefore == 'Villefranche-sur-Saône') {
+                                    $cityBefore = "Villefranche-sur-Saone";
+                                }
+                            ?>
+                                <a class="link" href="/online-excursions/<?php echo ($cityBefore); ?>/">
+                                    <span><?php echo ($item->city->name_ru); ?></span>
+                                </a>
+                            <?php } ?>
                         </div>
                     </div>
                 </section>
                 <section class="list-tags js-list-tags">
                     <div class="container">
                         <div class="list-tags-wrap">
-                            <?php foreach ($listTagsNew as $item) : ?>
-                                <?php if ($item->is_hidden == false and $item->experience_count > 0) : ?>
-                                    <?php if ($item->slug == "all") { ?>
-                                        <div class="link active all open-link-def" data-link="https://travel-mania.org/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/">
-                                            <span>Все</span><span style="margin-left: 5px;margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
-                                        </div>
-                                    <?php } else if ($tag_id == $item->id) { ?>
-                                        <div class="active link">
-                                            <span><?php echo ($item->name); ?></span><span style="margin-left: 5px;    margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
-                                        </div>
-                                    <?php } else { ?>
-                                        <div class="open-link-def link" data-link="https://travel-mania.org/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursions-<?php echo ($item->slug); ?>-<?php echo $list[0]->city->id; ?>-<?php echo ($item->id); ?>/">
-                                            <span><?php echo ($item->name); ?></span><span style="margin-left: 5px;    margin-top: 2px;"><?php echo ($item->experience_count); ?></span>
-                                        </div>
-                                    <?php } ?>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
+                            <a class="all active open-link-def link" data-link="/online-excursions">
+                                <span>Все</span>
+                            </a>
+                            <?php foreach ($list as $item) {
+
+                                // REPLACE CITY
+                                $cityBefore = str_replace('é', 'e', $item->city->name_en);
+                                $cityBefore = str_replace('ё', 'e', $cityBefore);
+                                $cityBefore = str_replace("'", '', $cityBefore);
+                                $cityBefore = str_replace("'", '', $cityBefore);
+                                $cityBefore = str_replace("+", '-', $cityBefore);
+                                $cityBefore = str_replace("+", '-', $cityBefore);
+                                $cityBefore = str_replace(" ", '-', $cityBefore);
+                                $cityBefore = str_replace(" ", '-', $cityBefore);
+                                $cityBefore = str_replace("ó", 'o', $cityBefore);
+                                if ($cityBefore == 'Villefranche-sur-Saône') {
+                                    $cityBefore = "Villefranche-sur-Saone";
+                                }
+                            ?>
+                                <div class="open-link-def link" data-link="/online-excursions/<?php echo ($cityBefore); ?>/">
+                                    <span><?php echo ($item->city->name_ru); ?></span>
+                                </div>
+                            <?php } ?>
                             <div class="icon-open-list-tag">
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
                                     <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
@@ -256,7 +202,33 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
             <div id="slick-tours" class="slick-tours row">
                 <?php $count = 1 ?>
                 <?php $countReviews = 0 ?>
-                <?php foreach ($list as $item) { ?>
+                <?php foreach ($list as $item) {
+
+                    // REPLACE CITY
+                    $cityBefore = str_replace('é', 'e', $item->city->name_en);
+                    $cityBefore = str_replace('ё', 'e', $cityBefore);
+                    $cityBefore = str_replace("'", '', $cityBefore);
+                    $cityBefore = str_replace("'", '', $cityBefore);
+                    $cityBefore = str_replace("+", '-', $cityBefore);
+                    $cityBefore = str_replace("+", '-', $cityBefore);
+                    $cityBefore = str_replace(" ", '-', $cityBefore);
+                    $cityBefore = str_replace(" ", '-', $cityBefore);
+                    $cityBefore = str_replace("ó", 'o', $cityBefore);
+                    if ($cityBefore == 'Villefranche-sur-Saône') {
+                        $cityBefore = "Villefranche-sur-Saone";
+                    }
+
+                    // REPLACE COUNTRY
+                    $countryBefore = str_replace('é', 'e', $item->city->country->name_en);
+                    $countryBefore = str_replace('ё', 'e', $countryBefore);
+                    $countryBefore = str_replace("'", '', $countryBefore);
+                    $countryBefore = str_replace("'", '', $countryBefore);
+                    $countryBefore = str_replace("+", '-', $countryBefore);
+                    $countryBefore = str_replace("+", '-', $countryBefore);
+                    $countryBefore = str_replace(" ", '-', $countryBefore);
+                    $countryBefore = str_replace(" ", '-', $countryBefore);
+                    $countryBefore = str_replace("ó", 'o', $countryBefore);
+                ?>
                     <div class="slick-tours__item">
                         <div class="slick-tours__wrap">
                             <div class="slick-tours__item-img ">
@@ -270,7 +242,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                                     $countImg++;
                                 }
                                 ?>
-                                <a class="link" href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursion-<?php echo ($item->id); ?>/" data-images="<?php echo htmlspecialchars(json_encode($arrayImg)) ?>">
+                                <a class="link" href="/<?php echo ($countryBefore); ?>/<?php echo ($cityBefore); ?>/excursion-<?php echo ($item->id); ?>/" data-images="<?php echo htmlspecialchars(json_encode($arrayImg)) ?>">
                                     <img class="static lazyload" data-src="<?php echo $item->photos['0']->thumbnail ?>" alt="">
                                 </a>
                                 <?php if ($item->price->discount->value) { ?>
@@ -311,18 +283,20 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                                         </div>
                                     </span>
                                 <?php } ?>
-
                             </div>
                             <div class="tours__item-content ">
                                 <div class="item-title ">
-                                    <a href="/<?php echo ($country_new_en); ?>/<?php echo ($city_name); ?>/excursion-<?php echo ($item->id); ?>/"><?php echo $item->title ?> </a>
+                                    <a href="/<?php echo ($countryBefore); ?>/<?php echo ($cityBefore); ?>/excursion-<?php echo ($item->id); ?>/"><?php echo $item->title ?> </a>
                                 </div>
                                 <div class="item-price-guide">
                                     <div class="item-guide">
                                         <div class="item-guide-photo"> <img class="lazyload" data-src="<?php echo $item->guide->avatar->medium  ?>" alt=""> </div>
-                                        <div class="item-guide-name"><?php echo $item->guide->first_name ?> <br>
+                                        <div class="item-guide-name">
+                                            <span><?php echo $item->guide->first_name ?></span>
+                                            <a class="red" href="/<?php echo ($countryBefore); ?>/<?php echo ($cityBefore); ?>/">Рим</a>
                                         </div>
                                     </div>
+
                                     <?php array_push($priceAll, $item->price->value); ?>
                                     <?php if ($item->rating) {
                                         $reviewsAll = $reviewsAll + $item->rating;
@@ -351,7 +325,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
     <div itemscope="itemscope" itemtype="http://schema.org/Product">
         <meta itemprop="name" content="<?php echo ("Авторские экскурсии" . $list[0]->city->in_obj_phrase); ?>">
         <noindex>
-            <meta itemprop="description" content="🟢 Групповые и индивидуальные экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> с интересными и харизматичными гидами. Быстрое бронирование всех экскурсий по актуальным ценам 2020 года. Перед заказом любой экскурсии можно задать вопрос гиду на сайте. У нас собраны лучшие экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?>, которые тщательно продуманы и составлены гидами.">
+            <meta itemprop="description" content="🟢  Регулярные онлайн-экскурсии по всему миру с гидами. Новый формат проведения экскурсий с живой онлайн-трансляцией. Заказывай и смотри онлайн в удобной обстановке.">
             <span itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/AggregateOffer">
                 <meta itemprop="lowPrice" content="<?php echo (min($priceAll)) ?>">
                 <meta itemprop="highPrice" content="<?php echo (max($priceAll)) ?>">
@@ -369,38 +343,36 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
     <section class="video">
         <div class="container">
             <div class="border-box">
-                <h2>Экскурсии <?php echo ($list[0]->city->in_obj_phrase);
-                                echo ($textRu); ?></h2>
-                <div id="top-text-city" class="border-box__text">
-                    <?php if ($current_des_city->textTop != "") : ?>
-                        <?php echo $current_des_city->textTop; ?>
-                        <?php else : ?>Travel Mania предлагает авторские экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> на русском языке. Каждый желающий может подобрать подходящую экскурсию, как групповую, так и индивидуальную и забронировать на удобную дату.
-                    <?php endif; ?>
-                </div>
-                <h2>Главные экскурсионные места <?php echo ($list[0]->city->in_obj_phrase); ?></h2>
-                <div class="video-box">
-                    <div id="video-text-city" class="video__text">
-                        <?php if ($current_des_city->textButton != "") {
-                            echo ($current_des_city->textButton);
-                        } else { ?>
-                            В ближайшие время мы подготовим детальное описание главных экскурсионных маршрутов <?php echo ($list[0]->city->in_obj_phrase); ?>.
-                        <?php } ?>
+                <div class="advantages-wrap">
+                    <div class="advantages-item">
+                        <h3>Живые экскурсии с гидом</h3>
+                        <div class="advantages-text">
+                            Это живая экскурсии - не видео запись! Гид проводит экскурсию в формате вебинара или транслируя с улицы.
+                        </div>
                     </div>
-                </div>
-                <h2>Как забронировать экскурсию</h2>
-                <div class="video-box">
-                    <div>
-                        <p>Забронировать экскурсии <?php echo ($list[0]->city->in_obj_phrase); ?> поможет наш видиопример. Перед тем, как Вы определитесь с тематикой экскурсии и выбирете удобную дату, можно задать любой вопрос гиду. Посмотрите видео и узнайте все наши приемущества.</p>
-                        <video controls="controls" playsinline poster="/assets/images/TRAVEL-MANIA-EXMP.png">
-                            <source src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/webm">
-                            <source src="/assets/video/TRAVEL-MANIA-EXMP.mp4" type="video/mp4">
-                        </video>
-                        <p class="autor">
-                            Видео: © Travel Mania
-                        </p>
+                    <div class="advantages-item">
+                        <h3>Общение в прямом эфире</h3>
+                        <div class="advantages-text">
+                            Общайтесь с гидом и другими участниками, задавайте вопросы когда вам что-то интересно.
+                        </div>
                     </div>
-                    <div class="video__text">
-                        <p>Бронирование происходит через сайт, при этом Вы общаетесь напрямую с гидом и можете задать ему любые вопросы. Вам не нужно ничего оплачивать, пока Вы не проясните важные для себя детали.</p>
+                    <div class="advantages-item">
+                        <h3>Как участвовать?</h3>
+                        <div class="advantages-text">
+                            Экскурсия проходят в бесплатной программе Zoom. Можно подключиться через телефон, планшет или компьютер.
+                        </div>
+                    </div>
+                    <div class="advantages-item">
+                        <h3>Дополнительные материалы</h3>
+                        <div class="advantages-text">
+                            После экскурсии Вам будут оправлены дополнительные материалы: презентация, список книг, фильмов, статей, для лучшего изучения темы.
+                        </div>
+                    </div>
+                    <div class="advantages-item">
+                        <h3>Скидка на экскурсию гида</h3>
+                        <div class="advantages-text">
+                            После онлайн экскурсии вы получаете бессрочную разовую скидку на любую экскурсию гида. Воспользуйтесь скидкой, когда будет возможность путешествовать.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -409,23 +381,6 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-
-            $(document).ready(function() {
-
-                $(".country-btn-wrap .btn-title").on("click", function() {
-                    $(".country-btn-wrap .btn-block").toggleClass("active");
-                })
-
-
-                if (window.innerWidth > 560) {
-                    initslidertour();
-                } else {
-                    editElemsTour();
-                }
-            });
-
-
-
             var timeout = false;
             let coordinatesYT = window.pageYOffset;
             let coordinatesYB = coordinatesYT + window.innerHeight;
@@ -435,9 +390,14 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
             let urlNextListCity = $(".popular-tours .btn-more").data("url-next");
             let sliderTour;
             let xhrOne = null;
-
-
-
+            $(".country-btn-wrap .btn-title").on("click", function() {
+                $(".country-btn-wrap .btn-block").toggleClass("active");
+            })
+            if (window.innerWidth > 560) {
+                initslidertour();
+            } else {
+                editElemsTour();
+            }
             if ($(".popular-tours .btn-more").length) {
                 $(".popular-tours .btn-more").on("click", function() {
                     $(".load-tour").show();
@@ -450,7 +410,6 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                     let data = null;
                     xhrOne.open('GET', urlNextListCity + "&format=json", true);
                     xhrOne.send();
-
                     xhrOne.onreadystatechange = function() {
                         if (xhrOne.readyState == 4) {
                             if (xhrOne.status == 200) {
@@ -482,7 +441,6 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                         break;
                 }
             }
-
 
             function addTours(result, nextUrl) {
                 result.map((item) => {
@@ -524,7 +482,6 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                     $(".more-text.btn-more .text-span").text($(".tours .slick-tours__item").length)
                 }
             }
-
 
             function editElemsTour() {
                 elements.forEach(function(elem) {

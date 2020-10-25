@@ -9,11 +9,13 @@ $city_id = isset($_GET['city_id']) ?  $_GET['city_id'] : null;
 $tag_id = isset($_GET['tag_id']) ?  $_GET['tag_id'] : null;
 $page = isset($_GET['page']) ?  $_GET['page'] : null;
 $guide = isset($_GET['guide']) ?  $_GET['guide'] : null;
+$city__name_online = isset($_GET['city__name_online']) ?  $_GET['city__name_online'] : null;
+$excursions_online = isset($_GET['excursions_online']) ?  $_GET['excursions_online'] : null;
 $postName = isset($_GET['post_name']) ?  $_GET['post_name'] : null;
 $list = [];
 $list1 = [];
 $tag_list = [];
-$reviews = [];
+$reviewsList = [];
 
 if (!is_null($page)) {
     include_once($page . '.php');
@@ -27,6 +29,20 @@ if (!is_null($page)) {
         exit;
     }
     // $page = 'Post';
+} else if ($excursions_online === "true") {
+    $page = 'OnlineList';
+    getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?exp_format=9&detailed=true&page_size=12", $list, $urlNext, $countCity);
+    if (!$list) {
+        include_once('404.php');
+        exit;
+    }
+} else if ($city__name_online) {
+    $page = 'OnlineListCity';
+    getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?exp_format=9&detailed=true&city__name_en=" . $city__name_online, $list, $urlNext, $countCity);
+    if (!$list) {
+        include_once('404.php');
+        exit;
+    }
 } else if ($postName) {
     $page = 'Post';
 } else if ($experiences_id) {
@@ -36,7 +52,7 @@ if (!is_null($page)) {
         include_once('404.php');
         exit;
     }
-    $reviews = getData($list->links->reviews);
+    getAllResultsNoNext($list->links->reviews . "?page_size=5", $reviewsList, $urlNext, $countCity);
 } else if ($excursion_type && $city_id) {
     $page = 'Tag';
     getAllResultsNoNext("https://experience.tripster.ru/api/search/experiences/?city=" . $city_id . "&detailed=true&citytag=" . $tag_id, $tag_list, $urlNext, $countCity);
@@ -129,6 +145,12 @@ switch ($page) {
         break;
     case 'City':
         include_once 'city.php';
+        break;
+    case 'OnlineList':
+        include_once 'onlineList.php';
+        break;
+    case 'OnlineListCity':
+        include_once 'onlineListCity.php';
         break;
     case 'Post':
         include_once 'post.php';

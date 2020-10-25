@@ -117,7 +117,7 @@ function gtag_report_conversion(url) {
                 </div>
                 <div class="breadcrumbs-item"  style="display: none;" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <div class="breadcrumbs__block">
-                        <meta itemprop="item" content="/blog/post-chto-posmotret-v-sevastopole/">
+                        <meta itemprop="item" content="https://travel-mania.org/blog/post-chto-posmotret-v-sevastopole/">
                         <p class="breadcrumbs__text">
                             <span itemprop="name">Что посмотреть в Севастополе?</span>
                         </p>

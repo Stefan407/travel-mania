@@ -74,7 +74,7 @@
                     <div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                         <p class="breadcrumbs__text">
                             <span itemprop="name">Условия использования</span>
-                            <meta itemprop="item" content="/terms/">
+                            <meta itemprop="item" content="https://travel-mania.org/terms/">
                             <meta itemprop="position" content="2">
                         </p>
                     </div>

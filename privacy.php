@@ -83,7 +83,7 @@
                     <div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                         <p class="breadcrumbs__text">
                             <span itemprop="name">Политика конфидециальности</span>
-                            <meta itemprop="item" content="/privacy/">
+                            <meta itemprop="item" content="https://travel-mania.org/privacy/">
                             <meta itemprop="position" content="2">
                         </p>
                     </div>

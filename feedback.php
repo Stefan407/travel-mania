@@ -104,7 +104,7 @@
                     <div class="breadcrumbs__block" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                         <p class="breadcrumbs__text">
                             <span itemprop="name">Задать вопрос</span>
-                            <meta itemprop="item" content="/feedback">
+                            <meta itemprop="item" content="https://travel-mania.org/feedback/">
                             <meta itemprop="position" content="2">
                         </p>
                     </div>

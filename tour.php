@@ -87,22 +87,22 @@ if ($city_name == 'Villefranche-sur-Saône') {
 
         gtag('config', 'UA-165860897-1');
     </script>
-<!-- Event snippet for Вопрос гиду conversion page
+    <!-- Event snippet for Вопрос гиду conversion page
 In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-<script>
-function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-629196382/6wcKCKLx3OABEN6Mg6wC',
-      'event_callback': callback
-  });
-  return false;
-}
-</script>
+    <script>
+        function gtag_report_conversion(url) {
+            var callback = function() {
+                if (typeof(url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-629196382/6wcKCKLx3OABEN6Mg6wC',
+                'event_callback': callback
+            });
+            return false;
+        }
+    </script>
 
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
     <link rel="profile" href="https://gmpg.org/xfn/11">
@@ -292,16 +292,15 @@ function gtag_report_conversion(url) {
                                     </div>
                                 </div>
                             </div>
-                            <?php if ($reviews->results) { ?>
+                            <?php if ($reviewsList) { ?>
                                 <div id="description-item-reviews">
                                     <div class="row">
                                         <div class="description-content col-12">
                                             <div class="description-title ">
                                                 <h2>Отзывы</h2>
                                                 <p class="description-section_text">*написать отзыв могут только посетившие экскурсию гости</p>
-
                                             </div>
-                                            <?php foreach ($reviews->results as $rew) { ?>
+                                            <?php foreach ($reviewsList as $rew) { ?>
                                                 <div class=" description-content-text-reviews ">
                                                     <div class="reviews-photo ">
                                                         <img class="reviews-photo-img lazyload" data-src="/assets/images/user-icon-3.png" alt="">
@@ -335,10 +334,10 @@ function gtag_report_conversion(url) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="reviews-btn">
-                                    <span onclick="yaCounter56569540.reachGoal('vse-otzivi');">⇓ показать все отзывы ⇓</span>
-                                </div>
-
+                                <div class="load-tour" style="display: none;margin: 20px 0;text-align: center;"> <img style="width:35px;" src="/assets/images/2.gif" alt=""></div>
+                                <?php if ($urlNext) { ?>
+                                    <button onclick="yaCounter56569540.reachGoal('vse-otzivi');" id="btn-more" class="more-text btn-more-add-reviews" data-url-next="<?php echo ($urlNext) ?>">Показать ещё... (<span class="text-span"></span> из <?php echo ($countCity); ?>)</button>
+                                <?php } ?>
                             <?php } ?>
                             <div class="container-calendar" style="display: none;">
                                 <h2 class="tit_cal" style="text-align: center; margin-bottom:40px;display: none;">ЗАКАЗАТЬ НА СВОБОДНУЮ ДАТУ</h2>
@@ -542,14 +541,10 @@ function gtag_report_conversion(url) {
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            let urlNextListCity = $(".btn-more-add-reviews").data("url-next");
+            let xhrOne = null;
 
-            function more() {
-                document.getElementById("description-item-reviews").style.maxHeight = "100%";
-                document.querySelector(".reviews-btn").style.display = "none";
-            }
-            $('.reviews-btn span').on("click", () => {
-                more();
-            })
+
             if ($(".slick-tours .slick-tours__item").length > 3) {
                 $('.slick-tours.slider').slick({
                     prevArrow: '<button type="button" class="slick-prev slick-btn" ><img src="/assets/images/arrow-icon.png" alt=""></button>',
@@ -576,6 +571,78 @@ function gtag_report_conversion(url) {
                     "margin": "10px 0"
                 })
             }
+
+
+
+            if ($(".btn-more-add-reviews").length) {
+                $(".btn-more-add-reviews").on("click", function() {
+                    $(".load-tour").show();
+                    $(this).hide();
+                    if (xhrOne !== null) {
+                        xhrOne.abort();
+                    };
+                    xhrOne = null;
+                    xhrOne = new XMLHttpRequest();
+                    let data = null;
+                    xhrOne.open('GET', urlNextListCity + "&format=json", true);
+                    xhrOne.send();
+
+                    xhrOne.onreadystatechange = function() {
+                        if (xhrOne.readyState == 4) {
+                            if (xhrOne.status == 200) {
+                                data = jQuery.parseJSON(xhrOne.responseText);
+                                addReviews(data.results, data.next);
+                                $(".load-tour").hide();
+                            }
+                        }
+                    };
+                })
+            }
+
+            function addReviews(result, nextUrl) {
+                result.map((item) => {
+                    $("#description-item-reviews .description-content").append(`<div class="description-content-text-reviews">
+                                                    <div class="reviews-photo ">
+                                                        <img class="reviews-photo-img lazyloaded" data-src="/assets/images/user-icon-3.png" alt="" src="/assets/images/user-icon-3.png">
+                                                    </div>
+                                                    <div class="reviews-box">
+                                                        <div class="reviews-title">
+                                                            <div class="name"><span>${item.name}</span>
+                                                                <span class="reviews-date">02.08.2020</span>
+                                                            </div>
+                                                            <div class="star-rating-item">
+                                                                <span class="reviews-rating-img" style="width: ${item.rating * 20}%">
+                                                                    <img class="icon-star lazyloaded" data-src="/assets/images/icon-star-1.png" alt="" src="/assets/images/icon-star-1.png">
+                                                                    <img class="icon-star lazyloaded" data-src="/assets/images/icon-star-1.png" alt="" src="/assets/images/icon-star-1.png">
+                                                                    <img class="icon-star lazyloaded" data-src="/assets/images/icon-star-1.png" alt="" src="/assets/images/icon-star-1.png">
+                                                                    <img class="icon-star lazyloaded" data-src="/assets/images/icon-star-1.png" alt="" src="/assets/images/icon-star-1.png">
+                                                                    <img class="icon-star lazyloaded" data-src="/assets/images/icon-star-1.png" alt="" src="/assets/images/icon-star-1.png">
+                                                                </span>
+                                                                <span class="reviews-rating-img bac">
+                                                                    <img class="icon-star lazyloaded" data-src="/assets/images/icon-star-1.png" alt="" src="/assets/images/icon-star-1.png">
+                                                                    <img class="icon-star lazyloaded" data-src="/assets/images/icon-star-1.png" alt="" src="/assets/images/icon-star-1.png">
+                                                                    <img class="icon-star lazyloaded" data-src="/assets/images/icon-star-1.png" alt="" src="/assets/images/icon-star-1.png">
+                                                                    <img class="icon-star lazyloaded" data-src="/assets/images/icon-star-1.png" alt="" src="/assets/images/icon-star-1.png">
+                                                                    <img class="icon-star lazyloaded" data-src="/assets/images/icon-star-1.png" alt="" src="/assets/images/icon-star-1.png">
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="reviews-text">${item.text}</div>
+                                                    </div>
+                                                </div>`);
+                })
+                if (nextUrl) {
+                    urlNextListCity = nextUrl;
+                    $(".btn-more-add-reviews").show();
+                }
+                if ($(".btn-more-add-reviews .text-span").length) {
+                    $(".btn-more-add-reviews .text-span").text($(".description-content-text-reviews").length)
+                }
+            }
+            if ($(".btn-more-add-reviews .text-span").length) {
+                $(".btn-more-add-reviews .text-span").text($(".description-content-text-reviews").length)
+            }
+
         });
     </script>
     <?php
