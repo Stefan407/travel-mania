@@ -4,7 +4,7 @@
 $priceAll = [];
 $reviewsAll = 0;
 $reviewsAllCount = 0;
-$onlineCities = getData("https://experience.tripster.ru/api/experiences/?exp_format=9");
+$onlineCities = getData("https://experience.tripster.ru/api/experiences/?exp_format=9&detailed=true&page_size=24");
 $onlineCitiesResult = $onlineCities->results;
 
 // CODE REQUEST DESCRIPTION
@@ -146,6 +146,10 @@ $current_des_city = reset($current_des_cities);
                 <div class="border-box__text">
                     <p>Онлайн-экскурсии <?php echo ($list[0]->city->in_obj_phrase) ?> проходят в формате «живой» трансляции, которую проводит гид гуляя по достопримечательностям и улицам города. Вебинары – это прогулки по городу в Google Street View с презентациями и комментариями гида.</p>
                 </div>
+                <?php
+                $arrayCities = [];
+                $arrayCitiesMob = [];
+                ?>
                 <section class="list-tags">
                     <div class="container">
                         <div class="list-tags-wrap">
@@ -153,28 +157,30 @@ $current_des_city = reset($current_des_cities);
                                 <span>Все</span>
                             </a>
                             <?php foreach ($onlineCitiesResult as $item) {
-
-                                // REPLACE CITY
-                                $cityBefore = str_replace('é', 'e', $item->city->name_en);
-                                $cityBefore = str_replace('ё', 'e', $cityBefore);
-                                $cityBefore = str_replace("'", '', $cityBefore);
-                                $cityBefore = str_replace("'", '', $cityBefore);
-                                $cityBefore = str_replace("+", '-', $cityBefore);
-                                $cityBefore = str_replace("+", '-', $cityBefore);
-                                $cityBefore = str_replace(" ", '-', $cityBefore);
-                                $cityBefore = str_replace(" ", '-', $cityBefore);
-                                $cityBefore = str_replace("ó", 'o', $cityBefore);
-                                if ($cityBefore == 'Villefranche-sur-Saône') {
-                                    $cityBefore = "Villefranche-sur-Saone";
-                                }
-                                if ($city__name_online == $cityBefore) { ?>
-                                    <a class="active link" href="/online-excursions/<?php echo ($cityBefore) ?>">
-                                        <span><?php echo ($item->city->name_ru); ?></span>
-                                    </a>
-                                <?php } else { ?>
-                                    <a class="link" href="/online-excursions/<?php echo ($cityBefore); ?>/">
-                                        <span><?php echo ($item->city->name_ru); ?></span>
-                                    </a>
+                                if (!in_array($item->city->id, $arrayCities)) {
+                                    array_push($arrayCities, $item->city->id);
+                                    // REPLACE CITY
+                                    $cityBefore = str_replace('é', 'e', $item->city->name_en);
+                                    $cityBefore = str_replace('ё', 'e', $cityBefore);
+                                    $cityBefore = str_replace("'", '', $cityBefore);
+                                    $cityBefore = str_replace("'", '', $cityBefore);
+                                    $cityBefore = str_replace("+", '-', $cityBefore);
+                                    $cityBefore = str_replace("+", '-', $cityBefore);
+                                    $cityBefore = str_replace(" ", '-', $cityBefore);
+                                    $cityBefore = str_replace(" ", '-', $cityBefore);
+                                    $cityBefore = str_replace("ó", 'o', $cityBefore);
+                                    if ($cityBefore == 'Villefranche-sur-Saône') {
+                                        $cityBefore = "Villefranche-sur-Saone";
+                                    }
+                                    if ($city__name_online == $cityBefore) { ?>
+                                        <a class="active link" href="/online-excursions/<?php echo ($cityBefore) ?>">
+                                            <span><?php echo ($item->city->name_ru); ?></span>
+                                        </a>
+                                    <?php } else { ?>
+                                        <a class="link" href="/online-excursions/<?php echo ($cityBefore); ?>/">
+                                            <span><?php echo ($item->city->name_ru); ?></span>
+                                        </a>
+                                    <?php } ?>
                                 <?php } ?>
                             <?php } ?>
                         </div>
@@ -187,28 +193,30 @@ $current_des_city = reset($current_des_cities);
                                 <span>Все</span>
                             </a>
                             <?php foreach ($onlineCitiesResult as $item) {
-
-                                // REPLACE CITY
-                                $cityBefore = str_replace('é', 'e', $item->city->name_en);
-                                $cityBefore = str_replace('ё', 'e', $cityBefore);
-                                $cityBefore = str_replace("'", '', $cityBefore);
-                                $cityBefore = str_replace("'", '', $cityBefore);
-                                $cityBefore = str_replace("+", '-', $cityBefore);
-                                $cityBefore = str_replace("+", '-', $cityBefore);
-                                $cityBefore = str_replace(" ", '-', $cityBefore);
-                                $cityBefore = str_replace(" ", '-', $cityBefore);
-                                $cityBefore = str_replace("ó", 'o', $cityBefore);
-                                if ($cityBefore == 'Villefranche-sur-Saône') {
-                                    $cityBefore = "Villefranche-sur-Saone";
-                                }
-                                if ($city__name_online == $cityBefore) { ?>
-                                    <div class="active open-link-def link" data-link="/online-excursions/<?php echo ($cityBefore) ?>">
-                                        <span><?php echo ($item->city->name_ru); ?></span>
-                                    </div>
-                                <?php } else { ?>
-                                    <div class="open-link-def link" data-link="/online-excursions/<?php echo ($cityBefore); ?>/">
-                                        <span><?php echo ($item->city->name_ru); ?></span>
-                                    </div>
+                                if (!in_array($item->city->id, $arrayCitiesMob)) {
+                                    array_push($arrayCitiesMob, $item->city->id);
+                                    // REPLACE CITY
+                                    $cityBefore = str_replace('é', 'e', $item->city->name_en);
+                                    $cityBefore = str_replace('ё', 'e', $cityBefore);
+                                    $cityBefore = str_replace("'", '', $cityBefore);
+                                    $cityBefore = str_replace("'", '', $cityBefore);
+                                    $cityBefore = str_replace("+", '-', $cityBefore);
+                                    $cityBefore = str_replace("+", '-', $cityBefore);
+                                    $cityBefore = str_replace(" ", '-', $cityBefore);
+                                    $cityBefore = str_replace(" ", '-', $cityBefore);
+                                    $cityBefore = str_replace("ó", 'o', $cityBefore);
+                                    if ($cityBefore == 'Villefranche-sur-Saône') {
+                                        $cityBefore = "Villefranche-sur-Saone";
+                                    }
+                                    if ($city__name_online == $cityBefore) { ?>
+                                        <div class="active open-link-def link" data-link="/online-excursions/<?php echo ($cityBefore) ?>">
+                                            <span><?php echo ($item->city->name_ru); ?></span>
+                                        </div>
+                                    <?php } else { ?>
+                                        <div class="open-link-def link" data-link="/online-excursions/<?php echo ($cityBefore); ?>/">
+                                            <span><?php echo ($item->city->name_ru); ?></span>
+                                        </div>
+                                    <?php } ?>
                                 <?php } ?>
                             <?php } ?>
                             <div class="icon-open-list-tag">

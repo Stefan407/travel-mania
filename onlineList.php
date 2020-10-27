@@ -4,9 +4,6 @@
 $priceAll = [];
 $reviewsAll = 0;
 $reviewsAllCount = 0;
-// $listTags = getData('https://experience.tripster.ru/api/citytags/?city=' . $list[0]->city->id);
-// $listTagsNew = $listTags->results;
-
 
 ?>
 
@@ -125,6 +122,10 @@ $reviewsAllCount = 0;
                 <div class="border-box__text">
                     <p>Онлайн-экскурсии проходят в формате «живой» трансляции, которую проводит гид гуляя по достопримечательностям и улицам города. Вебинары – это прогулки по городу в Google Street View с презентациями и комментариями гида.</p>
                 </div>
+                <?php
+                $arrayCities = [];
+                $arrayCitiesMob = [];
+                ?>
                 <section class="list-tags">
                     <div class="container">
                         <div class="list-tags-wrap">
@@ -132,25 +133,27 @@ $reviewsAllCount = 0;
                                 <span>Все</span>
                             </a>
                             <?php foreach ($list as $item) {
-
-                                // REPLACE CITY
-                                $cityBefore = str_replace('é', 'e', $item->city->name_en);
-                                $cityBefore = str_replace('ё', 'e', $cityBefore);
-                                $cityBefore = str_replace("'", '', $cityBefore);
-                                $cityBefore = str_replace("'", '', $cityBefore);
-                                $cityBefore = str_replace("+", '-', $cityBefore);
-                                $cityBefore = str_replace("+", '-', $cityBefore);
-                                $cityBefore = str_replace(" ", '-', $cityBefore);
-                                $cityBefore = str_replace(" ", '-', $cityBefore);
-                                $cityBefore = str_replace("ó", 'o', $cityBefore);
-                                if ($cityBefore == 'Villefranche-sur-Saône') {
-                                    $cityBefore = "Villefranche-sur-Saone";
-                                }
+                                if (!in_array($item->city->id, $arrayCities)) {
+                                    array_push($arrayCities, $item->city->id);
+                                    // REPLACE CITY
+                                    $cityBefore = str_replace('é', 'e', $item->city->name_en);
+                                    $cityBefore = str_replace('ё', 'e', $cityBefore);
+                                    $cityBefore = str_replace("'", '', $cityBefore);
+                                    $cityBefore = str_replace("'", '', $cityBefore);
+                                    $cityBefore = str_replace("+", '-', $cityBefore);
+                                    $cityBefore = str_replace("+", '-', $cityBefore);
+                                    $cityBefore = str_replace(" ", '-', $cityBefore);
+                                    $cityBefore = str_replace(" ", '-', $cityBefore);
+                                    $cityBefore = str_replace("ó", 'o', $cityBefore);
+                                    if ($cityBefore == 'Villefranche-sur-Saône') {
+                                        $cityBefore = "Villefranche-sur-Saone";
+                                    }
                             ?>
-                                <a class="link" href="/online-excursions/<?php echo ($cityBefore); ?>/">
-                                    <span><?php echo ($item->city->name_ru); ?></span>
-                                </a>
-                            <?php } ?>
+                                    <a class="link" href="/online-excursions/<?php echo ($cityBefore); ?>/">
+                                        <span><?php echo ($item->city->name_ru); ?></span>
+                                    </a>
+                            <?php }
+                            } ?>
                         </div>
                     </div>
                 </section>
@@ -161,25 +164,27 @@ $reviewsAllCount = 0;
                                 <span>Все</span>
                             </a>
                             <?php foreach ($list as $item) {
-
-                                // REPLACE CITY
-                                $cityBefore = str_replace('é', 'e', $item->city->name_en);
-                                $cityBefore = str_replace('ё', 'e', $cityBefore);
-                                $cityBefore = str_replace("'", '', $cityBefore);
-                                $cityBefore = str_replace("'", '', $cityBefore);
-                                $cityBefore = str_replace("+", '-', $cityBefore);
-                                $cityBefore = str_replace("+", '-', $cityBefore);
-                                $cityBefore = str_replace(" ", '-', $cityBefore);
-                                $cityBefore = str_replace(" ", '-', $cityBefore);
-                                $cityBefore = str_replace("ó", 'o', $cityBefore);
-                                if ($cityBefore == 'Villefranche-sur-Saône') {
-                                    $cityBefore = "Villefranche-sur-Saone";
-                                }
+                                if (!in_array($item->city->id, $arrayCitiesMob)) {
+                                    array_push($arrayCitiesMob, $item->city->id);
+                                    // REPLACE CITY
+                                    $cityBefore = str_replace('é', 'e', $item->city->name_en);
+                                    $cityBefore = str_replace('ё', 'e', $cityBefore);
+                                    $cityBefore = str_replace("'", '', $cityBefore);
+                                    $cityBefore = str_replace("'", '', $cityBefore);
+                                    $cityBefore = str_replace("+", '-', $cityBefore);
+                                    $cityBefore = str_replace("+", '-', $cityBefore);
+                                    $cityBefore = str_replace(" ", '-', $cityBefore);
+                                    $cityBefore = str_replace(" ", '-', $cityBefore);
+                                    $cityBefore = str_replace("ó", 'o', $cityBefore);
+                                    if ($cityBefore == 'Villefranche-sur-Saône') {
+                                        $cityBefore = "Villefranche-sur-Saone";
+                                    }
                             ?>
-                                <div class="open-link-def link" data-link="/online-excursions/<?php echo ($cityBefore); ?>/">
-                                    <span><?php echo ($item->city->name_ru); ?></span>
-                                </div>
-                            <?php } ?>
+                                    <div class="open-link-def link" data-link="/online-excursions/<?php echo ($cityBefore); ?>/">
+                                        <span><?php echo ($item->city->name_ru); ?></span>
+                                    </div>
+                            <?php }
+                            } ?>
                             <div class="icon-open-list-tag">
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
                                     <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">

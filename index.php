@@ -31,14 +31,18 @@ if (!is_null($page)) {
     // $page = 'Post';
 } else if ($excursions_online === "true") {
     $page = 'OnlineList';
-    getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?exp_format=9&detailed=true&page_size=12", $list, $urlNext, $countCity);
+    getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?exp_format=9&detailed=true&page_size=24", $list, $urlNext, $countCity);
     if (!$list) {
         include_once('404.php');
         exit;
     }
 } else if ($city__name_online) {
     $page = 'OnlineListCity';
-    getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?exp_format=9&detailed=true&city__name_en=" . $city__name_online, $list, $urlNext, $countCity);
+    if ($city__name_online == 'Saint-Petersburg') {
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?exp_format=9&detailed=true&page_size=24&city__name_en=Saint+Petersburg", $list, $urlNext, $countCity);
+    } else {
+        getAllResultsNoNext("https://experience.tripster.ru/api/experiences/?exp_format=9&detailed=true&page_size=24&city__name_en=" . $city__name_online, $list, $urlNext, $countCity);
+    }
     if (!$list) {
         include_once('404.php');
         exit;
