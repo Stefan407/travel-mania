@@ -115,20 +115,29 @@
         <div class="blog-page">
             <ul class="blog-list">
                 <li class="blog-item_block">
-                    <a href="/blog/post-chto-posmotret-v-sevastopole/">
-                        <img data-src="/uploads/2020/08/sevastopol-2-300x202.jpg" class="alignleft wp-post-image lazyload">
-                        <div class="post-item" style="background-color: rgb(237, 194, 144); color: rgb(255, 255, 255); box-shadow: rgb(237, 194, 144) 0px 12px 20px 36px;">
-                            <div class="title">Что посмотреть в Севастополе?</div>
-                            <div class="text">Севастополь - это город славы, доблести моряков, которые защищали его и отдавали свои жизни за Россию. Он всегда притягивал к себе туристов из разных стран и это не удивительно, ведь в городе огромное количество исторических достопримечательностей.</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="blog-item_block">
                     <a href="/blog/post-top-25-dostoprimechatelnostei-vyborga/">
                         <img data-src="/uploads/Blog/Viborg/Viborg-1-min.jpg" class="alignleft wp-post-image lazyload">
                         <div class="post-item" style="background-color: #66A3D2; color: rgb(255, 255, 255); box-shadow: #66A3D2 0px 12px 20px 36px;">
                             <div class="title">Топ-25 достопримечательностей Выборга</div>
                             <div class="text">Выборг — это прекрасный город России, отличающийся многовековой историей. Сюда стекаются гости с различных уголков мира в связи с тем, что город потерпел влияние европейской культуры, что наложило отпечаток на внешний облик и архитектуру города. Именно здесь можно собственными глазами лицезреть не только острова, средневековые замки, крепости, башни, но и атмосферу прошлых столетий.</div>
+                        </div>
+                    </a>
+                </li>                
+                <li class="blog-item_block">
+                    <a href="/blog/post-25-glavnih-dostoprimechatelnostei-dubai/">
+                        <img data-src="/uploads/Blog/Dubai/Dubai-17-min.JPG" class="alignleft wp-post-image lazyload">
+                        <div class="post-item" style="background-color: #0E1319; color: rgb(255, 255, 255); box-shadow: #0E1319 0px 12px 20px 36px;">
+                            <div class="title">25 достопримечательностей Дубая</div>
+                            <div class="text">Дубае - это интереснейшее место в мире, которое выросло менее чем за 50 лет, однако известно, что изначально на территории города жили лишь торговцы, контрабандисты и ловцы жемчуга, но в 1966 году на территории города были открыты запасы нефти, после чего в город приехали не только инвесторы, но и рабочая сила. Именно с момента открытия запасов нефти Дубаи начали разрастаться и стремительно развиваться.</div>
+                        </div>
+                    </a>
+                </li>                
+                <li class="blog-item_block">
+                    <a href="/blog/post-chto-posmotret-v-sevastopole/">
+                        <img data-src="/uploads/2020/08/sevastopol-2-300x202.jpg" class="alignleft wp-post-image lazyload">
+                        <div class="post-item" style="background-color: rgb(237, 194, 144); color: rgb(255, 255, 255); box-shadow: rgb(237, 194, 144) 0px 12px 20px 36px;">
+                            <div class="title">Что посмотреть в Севастополе?</div>
+                            <div class="text">Севастополь - это город славы, доблести моряков, которые защищали его и отдавали свои жизни за Россию. Он всегда притягивал к себе туристов из разных стран и это не удивительно, ведь в городе огромное количество исторических достопримечательностей.</div>
                         </div>
                     </a>
                 </li>

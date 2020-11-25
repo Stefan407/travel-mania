@@ -128,6 +128,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
 
         gtag('config', 'UA-165860897-1');
     </script>
+    
 
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
     <link rel="profile" href="https://gmpg.org/xfn/11">

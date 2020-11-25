@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // TITLE PAGE
 $my_var = $list->title;
 $arr = explode(' ', $my_var);
@@ -86,23 +86,24 @@ if ($city_name == 'Villefranche-sur-Saône') {
         gtag('js', new Date());
 
         gtag('config', 'UA-165860897-1');
+        gtag('config', 'AW-629196382');
     </script>
-    <!-- Event snippet for Вопрос гиду conversion page
+    <!-- Event snippet for Бронь дата conversion page
 In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-    <script>
-        function gtag_report_conversion(url) {
-            var callback = function() {
-                if (typeof(url) != 'undefined') {
-                    window.location = url;
-                }
-            };
-            gtag('event', 'conversion', {
-                'send_to': 'AW-629196382/6wcKCKLx3OABEN6Mg6wC',
-                'event_callback': callback
-            });
-            return false;
-        }
-    </script>
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-629196382/x-lFCN6h6OABEN6Mg6wC',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
     <link rel="profile" href="https://gmpg.org/xfn/11">
@@ -205,6 +206,51 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                                                     </div>
                                                 </div>
                                             </div>
+                                <div class="container-calendar" style="display: none;">
+                                <h2 class="tit_cal" style="text-align: center; margin-bottom:40px;display: none;"></h2>
+                                <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M4.293,18.293,10.586,12,4.293,5.707A1,1,0,0,1,5.707,4.293L12,10.586l6.293-6.293a1,1,0,1,1,1.414,1.414L13.414,12l6.293,6.293a1,1,0,1,1-1.414,1.414L12,13.414,5.707,19.707a1,1,0,0,1-1.414-1.414Z" /></svg>
+                                <div class="container-calendar-item">
+                                    <h3 id="monthAndYear"></h3>
+                                    <div class="button-container-calendar">
+                                        <button id="previous" style="display:none;">&#8249;</button>
+                                        <button id="next">&#8250;</button>
+                                    </div>
+
+                                    <table class="table-calendar" id="calendar" data-lang="en">
+                                        <thead id="thead-month"></thead>
+                                        <tbody id="calendar-body"></tbody>
+                                    </table>
+                                    <div class="legend">
+                                        <div class="legend-item busy">День занят</div>
+                                        <div class="legend-item available">День свободен</div>
+                                    </div>
+
+                                    <div class="footer-container-calendar">
+                                        <label for="month">Jump To: </label>
+                                        <select id="month" onchange="jump()">
+                                            <option value=0>Jan</option>
+                                            <option value=1>Feb</option>
+                                            <option value=2>Mar</option>
+                                            <option value=3>Apr</option>
+                                            <option value=4>May</option>
+                                            <option value=5>Jun</option>
+                                            <option value=6>Jul</option>
+                                            <option value=7>Aug</option>
+                                            <option value=8>Sep</option>
+                                            <option value=9>Oct</option>
+                                            <option value=10>Nov</option>
+                                            <option value=11>Dec</option>
+                                        </select>
+                                        <select id="year" onchange="jump()"></select>
+                                    </div>
+                                </div>
+                                <div class="btn-order-wrap">
+                                    <div class="btn-click" data-link="" onclick="yaCounter56569540.reachGoal('bron-data'); gtag_report_conversion();">Заказать</div>
+                                    </br>
+                                    <div class="text">Для заказа выберите дату</div>
+                                </div>
+                            </div>
                                             <div class="guide des">
                                                 <div class="guide-left">
                                                     <img class="lazyload" data-src="<?php echo $list->guide->avatar->medium ?>" alt="">
@@ -273,9 +319,9 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                                         <div class="order-item-string"><img class="lazyload" data-src="/assets/images/warranty-icon.svg"> Гарантия лучшей цены </div>
                                         <div>
                                             <div class="panel-btns">
-                                                <div> <a class="order-btn more-btn" target="_blank" onclick="yaCounter56569540.reachGoal('data1')">Забронировать </a> </div>
+                                                <div> <a class="order-btn more-btn" target="_blank" onclick="yaCounter56569540.reachGoal('data1')">Заказать </a> </div>
                                                 <div> <a class="more-btn" style="display: none;" target="_blank" onclick="yaCounter56569540.reachGoal('data2');">Выбрать дату </a> </div>
-                                                <div> <a class="order-ask open-link" target="_blank" onclick="yaCounter56569540.reachGoal('vopros');" data-link="https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/?exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link&utm_term=guide">Задать вопрос гиду</a> </div>
+                                                <div> <a class="order-ask open-link" target="_blank" onclick="yaCounter56569540.reachGoal('vopros'); gtag('config', 'AW-629196382');" data-link="https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/?exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link&utm_term=guide">Задать вопрос гиду</a> </div>
                                             </div>
                                     </span>
                                 </div>
@@ -339,50 +385,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                                     <button onclick="yaCounter56569540.reachGoal('vse-otzivi');" id="btn-more" class="more-text btn-more-add-reviews" data-url-next="<?php echo ($urlNext) ?>">Показать ещё... (<span class="text-span"></span> из <?php echo ($countCity); ?>)</button>
                                 <?php } ?>
                             <?php } ?>
-                            <div class="container-calendar" style="display: none;">
-                                <h2 class="tit_cal" style="text-align: center; margin-bottom:40px;display: none;">ЗАКАЗАТЬ НА СВОБОДНУЮ ДАТУ</h2>
-                                <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M4.293,18.293,10.586,12,4.293,5.707A1,1,0,0,1,5.707,4.293L12,10.586l6.293-6.293a1,1,0,1,1,1.414,1.414L13.414,12l6.293,6.293a1,1,0,1,1-1.414,1.414L12,13.414,5.707,19.707a1,1,0,0,1-1.414-1.414Z" /></svg>
-                                <div class="container-calendar-item">
-                                    <h3 id="monthAndYear"></h3>
-                                    <div class="button-container-calendar">
-                                        <button id="previous" style="display:none;">&#8249;</button>
-                                        <button id="next">&#8250;</button>
-                                    </div>
 
-                                    <table class="table-calendar" id="calendar" data-lang="en">
-                                        <thead id="thead-month"></thead>
-                                        <tbody id="calendar-body"></tbody>
-                                    </table>
-                                    <div class="legend">
-                                        <div class="legend-item busy">День занят</div>
-                                        <div class="legend-item available">День свободен</div>
-                                    </div>
-
-                                    <div class="footer-container-calendar">
-                                        <label for="month">Jump To: </label>
-                                        <select id="month" onchange="jump()">
-                                            <option value=0>Jan</option>
-                                            <option value=1>Feb</option>
-                                            <option value=2>Mar</option>
-                                            <option value=3>Apr</option>
-                                            <option value=4>May</option>
-                                            <option value=5>Jun</option>
-                                            <option value=6>Jul</option>
-                                            <option value=7>Aug</option>
-                                            <option value=8>Sep</option>
-                                            <option value=9>Oct</option>
-                                            <option value=10>Nov</option>
-                                            <option value=11>Dec</option>
-                                        </select>
-                                        <select id="year" onchange="jump()"></select>
-                                    </div>
-                                </div>
-                                <div class="btn-order-wrap">
-                                    <div class="btn-click" data-link="" onclick="yaCounter56569540.reachGoal('bron-data');">Забронировать</div>
-                                    <div class="text">Для заказа выберите дату</div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -440,9 +443,9 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                             <div class="order-item-string"><img class="lazyload" data-src="/assets/images/warranty-icon.svg"> Гарантия лучшей цены </div>
                             <div>
                                 <div class="panel-btns">
-                                    <div> <a class="more-btn order-btn" target="_blank" onclick="yaCounter56569540.reachGoal('data1');">Забронировать </a> </div>
+                                    <div> <a class="more-btn order-btn" target="_blank" onclick="yaCounter56569540.reachGoal('data1');">Заказать </a> </div>
                                     <div> <a class="more-btn" style="display: none;" target="_blank" onclick="yaCounter56569540.reachGoal('data2');">Выбрать дату </a> </div>
-                                    <div> <a class="order-ask open-link" target="_blank" onclick="yaCounter56569540.reachGoal('vopros');" data-link="https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/?exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link&utm_term=guide">Задать вопрос гиду</a> </div>
+                                    <div> <a class="order-ask open-link" target="_blank" onclick="yaCounter56569540.reachGoal('vopros'); gtag('config', 'AW-629196382');" data-link="https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/?exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link&utm_term=guide">Задать вопрос гиду</a> </div>
                                 </div>
                         </span>
                     </div>
@@ -452,7 +455,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     </section>
     <div class="fixed-section order-panel-wrap" style="display: none;">
         <div> <a class="more-btn order-btn" target="_blank" onclick="yaCounter56569540.reachGoal('data1');">Заказать </a> </div>
-        <div> <a class="order-ask open-link" target="_blank" onclick="yaCounter56569540.reachGoal('vopros');" data-link="https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/?exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link&utm_term=guide">Вопрос гиду</a> </div>
+        <div> <a class="order-ask open-link" target="_blank" onclick="yaCounter56569540.reachGoal('vopros'); gtag('config', 'AW-629196382');" data-link="https://experience.tripster.ru/experience/booking/<?php echo ($list->id) ?>/?exp_partner=travel-mania&utm_source=travel-mania&utm_campaign=affiliates&utm_medium=link&utm_term=guide">Вопрос гиду</a> </div>
         <div> <a class="more-btn" target="_blank" onclick="yaCounter56569540.reachGoal('data2');">Выбрать дату </a> </div>
     </div>
     <?php

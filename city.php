@@ -568,6 +568,7 @@ $country_new_en = str_replace("ó", 'o', $country_new_en);
                 }
 
                 function edidVisual(item, pause) {
+                    console.log("edidVisual(item, pause)")
                     if (pause) {
                         let urls = $(item).find(".link").data("images");
                         if (!$(item).find(".new-img").length) {
