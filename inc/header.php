@@ -51,14 +51,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <nav class="menu">
                     <ul>
-                        <li><a href="/all-countries/" class="open-contry green">Страны</a></li>
-                        <li><a class="green" href=" /online-excursions/ ">Онлайн</a></li>
-                        <li><a class="green" href=" /blog/ ">Блог</a></li>
-                        <li><a class="green" href="/about/">О нас</a></li>
-                        <li><a class="link-ask" href="/feedback/">Есть вопрос?</a></li>
+                        <li><a href="/all-countries/" class="open-contry green">Страны
+                                <span>
+                                    <svg width="14" height="31" viewBox="0 0 14 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.328462 27.9547L10.0103 15.2147L0.32843 1.98454L2.35027 0.214706L13.4274 15.2147L2.35027 30.2147L0.328462 27.9547Z" fill="#333333" />
+                                    </svg>
+                                </span>
+                            </a></li>
+                        <li><a class="green" href=" /online-excursions/ "><span>Онлайн <span class="only-mob">экскурсии</span></span>
+                                <span>
+                                    <svg width="14" height="31" viewBox="0 0 14 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.328462 27.9547L10.0103 15.2147L0.32843 1.98454L2.35027 0.214706L13.4274 15.2147L2.35027 30.2147L0.328462 27.9547Z" fill="#333333" />
+                                    </svg>
+                                </span>
+                            </a></li>
+                        <li><a class="green" href=" /blog/ ">Блог
+                                <span>
+                                    <svg width="14" height="31" viewBox="0 0 14 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.328462 27.9547L10.0103 15.2147L0.32843 1.98454L2.35027 0.214706L13.4274 15.2147L2.35027 30.2147L0.328462 27.9547Z" fill="#333333" />
+                                    </svg>
+                                </span>
+                            </a></li>
+                        <li><a class="green" href="/about/">О нас
+                                <span>
+                                    <svg width="14" height="31" viewBox="0 0 14 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.328462 27.9547L10.0103 15.2147L0.32843 1.98454L2.35027 0.214706L13.4274 15.2147L2.35027 30.2147L0.328462 27.9547Z" fill="#333333" />
+                                    </svg>
+                                </span>
+                            </a></li>
+                        <li><a class="link-ask" href="/feedback/">Есть вопрос?
+                                <span>
+                                    <svg width="14" height="31" viewBox="0 0 14 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.328462 27.9547L10.0103 15.2147L0.32843 1.98454L2.35027 0.214706L13.4274 15.2147L2.35027 30.2147L0.328462 27.9547Z" fill="#333333" />
+                                    </svg>
+                                </span>
+                            </a></li>
                     </ul>
                 </nav>
-                <div class="burger"><img class="burger-btn" src="/assets/images/burger-icon.png" alt=""></div>
+                <div class="burger">
+                    <img class="burger-btn" src="/assets/images/burger-icon.png" alt="">
+                    <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.07361 1.15816L21.0736 21.1582" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M1.07361 21.1582L21.0736 1.15816" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
                 <div class="search-icon"><img src="/assets/images/search-icon.svg" alt=""></div>
             </div>
         </div>

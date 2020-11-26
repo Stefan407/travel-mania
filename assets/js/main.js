@@ -208,6 +208,7 @@ $(document).ready(function () {
     })
     $(".menu-wrap .burger").on("click", function () {
         $("#header .menu").toggleClass("act")
+        $("#header .burger").toggleClass("open")
     })
 
     function eventLink() {
@@ -380,9 +381,12 @@ $(document).ready(function () {
         }
         if (document.querySelector("#header .menu")) {
             if (click != document.querySelector(".burger-btn img") &&
+                click != document.querySelector(".burger-btn svg") &&
+                click != document.querySelector(".burger-btn path") &&
                 !click.closest(".burger-btn") &&
                 !click.closest("#header .menu.act")) {
                 $("#header .menu").removeClass("act");
+                $("#header .burger").removeClass("open");
             }
         }
 

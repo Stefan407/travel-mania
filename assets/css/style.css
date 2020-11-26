@@ -3607,6 +3607,24 @@ h2 {
     height: 20px;
 }
 
+#header .burger svg {
+    display: none;
+    width: 20px;
+}
+
+#header .only-mob {
+    display: none;
+    margin-left: 5px;
+}
+
+#header .burger.open img {
+    display: none;
+}
+
+#header .burger.open svg {
+    display: block;
+}
+
 #header .menu-logo {
     padding: 10px 0;
 }
@@ -3787,6 +3805,10 @@ h2 {
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
+}
+
+#header .menu a svg {
+    display: none;
 }
 
 #header .menu a.link-ask:hover {
@@ -5842,6 +5864,14 @@ img.f-logos {
         background-color: transparent;
     }
 
+    #header .menu a svg {
+        display: block;
+    }
+
+    #header .only-mob {
+        display: block;
+    }
+
     .search-wrap .search-block {
         background-color: #d6f2ff;
         width: 100%;
@@ -5876,7 +5906,6 @@ img.f-logos {
         width: 100%;
         left: 0;
         background-color: #d6f2ff;
-        padding: 5px 0;
         display: none;
         z-index: 5;
     }
@@ -5898,10 +5927,38 @@ img.f-logos {
     #header .menu a.green {
         background-color: transparent;
         color: #333;
+        width: 100%;
+        display: block;
+        margin: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid #333;
+        border-radius: 0;
+    }
+
+    #header .menu li:last-child a {
+        border-bottom: 1px solid #333;
+    }
+
+    #header .menu a svg {
+        height: 25px;
+    }
+
+    #header .menu a span {
+        display: flex;
+        align-items: center;
+    }
+
+    #header .menu li {
+        width: 100%;
     }
 
     #header .menu ul {
         padding: 10px 0;
+        padding-bottom: 0;
         margin: 0;
         display: flex;
         flex-direction: column;
