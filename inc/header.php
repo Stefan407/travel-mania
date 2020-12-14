@@ -51,35 +51,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <nav class="menu">
                     <ul>
-                        <li><a href="/all-countries/" class="open-contry green">Страны
+                        <li><a href="/all-countries/" class="open-contry green">
+                                <span>Страны</span>
                                 <span>
                                     <svg width="14" height="31" viewBox="0 0 14 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0.328462 27.9547L10.0103 15.2147L0.32843 1.98454L2.35027 0.214706L13.4274 15.2147L2.35027 30.2147L0.328462 27.9547Z" fill="#333333" />
                                     </svg>
                                 </span>
                             </a></li>
-                        <li><a class="green" href=" /online-excursions/ "><span>Онлайн <span class="only-mob">экскурсии</span></span>
+                        <li><a class="green" href=" /online-excursions/ ">
+                                <span>
+                                    <span>Онлайн</span>
+                                    <span class="only-mob">экскурсии</span>
+                                </span>
                                 <span>
                                     <svg width="14" height="31" viewBox="0 0 14 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0.328462 27.9547L10.0103 15.2147L0.32843 1.98454L2.35027 0.214706L13.4274 15.2147L2.35027 30.2147L0.328462 27.9547Z" fill="#333333" />
                                     </svg>
                                 </span>
                             </a></li>
-                        <li><a class="green" href=" /blog/ ">Блог
+                        <li><a class="green" href=" /blog/ ">
+                                <span>Блог</span>
                                 <span>
                                     <svg width="14" height="31" viewBox="0 0 14 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0.328462 27.9547L10.0103 15.2147L0.32843 1.98454L2.35027 0.214706L13.4274 15.2147L2.35027 30.2147L0.328462 27.9547Z" fill="#333333" />
                                     </svg>
                                 </span>
                             </a></li>
-                        <li><a class="green" href="/about/">О нас
+                        <li><a class="green" href="/about/"><span>О нас</span>
                                 <span>
                                     <svg width="14" height="31" viewBox="0 0 14 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0.328462 27.9547L10.0103 15.2147L0.32843 1.98454L2.35027 0.214706L13.4274 15.2147L2.35027 30.2147L0.328462 27.9547Z" fill="#333333" />
                                     </svg>
                                 </span>
                             </a></li>
-                        <li><a class="link-ask" href="/feedback/">Есть вопрос?
+                        <li><a class="link-ask" href="/feedback/">
+                                <span>Есть вопрос?</span>
                                 <span>
                                     <svg width="14" height="31" viewBox="0 0 14 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0.328462 27.9547L10.0103 15.2147L0.32843 1.98454L2.35027 0.214706L13.4274 15.2147L2.35027 30.2147L0.328462 27.9547Z" fill="#333333" />

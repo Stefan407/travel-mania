@@ -3701,6 +3701,8 @@ h2 {
     font-weight: 700;
     transition: 0.6s;
     font-size: 15px;
+    display: flex;
+    align-items: center;
 }
 
 .popular-tours-text .video p {
