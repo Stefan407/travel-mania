@@ -79,7 +79,7 @@
     <section class="top">
         <div class="top__slider">
             <div class="image-top_slider">
-                <img class="lazyload" data-src="/uploads/Main/Main-000.jpg" alt="">
+                <img class="lazyload" data-src="/uploads/Main/Main-12.jpg" alt="">
             </div>
             <div class="top__slider-text">
                 <div class="container">

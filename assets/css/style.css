@@ -1000,6 +1000,7 @@ li.blog-item_block a {
     height: 100%;
     overflow: hidden;
     transition: 0.2s;
+    border-radius: 10px;
 }
 
 li.blog-item_block a:hover {
@@ -1271,8 +1272,9 @@ li.blog-item_block:nth-child(11n+11) img {
 .blog-page .post-item .title {
     font-weight: normal;
     font-size: 20px;
-    line-height: 22px;
+    line-height: 24px;
     margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .blog-page .post-item .text span:hover {
@@ -3847,7 +3849,7 @@ h2 {
 
 .top__slider .top__slider-text {
     position: absolute;
-    background-color: #0404046e;
+    background-color: #0404044f;
     width: 100%;
     top: 0;
     text-align: center;
@@ -4655,7 +4657,7 @@ h2 {
     position: absolute;
     top: 10px;
     left: auto;
-    right: 470px;
+    right: 515px;
     width: 100%;
     max-width: 300px;
     z-index: 35;
@@ -4701,7 +4703,7 @@ h2 {
 
 .search-item {
     position: relative;
-    width: 100%;
+    width: 95%;
 }
 
 .search-list_wrap {

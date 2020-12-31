@@ -10,7 +10,7 @@ for ($i = 0; $i <= count($arr); $i++) {
     }
 }
 $new_str = implode(", ", $arr);
-$page_title =  $my_var . " 2020 🥇 цена, отзывы, описание • Travel Mania";
+$page_title =  $my_var . " 2021 🥇 цена, отзывы, описание • Travel Mania";
 
 // LIST TOURS
 $listTour = getData('https://experience.tripster.ru/api/experiences/?city=' . $list->city->id);
@@ -108,7 +108,7 @@ function gtag_report_conversion(url) {
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <title><?php echo ($page_title); ?></title>
-    <meta name="keywords" content="<?php echo ($new_str); ?>, <?php echo ($list->city->country->name_ru); ?>, травел, мания, travel, mania" />
+    <meta name="keywords" content="<?php echo ($new_str); ?>, <?php echo ($list->city->country->name_ru); ?>, 2021, травел, мания, travel, mania" />
     <meta name="description" content="<?php echo ($list->tagline); ?>" />
 
     <link rel='stylesheet' type='text/css' href='/assets/css/jquery.fancybox.min.css?v=5.6' />

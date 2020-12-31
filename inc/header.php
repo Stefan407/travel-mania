@@ -12,7 +12,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="search-wrap" style="display:;">
                     <div class="search-block">
                         <div class="search-item">
-                            <div class="input-search_wrap"> <input placeholder="Куда вы едете?" type="text" id="searchInput" class="search-input">
+                            <div class="input-search_wrap"> <input placeholder="Введите город?" type="text" id="searchInput" class="search-input">
                                 <div class="windows8" style="display: none;"> <img src="/assets/images/2.gif" alt=""></div>
                                 <div class="close-search" style="display: none;">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -52,17 +52,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <nav class="menu">
                     <ul>
                         <li><a href="/all-countries/" class="open-contry green">
-                                <span>Страны</span>
                                 <span>
-                                    <svg width="14" height="31" viewBox="0 0 14 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M0.328462 27.9547L10.0103 15.2147L0.32843 1.98454L2.35027 0.214706L13.4274 15.2147L2.35027 30.2147L0.328462 27.9547Z" fill="#333333" />
-                                    </svg>
-                                </span>
-                            </a></li>
-                        <li><a class="green" href=" /online-excursions/ ">
-                                <span>
-                                    <span>Онлайн</span>
-                                    <span class="only-mob">экскурсии</span>
+                                <span>Экскурсии</span>
+                                <span class="only-mob"></span>
                                 </span>
                                 <span>
                                     <svg width="14" height="31" viewBox="0 0 14 31" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -70,6 +62,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     </svg>
                                 </span>
                             </a></li>
+                        <li class="only-mob"><a class="green" href=" /online-excursions/ ">
+                                <span>Онлайн экскурсии</span>
+                                <span>
+                                    <svg width="14" height="31" viewBox="0 0 14 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.328462 27.9547L10.0103 15.2147L0.32843 1.98454L2.35027 0.214706L13.4274 15.2147L2.35027 30.2147L0.328462 27.9547Z" fill="#333333" />
+                                    </svg>
+                                </span>
+                            </a></li>
+                       <li><a href="/blog/post-arenda-avtomobilya/" class="open-contry green" >
+                                <span>
+                                <span>Авто прокат</span>
+                                <span class="only-mob"></span>
+                                </span>
+                                <span>
+                                    <svg width="14" height="31" viewBox="0 0 14 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.328462 27.9547L10.0103 15.2147L0.32843 1.98454L2.35027 0.214706L13.4274 15.2147L2.35027 30.2147L0.328462 27.9547Z" fill="#333333" />
+                                    </svg>
+                                </span>
+                            </a></li>                            
+                        <li><a href="/blog/post-appartamenti-posutochno/" class="open-contry green" >
+                                <span>
+                                <span>Квартиры</span>
+                                <span class="only-mob">суточно</span>
+                                </span>
+                                <span>
+                                    <svg width="14" height="31" viewBox="0 0 14 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.328462 27.9547L10.0103 15.2147L0.32843 1.98454L2.35027 0.214706L13.4274 15.2147L2.35027 30.2147L0.328462 27.9547Z" fill="#333333" />
+                                    </svg>
+                                </span>
+                            </a></li>                             
                         <li><a class="green" href=" /blog/ ">
                                 <span>Блог</span>
                                 <span>
@@ -86,7 +108,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </span>
                             </a></li>
                         <li><a class="link-ask" href="/feedback/">
-                                <span>Есть вопрос?</span>
+                                <span>Вопрос?</span>
                                 <span>
                                     <svg width="14" height="31" viewBox="0 0 14 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0.328462 27.9547L10.0103 15.2147L0.32843 1.98454L2.35027 0.214706L13.4274 15.2147L2.35027 30.2147L0.328462 27.9547Z" fill="#333333" />

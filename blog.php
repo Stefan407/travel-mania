@@ -104,9 +104,9 @@
         </div>
         <div class="container">
             <div class="border-box">
-                <h2>Полезные статьи для друзей Travel Mania</h2>
+                <h2>Полезные сервисы и статьи для друзей Travel Mania</h2>
                 <div class="border-box__text">
-                    В нашем блоге мы регулярно будет публиковать полезные статьи и советы всем путешественникам.
+                     Статьи, заметки, советы и сервисы позволяющие экономить на путешествиях.
                 </div>
             </div>
         </div>
@@ -115,20 +115,39 @@
         <div class="blog-page">
             <ul class="blog-list">
                 <li class="blog-item_block">
+                    <a href="/blog/post-arenda-avtomobilya/">
+                        <img data-src="/uploads/Blog/Auto/rent-cars-1.jpg" class="alignleft wp-post-image lazyload">
+                        <div class="post-item" style="background-color: rgb(158, 154, 169); color: rgb(255, 255, 255); box-shadow: rgb(158, 154, 169) 0px 12px 20px 36px;">
+                            <div class="title">Экономная аренда автомобиля в 160 странах</div>
+                            <div class="text">Rentalсars - мировой лидер! Mеждународный сервис бронирования экономного автопроката в 160 странах мира, включая города России, Европе, Азии, Америки.</div>
+                        </div>
+                    </a>
+                </li>                 
+                <li class="blog-item_block">
+                    <a href="/blog/post-25-glavnih-dostoprimechatelnostei-dubai/">
+                        <img data-src="/uploads/Blog/Dubai/dubai-top25.jpg" class="alignleft wp-post-image lazyload">
+                        <div class="post-item" style="background-color: #547FFD; color: rgb(255, 255, 255); box-shadow: #547FFD 0px 12px 20px 36px;">
+                            <div class="title">Достопримечательности Дубая - ТОП 25</div>
+                            <div class="text">Дубае - это интереснейшее место в мире, которое выросло менее чем за 50 лет, однако известно, что изначально на территории города жили лишь торговцы, контрабандисты и ловцы жемчуга, но в 1966 году на территории города были открыты запасы нефти, после чего в город приехали...</div>
+                        </div>
+                    </a>
+                </li> 
+               </li>                
+                <li class="blog-item_block">
+                    <a href="/blog/post-appartamenti-posutochno/">
+                        <img data-src="/uploads/Blog/Sutochno/arenda-7.jpg" class="alignleft wp-post-image lazyload">
+                        <div class="post-item" style="background-color: rgb(132, 158, 176); color: rgb(255, 255, 255); box-shadow: rgb(132, 158, 176) 0px 12px 20px 36px;">
+                            <div class="title">Экономная аренда квартир и апартаментов</div>
+                            <div class="text">Квартиры, дома и коттеджи — более 75 000 вариантов в 500 городах России и не только. Аппартаменты для путешествий, деловых поездок и командировок, отдыха на море или горнолыжных курортах и множества других жизненных ситуаций</div>
+                        </div>
+                    </a>
+                </li>
+                <li class="blog-item_block">
                     <a href="/blog/post-top-25-dostoprimechatelnostei-vyborga/">
                         <img data-src="/uploads/Blog/Viborg/Viborg-1-min.jpg" class="alignleft wp-post-image lazyload">
                         <div class="post-item" style="background-color: #66A3D2; color: rgb(255, 255, 255); box-shadow: #66A3D2 0px 12px 20px 36px;">
                             <div class="title">Топ-25 достопримечательностей Выборга</div>
                             <div class="text">Выборг — это прекрасный город России, отличающийся многовековой историей. Сюда стекаются гости с различных уголков мира в связи с тем, что город потерпел влияние европейской культуры, что наложило отпечаток на внешний облик и архитектуру города. Именно здесь можно собственными глазами лицезреть не только острова, средневековые замки, крепости, башни, но и атмосферу прошлых столетий.</div>
-                        </div>
-                    </a>
-                </li>                
-                <li class="blog-item_block">
-                    <a href="/blog/post-25-glavnih-dostoprimechatelnostei-dubai/">
-                        <img data-src="/uploads/Blog/Dubai/Dubai-17-min.JPG" class="alignleft wp-post-image lazyload">
-                        <div class="post-item" style="background-color: #0E1319; color: rgb(255, 255, 255); box-shadow: #0E1319 0px 12px 20px 36px;">
-                            <div class="title">25 достопримечательностей Дубая</div>
-                            <div class="text">Дубае - это интереснейшее место в мире, которое выросло менее чем за 50 лет, однако известно, что изначально на территории города жили лишь торговцы, контрабандисты и ловцы жемчуга, но в 1966 году на территории города были открыты запасы нефти, после чего в город приехали не только инвесторы, но и рабочая сила. Именно с момента открытия запасов нефти Дубаи начали разрастаться и стремительно развиваться.</div>
                         </div>
                     </a>
                 </li>                

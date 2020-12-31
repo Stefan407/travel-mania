@@ -55,7 +55,7 @@
 </script>
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    <title>Аренда автомобиля в любой точке мира • Travel Mania</title>
+    <title>Прокат автомобиля в любой точке мира • Travel Mania</title>
     <meta name="keywords" content="аренда, прокат, каршеринг, автомобиль, машина, выгодно, недорого, дешево, лучший, букинг, аэропорт, взять, москва, петербург, легковой, травел, мания" />
     <meta name="description" content="🟢 Экономная аренда автомобиля в любой точке мира. Более 150 стран и 25000 пунктов выдачи автомобиля. Быстрое оформление и лучшие условия." />
     <?php
@@ -75,12 +75,12 @@
             <div class="top__slider-text">
                 <div class="container">
                     <div class="top__content-text">
-                        <h1>Экономная аренда автомобиля в 160 странах</h1>
+                        <h1>Экономный прокат автомобиля</h1>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="breadcrumbs" itemscope="itemscope" itemtype="http://schema.org/BreadcrumbList">
+        <div class="breadcrumbs" style="display: none;" itemscope="itemscope" itemtype="http://schema.org/BreadcrumbList">
             <div class="container breadcrumbs-wrap container-post">
                 <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <div class="breadcrumbs__block">
@@ -93,7 +93,7 @@
                         <img class="lazyload" data-src="/assets/images/arrow-bread.png" alt="">
                     </div>
                 </div>
-                <div class="breadcrumbs-item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
+                <div class="breadcrumbs-item" style="display: none;" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
                     <div class="breadcrumbs__block">
                         <a class="breadcrumbs__link" href="/blog/" itemprop="item">
                             <span itemprop="name">Блог</span>
@@ -105,7 +105,7 @@
                     <div class="breadcrumbs__block">
                         <meta itemprop="item" content="/blog/post-arenda-avtomobilya/">
                         <p class="breadcrumbs__text">
-                            <span itemprop="name">Экономная аренда автомобиля в 160 странах</span>
+                            <span itemprop="name">Экономный прокат автомобиля</span>
                         </p>
                         <meta itemprop="position" content="3">
                     </div>
@@ -114,23 +114,22 @@
         </div>
     </section>
     <div class="container container-post">
-    
-        <h2>Rentalсars</h2>
-
-        <script src="//c130.travelpayouts.com/content?promo_id=3878&shmarker=295933&locale=ru&template=universal&radius=8&button-radius=8&form-padding=30&hide-header=false&large_button=large&form-hollow=false&hide1=hero&hide2=true&hide3=true&hide4=manage&hide5=true&hide6=powered&primary=FAB825&primary-text=000006&text=000000&form-bg=7CD2E3&form-text=000000&powered_by=false&hero_image=20" charset="utf-8" async="true"></script>        
-        <div class="container">
-            <div class="border-box">
-        <h2>Rentalсars - мировой лидер!</h2>       
-        <p>Mеждународный сервис бронирования экономного автопроката в 160 странах мира, включая города России, Европе, Азии, Америки.</p>
+<h2>160 стран мира</h2>   
+        <script src="//c130.travelpayouts.com/content?promo_id=3878&shmarker=295933&locale=ru&template=universal&radius=8&button-radius=8&form-padding=30&hide-header=false&large_button=large&form-hollow=false&hide1=hero&hide2=true&hide3=true&hide4=manage&hide5=true&hide6=powered&primary=FAB825&primary-text=000006&text=000000&form-bg=7CD2E3&form-text=000000&powered_by=false&hero_image=20" charset="utf-8" async="true"></script>  
         
-        <p>Выгодное, удобное и быстрое бронирование автомобилей по экономным ценам, большой автопарк, 25000 пунктов выдачи в 160 стран мира.</p>
+<h2>Экономная аренда квартир</h2>
 
-        <p>Русскоязычная служба бронирования и поддержки во время аренды автомобиля. Круглосуточное обслуживание.</p>
+<script src="//tp.media/content?promo_id=2719&shmarker=295933&locale=ru&campaign_id=99&powered_by=false&border_radius=8&plain=false&color_background=%23FFFFFF&color_border=%23DDDDDD&color_button=%23F41248&color_icons=%23F31047&default_direction=%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3" charset="utf-8"></script>
+<div class="border-box">
     
-        <p>Подобраны самые выгодные предложения среди всех компаний аренды автомобилей.</p>
-           </div>
-        </div>        
+        <p>Квартиры, дома и коттеджи — более 75 000 вариантов в 500 городах России и не только.</p>
         
+        <p>Апартаменты для путешествий, деловых поездок и командировок, отдыха на море или горнолыжных курортах и множества других жизненных ситуаций</p>
+
+        <p>Только проверенные объявления, отзывы от настоящих гостей и безопасные условия бронирования для гостей и владельцев жилья.</p>
+    
+        <p>Подобраны лучшие варианты размещения.</p>
+</div>        
     </div> 
         
     <?php

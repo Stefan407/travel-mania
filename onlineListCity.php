@@ -77,9 +77,9 @@ $current_des_city = reset($current_des_cities);
 
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    <title>Онлайн-экскурсии <?php echo ($list[0]->city->in_obj_phrase) ?> • Travel Mania</title>
-    <meta name="keywords" content="онлайн, виртуальные, экскурсии, вебинары, мастер-классы, <?php echo ($list[0]->city->name_ru) ?>, русский, на русском, с гидом, по музеям, по городу, галереи, картины, видео, смотреть, лучшие, травэл, мания, travel, mania" />
-    <meta name="description" content="🟢 Регулярные онлайн-экскурсии с гидом <?php echo ($list[0]->city->in_obj_phrase) ?>. Новый формат проведения экскурсий с живой онлайн-трансляцией. Заказывай и смотри онлайн в удобной обстановке." />
+    <title>Онлайн-экскурсии <?php echo ($list[0]->city->in_obj_phrase) ?> 2021 🥇 Travel Mania</title>
+    <meta name="keywords" content="онлайн, виртуальные, экскурсии, вебинары, мастер-классы, <?php echo ($list[0]->city->name_ru) ?>, русский, на русском, с гидом, по музеям, по городу, галереи, картины, видео, смотреть, лучшие, 2021, травэл, мания, travel, mania" />
+    <meta name="description" content="🟢 Регулярные онлайн-экскурсии с гидом <?php echo ($list[0]->city->in_obj_phrase) ?> 2021. Новый формат проведения экскурсий с живой онлайн-трансляцией. Заказывай и смотри онлайн в удобной обстановке." />
     <?php
     include 'inc/head-static.php';
     ?>
@@ -359,9 +359,9 @@ $current_des_city = reset($current_des_cities);
         </div>
     </section>
     <div itemscope="itemscope" itemtype="http://schema.org/Product">
-        <meta itemprop="name" content="Онлайн-экскурсии <?php echo ($list[0]->city->in_obj_phrase) ?> • Travel Mania">
+        <meta itemprop="name" content="Онлайн-экскурсии <?php echo ($list[0]->city->in_obj_phrase) ?> 2021 🥇 Travel Mania">
         <noindex>
-            <meta itemprop="description" content="🟢 Регулярные онлайн-экскурсии с гидом <?php echo ($list[0]->city->in_obj_phrase) ?>. Новый формат проведения экскурсий с живой онлайн-трансляцией. Заказывай и смотри онлайн в удобной обстановке.">
+            <meta itemprop="description" content="🟢 Регулярные онлайн-экскурсии с гидом <?php echo ($list[0]->city->in_obj_phrase) ?> 2021. Новый формат проведения экскурсий с живой онлайн-трансляцией. Заказывай и смотри онлайн в удобной обстановке.">
             <span itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/AggregateOffer">
                 <meta itemprop="lowPrice" content="<?php echo (min($priceAll)) ?>">
                 <meta itemprop="highPrice" content="<?php echo (max($priceAll)) ?>">

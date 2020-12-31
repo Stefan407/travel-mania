@@ -29,8 +29,6 @@
                     <a style="padding: 0 5px" href="/go/?url=https://zen.yandex.ru/id/5ca2681dc604dc021df33539" target="_blank">
                         <img class="lazyload" data-src="/assets/images/icon-dzen.png">
                     </a>
-                    <a style="padding: 0 5px" href="/go/?url=https://twitter.com/TravelMania_org" target="_blank">
-                        <img class="lazyload" data-src="/assets/images/icon-twitter.png">
                     </a> <a style="padding: 0 5px" href="/go/?url=https://vk.com/trl_mania" target="_blank">
                         <img class="lazyload" data-src="/assets/images/icon-vk.png">
                     </a>

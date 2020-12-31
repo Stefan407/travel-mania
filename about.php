@@ -90,12 +90,12 @@
                 </div>
                 <br>
                 <div class="about-text gm_t10 gm_b20">
-                    На сегодня охвачено более <a href="/all-cities/" class="azure-link">600 городов</a> в <a href="/all-countries/" class="azure-link">93 странах</a> мира. Предлагаются тысячи эксклюзивных экскурсий, которые можно забронировать и оплатить онлайн. Только самые продуманные маршруты и выгодные цены, о чем свидетельствуют более 140 000 отзывов.
+                    На сегодня охвачено более <a href="/all-cities/" class="azure-link">600 городов</a> в <a href="/all-countries/" class="azure-link">94 странах</a> мира. Предлагаются тысячи эксклюзивных экскурсий, которые можно забронировать и оплатить онлайн. Только самые продуманные маршруты и выгодные цены, о чем свидетельствуют более 165 000 отзывов.
                 </div>
                 <div class="about-what-wrap">
                     <div class="about-what-block">
                         <img src="/assets/images/countrie.png">
-                        <div class="about-what__title">93<br>страны</div>
+                        <div class="about-what__title">94<br>страны</div>
                     </div>
                     <div class="about-what-block">
                         <img src="/assets/images/city.png">
@@ -103,7 +103,7 @@
                     </div>
                     <div class="about-what-block">
                         <img src="/assets/images/review.png">
-                        <div class="about-what__title">140 000+<br>отзывов</div>
+                        <div class="about-what__title">165 000+<br>отзывов</div>
                     </div>
                     <div class="about-what-block">
                         <img src="/assets/images/blog.png">
