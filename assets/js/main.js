@@ -7,7 +7,22 @@ $(document).ready(function () {
     let xhrOne = null;
     var scrollTimer;
     let urlNextListCity = $(".popular-cityes .btn-more").data("url-next");
-
+    let posFixed;
+    if ($(".top__slider").length) {
+        posFixed = $(".top__slider").offset().top;
+    }
+    function fixedHeader() {
+        if ($(".top__slider").length) {
+            if ($(window).scrollTop() >= posFixed + document.querySelector(".top__slider").getBoundingClientRect().height) {
+                $('body').removeClass("fixed-header")
+            } else {
+                $('body').addClass("fixed-header")
+            }
+        }
+    }
+    window.addEventListener('scroll', function () {
+        fixedHeader();
+    });
 
     if ($(".js-container-tags").length) {
         window.addEventListener('scroll', function () {

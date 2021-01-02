@@ -68,9 +68,9 @@
     include 'inc/header.php';
     ?>
     <section class="top">
-        <div class="top__slider" style="max-height: 300px;">
+        <div class="top__slider" >
             <div id="top-images-city" class="image-top_slider ">
-                <img style="max-height: 300px;" class="lazyload" data-src="/uploads/United-Arab-Emirates/United-Arab-Emirates-1-min.jpg" alt="">
+                <img  class="lazyload" data-src="/uploads/United-Arab-Emirates/United-Arab-Emirates-1-min.jpg" alt="">
             </div>
             <div class="top__slider-text">
                 <div class="container">
