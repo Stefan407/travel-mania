@@ -38,6 +38,12 @@ $(document).ready(function () {
         });
     }
 
+    console.log("qwqweqwe")
+    if ($(".image-top_slider img").length) {
+        console.log("aasds")
+        var imagesParallax = document.querySelectorAll(".image-top_slider img");
+        new simpleParallax(imagesParallax);
+    }
     $(".js-container-tags .js-list-tags .icon-open-list-tag").on("click", () => {
         $(".js-container-tags .js-list-tags .list-tags-wrap").toggleClass("open");
     })
