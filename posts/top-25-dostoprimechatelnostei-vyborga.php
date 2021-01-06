@@ -39,18 +39,15 @@
         <div><img src="https://mc.yandex.ru/watch/56569540" style="position:absolute; left:-9999px;" alt="" /></div>
     </noscript>
     <!-- /Yandex.Metrika counter -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165860897-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YL417K3EGK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-165860897-1');
-    </script>
+  gtag('config', 'G-YL417K3EGK');
+</script>
 
 </script>
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
@@ -68,9 +65,9 @@
     include 'inc/header.php';
     ?>
     <section class="top">
-        <div class="top__slider" style="max-height: 300px;">
+        <div class="top__slider" >
             <div id="top-images-city" class="image-top_slider ">
-                <img style="max-height: 300px;" class="lazyload" data-src="/uploads/Blog/Viborg/Viborg-1-min.jpg" alt="">
+                <img  class="lazyload" data-src="/uploads/Blog/Viborg/Viborg-1-min.jpg" alt="">
             </div>
             <div class="top__slider-text">
                 <div class="container">

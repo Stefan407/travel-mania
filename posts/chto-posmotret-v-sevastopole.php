@@ -39,34 +39,16 @@
         <div><img src="https://mc.yandex.ru/watch/56569540" style="position:absolute; left:-9999px;" alt="" /></div>
     </noscript>
     <!-- /Yandex.Metrika counter -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165860897-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-165860897-1');
-    </script>
-<!-- Event snippet for Вопрос гиду conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YL417K3EGK"></script>
 <script>
-function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-629196382/6wcKCKLx3OABEN6Mg6wC',
-      'event_callback': callback
-  });
-  return false;
-}
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YL417K3EGK');
 </script>
+
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <title>Что посмотреть в Севастополе? • Travel Mania</title>
@@ -82,9 +64,9 @@ function gtag_report_conversion(url) {
     include 'inc/header.php';
     ?>
     <section class="top">
-        <div class="top__slider" style="max-height: 300px;">
+        <div class="top__slider" >
             <div id="top-images-city" class="image-top_slider ">
-                <img style="max-height: 300px;" class="lazyload" data-src="/uploads/Crimea/Sevastopol-10-min.jpg" alt="">
+                <img  class="lazyload" data-src="/uploads/Crimea/Sevastopol-10-min.jpg" alt="">
             </div>
             <div class="top__slider-text">
                 <div class="container">

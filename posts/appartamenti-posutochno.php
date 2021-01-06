@@ -39,18 +39,15 @@
         <div><img src="https://mc.yandex.ru/watch/56569540" style="position:absolute; left:-9999px;" alt="" /></div>
     </noscript>
     <!-- /Yandex.Metrika counter -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165860897-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YL417K3EGK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-165860897-1');
-    </script>
+  gtag('config', 'G-YL417K3EGK');
+</script>
 
 </script>
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
@@ -68,9 +65,9 @@
     include 'inc/header.php';
     ?>
     <section class="top">
-        <div class="top__slider" style="max-height: 300px;">
+        <div class="top__slider" >
             <div id="top-images-city" class="image-top_slider ">
-                <img style="max-height: 300px;" class="lazyload" data-src="/uploads/Blog/Sutochno/arenda-7.jpg" alt="">
+                <img  class="lazyload" data-src="/uploads/Blog/Sutochno/arenda-7.jpg" alt="">
             </div>
             <div class="top__slider-text">
                 <div class="container">
@@ -129,20 +126,7 @@
     
         <p>Подобраны лучшие варианты размещения.</p>
 </div>
-        <h2>Экономный прокат</h2>
-        <script src="//c130.travelpayouts.com/content?promo_id=3878&shmarker=295933&locale=ru&template=universal&radius=8&button-radius=8&form-padding=30&hide-header=false&large_button=large&form-hollow=false&hide1=hero&hide2=true&hide3=true&hide4=manage&hide5=true&hide6=powered&primary=FAB825&primary-text=000006&text=000000&form-bg=7CD2E3&form-text=000000&powered_by=false&hero_image=20" charset="utf-8" async="true"></script>        
-
-        <div class="border-box">
-        <h2>Rentalсars - мировой лидер!</h2>       
-        <p>Mеждународный сервис бронирования экономного автопроката в 160 странах мира, включая города России, Европе, Азии, Америки.</p>
-        
-        <p>Выгодное, удобное и быстрое бронирование автомобилей по экономным ценам, большой автопарк, 25000 пунктов выдачи в 160 стран мира.</p>
-
-        <p>Русскоязычная служба бронирования и поддержки во время аренды автомобиля. Круглосуточное обслуживание.</p>
-    
-        <p>Подобраны самые выгодные предложения среди всех компаний аренды автомобилей.</p>
-
-        </div>   
+  
         </div>  
     
         

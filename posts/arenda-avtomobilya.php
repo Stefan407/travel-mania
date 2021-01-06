@@ -39,18 +39,15 @@
         <div><img src="https://mc.yandex.ru/watch/56569540" style="position:absolute; left:-9999px;" alt="" /></div>
     </noscript>
     <!-- /Yandex.Metrika counter -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165860897-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YL417K3EGK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-165860897-1');
-    </script>
+  gtag('config', 'G-YL417K3EGK');
+</script>
 
 </script>
     <link rel="icon" href="https://travel-mania.org/favicon.ico" type="image/x-icon">
@@ -68,9 +65,9 @@
     include 'inc/header.php';
     ?>
     <section class="top">
-        <div class="top__slider" style="max-height: 300px;">
+        <div class="top__slider" >
             <div id="top-images-city" class="image-top_slider ">
-                <img style="max-height: 300px;" class="lazyload" data-src="/uploads/Blog/Auto/Prokat-3.jpg" alt="">
+                <img  class="lazyload" data-src="/uploads/Blog/Auto/Prokat-3.jpg" alt="">
             </div>
             <div class="top__slider-text">
                 <div class="container">
@@ -117,19 +114,19 @@
 <h2>160 стран мира</h2>   
         <script src="//c130.travelpayouts.com/content?promo_id=3878&shmarker=295933&locale=ru&template=universal&radius=8&button-radius=8&form-padding=30&hide-header=false&large_button=large&form-hollow=false&hide1=hero&hide2=true&hide3=true&hide4=manage&hide5=true&hide6=powered&primary=FAB825&primary-text=000006&text=000000&form-bg=7CD2E3&form-text=000000&powered_by=false&hero_image=20" charset="utf-8" async="true"></script>  
         
-<h2>Экономная аренда квартир</h2>
-
-<script src="//tp.media/content?promo_id=2719&shmarker=295933&locale=ru&campaign_id=99&powered_by=false&border_radius=8&plain=false&color_background=%23FFFFFF&color_border=%23DDDDDD&color_button=%23F41248&color_icons=%23F31047&default_direction=%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3" charset="utf-8"></script>
-<div class="border-box">
-    
-        <p>Квартиры, дома и коттеджи — более 75 000 вариантов в 500 городах России и не только.</p>
+        <div class="border-box">
+            
+        <h2>Rentalcars</h2>
         
-        <p>Апартаменты для путешествий, деловых поездок и командировок, отдыха на море или горнолыжных курортах и множества других жизненных ситуаций</p>
+        <p>Mеждународный сервис бронирования экономного автопроката в 160 странах мира, включая города России, Европе, Азии, Америки.</p>
+        
+        <p>Выгодное, удобное и быстрое бронирование автомобилей по экономным ценам, большой автопарк, 25000 пунктов выдачи в 160 стран мира.</p>
 
-        <p>Только проверенные объявления, отзывы от настоящих гостей и безопасные условия бронирования для гостей и владельцев жилья.</p>
+        <p>Русскоязычная служба бронирования и поддержки во время аренды автомобиля. Круглосуточное обслуживание.</p>
     
-        <p>Подобраны лучшие варианты размещения.</p>
-</div>        
+        <p>Подобраны самые выгодные предложения среди всех компаний аренды автомобилей.</p>
+        </div>
+
     </div> 
         
     <?php

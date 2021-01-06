@@ -72,7 +72,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </a></li>
                        <li><a href="/blog/post-arenda-avtomobilya/" class="open-contry green" >
                                 <span>
-                                <span>Авто прокат</span>
+                                <span>Прокат авто</span>
                                 <span class="only-mob"></span>
                                 </span>
                                 <span>
@@ -84,7 +84,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <li><a href="/blog/post-appartamenti-posutochno/" class="open-contry green" >
                                 <span>
                                 <span>Квартиры</span>
-                                <span class="only-mob">суточно</span>
+                                <span class="only-mob">посуточно</span>
                                 </span>
                                 <span>
                                     <svg width="14" height="31" viewBox="0 0 14 31" fill="none" xmlns="http://www.w3.org/2000/svg">
